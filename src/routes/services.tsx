@@ -31,7 +31,7 @@ function Services() {
                 <h3 className="mt-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">Why it matters</h3>
                 <p className="mt-1">{s.why}</p>
               </div>
-              <div className="rounded-xl bg-muted p-5">
+              <div className="border-l pl-5">
                 <h3 className="font-bold text-navy">How Bespoke can help</h3>
                 <ul className="mt-3 space-y-2">
                   {s.help.map((h) => <li key={h} className="flex gap-2 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{h}</li>)}

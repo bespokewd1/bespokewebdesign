@@ -22,7 +22,7 @@ function Contact() {
         <div className="container-site grid items-start gap-12 lg:grid-cols-2">
           <div className="space-y-5 text-lg">
             <p>Bespoke Web Design is an Edmonton-based digital marketing business helping local companies build a professional online presence.</p>
-            <p className="text-muted-foreground">We believe business owners should be able to focus on running their operations while having a reliable partner to handle their digital marketing needs.</p>
+            <p className="text-muted-foreground">You work directly with a marketing partner who gets to know your business. We offer personalized service, straightforward communication, and long-term support so you can focus on your customers.</p>
             <p className="text-muted-foreground">From website design and branding to SEO, Google Business Profile management, and social media, our goal is to make digital marketing easier to understand and manage.</p>
             <div className="grid gap-4 pt-4 sm:grid-cols-2">
               <div className="card-site">
@@ -35,7 +35,13 @@ function Contact() {
               </div>
             </div>
           </div>
-          <Placeholder label="Photo: business owner (owner-portrait.jpg)" className="aspect-[4/5] max-h-[560px]" />
+          <Placeholder label="Agency owner photo coming soon" className="aspect-[4/5] max-h-[560px]" />
+        </div>
+      </section>
+      <section id="consultation" className="section scroll-mt-20 border-t">
+        <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.4fr]">
+          <div><span className="eyebrow">Consultation</span><h2 className="mt-2 text-3xl text-navy md:text-4xl">Find the Right Marketing Support.</h2><p className="mt-4 text-muted-foreground">Discuss your goals, services or a monthly marketing package with Bespoke. Tell us what you need, and we’ll take it from there.</p></div>
+          <LeadForm kind="consultation" />
         </div>
       </section>
       <section id="review" className="section scroll-mt-16 bg-surface border-t">

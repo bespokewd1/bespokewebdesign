@@ -177,4 +177,7 @@
 .hero-photo { position: relative; isolation: isolate; background: var(--navy); color: var(--navy-foreground); }
 .hero-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .hero-photo::before { content: ""; position: absolute; inset: 0; background: var(--hero-shade); z-index: -1; }
+.mobile-review-bar { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
+@media (max-width: 1023px) { body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); } }
+@media (max-width: 639px) { .hero-photo h1 { font-size: 2rem; } .hero-photo .container-site { padding-block: 2rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
