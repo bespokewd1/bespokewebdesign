@@ -111,7 +111,7 @@ function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      {TESTIMONIALS.length > 0 && <section className="section">
+      {<section className="section">
         <div className="container-site">
           <SectionHead title="What Our Clients Say." center />
           <div className="mt-10"><TestimonialGrid /></div>

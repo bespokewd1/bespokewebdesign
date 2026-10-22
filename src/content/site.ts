@@ -125,6 +125,8 @@ export const PROJECTS: {
 }[] = [
   { name: "Squad V Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   { name: "KMS Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
+  { name: "Glow And Relax", industry: "Wellness", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
+  { name: "Bespoke Music App", industry: "Music App", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   { name: "Rod's Electrical", industry: "Electrical", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   {
     name: "Iron Fist Transport",

@@ -56,7 +56,7 @@ export function LeadForm({ submitLabel, kind = "review" }: { submitLabel?: strin
     <div><label htmlFor={`${kind}-${choiceName}`} className="mb-1.5 block text-sm font-semibold text-navy">{kind === "review" ? "Industry" : "Interested services"}</label>
       <select id={`${kind}-${choiceName}`} name={choiceName} className="field" defaultValue="" required aria-invalid={!!errors[choiceName]} aria-describedby={errors[choiceName] ? `${kind}-${choiceName}-error` : undefined}>
         <option value="" disabled>Choose one…</option>
-        {(kind === "review" ? [...INDUSTRIES.map(i => i.name), "Other"] : [...HELP_OPTIONS, "Monthly marketing package", "Google Ads", "Smart business tools"]).map(o => <option key={o}>{o}</option>)}
+        {(kind === "review" ? [...INDUSTRIES.map(i => i.name), "Other"] : [...HELP_OPTIONS, "Monthly marketing package", "Google Ads"]).map(o => <option key={o}>{o}</option>)}
       </select>
       {errors[choiceName] && <p id={`${kind}-${choiceName}-error`} className="mt-1 text-sm text-destructive">{errors[choiceName]}</p>}
     </div>
