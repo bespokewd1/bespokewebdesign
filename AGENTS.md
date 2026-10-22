@@ -13,3 +13,4 @@
 - Use a dedicated digital-marketing content route for the customer journey, package comparison and paid advertising explanation so visitors can navigate directly to it.
 - Store imported brand media as Lovable Assets pointers; derive the public favicon from the same logo so branding remains consistent.
 - Reuse LeadForm with a discriminated review/consultation schema and insert-only Cloud inquiries; public visitors must never read, update or delete submitted contact details.
+- Keep homepage FAQ content and applicable marketing agreement conditions in the shared content model; render questions with the existing UI accordion to avoid duplicated content and controls.
