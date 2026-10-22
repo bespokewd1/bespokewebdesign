@@ -60,7 +60,7 @@ function FooterCol({ title, links }: { title: string; links: { label: string; to
       <ul className="mt-4 space-y-2.5">
         {links.map((l) => (
           <li key={l.label}>
-            <Link to={l.to} hash={l.hash} className="text-sm text-navy-muted hover:text-navy-foreground">{l.label}</Link>
+            <Link to={l.to} {...(l.hash ? { hash: l.hash } : {})} className="text-sm text-navy-muted hover:text-navy-foreground">{l.label}</Link>
           </li>
         ))}
       </ul>
