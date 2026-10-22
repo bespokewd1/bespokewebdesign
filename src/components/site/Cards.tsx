@@ -1,0 +1,67 @@
+import { ExternalLink, Quote } from "lucide-react";
+import { PROJECTS, TESTIMONIALS } from "@/content/site";
+import { Placeholder } from "./Layout";
+
+type Project = (typeof PROJECTS)[number];
+
+export function ProjectCard({ p, detailed = false }: { p: Project; detailed?: boolean }) {
+  return (
+    <article className="card-site flex flex-col !p-0 overflow-hidden">
+      {p.image ? (
+        <img src={p.image} alt={`${p.name} website screenshot`} loading="lazy" className="aspect-[16/10] w-full object-cover" />
+      ) : (
+        <Placeholder label={`Website screenshot — ${p.name}`} className="aspect-[16/10] !rounded-none !border-0 !border-b" />
+      )}
+      <div className="flex flex-1 flex-col p-6">
+        <span className="eyebrow">{p.industry}</span>
+        <h3 className="mt-1 text-xl font-bold text-navy">{p.name}</h3>
+        <p className="mt-3 text-sm text-muted-foreground">{p.description}</p>
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {p.services.map((s) => (
+            <li key={s} className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-navy">{s}</li>
+          ))}
+        </ul>
+        {detailed && p.testimonial && (
+          <blockquote className="mt-5 border-l-4 border-accent pl-4 text-sm italic">{p.testimonial}</blockquote>
+        )}
+        {detailed && p.outcomes && p.outcomes.length > 0 && (
+          <ul className="mt-4 list-disc pl-5 text-sm">{p.outcomes.map((o) => <li key={o}>{o}</li>)}</ul>
+        )}
+        {p.link && (
+          <a href={p.link} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-navy hover:text-accent">
+            Visit website <ExternalLink className="h-4 w-4" />
+          </a>
+        )}
+      </div>
+    </article>
+  );
+}
+
+export function TestimonialGrid() {
+  if (TESTIMONIALS.length === 0) {
+    return (
+      <div className="grid gap-5 md:grid-cols-3">
+        {[1, 2, 3].map((i) => (
+          <Placeholder key={i} label="Client review coming soon — genuine reviews only" className="min-h-44" />
+        ))}
+      </div>
+    );
+  }
+  return (
+    <div className="grid gap-5 md:grid-cols-3">
+      {TESTIMONIALS.map((t) => (
+        <figure key={t.name + t.business} className="card-site">
+          <Quote className="h-6 w-6 text-accent" aria-hidden="true" />
+          <blockquote className="mt-3 text-foreground">{t.review}</blockquote>
+          <figcaption className="mt-5 flex items-center gap-3">
+            {t.photo && <img src={t.photo} alt={t.business} className="h-10 w-10 rounded-full object-cover" loading="lazy" />}
+            <span>
+              <span className="block font-bold text-navy">{t.name}</span>
+              <span className="text-sm text-muted-foreground">{t.business}</span>
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
