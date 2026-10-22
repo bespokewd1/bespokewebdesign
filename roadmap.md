@@ -1,5 +1,5 @@
 # Tasks
-- [ ] Apply the approved package-value content update and verify pricing, scope, FAQs and presentation without redesigning.
+- [x] Apply the approved package-value content update and verify pricing, scope, FAQs and presentation without redesigning.
 - [x] Apply the latest homepage conversion brief, preserve design and form, and verify desktop/mobile flows.
 - [x] Refine Phase 1 homepage, service cards, trust, portfolio, about and monthly-plan explanation.
 - [x] Add validated website review and consultation forms with secure inquiry storage.
