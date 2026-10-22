@@ -100,6 +100,7 @@ export function Footer() {
         <FooterCol title="Company" links={[
           { label: "About", to: "/contact" },
           { label: "Our Work", to: "/our-work" },
+          { label: "Client Reviews", to: "/testimonials" },
           { label: "Contact", to: "/contact", hash: "review" },
           { label: "Privacy Policy", to: "/privacy" },
           { label: "Terms", to: "/terms" },
