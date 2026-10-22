@@ -152,6 +152,11 @@ export const PROJECTS: {
 export const TRUSTED_CLIENTS = PROJECTS.filter(project => !project.ownedProject);
 export const FEATURED_PROJECTS = PROJECTS.filter(project => project.featured);
 export const HOME_MEDIA = { ownerPhoto: "", googleReviewUrl: "", reviewScreenshots: [] as { image: string; alt: string }[] };
+// Genuine five-star reviews on both platforms confirmed by the business owner.
+export const REVIEW_PROOF = [
+  { platform: "Google", stars: 5 },
+  { platform: "Facebook", stars: 5 },
+] as const;
 export const FIRST_YEAR = [
   { period: "Month 1", title: "Build Your Foundation", text: "Learn about your business, define marketing priorities, plan the website and branding, and begin agreed setup activities." },
   { period: "Months 2–3", title: "Launch & Optimize", text: "Continue agreed website development, SEO setup, content improvements, and social media activity." },
