@@ -7,7 +7,10 @@ import { Button } from "@/components/ui/button";
 import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
 
 export const Route = createFileRoute("/digital-marketing")({
-  head: () => pageHead({ path: "/digital-marketing", crumb: "Digital Marketing", title: "Digital Marketing Plans & Google Ads Edmonton | Bespoke Web Design", description: "Understand your marketing journey from branding and websites to social media, ongoing SEO and Google Ads. Compare monthly plans at $245, $499 and $999." }),
+  head: () => {
+    const head = pageHead({ path: "/digital-marketing", crumb: "Digital Marketing", title: "Digital Marketing Plans & Google Ads Edmonton | Bespoke Web Design", description: "Understand your marketing journey from branding and websites to social media, ongoing SEO and Google Ads. Compare monthly plans at $245, $499 and $999." });
+    return { ...head, meta: [...head.meta, { property: "og:image", content: heroAsset.url }, { name: "twitter:image", content: heroAsset.url }] };
+  },
   component: DigitalMarketing,
 });
 

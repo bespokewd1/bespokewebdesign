@@ -5,6 +5,7 @@
 
 export const SITE = {
   name: "Bespoke Web Design",
+  operator: "Bespoke Marketing Ltd.",
   // TODO: replace with the real live domain (used for canonical URLs, sitemap, structured data)
   url: "https://bespokewebdesign.ca",
   location: "Edmonton, Alberta, Canada",
@@ -14,9 +15,9 @@ export const SITE = {
   email: "",
   phone: "",
   // Only add verified profile URLs.
-  social: [] as { label: string; href: string }[],
+  social: [{ label: "Facebook", href: "https://www.facebook.com/bespokewebdesignEdmonton/" }] as { label: string; href: string }[],
   description:
-    "Bespoke Web Design provides professional websites, SEO, Google Business Profile management, branding, and social media marketing for Edmonton and Alberta businesses.",
+    "Complete digital marketing for Edmonton and Alberta trades and service businesses. From professional websites and local SEO to Google Business Profile management, branding, and social media—we bring your online marketing together under one trusted partner.",
 };
 
 export const CTA_PRIMARY = "Get a Free Website Review";
@@ -36,11 +37,11 @@ export type IconName =
   | "droplet" | "zap" | "hardhat" | "hammer" | "truck" | "store";
 
 export const HOME_SERVICES: { icon: IconName; title: string; text: string; id: string }[] = [
-  { icon: "palette", title: "Branding & Identity", id: "branding", text: "A consistent identity that helps customers recognize and trust your business." },
-  { icon: "monitor", title: "Website Development", id: "website-development", text: "Fast, mobile-friendly websites that explain your services and turn interest into inquiries." },
-  { icon: "map", title: "Google Business Profile", id: "google-business", text: "Accurate services, photos and business details to strengthen your local presence on Search and Maps." },
-  { icon: "search", title: "SEO & Content Marketing", id: "seo", text: "Useful content and ongoing improvements that help the right customers find your business." },
-  { icon: "share", title: "Social Media Marketing", id: "social-media", text: "Professional posts that showcase your work and keep your business visible." },
+  { icon: "palette", title: "Branding & Identity", id: "branding", text: "Build a professional, consistent business identity that customers recognize and remember." },
+  { icon: "monitor", title: "Website Design & Development", id: "website-development", text: "Mobile-friendly websites that explain your services clearly, establish credibility, and make contacting your business easy." },
+  { icon: "map", title: "Google Business Profile & Local SEO", id: "google-business", text: "Improve your local business information and online presence so potential customers can find and learn about your services." },
+  { icon: "search", title: "SEO & Content Marketing", id: "seo", text: "Strengthen your website through technical improvements, relevant content, and ongoing optimization." },
+  { icon: "share", title: "Social Media Marketing", id: "social-media", text: "Keep your business active online with professional content that showcases your work and reinforces customer trust." },
 ];
 
 export const SERVICES: {
@@ -121,15 +122,16 @@ export const INDUSTRIES: { id: string; icon: IconName; name: string; short: stri
 // image: path to a screenshot (e.g. "/images/projects/iron-fist.jpg"); leave "" to show a placeholder.
 export const PROJECTS: {
   name: string; industry: string; services: string[]; description: string;
-  image: string; link: string; testimonial?: string; outcomes?: string[];
+  image: string; link: string; logo?: string; ownedProject?: boolean; featured?: boolean; testimonial?: string; outcomes?: string[];
 }[] = [
   { name: "Squad V Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   { name: "KMS Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   { name: "Glow And Relax", industry: "Wellness", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
-  { name: "Bespoke Music App", industry: "Music App", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
+  { name: "Bespoke Music App", industry: "Music App", services: ["Own project"], description: "Project details and screenshot coming soon.", image: "", link: "", ownedProject: true },
   { name: "Rod's Electrical", industry: "Electrical", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   {
     name: "Iron Fist Transport",
+    featured: true,
     industry: "Transportation & Logistics",
     services: ["Website development", "SEO-focused service content", "Digital marketing foundation"],
     description: "A professional website for a transportation and logistics company, built to clearly present their services and give them a solid foundation for ongoing digital marketing.",
@@ -138,12 +140,23 @@ export const PROJECTS: {
   },
   {
     name: "Stone Massage",
+    featured: true,
     industry: "Massage Therapy",
     services: ["Website development", "Technical SEO", "Mobile optimization"],
     description: "A clean, mobile-friendly website for a massage therapy clinic, with technical SEO groundwork to help local clients find them.",
     image: "",
     link: "",
   },
+];
+
+export const TRUSTED_CLIENTS = PROJECTS.filter(project => !project.ownedProject);
+export const FEATURED_PROJECTS = PROJECTS.filter(project => project.featured);
+export const HOME_MEDIA = { ownerPhoto: "", googleReviewUrl: "", reviewScreenshots: [] as { image: string; alt: string }[] };
+export const FIRST_YEAR = [
+  { period: "Month 1", title: "Build Your Foundation", text: "Learn about your business, define marketing priorities, plan the website and branding, and begin agreed setup activities." },
+  { period: "Months 2–3", title: "Launch & Optimize", text: "Continue agreed website development, SEO setup, content improvements, and social media activity." },
+  { period: "Months 4–6", title: "Build Your Presence", text: "Continue monthly marketing deliverables, maintain consistency, and review available performance information." },
+  { period: "Months 7–12", title: "Improve & Refine", text: "Improve agreed marketing activities, evaluate progress, and adjust priorities based on business needs." },
 ];
 
 // TESTIMONIALS — add only genuine reviews. Empty list shows placeholders.
@@ -154,19 +167,21 @@ export const PLANS = [
   {
     name: "Starter", price: "$245/month", monthlyPrice: 245, socialPosts: 5, channels: null, seoLevel: "basic", tagline: "Build your business's online foundation.",
     items: ["Branding", "Website", "Basic SEO", "5 social media posts per month"],
-    cta: "Get Started", featured: false,
+    description: "Designed for newer businesses looking to establish a professional website and essential marketing presence.", cta: "Get Started", featured: false,
   },
   {
     name: "Entrepreneur", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, seoLevel: "basic", tagline: "Keep your business active across two channels.",
     items: ["Branding", "Website", "Basic SEO", "10 social media posts per month", "2 social media channels"],
-    cta: "Choose Entrepreneur", featured: true,
+    description: "For businesses ready to invest in more regular marketing content and a stronger presence across multiple channels.", cta: "Choose Entrepreneur", featured: true,
   },
   {
     name: "Dominate", price: "$999/month", monthlyPrice: 999, socialPosts: 15, channels: 3, seoLevel: "advanced", tagline: "Expand your reach with more content and advanced SEO.",
     items: ["Branding", "Website", "Advanced SEO", "15 social media posts per month", "3 social media channels"],
-    cta: "Choose Dominate", featured: false,
+    description: "For businesses seeking a broader marketing strategy, more content, and advanced SEO support.", cta: "Choose Dominate", featured: false,
   },
 ];
+
+export const PLAN_CURRENCY = "CAD";
 
 export const HELP_OPTIONS = [
   "New website", "Website redesign", "SEO", "Google Business Profile",
@@ -186,94 +201,14 @@ export function websiteOwnershipEligible(completedMonths: number, allRequiredPay
 }
 
 export const HOME_FAQS = [
-  {
-    question: "Why choose an all-in-one digital marketing agency?",
-    paragraphs: [
-      "Running a business is already a full-time job. Managing different providers for your website, SEO, Google Business Profile, and social media can make things complicated.",
-      "With Bespoke, everything works together under one marketing partner. Your branding stays consistent, your website supports your SEO, and your social media helps reinforce your online presence.",
-      "You have one point of contact, one coordinated strategy, and more time to focus on running your business.",
-    ],
-  },
-  {
-    question: "What makes Bespoke Web Design different?",
-    paragraphs: [
-      "We're an Edmonton-based marketing business focused on practical, affordable, and personalized digital marketing for trades and service companies.",
-      "Rather than simply building a website and walking away, we offer ongoing support to help maintain and improve your online presence.",
-      "Our approach combines personal service, clear communication, and multiple marketing services under one roof.",
-    ],
-  },
-  {
-    question: "What's included in my monthly marketing plan?",
-    paragraphs: [
-      "Depending on your chosen package, your plan may include professional website development, branding, search engine optimization (SEO), Google Business Profile management, social media content, and ongoing website improvements.",
-      "Instead of paying a large upfront amount for multiple separate services, you can invest in an agreed package through manageable monthly payments.",
-      "Each package clearly outlines what's included, so you know what you're paying for.",
-    ],
-  },
-  {
-    question: "Why do you focus on organic SEO instead of Google Ads?",
-    paragraphs: [
-      "We believe a strong online foundation is a valuable place to start.",
-      "Our priority is to build a professional, SEO-friendly website, improve your Google Business Profile, and develop useful content that supports your long-term visibility.",
-      "Unlike paid ads, which require an ongoing advertising budget to keep running, organic SEO focuses on improving your website's presence in unpaid search results over time.",
-      "Google Ads can still be a useful option, especially for businesses that need more immediate visibility.",
-      "When appropriate, paid advertising can complement your organic marketing strategy.",
-      "Google Ads expenditure is separate from our monthly organic marketing packages. Any optional advertising services or management fees must be separately agreed upon.",
-    ],
-  },
-  {
-    question: "How long does SEO take to show results?",
-    paragraphs: [
-      "SEO takes time, and every business is different.",
-      "Results depend on your industry, competition, location, website condition, and ongoing improvements.",
-      "During the first year, we focus on strengthening your website's technical foundation, improving content, supporting local visibility, and monitoring progress.",
-      "Our goal is to help your online presence become stronger over time, but no agency can guarantee specific Google rankings, traffic levels, or leads.",
-    ],
-  },
-  {
-    question: `Why is there a ${MARKETING_AGREEMENT.minimumMonths}-month minimum commitment?`,
-    paragraphs: [
-      "Building a professional online presence takes more than launching a website.",
-      `Our ${MARKETING_AGREEMENT.minimumMonths}-month minimum allows us to develop your website and carry out the ongoing marketing work included in your plan, such as SEO improvements, content updates, Google Business Profile management, and social media activity.`,
-      "Instead of paying a large upfront amount for individual services, you receive an agreed package through manageable monthly payments.",
-      "We see this as a long-term partnership focused on building and improving your business's online foundation.",
-    ],
-    note: `The ${MARKETING_AGREEMENT.minimumMonths}-month minimum applies to the applicable monthly marketing agreements. Specific inclusions depend on the selected package.`,
-  },
-  {
-    question: `Will I own my website after ${MARKETING_AGREEMENT.ownershipTransferMonths} months?`,
-    paragraphs: [
-      `Yes. Under our website ownership policy, once you've completed your ${MARKETING_AGREEMENT.ownershipTransferMonths}-month agreement and all required payments, the completed website becomes yours.`,
-      "Our goal is to help you build a professional online presence that adds lasting value to your business.",
-      "Website ownership and transfer details, including hosting, domains, third-party services, and ongoing maintenance, are outlined in your service agreement.",
-      "You can discuss continued marketing and website management with Bespoke after your initial term.",
-    ],
-  },
-  {
-    question: "What happens after my first year?",
-    paragraphs: [
-      "Your website is only one part of your online presence.",
-      "After completing your initial agreement, you can discuss continuing with Bespoke for ongoing SEO, website updates, Google Business Profile management, social media, and other marketing services.",
-      "Continuing allows your marketing to adapt as your business grows, your services change, and new opportunities develop.",
-      "We want to build long-term relationships by providing ongoing value, not simply creating websites.",
-      "Any renewal, cancellation, or continued-service terms will follow your agreement.",
-    ],
-  },
-  {
-    question: "Do you only work with Edmonton businesses?",
-    paragraphs: [
-      "We're proudly based in Edmonton, Alberta, and our primary focus is helping local trades and service businesses.",
-      "We also work with businesses throughout Alberta and can develop websites and digital marketing projects for clients across Canada and beyond.",
-      "While we're growing our Edmonton presence, our services aren't limited by geography.",
-    ],
-  },
-  {
-    question: "How do we get started?",
-    paragraphs: [
-      "Start by requesting a free website and marketing review.",
-      "We'll learn about your business, take a look at your existing online presence, and discuss your goals and budget.",
-      "From there, we can recommend a practical marketing plan based on what your business actually needs.",
-      "No pressure, no complicated jargon—just a conversation about your business.",
-    ],
-  },
+  { question: "Why choose an all-in-one digital marketing agency?", paragraphs: ["Your website, SEO, Google Business Profile, and social media work best when they support a coordinated strategy. With Bespoke, you have one marketing partner, consistent branding, and less time spent managing different providers."] },
+  { question: "What makes Bespoke different?", paragraphs: ["We're an Edmonton-based business offering personal service, direct communication, and practical digital marketing for trades and service companies. We focus on long-term relationships rather than simply building a website and moving on."] },
+  { question: "What's included in my monthly marketing plan?", paragraphs: ["Depending on your package, services may include branding, a professional website, SEO, and social media content. Each package has a defined scope, so you know what's included in your monthly investment."] },
+  { question: "Why focus on organic SEO instead of Google Ads?", paragraphs: ["We prioritize building a strong website and improving organic online visibility over time. Google Ads can provide additional paid visibility, but the advertising budget is separate. Both approaches can complement each other when appropriate."] },
+  { question: "How long does SEO take to show results?", paragraphs: ["SEO is an ongoing process, and results vary based on your industry, competition, and website condition. We focus on consistent improvements rather than promising specific rankings or timelines."] },
+  { question: `Why is there a ${MARKETING_AGREEMENT.minimumMonths}-month minimum agreement?`, paragraphs: ["Building and maintaining an online presence takes ongoing work. The agreement provides time to establish your website and deliver the marketing services included in your selected package through manageable monthly payments."] },
+  { question: `Will I own my website after ${MARKETING_AGREEMENT.ownershipTransferMonths} months?`, paragraphs: [`Yes. Once you complete the ${MARKETING_AGREEMENT.ownershipTransferMonths}-month agreement and all required payments, the completed website becomes yours under the ownership terms of your contract. Hosting, maintenance, domains, and transferable assets are governed by the agreement.`] },
+  { question: "What happens after the first year?", paragraphs: ["You can discuss continuing with Bespoke for ongoing SEO, website maintenance, Google Business Profile management, and social media support. Continued services, renewal, and cancellation follow the terms of your agreement."] },
+  { question: "Do you only work with Edmonton businesses?", paragraphs: ["We're proudly based in Edmonton and focus primarily on Alberta businesses, but we can work with clients across Canada and beyond."] },
+  { question: "How do we get started?", paragraphs: ["Request a free website and marketing review. We'll learn about your business, review your current online presence, and discuss practical marketing options based on your goals and budget."] },
 ];
