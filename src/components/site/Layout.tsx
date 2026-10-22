@@ -100,13 +100,14 @@ export function Footer() {
         <FooterCol title="Company" links={[
           { label: "About", to: "/contact" },
           { label: "Our Work", to: "/our-work" },
+          { label: "Client Reviews", to: "/testimonials" },
           { label: "Contact", to: "/contact", hash: "review" },
           { label: "Privacy Policy", to: "/privacy" },
           { label: "Terms", to: "/terms" },
         ]} />
       </div>
       <div className="border-t border-navy-soft">
-        <p className="container-site py-5 text-xs">© {new Date().getFullYear()} {SITE.operator}. All rights reserved.</p>
+        <p className="container-site py-5 text-xs">© {new Date().getFullYear()} {SITE.operator.replace(/\.$/, "")}. All rights reserved.</p>
       </div>
       <div className="mobile-review-bar fixed inset-x-0 bottom-0 z-30 border-t bg-surface/95 px-5 pt-2 backdrop-blur lg:hidden">
         <Button asChild className="btn btn-primary h-auto w-full text-sm"><Link to="/contact" hash="review">Free Website Review</Link></Button>

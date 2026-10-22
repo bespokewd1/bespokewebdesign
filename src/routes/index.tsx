@@ -59,6 +59,7 @@ function Home() {
         </ul>
         <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-3">
           <Button asChild variant="link" className="h-auto p-0"><Link to="/our-work">View Our Client Projects <ArrowRight /></Link></Button>
+          <Button asChild variant="link" className="h-auto p-0"><Link to="/testimonials">Read Client Reviews <ArrowRight /></Link></Button>
           {HOME_MEDIA.googleReviewUrl && <a href={HOME_MEDIA.googleReviewUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold underline">Read Our Google Reviews</a>}
           {SITE.social.map(s => <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold underline">Visit Our {s.label} Page</a>)}
         </div>
