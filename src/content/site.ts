@@ -25,6 +25,7 @@ export const CTA_SECONDARY = "See Our Work";
 export const NAV = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
+  { to: "/digital-marketing", label: "Digital Marketing" },
   { to: "/industries", label: "Industries" },
   { to: "/our-work", label: "Our Work" },
   { to: "/contact", label: "About & Contact" },
@@ -146,19 +147,19 @@ export const TESTIMONIALS: { name: string; business: string; review: string; pho
 // PRICING — edit names, prices, and inclusions here.
 export const PLANS = [
   {
-    name: "Foundation", price: "Starting at $245/month", tagline: "For businesses getting started online.",
-    items: ["Professional website foundation", "Basic SEO", "Google Business Profile support", "Basic social media content"],
+    name: "Starter", price: "$245/month", monthlyPrice: 245, socialPosts: 5, channels: null, seoLevel: "basic", tagline: "Build your business's online foundation.",
+    items: ["Branding", "Website", "Basic SEO", "5 social media posts per month"],
     cta: "Get Started", featured: false,
   },
   {
-    name: "Growth", price: "Custom Monthly Plan", tagline: "For businesses that want consistent online marketing.",
-    items: ["Website optimization", "Ongoing SEO", "Google Business management", "Social media content", "SEO content development", "Performance reporting"],
-    cta: "Discuss Your Marketing Needs", featured: true,
+    name: "Entrepreneur", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, seoLevel: "basic", tagline: "Keep your business active across two channels.",
+    items: ["Branding", "Website", "Basic SEO", "10 social media posts per month", "2 social media channels"],
+    cta: "Choose Entrepreneur", featured: true,
   },
   {
-    name: "Complete Digital Marketing", price: "Custom Quote", tagline: "For established businesses needing more comprehensive support.",
-    items: ["Expanded website development", "Advanced SEO", "Ongoing content strategy", "Google Business management", "Social media management", "Monthly performance reporting"],
-    cta: "Discuss Your Marketing Needs", featured: false,
+    name: "Dominate", price: "$999/month", monthlyPrice: 999, socialPosts: 15, channels: 3, seoLevel: "advanced", tagline: "Expand your reach with more content and advanced SEO.",
+    items: ["Branding", "Website", "Advanced SEO", "15 social media posts per month", "3 social media channels"],
+    cta: "Choose Dominate", featured: false,
   },
 ];
 
