@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck } from "lucide-react";
-import { CTA_PRIMARY, CTA_SECONDARY, HOME_SERVICES, PROJECTS, TESTIMONIALS } from "@/content/site";
+import { CTA_PRIMARY, CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, PROJECTS, TESTIMONIALS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead, Placeholder } from "@/components/site/Layout";
 import { IconBadge } from "@/components/site/Icon";
@@ -8,6 +8,7 @@ import { ProjectCard, TestimonialGrid } from "@/components/site/Cards";
 import { LeadForm } from "@/components/site/LeadForm";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -117,6 +118,30 @@ function Home() {
           <div className="mt-10"><TestimonialGrid /></div>
         </div>
       </section>}
+
+      {/* FAQ — one section directly before the existing review form. */}
+      <section className="section" aria-labelledby="faq-heading">
+        <div className="container-site">
+          <div className="mx-auto max-w-3xl">
+            <h2 id="faq-heading" className="text-3xl md:text-4xl">Frequently Asked Questions</h2>
+            <p className="mt-4 text-muted-foreground">Everything you need to know about working with Bespoke Web Design, our monthly marketing plans, and how we help businesses grow their online presence.</p>
+            <Accordion type="single" collapsible className="mt-8 border-t">
+              {HOME_FAQS.map((faq, index) => (
+                <AccordionItem key={faq.question} value={`faq-${index + 1}`}>
+                  <AccordionTrigger className="min-h-14 gap-4 py-5 text-base font-semibold text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none [&>svg]:motion-reduce:transition-none">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="space-y-3 pr-6 text-base leading-relaxed text-muted-foreground" style={{ animation: "none" }}>
+                    {faq.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    {faq.note && <p className="font-semibold text-foreground">{faq.note}</p>}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+            <Button asChild className="btn btn-primary mt-6 h-auto whitespace-normal">
+              <Link to="/" hash="review">Get My Free Website &amp; Marketing Review<ArrowRight /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
       {/* LEAD */}
       <section className="section bg-navy text-navy-foreground" id="review">
