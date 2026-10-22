@@ -35,17 +35,24 @@ export type IconName =
   | "palette" | "monitor" | "map" | "share" | "search" | "wrench"
   | "droplet" | "zap" | "hardhat" | "hammer" | "truck" | "store";
 
-export const HOME_SERVICES: { icon: IconName; title: string; text: string }[] = [
-  { icon: "palette", title: "Branding", text: "A consistent, professional identity that helps customers recognize your business." },
-  { icon: "monitor", title: "Website Design", text: "Fast, mobile-friendly websites designed to explain your services and encourage customer inquiries." },
-  { icon: "map", title: "Google Business Profile", text: "Improve your business information and presence on Google Search and Maps." },
-  { icon: "share", title: "Social Media Management", text: "Keep your business active online with professional content, updates, and project highlights." },
-  { icon: "search", title: "Ongoing SEO", text: "Improve website structure, content, and search visibility through ongoing optimization." },
+export const HOME_SERVICES: { icon: IconName; title: string; text: string; id: string }[] = [
+  { icon: "palette", title: "Branding & Identity", id: "branding", text: "A consistent identity that helps customers recognize and trust your business." },
+  { icon: "monitor", title: "Website Development", id: "website-development", text: "Fast, mobile-friendly websites that explain your services and turn interest into inquiries." },
+  { icon: "map", title: "Google Business Profile", id: "google-business", text: "Accurate services, photos and business details to strengthen your local presence on Search and Maps." },
+  { icon: "search", title: "SEO & Content Marketing", id: "seo", text: "Useful content and ongoing improvements that help the right customers find your business." },
+  { icon: "share", title: "Social Media Marketing", id: "social-media", text: "Professional posts that showcase your work and keep your business visible." },
+  { icon: "wrench", title: "Smart Business Tools", id: "smart-tools", text: "Practical guidance on inquiry, booking and follow-up tools suited to your business." },
 ];
 
 export const SERVICES: {
   id: string; icon: IconName; title: string; what: string; why: string; help: string[];
 }[] = [
+  {
+    id: "smart-tools", icon: "wrench", title: "Smart Business Tools",
+    what: "Practical recommendations for tools that simplify everyday business tasks, from collecting inquiries to keeping track of follow-ups.",
+    why: "The right tools can reduce missed opportunities and give you more time to focus on customers.",
+    help: ["Review your current inquiry process", "Identify booking and follow-up needs", "Recommend suitable business tools", "Plan improvements around your priorities"],
+  },
   {
     id: "branding", icon: "palette", title: "Branding and Logo Design",
     what: "Your brand is how customers recognize you — your logo, colours, fonts, and the way your business looks on trucks, uniforms, quotes, and online.",

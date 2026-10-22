@@ -15,6 +15,8 @@ export const Route = createFileRoute("/privacy")({
           <p>When you submit a form, we collect the details you provide, such as your name, business name, email, phone number, and website address.</p>
           <h2 className="text-xl font-bold text-navy">How we use it</h2>
           <p>We use this information only to respond to your enquiry and provide requested services. We do not sell your personal information.</p>
+          <h2 className="text-xl font-bold text-navy">How we protect it</h2>
+          <p>Website review and consultation requests are stored in Lovable Cloud. Website visitors cannot view, change, or delete submitted inquiries. Authorized staff manage requests privately.</p>
           <h2 className="text-xl font-bold text-navy">Your choices</h2>
           <p>You may ask us to access, correct, or delete your information at any time by contacting {SITE.name}.</p>
         </div>
