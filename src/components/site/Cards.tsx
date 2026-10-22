@@ -42,9 +42,16 @@ export function ProjectCard({ p, detailed = false }: { p: Project; detailed?: bo
 export function TestimonialGrid() {
   if (TESTIMONIALS.length === 0) {
     return (
-      <div className="grid gap-5 md:grid-cols-3">
-        {[1, 2, 3].map((i) => (
-          <Placeholder key={i} label="Client review coming soon — genuine reviews only" className="min-h-44" />
+      <div className="grid gap-5 md:grid-cols-2">
+        {["Google", "Facebook"].map((src) => (
+          <div key={src}>
+            <h3 className="font-display text-lg font-bold uppercase italic text-navy">{src} Reviews</h3>
+            <div className="mt-3 grid gap-4 sm:grid-cols-2">
+              {[1, 2].map((i) => (
+                <Placeholder key={i} label={`${src} review screenshot — upload coming soon`} className="min-h-44" />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     );

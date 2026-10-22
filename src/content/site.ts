@@ -41,18 +41,11 @@ export const HOME_SERVICES: { icon: IconName; title: string; text: string; id: s
   { icon: "map", title: "Google Business Profile", id: "google-business", text: "Accurate services, photos and business details to strengthen your local presence on Search and Maps." },
   { icon: "search", title: "SEO & Content Marketing", id: "seo", text: "Useful content and ongoing improvements that help the right customers find your business." },
   { icon: "share", title: "Social Media Marketing", id: "social-media", text: "Professional posts that showcase your work and keep your business visible." },
-  { icon: "wrench", title: "Smart Business Tools", id: "smart-tools", text: "Practical guidance on inquiry, booking and follow-up tools suited to your business." },
 ];
 
 export const SERVICES: {
   id: string; icon: IconName; title: string; what: string; why: string; help: string[];
 }[] = [
-  {
-    id: "smart-tools", icon: "wrench", title: "Smart Business Tools",
-    what: "Practical recommendations for tools that simplify everyday business tasks, from collecting inquiries to keeping track of follow-ups.",
-    why: "The right tools can reduce missed opportunities and give you more time to focus on customers.",
-    help: ["Review your current inquiry process", "Identify booking and follow-up needs", "Recommend suitable business tools", "Plan improvements around your priorities"],
-  },
   {
     id: "branding", icon: "palette", title: "Branding and Logo Design",
     what: "Your brand is how customers recognize you — your logo, colours, fonts, and the way your business looks on trucks, uniforms, quotes, and online.",
@@ -130,6 +123,9 @@ export const PROJECTS: {
   name: string; industry: string; services: string[]; description: string;
   image: string; link: string; testimonial?: string; outcomes?: string[];
 }[] = [
+  { name: "Squad V Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
+  { name: "KMS Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
+  { name: "Rod's Electrical", industry: "Electrical", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   {
     name: "Iron Fist Transport",
     industry: "Transportation & Logistics",
