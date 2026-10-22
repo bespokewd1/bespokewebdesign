@@ -1,11 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, MessageCircle, Layers, TrendingUp, ShieldCheck } from "lucide-react";
-import { CTA_PRIMARY, CTA_SECONDARY, HOME_SERVICES, INDUSTRIES, PLANS, PROJECTS } from "@/content/site";
+import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck } from "lucide-react";
+import { CTA_PRIMARY, CTA_SECONDARY, HOME_SERVICES, INDUSTRIES, PROJECTS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead, Placeholder } from "@/components/site/Layout";
 import { IconBadge } from "@/components/site/Icon";
 import { ProjectCard, TestimonialGrid } from "@/components/site/Cards";
 import { LeadForm } from "@/components/site/LeadForm";
+import { MarketingPlans } from "@/components/site/MarketingPlans";
+import { Button } from "@/components/ui/button";
+import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => pageHead({
@@ -15,32 +18,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
-function Mockup() {
-  return (
-    <div className="relative mx-auto w-full max-w-lg" aria-hidden="true">
-      <div className="rounded-2xl border bg-surface p-3">
-        <div className="mb-3 flex gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-input" /><span className="h-2.5 w-2.5 rounded-full bg-input" /><span className="h-2.5 w-2.5 rounded-full bg-accent" /></div>
-        <div className="rounded-xl bg-navy p-5">
-          <div className="h-3 w-24 rounded bg-accent" />
-          <div className="mt-4 h-5 w-4/5 rounded bg-navy-soft" />
-          <div className="mt-2 h-5 w-3/5 rounded bg-navy-soft" />
-          <div className="mt-5 h-8 w-32 rounded-full bg-accent" />
-        </div>
-        <div className="mt-3 grid grid-cols-3 gap-2">
-          {[0, 1, 2].map((i) => <div key={i} className="h-16 rounded-lg bg-muted" />)}
-        </div>
-      </div>
-      <div className="absolute -bottom-6 -right-2 w-28 rounded-2xl border-4 border-navy bg-surface p-2 sm:w-32">
-        <div className="h-2 w-10 rounded bg-accent" />
-        <div className="mt-2 h-14 rounded bg-navy" />
-        <div className="mt-2 h-2 rounded bg-muted" />
-        <div className="mt-1 h-2 w-2/3 rounded bg-muted" />
-        <div className="mt-2 h-5 rounded-full bg-accent" />
-      </div>
-    </div>
-  );
-}
 
 const WHY = [
   { icon: MessageCircle, title: "One Point of Contact", text: "Communicate directly with someone who understands your business." },
@@ -60,23 +37,16 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="overflow-hidden">
-        <div className="container-site grid items-center gap-14 py-14 md:py-20 lg:grid-cols-2">
-          <div>
-            <span className="eyebrow">Edmonton Digital Marketing</span>
-            <h1 className="mt-3 text-4xl font-extrabold leading-[1.05] text-navy sm:text-5xl lg:text-6xl">
-              You Run Your Business.<br /><span className="text-accent">We Handle the Marketing.</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              From professional websites and branding to SEO, Google Business, and social media, we help Edmonton businesses build a stronger online presence—all in one place.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/contact" hash="review" className="btn btn-primary">{CTA_PRIMARY} <ArrowRight className="h-4 w-4" /></Link>
-              <Link to="/our-work" className="btn btn-outline">{CTA_SECONDARY}</Link>
-            </div>
-            <p className="mt-6 text-sm font-semibold text-navy">🍁 Proudly Supporting Edmonton & Alberta Businesses</p>
+      <section className="hero-photo overflow-hidden">
+        <img src={heroAsset.url} alt="" fetchPriority="high" />
+        <div className="container-site py-14 md:py-20">
+          <span className="eyebrow">Bespoke Web Design / Edmonton</span>
+          <h1 className="mt-4 max-w-4xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Websites &amp; Marketing<br />for Edmonton Trades.</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-muted">Starting a business or replacing an outdated site? Connect your branding, website, social media and SEO with one marketing partner. Monthly plans start at <strong className="text-navy-foreground">$245/month</strong>.</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button asChild className="btn btn-primary h-auto whitespace-normal"><Link to="/contact" hash="review">{CTA_PRIMARY}<ArrowRight /></Link></Button>
+            <Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><Link to="/digital-marketing" hash="plans">Compare Monthly Plans</Link></Button>
           </div>
-          <div className="pb-6"><Mockup /></div>
         </div>
       </section>
 
@@ -170,6 +140,7 @@ function Home() {
       <section className="section">
         <div className="container-site">
           <SectionHead eyebrow="How we work" title="Getting Started Is Simple." center />
+          <p className="mt-5 text-center"><Link to="/digital-marketing" className="inline-flex items-center gap-2 font-semibold text-accent">Explore the full marketing journey <ArrowRight className="h-4 w-4" /></Link></p>
           <ol className="mt-10 grid gap-5 md:grid-cols-4">
             {STEPS.map((s, i) => (
               <li key={s.title} className="card-site">
@@ -190,23 +161,7 @@ function Home() {
         <div className="container-site">
           <SectionHead eyebrow="Monthly marketing" title="Digital Marketing That Grows With Your Business." center
             text="Whether you're starting from scratch or improving an existing business, we offer ongoing digital marketing support suited to your goals and budget." />
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {PLANS.map((p) => (
-              <div key={p.name} className={`card-site flex flex-col md:p-8 ${p.featured ? "border-2 border-accent" : ""}`}>
-                <h3 className="text-xl font-bold text-navy">{p.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
-                <p className="mt-5 font-display text-2xl font-extrabold text-navy">{p.price}</p>
-                <p className="mt-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Potential inclusions</p>
-                <ul className="mt-3 flex-1 space-y-2.5">
-                  {p.items.map((it) => (
-                    <li key={it} className="flex gap-2 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{it}</li>
-                  ))}
-                </ul>
-                <Link to="/contact" hash="review" className={`btn mt-8 ${p.featured ? "btn-primary" : "btn-outline"}`}>{p.cta}</Link>
-              </div>
-            ))}
-          </div>
-          <p className="mt-6 text-center text-sm text-muted-foreground">Final pricing and deliverables are confirmed together based on your goals.</p>
+          <MarketingPlans />
         </div>
       </section>
 

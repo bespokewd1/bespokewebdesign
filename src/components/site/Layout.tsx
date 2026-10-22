@@ -2,12 +2,14 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, MapPin } from "lucide-react";
 import { NAV, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
+import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
+import { Button } from "@/components/ui/button";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
-    <Link to="/" className="flex items-center gap-2 font-display text-lg font-extrabold" aria-label="Bespoke Web Design home">
-      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground">B</span>
-      <span className={light ? "text-navy-foreground" : "text-navy"}>Bespoke<span className="text-accent">.</span></span>
+    <Link to="/" className="flex shrink-0 items-center gap-2" aria-label="Bespoke Web Design home">
+      <img src={logoAsset.url} alt="" width="40" height="40" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+      <span className={`brand-name text-[19px] sm:text-[22px] ${light ? "text-navy-foreground" : "text-navy"}`}>Bespoke<span className="text-accent">Web</span>Design</span>
     </Link>
   );
 }
@@ -18,9 +20,9 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b bg-surface/95 backdrop-blur">
       <div className="container-site flex h-16 items-center justify-between gap-4">
         <Logo />
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Main">
           {NAV.map((n) => (
-            <Link key={n.to} to={n.to} className="text-sm font-semibold text-foreground hover:text-navy"
+            <Link key={n.to} to={n.to} className="whitespace-nowrap text-sm font-semibold text-foreground hover:text-navy"
               activeProps={{ className: "text-navy underline decoration-accent decoration-2 underline-offset-8" }}
               activeOptions={{ exact: true }}>
               {n.label}
@@ -28,11 +30,11 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Link to="/contact" hash="review" className="btn btn-primary hidden !px-4 !py-2.5 text-sm sm:inline-flex">{CTA_PRIMARY}</Link>
-          <button className="rounded-lg p-2 text-navy lg:hidden" onClick={() => setOpen(!open)}
+          <Button asChild className="btn btn-primary hidden h-auto !px-4 !py-2.5 text-sm xl:inline-flex"><Link to="/contact" hash="review">{CTA_PRIMARY}</Link></Button>
+          <Button variant="ghost" size="icon" className="text-navy lg:hidden" onClick={() => setOpen(!open)}
             aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          </Button>
         </div>
       </div>
       {open && (
@@ -78,6 +80,8 @@ export function Footer() {
           <p className="mt-4 flex items-center gap-2 text-sm"><MapPin className="h-4 w-4 text-accent" /> {SITE.location}</p>
         </div>
         <FooterCol title="Services" links={[
+          { label: "Digital Marketing & Plans", to: "/digital-marketing" },
+          { label: "Google Ads", to: "/digital-marketing", hash: "google-ads" },
           { label: "Website Design", to: "/website-design" },
           { label: "SEO Services", to: "/seo" },
           { label: "Google Business Profile", to: "/services", hash: "google-business" },

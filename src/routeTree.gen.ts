@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DigitalMarketingRouteImport } from './routes/digital-marketing'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as OurWorkRouteImport } from './routes/our-work'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -28,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalMarketingRoute = DigitalMarketingRouteImport.update({
+  id: '/digital-marketing',
+  path: '/digital-marketing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesRoute = IndustriesRouteImport.update({
@@ -74,6 +80,7 @@ const WebsiteDesignRoute = WebsiteDesignRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/digital-marketing': typeof DigitalMarketingRoute
   '/industries': typeof IndustriesRoute
   '/our-work': typeof OurWorkRoute
   '/privacy': typeof PrivacyRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/digital-marketing': typeof DigitalMarketingRoute
   '/industries': typeof IndustriesRoute
   '/our-work': typeof OurWorkRoute
   '/privacy': typeof PrivacyRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/digital-marketing': typeof DigitalMarketingRoute
   '/industries': typeof IndustriesRoute
   '/our-work': typeof OurWorkRoute
   '/privacy': typeof PrivacyRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contact'
+    | '/digital-marketing'
     | '/industries'
     | '/our-work'
     | '/privacy'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contact'
+    | '/digital-marketing'
     | '/industries'
     | '/our-work'
     | '/privacy'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contact'
+    | '/digital-marketing'
     | '/industries'
     | '/our-work'
     | '/privacy'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
+  DigitalMarketingRoute: typeof DigitalMarketingRoute
   IndustriesRoute: typeof IndustriesRoute
   OurWorkRoute: typeof OurWorkRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-marketing': {
+      id: '/digital-marketing'
+      path: '/digital-marketing'
+      fullPath: '/digital-marketing'
+      preLoaderRoute: typeof DigitalMarketingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries': {
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
+  DigitalMarketingRoute: DigitalMarketingRoute,
   IndustriesRoute: IndustriesRoute,
   OurWorkRoute: OurWorkRoute,
   PrivacyRoute: PrivacyRoute,
