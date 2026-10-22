@@ -37,6 +37,7 @@
   --color-navy-soft: var(--navy-soft);
   --color-navy-muted: var(--navy-muted);
   --color-surface: var(--surface);
+  --color-review-gold: var(--review-gold);
 }
 
 :root {
@@ -65,6 +66,7 @@
   --border: oklch(0.915 0.012 252);
   --input: oklch(0.88 0.015 252);
   --ring: oklch(0.55 0.22 257);
+  --review-gold: oklch(0.82 0.16 85);
   --hero-shade: linear-gradient(90deg, oklch(0.13 0.01 260 / 0.94), oklch(0.13 0.01 260 / 0.76));
 }
 
