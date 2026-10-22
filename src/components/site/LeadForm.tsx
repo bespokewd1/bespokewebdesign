@@ -67,12 +67,12 @@ export function LeadForm({ submitLabel = "Request My Free Review" }: { submitLab
   return (
     <form onSubmit={onSubmit} noValidate className="card-site grid gap-4 md:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
-        <F name="name" label="Full Name" auto="name" />
-        <F name="business" label="Business Name" auto="organization" />
-        <F name="email" label="Email" type="email" auto="email" />
-        <F name="phone" label="Phone" type="tel" optional auto="tel" />
+        {F({name: "name", label: "Full Name", auto: "name",})}
+        {F({name: "business", label: "Business Name", auto: "organization",})}
+        {F({name: "email", label: "Email", type: "email", auto: "email",})}
+        {F({name: "phone", label: "Phone", type: "tel", optional: true, auto: "tel",})}
       </div>
-      <F name="website" label="Website URL" optional auto="url" />
+      {F({name: "website", label: "Website URL", optional: true, auto: "url",})}
       <div>
         <label htmlFor="lf-help" className="mb-1.5 block text-sm font-semibold text-navy">What do you need help with?</label>
         <select id="lf-help" name="help" className="field" defaultValue="" aria-invalid={!!errors.help}>
