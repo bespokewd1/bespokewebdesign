@@ -29,9 +29,14 @@ function ReviewCard({ review }: { review: ClientReview }) {
       <a href={review.screenshot} target="_blank" rel="noopener noreferrer" className="mt-4 block focus-visible:outline-2 focus-visible:outline-ring" aria-label={`Open the original ${review.platform} review screenshot from ${review.name}`}>
         <img src={review.screenshot} alt={`Original ${review.platform} review from ${review.name}`} loading="lazy" className="h-auto w-full rounded-md border" />
       </a>
-      <blockquote tabIndex={0} aria-label={`Full review from ${review.name}`} className="mt-4 max-h-72 space-y-3 overflow-y-auto pr-2 text-base leading-relaxed focus-visible:outline-2 focus-visible:outline-ring">
+      <blockquote tabIndex={0} aria-label={`Full review from ${review.name}`} className="mt-4 space-y-3 text-base leading-relaxed">
         {review.paragraphs.map(p => <p key={p}>{p}</p>)}
       </blockquote>
+      <div className="mt-auto border-t pt-4">
+        <a href={REVIEW_LINKS[review.platform]} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy underline decoration-accent decoration-2 underline-offset-4">
+          View on {review.platform} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
+      </div>
     </figure>
   );
 }
@@ -49,8 +54,8 @@ function ReviewGallery({ platform, reviews }: { platform: ReviewPlatform; review
             ? "We're grateful for every client who takes the time to share their experience. Your feedback helps us continue improving our services."
             : "We appreciate the support and recommendations from businesses we've worked with. Every review means a lot to us."}
         />
-        <ul className="mt-10 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {shown.map(review => <li key={review.name}><ReviewCard review={review} /></li>)}
+        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {shown.map(review => <li key={review.name} className="flex"><ReviewCard review={review} /></li>)}
         </ul>
         <p className="mt-8">
           <a href={REVIEW_LINKS[platform]} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-semibold text-navy underline decoration-accent decoration-2 underline-offset-4">
