@@ -172,3 +172,108 @@ export const HELP_OPTIONS = [
   "New website", "Website redesign", "SEO", "Google Business Profile",
   "Social media", "Branding / logo", "Not sure yet",
 ];
+
+// Applies only to applicable monthly agreements; detailed terms stay in the service agreement.
+export const MARKETING_AGREEMENT = {
+  minimumMonths: 12,
+  ownershipTransferMonths: 12,
+  ownershipRequiresAllPayments: true,
+};
+
+export function websiteOwnershipEligible(completedMonths: number, allRequiredPaymentsComplete: boolean) {
+  return completedMonths >= MARKETING_AGREEMENT.ownershipTransferMonths
+    && (!MARKETING_AGREEMENT.ownershipRequiresAllPayments || allRequiredPaymentsComplete);
+}
+
+export const HOME_FAQS = [
+  {
+    question: "Why choose an all-in-one digital marketing agency?",
+    paragraphs: [
+      "Running a business is already a full-time job. Managing different providers for your website, SEO, Google Business Profile, and social media can make things complicated.",
+      "With Bespoke, everything works together under one marketing partner. Your branding stays consistent, your website supports your SEO, and your social media helps reinforce your online presence.",
+      "You have one point of contact, one coordinated strategy, and more time to focus on running your business.",
+    ],
+  },
+  {
+    question: "What makes Bespoke Web Design different?",
+    paragraphs: [
+      "We're an Edmonton-based marketing business focused on practical, affordable, and personalized digital marketing for trades and service companies.",
+      "Rather than simply building a website and walking away, we offer ongoing support to help maintain and improve your online presence.",
+      "Our approach combines personal service, clear communication, and multiple marketing services under one roof.",
+    ],
+  },
+  {
+    question: "What's included in my monthly marketing plan?",
+    paragraphs: [
+      "Depending on your chosen package, your plan may include professional website development, branding, search engine optimization (SEO), Google Business Profile management, social media content, and ongoing website improvements.",
+      "Instead of paying a large upfront amount for multiple separate services, you can invest in an agreed package through manageable monthly payments.",
+      "Each package clearly outlines what's included, so you know what you're paying for.",
+    ],
+  },
+  {
+    question: "Why do you focus on organic SEO instead of Google Ads?",
+    paragraphs: [
+      "We believe a strong online foundation is a valuable place to start.",
+      "Our priority is to build a professional, SEO-friendly website, improve your Google Business Profile, and develop useful content that supports your long-term visibility.",
+      "Unlike paid ads, which require an ongoing advertising budget to keep running, organic SEO focuses on improving your website's presence in unpaid search results over time.",
+      "Google Ads can still be a useful option, especially for businesses that need more immediate visibility.",
+      "When appropriate, paid advertising can complement your organic marketing strategy.",
+      "Google Ads expenditure is separate from our monthly organic marketing packages. Any optional advertising services or management fees must be separately agreed upon.",
+    ],
+  },
+  {
+    question: "How long does SEO take to show results?",
+    paragraphs: [
+      "SEO takes time, and every business is different.",
+      "Results depend on your industry, competition, location, website condition, and ongoing improvements.",
+      "During the first year, we focus on strengthening your website's technical foundation, improving content, supporting local visibility, and monitoring progress.",
+      "Our goal is to help your online presence become stronger over time, but no agency can guarantee specific Google rankings, traffic levels, or leads.",
+    ],
+  },
+  {
+    question: `Why is there a ${MARKETING_AGREEMENT.minimumMonths}-month minimum commitment?`,
+    paragraphs: [
+      "Building a professional online presence takes more than launching a website.",
+      `Our ${MARKETING_AGREEMENT.minimumMonths}-month minimum allows us to develop your website and carry out the ongoing marketing work included in your plan, such as SEO improvements, content updates, Google Business Profile management, and social media activity.`,
+      "Instead of paying a large upfront amount for individual services, you receive an agreed package through manageable monthly payments.",
+      "We see this as a long-term partnership focused on building and improving your business's online foundation.",
+    ],
+    note: `The ${MARKETING_AGREEMENT.minimumMonths}-month minimum applies to the applicable monthly marketing agreements. Specific inclusions depend on the selected package.`,
+  },
+  {
+    question: `Will I own my website after ${MARKETING_AGREEMENT.ownershipTransferMonths} months?`,
+    paragraphs: [
+      `Yes. Under our website ownership policy, once you've completed your ${MARKETING_AGREEMENT.ownershipTransferMonths}-month agreement and all required payments, the completed website becomes yours.`,
+      "Our goal is to help you build a professional online presence that adds lasting value to your business.",
+      "Website ownership and transfer details, including hosting, domains, third-party services, and ongoing maintenance, are outlined in your service agreement.",
+      "You can discuss continued marketing and website management with Bespoke after your initial term.",
+    ],
+  },
+  {
+    question: "What happens after my first year?",
+    paragraphs: [
+      "Your website is only one part of your online presence.",
+      "After completing your initial agreement, you can discuss continuing with Bespoke for ongoing SEO, website updates, Google Business Profile management, social media, and other marketing services.",
+      "Continuing allows your marketing to adapt as your business grows, your services change, and new opportunities develop.",
+      "We want to build long-term relationships by providing ongoing value, not simply creating websites.",
+      "Any renewal, cancellation, or continued-service terms will follow your agreement.",
+    ],
+  },
+  {
+    question: "Do you only work with Edmonton businesses?",
+    paragraphs: [
+      "We're proudly based in Edmonton, Alberta, and our primary focus is helping local trades and service businesses.",
+      "We also work with businesses throughout Alberta and can develop websites and digital marketing projects for clients across Canada and beyond.",
+      "While we're growing our Edmonton presence, our services aren't limited by geography.",
+    ],
+  },
+  {
+    question: "How do we get started?",
+    paragraphs: [
+      "Start by requesting a free website and marketing review.",
+      "We'll learn about your business, take a look at your existing online presence, and discuss your goals and budget.",
+      "From there, we can recommend a practical marketing plan based on what your business actually needs.",
+      "No pressure, no complicated jargon—just a conversation about your business.",
+    ],
+  },
+];
