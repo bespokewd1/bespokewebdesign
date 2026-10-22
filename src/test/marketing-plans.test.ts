@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { PLANS } from "@/content/site";
+import { PLANS, PACKAGE_DETAILS } from "@/content/site";
 
 describe("Monthly marketing packages", () => {
   it("provides Foundation at $245 with basic SEO and 5 Facebook posts", () => {
@@ -19,5 +19,12 @@ describe("Monthly marketing packages", () => {
   });
   it("includes exactly one Google Search campaign in Advanced, not extra campaigns", () => {
     expect(PLANS.find(p => p.name === "Advanced")?.googleSearchCampaigns).toBe(1);
+  });
+  it("keeps Google Ads spending separate from the monthly package", () => {
+    expect(PACKAGE_DETAILS.adsIntro).toContain("setup and management of one Google Ads campaign");
+    expect(PACKAGE_DETAILS.adsSteps).toContain("You pay Google directly. Ad spending is separate from your monthly package.");
+  });
+  it("states the minimum term and website ownership in the pricing note", () => {
+    expect(PACKAGE_DETAILS.adsAgreement).toBe("12-month minimum agreement. After completing your agreement and payments, your website is yours, according to your contract's ownership terms.");
   });
 });

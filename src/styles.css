@@ -182,4 +182,5 @@
 .mobile-review-bar { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
 @media (max-width: 1023px) { body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); } }
 @media (max-width: 639px) { .hero-photo h1 { font-size: 2rem; } .hero-photo .container-site { padding-block: 2rem; } }
+@media (max-width: 359px) { .brand-name { font-size: 16px; } .container-site { padding-inline: 0.75rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

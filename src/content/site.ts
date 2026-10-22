@@ -190,6 +190,19 @@ export const PLANS = [
 ];
 
 export const PLAN_CURRENCY = "CAD";
+
+// Applies only to applicable monthly agreements; detailed terms stay in the service agreement.
+export const MARKETING_AGREEMENT = {
+  minimumMonths: 12,
+  ownershipTransferMonths: 12,
+  ownershipRequiresAllPayments: true,
+};
+
+export function websiteOwnershipEligible(completedMonths: number, allRequiredPaymentsComplete: boolean) {
+  return completedMonths >= MARKETING_AGREEMENT.ownershipTransferMonths
+    && (!MARKETING_AGREEMENT.ownershipRequiresAllPayments || allRequiredPaymentsComplete);
+}
+
 export const PACKAGE_DETAILS = {
   posts: "Monthly social media posts are the total number of published posts across the platforms included in your package.",
   postCounting: "For clarity, publishing the same content separately to Facebook and Instagram counts as two published posts.",
@@ -203,11 +216,19 @@ export const PACKAGE_DETAILS = {
   ],
   socialScope: "Promotions, seasonal services, company announcements, completed projects, events, and new products or services count toward your existing monthly allowance. We can help identify content ideas using supplied materials. TikTok depends on suitable client-supplied photos or videos. On-site photography, filming, advanced video production, and event attendance are not included unless separately agreed. Extra content requires a separate quote.",
   adsTitle: "Google Ads Management — Without the Confusion",
-  adsIntro: "Growth and Advanced include setup and management of one active Google Search campaign for one primary service or campaign objective and one agreed geographic target area. We target relevant searches, review keywords and negative keywords, adjust ad copy and budget settings, monitor and optimize performance, and provide a concise monthly summary within the agreed scope.",
-  adsBudget: "Your monthly Bespoke package covers the included campaign management. It does not pay for your Google advertisements.",
-  adsPayment: "You choose your advertising budget and pay Google directly. We manage the agreed campaign on your behalf. Foundation Google Ads management is separately quoted.",
-  adsExtras: "Additional campaigns, multiple service-specific campaigns, complex account restructuring, advanced conversion-tracking installations, new landing pages, Display, Shopping or video campaigns, and professional ad video production are not automatically included and can be quoted separately.",
-  adsDifference: "Advanced offers more extensive SEO and social media services than Growth, not additional Google Ads campaigns. Google Ads is paid advertising; organic SEO focuses on unpaid search visibility. They can complement each other, but ads do not improve organic rankings, and advertising performance and rankings are not guaranteed.",
+  adsSubtitle: "We Handle It for You!",
+  adsIntro: "Our Growth and Advanced plans include the setup and management of one Google Ads campaign to help your business reach potential customers searching for your services.",
+  adsStepsTitle: "How it works:",
+  adsSteps: [
+    "We create, manage, and improve your ads.",
+    "You choose your advertising budget.",
+    "You pay Google directly. Ad spending is separate from your monthly package.",
+    "Need more campaigns? We can provide a custom quote.",
+  ],
+  adsPricingTitle: "Clear Pricing. No Surprises.",
+  adsPricing: "Your monthly plan covers the services included in your package. Additional work, such as extra website pages, major changes, or professional photography, can be quoted separately.",
+  adsAgreement: `${MARKETING_AGREEMENT.minimumMonths}-month minimum agreement. After completing your agreement and payments, your website is yours, according to your contract's ownership terms.`,
+  adsGoal: "Our goal is simple: You focus on running your business. We handle your marketing.",
   scope: "Every business is different. Your package includes an agreed scope of website development and monthly marketing services. Major website changes, additional campaigns, professional photo or video shoots, and work beyond the package are quoted separately.",
   revisions: "Custom-built websites and logo design do not include unlimited pages or creative revisions. Deliverables and revisions are defined in your agreed scope; monthly post counts are fixed by your selected package.",
 };
@@ -217,17 +238,6 @@ export const HELP_OPTIONS = [
   "Social media", "Branding / logo", "Not sure yet",
 ];
 
-// Applies only to applicable monthly agreements; detailed terms stay in the service agreement.
-export const MARKETING_AGREEMENT = {
-  minimumMonths: 12,
-  ownershipTransferMonths: 12,
-  ownershipRequiresAllPayments: true,
-};
-
-export function websiteOwnershipEligible(completedMonths: number, allRequiredPaymentsComplete: boolean) {
-  return completedMonths >= MARKETING_AGREEMENT.ownershipTransferMonths
-    && (!MARKETING_AGREEMENT.ownershipRequiresAllPayments || allRequiredPaymentsComplete);
-}
 
 export const HOME_FAQS = [
   { question: "Why choose an all-in-one digital marketing agency?", paragraphs: ["Your website, SEO, Google Business Profile, and social media work best when they support a coordinated strategy. With Bespoke, you have one marketing partner, consistent branding, and less time spent managing different providers."] },
