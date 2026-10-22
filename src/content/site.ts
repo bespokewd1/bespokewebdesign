@@ -5,6 +5,7 @@
 
 export const SITE = {
   name: "Bespoke Web Design",
+  operator: "Bespoke Marketing Ltd.",
   // TODO: replace with the real live domain (used for canonical URLs, sitemap, structured data)
   url: "https://bespokewebdesign.ca",
   location: "Edmonton, Alberta, Canada",
@@ -14,9 +15,9 @@ export const SITE = {
   email: "",
   phone: "",
   // Only add verified profile URLs.
-  social: [] as { label: string; href: string }[],
+  social: [{ label: "Facebook", href: "https://www.facebook.com/bespokewebdesignEdmonton/" }] as { label: string; href: string }[],
   description:
-    "Bespoke Web Design provides professional websites, SEO, Google Business Profile management, branding, and social media marketing for Edmonton and Alberta businesses.",
+    "Complete digital marketing for Edmonton and Alberta trades and service businesses. From professional websites and local SEO to Google Business Profile management, branding, and social media—we bring your online marketing together under one trusted partner.",
 };
 
 export const CTA_PRIMARY = "Get a Free Website Review";
@@ -36,11 +37,11 @@ export type IconName =
   | "droplet" | "zap" | "hardhat" | "hammer" | "truck" | "store";
 
 export const HOME_SERVICES: { icon: IconName; title: string; text: string; id: string }[] = [
-  { icon: "palette", title: "Branding & Identity", id: "branding", text: "A consistent identity that helps customers recognize and trust your business." },
-  { icon: "monitor", title: "Website Development", id: "website-development", text: "Fast, mobile-friendly websites that explain your services and turn interest into inquiries." },
-  { icon: "map", title: "Google Business Profile", id: "google-business", text: "Accurate services, photos and business details to strengthen your local presence on Search and Maps." },
-  { icon: "search", title: "SEO & Content Marketing", id: "seo", text: "Useful content and ongoing improvements that help the right customers find your business." },
-  { icon: "share", title: "Social Media Marketing", id: "social-media", text: "Professional posts that showcase your work and keep your business visible." },
+  { icon: "palette", title: "Branding & Identity", id: "branding", text: "Build a professional, consistent business identity that customers recognize and remember." },
+  { icon: "monitor", title: "Website Design & Development", id: "website-development", text: "Mobile-friendly websites that explain your services clearly, establish credibility, and make contacting your business easy." },
+  { icon: "map", title: "Google Business Profile & Local SEO", id: "google-business", text: "Improve your local business information and online presence so potential customers can find and learn about your services." },
+  { icon: "search", title: "SEO & Content Marketing", id: "seo", text: "Strengthen your website through technical improvements, relevant content, and ongoing optimization." },
+  { icon: "share", title: "Social Media Marketing", id: "social-media", text: "Keep your business active online with professional content that showcases your work and reinforces customer trust." },
 ];
 
 export const SERVICES: {
@@ -121,15 +122,16 @@ export const INDUSTRIES: { id: string; icon: IconName; name: string; short: stri
 // image: path to a screenshot (e.g. "/images/projects/iron-fist.jpg"); leave "" to show a placeholder.
 export const PROJECTS: {
   name: string; industry: string; services: string[]; description: string;
-  image: string; link: string; testimonial?: string; outcomes?: string[];
+  image: string; link: string; logo?: string; ownedProject?: boolean; featured?: boolean; testimonial?: string; outcomes?: string[];
 }[] = [
   { name: "Squad V Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   { name: "KMS Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   { name: "Glow And Relax", industry: "Wellness", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
-  { name: "Bespoke Music App", industry: "Music App", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
+  { name: "Bespoke Music App", industry: "Music App", services: ["Own project"], description: "Project details and screenshot coming soon.", image: "", link: "", ownedProject: true },
   { name: "Rod's Electrical", industry: "Electrical", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
   {
     name: "Iron Fist Transport",
+    featured: true,
     industry: "Transportation & Logistics",
     services: ["Website development", "SEO-focused service content", "Digital marketing foundation"],
     description: "A professional website for a transportation and logistics company, built to clearly present their services and give them a solid foundation for ongoing digital marketing.",
@@ -138,12 +140,23 @@ export const PROJECTS: {
   },
   {
     name: "Stone Massage",
+    featured: true,
     industry: "Massage Therapy",
     services: ["Website development", "Technical SEO", "Mobile optimization"],
     description: "A clean, mobile-friendly website for a massage therapy clinic, with technical SEO groundwork to help local clients find them.",
     image: "",
     link: "",
   },
+];
+
+export const TRUSTED_CLIENTS = PROJECTS.filter(project => !project.ownedProject);
+export const FEATURED_PROJECTS = PROJECTS.filter(project => project.featured);
+export const HOME_MEDIA = { ownerPhoto: "", googleReviewUrl: "", reviewScreenshots: [] as { image: string; alt: string }[] };
+export const FIRST_YEAR = [
+  { period: "Month 1", title: "Build Your Foundation", text: "Learn about your business, define marketing priorities, plan the website and branding, and begin agreed setup activities." },
+  { period: "Months 2–3", title: "Launch & Optimize", text: "Continue agreed website development, SEO setup, content improvements, and social media activity." },
+  { period: "Months 4–6", title: "Build Your Presence", text: "Continue monthly marketing deliverables, maintain consistency, and review available performance information." },
+  { period: "Months 7–12", title: "Improve & Refine", text: "Improve agreed marketing activities, evaluate progress, and adjust priorities based on business needs." },
 ];
 
 // TESTIMONIALS — add only genuine reviews. Empty list shows placeholders.
@@ -154,19 +167,21 @@ export const PLANS = [
   {
     name: "Starter", price: "$245/month", monthlyPrice: 245, socialPosts: 5, channels: null, seoLevel: "basic", tagline: "Build your business's online foundation.",
     items: ["Branding", "Website", "Basic SEO", "5 social media posts per month"],
-    cta: "Get Started", featured: false,
+    description: "Designed for newer businesses looking to establish a professional website and essential marketing presence.", cta: "Get Started", featured: false,
   },
   {
     name: "Entrepreneur", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, seoLevel: "basic", tagline: "Keep your business active across two channels.",
     items: ["Branding", "Website", "Basic SEO", "10 social media posts per month", "2 social media channels"],
-    cta: "Choose Entrepreneur", featured: true,
+    description: "For businesses ready to invest in more regular marketing content and a stronger presence across multiple channels.", cta: "Choose Entrepreneur", featured: true,
   },
   {
     name: "Dominate", price: "$999/month", monthlyPrice: 999, socialPosts: 15, channels: 3, seoLevel: "advanced", tagline: "Expand your reach with more content and advanced SEO.",
     items: ["Branding", "Website", "Advanced SEO", "15 social media posts per month", "3 social media channels"],
-    cta: "Choose Dominate", featured: false,
+    description: "For businesses seeking a broader marketing strategy, more content, and advanced SEO support.", cta: "Choose Dominate", featured: false,
   },
 ];
+
+export const PLAN_CURRENCY = "CAD";
 
 export const HELP_OPTIONS = [
   "New website", "Website redesign", "SEO", "Google Business Profile",
