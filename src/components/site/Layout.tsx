@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, MapPin } from "lucide-react";
 import { NAV, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
-import logoAsset from "@/assets/bespoke-logo.webp.asset.json";
+import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
 
 export function Logo({ light = false }: { light?: boolean }) {
@@ -20,9 +20,9 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b bg-surface/95 backdrop-blur">
       <div className="container-site flex h-16 items-center justify-between gap-4">
         <Logo />
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Main">
           {NAV.map((n) => (
-            <Link key={n.to} to={n.to} className="text-sm font-semibold text-foreground hover:text-navy"
+            <Link key={n.to} to={n.to} className="whitespace-nowrap text-sm font-semibold text-foreground hover:text-navy"
               activeProps={{ className: "text-navy underline decoration-accent decoration-2 underline-offset-8" }}
               activeOptions={{ exact: true }}>
               {n.label}
@@ -30,7 +30,7 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Link to="/contact" hash="review" className="btn btn-primary hidden !px-4 !py-2.5 text-sm sm:inline-flex">{CTA_PRIMARY}</Link>
+          <Button asChild className="btn btn-primary hidden h-auto !px-4 !py-2.5 text-sm xl:inline-flex"><Link to="/contact" hash="review">{CTA_PRIMARY}</Link></Button>
           <Button variant="ghost" size="icon" className="text-navy lg:hidden" onClick={() => setOpen(!open)}
             aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
