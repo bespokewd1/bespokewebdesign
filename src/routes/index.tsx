@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck, Star } from "lucide-react";
-import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, TRUSTED_CLIENTS, FEATURED_PROJECTS, HOME_MEDIA, FIRST_YEAR, SITE, REVIEW_PROOF } from "@/content/site";
+import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, TRUSTED_CLIENTS, FEATURED_PROJECTS, HOME_MEDIA, FIRST_YEAR, SITE, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
 import { IconBadge } from "@/components/site/Icon";
 import { ProjectCard } from "@/components/site/Cards";
+import { ReviewCarousel } from "@/components/site/ReviewCarousel";
 import { LeadForm } from "@/components/site/LeadForm";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { Button } from "@/components/ui/button";
@@ -38,10 +39,10 @@ function Home() {
         <p className="mt-4 font-semibold">We handle your marketing. You focus on running your business.</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ReviewButton /><Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><Link to="/our-work">{CTA_SECONDARY}</Link></Button></div>
         <div aria-label="Five-star customer reviews" className="mt-5 flex items-center gap-1 min-[375px]:gap-2 sm:gap-6">
-          {REVIEW_PROOF.map(review => <div key={review.platform} aria-label={`5-star reviews on ${review.platform}`} className="flex shrink-0 items-center gap-1 min-[375px]:gap-1.5 sm:gap-2">
+          {REVIEW_PROOF.map(review => <a key={review.platform} href={REVIEW_LINKS[review.platform]} target="_blank" rel="noopener noreferrer" aria-label={`5-star reviews on ${review.platform}`} className="flex min-h-11 shrink-0 items-center gap-1 min-[375px]:gap-1.5 sm:gap-2 hover:underline focus-visible:outline-2 focus-visible:outline-ring">
             <span aria-hidden="true" className="flex gap-px min-[375px]:gap-0.5 text-review-gold">{Array.from({ length: review.stars }, (_, i) => <Star key={i} className="size-2 fill-current min-[375px]:size-2.5 sm:size-3.5" strokeWidth={1.5} />)}</span>
             <span className="whitespace-nowrap text-[10px] font-medium text-navy-foreground min-[375px]:text-[11px] sm:text-sm">{review.platform} Reviews</span>
-          </div>)}
+          </a>)}
         </div>
         <p className="mt-5 text-sm text-navy-muted">Edmonton-based. Personal service. Real client work.</p>
       </div>
@@ -64,6 +65,8 @@ function Home() {
         {HOME_MEDIA.reviewScreenshots.length > 0 && <div className="mt-6 grid gap-4 sm:grid-cols-2">{HOME_MEDIA.reviewScreenshots.map(r => <img key={r.image} src={r.image} alt={r.alt} loading="lazy" className="aspect-[4/3] w-full object-contain" />)}</div>}
       </div>
     </section>
+
+    <ReviewCarousel />
 
     <section className="section"><div className="container-site">
       <SectionHead eyebrow="Our work" title="Real Businesses. Real Projects." text="Every business has different goals. Take a look at how we help clients establish a professional online presence through thoughtful website development and digital marketing." />

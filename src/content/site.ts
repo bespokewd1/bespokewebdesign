@@ -151,7 +151,11 @@ export const PROJECTS: {
 
 export const TRUSTED_CLIENTS = PROJECTS.filter(project => !project.ownedProject);
 export const FEATURED_PROJECTS = PROJECTS.filter(project => project.featured);
-export const HOME_MEDIA = { ownerPhoto: "", googleReviewUrl: "", reviewScreenshots: [] as { image: string; alt: string }[] };
+export const REVIEW_LINKS = {
+  Google: "https://maps.app.goo.gl/KmQRwn9H6c6U74Zm7",
+  Facebook: "https://www.facebook.com/bespokewebdesignEdmonton/",
+};
+export const HOME_MEDIA = { ownerPhoto: "", googleReviewUrl: REVIEW_LINKS.Google, reviewScreenshots: [] as { image: string; alt: string }[] };
 // Genuine five-star reviews on both platforms confirmed by the business owner.
 export const REVIEW_PROOF = [
   { platform: "Google", stars: 5 },
