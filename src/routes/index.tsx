@@ -1,24 +1,235 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, Check, MessageCircle, Layers, TrendingUp, ShieldCheck } from "lucide-react";
+import { CTA_PRIMARY, CTA_SECONDARY, HOME_SERVICES, INDUSTRIES, PLANS, PROJECTS } from "@/content/site";
+import { pageHead } from "@/lib/seo";
+import { SectionHead, Placeholder } from "@/components/site/Layout";
+import { IconBadge } from "@/components/site/Icon";
+import { ProjectCard, TestimonialGrid } from "@/components/site/Cards";
+import { LeadForm } from "@/components/site/LeadForm";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => pageHead({
+    path: "/",
+    title: "Digital Marketing & Web Design Edmonton | Bespoke Web Design",
+    description: "Grow your Edmonton business with professional websites, SEO, Google Business Profile optimization, and social media marketing from Bespoke Web Design.",
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Mockup() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="relative mx-auto w-full max-w-lg" aria-hidden="true">
+      <div className="rounded-2xl border bg-surface p-3">
+        <div className="mb-3 flex gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-input" /><span className="h-2.5 w-2.5 rounded-full bg-input" /><span className="h-2.5 w-2.5 rounded-full bg-accent" /></div>
+        <div className="rounded-xl bg-navy p-5">
+          <div className="h-3 w-24 rounded bg-accent" />
+          <div className="mt-4 h-5 w-4/5 rounded bg-navy-soft" />
+          <div className="mt-2 h-5 w-3/5 rounded bg-navy-soft" />
+          <div className="mt-5 h-8 w-32 rounded-full bg-accent" />
+        </div>
+        <div className="mt-3 grid grid-cols-3 gap-2">
+          {[0, 1, 2].map((i) => <div key={i} className="h-16 rounded-lg bg-muted" />)}
+        </div>
+      </div>
+      <div className="absolute -bottom-6 -right-2 w-28 rounded-2xl border-4 border-navy bg-surface p-2 sm:w-32">
+        <div className="h-2 w-10 rounded bg-accent" />
+        <div className="mt-2 h-14 rounded bg-navy" />
+        <div className="mt-2 h-2 rounded bg-muted" />
+        <div className="mt-1 h-2 w-2/3 rounded bg-muted" />
+        <div className="mt-2 h-5 rounded-full bg-accent" />
+      </div>
     </div>
+  );
+}
+
+const WHY = [
+  { icon: MessageCircle, title: "One Point of Contact", text: "Communicate directly with someone who understands your business." },
+  { icon: Layers, title: "Everything in One Place", text: "Website development, SEO, Google Business, branding, and social media." },
+  { icon: TrendingUp, title: "Long-Term Focus", text: "Build a foundation designed for ongoing improvement and organic visibility." },
+  { icon: ShieldCheck, title: "Straightforward Communication", text: "Clear explanations, practical recommendations, and no unnecessary jargon." },
+];
+
+const STEPS = [
+  { title: "Let's Talk", text: "Tell us about your business, your goals, and your current online presence." },
+  { title: "Build Your Foundation", text: "We create or improve the branding, website, and online profiles your business needs." },
+  { title: "Manage Your Marketing", text: "We handle the agreed ongoing SEO, website updates, Google Business management, and social media content." },
+  { title: "Review and Improve", text: "We review progress and identify opportunities to improve your online presence." },
+];
+
+function Home() {
+  return (
+    <>
+      {/* HERO */}
+      <section className="overflow-hidden">
+        <div className="container-site grid items-center gap-14 py-14 md:py-20 lg:grid-cols-2">
+          <div>
+            <span className="eyebrow">Edmonton Digital Marketing</span>
+            <h1 className="mt-3 text-4xl font-extrabold leading-[1.05] text-navy sm:text-5xl lg:text-6xl">
+              You Run Your Business.<br /><span className="text-accent">We Handle the Marketing.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+              From professional websites and branding to SEO, Google Business, and social media, we help Edmonton businesses build a stronger online presence—all in one place.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link to="/contact" hash="review" className="btn btn-primary">{CTA_PRIMARY} <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/our-work" className="btn btn-outline">{CTA_SECONDARY}</Link>
+            </div>
+            <p className="mt-6 text-sm font-semibold text-navy">🍁 Proudly Supporting Edmonton & Alberta Businesses</p>
+          </div>
+          <div className="pb-6"><Mockup /></div>
+        </div>
+      </section>
+
+      {/* TRUST */}
+      <section className="border-y bg-surface py-12">
+        <div className="container-site">
+          <h2 className="text-center text-2xl font-extrabold text-navy md:text-3xl">Local Businesses. Real Projects. Personal Service.</h2>
+          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
+            {PROJECTS.map((p) => (
+              <div key={p.name} className="flex h-20 items-center justify-center rounded-xl border bg-background px-3 text-center font-display font-bold text-navy">{p.name}</div>
+            ))}
+            <Placeholder label="Client logo" className="h-20" />
+            <Placeholder label="Google reviews" className="h-20" />
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="section">
+        <div className="container-site">
+          <SectionHead eyebrow="What we do" title="Everything Your Business Needs to Build a Stronger Online Presence."
+            text="A website is just the beginning. Your branding, Google presence, social media, and SEO should work together to help customers find and trust your business." />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {HOME_SERVICES.map((s) => (
+              <div key={s.title} className="card-site">
+                <IconBadge name={s.icon} />
+                <h3 className="mt-4 text-lg font-bold text-navy">{s.title}</h3>
+                <p className="mt-2 text-muted-foreground">{s.text}</p>
+              </div>
+            ))}
+            <Link to="/services" className="card-site flex flex-col justify-center bg-navy text-navy-foreground hover:bg-navy-soft">
+              <span className="text-lg font-bold">Explore Our Services</span>
+              <span className="mt-2 inline-flex items-center gap-1 text-accent">See everything we offer <ArrowRight className="h-4 w-4" /></span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* INDUSTRIES */}
+      <section className="section bg-navy text-navy-foreground">
+        <div className="container-site">
+          <span className="eyebrow">Industries</span>
+          <h2 className="mt-2 max-w-2xl text-3xl font-extrabold md:text-4xl">Digital Marketing Built for Businesses That Get Things Done.</h2>
+          <p className="mt-4 max-w-2xl text-lg text-navy-muted">We work with Edmonton trades and service businesses that want a professional online presence without managing every part of their marketing themselves.</p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {INDUSTRIES.map((i) => (
+              <Link key={i.id} to="/industries" hash={i.id} className="group rounded-2xl border border-navy-soft bg-navy-soft/50 p-6 hover:border-accent">
+                <IconBadge name={i.icon} />
+                <h3 className="mt-4 text-lg font-bold">{i.name}</h3>
+                <p className="mt-2 text-sm text-navy-muted">{i.short}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent">Learn more <ArrowRight className="h-4 w-4" /></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WORK */}
+      <section className="section">
+        <div className="container-site">
+          <SectionHead eyebrow="Our work" title="Real Projects. Built for Real Businesses."
+            text="Take a look at some of the businesses we've worked with and how we've helped strengthen their online presence." />
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {PROJECTS.slice(0, 2).map((p) => <ProjectCard key={p.name} p={p} />)}
+          </div>
+          <Link to="/our-work" className="btn btn-outline mt-8">View Our Work <ArrowRight className="h-4 w-4" /></Link>
+        </div>
+      </section>
+
+      {/* WHY */}
+      <section className="section bg-surface border-y">
+        <div className="container-site grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <SectionHead eyebrow="Why Bespoke" title="One Partner for Your Digital Marketing."
+              text="Running a business already takes enough time. We help simplify your digital marketing by keeping your website, SEO, Google presence, and social media connected." />
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              {WHY.map((w) => (
+                <div key={w.title}>
+                  <w.icon className="h-6 w-6 text-accent" aria-hidden="true" />
+                  <h3 className="mt-2 font-bold text-navy">{w.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{w.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <Placeholder label="Photo: owner working with a client (owner-with-client.jpg)" className="aspect-[4/3]" />
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="section">
+        <div className="container-site">
+          <SectionHead eyebrow="How we work" title="Getting Started Is Simple." center />
+          <ol className="mt-10 grid gap-5 md:grid-cols-4">
+            {STEPS.map((s, i) => (
+              <li key={s.title} className="card-site">
+                <span className="font-display text-3xl font-extrabold text-accent">0{i + 1}</span>
+                <h3 className="mt-2 text-lg font-bold text-navy">{s.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-8 text-center">
+            <Link to="/contact" hash="review" className="btn btn-primary">Let's Talk About Your Business</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section className="section bg-surface border-y">
+        <div className="container-site">
+          <SectionHead eyebrow="Monthly marketing" title="Digital Marketing That Grows With Your Business." center
+            text="Whether you're starting from scratch or improving an existing business, we offer ongoing digital marketing support suited to your goals and budget." />
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {PLANS.map((p) => (
+              <div key={p.name} className={`card-site flex flex-col md:p-8 ${p.featured ? "border-2 border-accent" : ""}`}>
+                <h3 className="text-xl font-bold text-navy">{p.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
+                <p className="mt-5 font-display text-2xl font-extrabold text-navy">{p.price}</p>
+                <p className="mt-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Potential inclusions</p>
+                <ul className="mt-3 flex-1 space-y-2.5">
+                  {p.items.map((it) => (
+                    <li key={it} className="flex gap-2 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{it}</li>
+                  ))}
+                </ul>
+                <Link to="/contact" hash="review" className={`btn mt-8 ${p.featured ? "btn-primary" : "btn-outline"}`}>{p.cta}</Link>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-sm text-muted-foreground">Final pricing and deliverables are confirmed together based on your goals.</p>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="section">
+        <div className="container-site">
+          <SectionHead title="What Our Clients Say." center />
+          <div className="mt-10"><TestimonialGrid /></div>
+        </div>
+      </section>
+
+      {/* LEAD */}
+      <section className="section bg-navy text-navy-foreground" id="review">
+        <div className="container-site grid gap-10 lg:grid-cols-2">
+          <div>
+            <span className="eyebrow">Free review</span>
+            <h2 className="mt-2 text-3xl font-extrabold md:text-4xl">How Strong Is Your Business's Online Presence?</h2>
+            <p className="mt-4 text-lg text-navy-muted">Not sure if your website and Google presence are working as well as they could? Let's take a look.</p>
+            <p className="mt-3 text-navy-muted">Request a free introductory review of your website and online presence.</p>
+          </div>
+          <div className="text-foreground"><LeadForm /></div>
+        </div>
+      </section>
+    </>
   );
 }

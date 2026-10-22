@@ -1,0 +1,168 @@
+// =============================================================
+// EDITABLE SITE CONTENT — update text, prices, projects, and
+// contact details here. Leave a value as "" to hide it.
+// =============================================================
+
+export const SITE = {
+  name: "Bespoke Web Design",
+  // TODO: replace with the real live domain (used for canonical URLs, sitemap, structured data)
+  url: "https://bespokewebdesign.ca",
+  location: "Edmonton, Alberta, Canada",
+  city: "Edmonton",
+  region: "Alberta",
+  // TODO: add real contact details. Empty values show a "coming soon" placeholder.
+  email: "",
+  phone: "",
+  // Only add verified profile URLs.
+  social: [] as { label: string; href: string }[],
+  description:
+    "Bespoke Web Design provides professional websites, SEO, Google Business Profile management, branding, and social media marketing for Edmonton and Alberta businesses.",
+};
+
+export const CTA_PRIMARY = "Get a Free Website Review";
+export const CTA_SECONDARY = "See Our Work";
+
+export const NAV = [
+  { to: "/", label: "Home" },
+  { to: "/services", label: "Services" },
+  { to: "/industries", label: "Industries" },
+  { to: "/our-work", label: "Our Work" },
+  { to: "/contact", label: "About & Contact" },
+] as const;
+
+export type IconName =
+  | "palette" | "monitor" | "map" | "share" | "search" | "wrench"
+  | "droplet" | "zap" | "hardhat" | "hammer" | "truck" | "store";
+
+export const HOME_SERVICES: { icon: IconName; title: string; text: string }[] = [
+  { icon: "palette", title: "Branding", text: "A consistent, professional identity that helps customers recognize your business." },
+  { icon: "monitor", title: "Website Design", text: "Fast, mobile-friendly websites designed to explain your services and encourage customer inquiries." },
+  { icon: "map", title: "Google Business Profile", text: "Improve your business information and presence on Google Search and Maps." },
+  { icon: "share", title: "Social Media Management", text: "Keep your business active online with professional content, updates, and project highlights." },
+  { icon: "search", title: "Ongoing SEO", text: "Improve website structure, content, and search visibility through ongoing optimization." },
+];
+
+export const SERVICES: {
+  id: string; icon: IconName; title: string; what: string; why: string; help: string[];
+}[] = [
+  {
+    id: "branding", icon: "palette", title: "Branding and Logo Design",
+    what: "Your brand is how customers recognize you — your logo, colours, fonts, and the way your business looks on trucks, uniforms, quotes, and online.",
+    why: "A clean, consistent look makes a business feel established and trustworthy before a customer ever picks up the phone.",
+    help: ["Logo design or refresh", "Colour and font selection", "Simple brand guidelines", "Business cards and social profile graphics"],
+  },
+  {
+    id: "website-development", icon: "monitor", title: "Custom Website Development",
+    what: "A website built around your services, your area, and the way your customers actually contact you.",
+    why: "Your website is often the first place a customer checks after finding you on Google. It should clearly explain what you do and make it easy to reach you.",
+    help: ["Custom design (no cookie-cutter templates)", "Mobile-friendly, fast-loading pages", "Clear service pages and contact forms", "SEO-friendly structure from day one"],
+  },
+  {
+    id: "seo", icon: "search", title: "Search Engine Optimization",
+    what: "SEO is the work of helping search engines understand your website so it can show up for relevant searches.",
+    why: "Organic search brings in customers who are already looking for your services — without paying for every click.",
+    help: ["Keyword and competitor research", "Page titles, descriptions, and headings", "Technical fixes and site speed", "Ongoing content improvements"],
+  },
+  {
+    id: "google-business", icon: "map", title: "Google Business Profile Management",
+    what: "Your Google Business Profile is the listing that shows up on Google Maps and in local search results.",
+    why: "For local trades and service businesses, this listing is often where customers decide who to call.",
+    help: ["Profile setup and verification support", "Accurate services, hours, and service areas", "Photo and post updates", "Guidance on asking for reviews"],
+  },
+  {
+    id: "social-media", icon: "share", title: "Social Media Management",
+    what: "Regular, professional posts that show your work and keep your business visible.",
+    why: "Active profiles show customers you're busy, reliable, and proud of your work.",
+    help: ["Content planning", "Project highlight posts", "Branded graphics", "Consistent posting schedule"],
+  },
+  {
+    id: "maintenance", icon: "wrench", title: "Website Maintenance and Ongoing Marketing",
+    what: "Ongoing care for your website and online presence after launch.",
+    why: "Websites need updates, security care, and fresh content to keep performing well over time.",
+    help: ["Content and photo updates", "Security and software updates", "Performance checks", "Regular progress reviews"],
+  },
+];
+
+export const INDUSTRIES: { id: string; icon: IconName; name: string; short: string; needs: string }[] = [
+  {
+    id: "plumbing", icon: "droplet", name: "Plumbing",
+    short: "Get found when homeowners search for a plumber nearby.",
+    needs: "Plumbing customers often search in a hurry. A clear Google Business Profile with accurate service areas and hours, a website with separate pages for services like drain cleaning or water heaters, and genuine reviews help you get the call.",
+  },
+  {
+    id: "electrical", icon: "zap", name: "Electrical",
+    short: "Show residential and commercial clients you're licensed and reliable.",
+    needs: "Electrical work is about trust and safety. Clearly listing your qualifications, residential versus commercial services, and real project photos helps customers feel confident hiring you.",
+  },
+  {
+    id: "contractors", icon: "hardhat", name: "General Contracting",
+    short: "Present your projects and process professionally to win bigger jobs.",
+    needs: "Contractors compete on reputation. A strong project gallery, a clear explanation of how you work, and consistent branding across your site, trucks, and Google profile help you stand out for larger projects.",
+  },
+  {
+    id: "renovations", icon: "hammer", name: "Renovations",
+    short: "Let your before-and-after photos do the selling.",
+    needs: "Renovation customers want to see your work. Before-and-after project photography, service pages for kitchens, basements, or bathrooms, and regular social posts showing jobs in progress build confidence.",
+  },
+  {
+    id: "transportation", icon: "truck", name: "Transportation & Logistics",
+    short: "Look established to shippers, brokers, and drivers.",
+    needs: "Trucking and logistics companies are often vetted online by shippers and potential drivers. A professional website that explains your lanes, fleet, and capabilities — plus a careers section — makes your company easier to trust.",
+  },
+  {
+    id: "services", icon: "store", name: "Local Service Businesses",
+    short: "From clinics to cleaners, a stronger local presence for your business.",
+    needs: "Massage clinics, wellness businesses, and other local services rely on local search and reviews. Easy online booking or contact options, an up-to-date Google profile, and a friendly, clear website make the difference.",
+  },
+];
+
+// PORTFOLIO — add more objects to this list to show more projects.
+// image: path to a screenshot (e.g. "/images/projects/iron-fist.jpg"); leave "" to show a placeholder.
+export const PROJECTS: {
+  name: string; industry: string; services: string[]; description: string;
+  image: string; link: string; testimonial?: string; outcomes?: string[];
+}[] = [
+  {
+    name: "Iron Fist Transport",
+    industry: "Transportation & Logistics",
+    services: ["Website development", "SEO-focused service content", "Digital marketing foundation"],
+    description: "A professional website for a transportation and logistics company, built to clearly present their services and give them a solid foundation for ongoing digital marketing.",
+    image: "",
+    link: "",
+  },
+  {
+    name: "Stone Massage",
+    industry: "Massage Therapy",
+    services: ["Website development", "Technical SEO", "Mobile optimization"],
+    description: "A clean, mobile-friendly website for a massage therapy clinic, with technical SEO groundwork to help local clients find them.",
+    image: "",
+    link: "",
+  },
+];
+
+// TESTIMONIALS — add only genuine reviews. Empty list shows placeholders.
+export const TESTIMONIALS: { name: string; business: string; review: string; photo?: string }[] = [];
+
+// PRICING — edit names, prices, and inclusions here.
+export const PLANS = [
+  {
+    name: "Foundation", price: "Starting at $245/month", tagline: "For businesses getting started online.",
+    items: ["Professional website foundation", "Basic SEO", "Google Business Profile support", "Basic social media content"],
+    cta: "Get Started", featured: false,
+  },
+  {
+    name: "Growth", price: "Custom Monthly Plan", tagline: "For businesses that want consistent online marketing.",
+    items: ["Website optimization", "Ongoing SEO", "Google Business management", "Social media content", "SEO content development", "Performance reporting"],
+    cta: "Discuss Your Marketing Needs", featured: true,
+  },
+  {
+    name: "Complete Digital Marketing", price: "Custom Quote", tagline: "For established businesses needing more comprehensive support.",
+    items: ["Expanded website development", "Advanced SEO", "Ongoing content strategy", "Google Business management", "Social media management", "Monthly performance reporting"],
+    cta: "Discuss Your Marketing Needs", featured: false,
+  },
+];
+
+export const HELP_OPTIONS = [
+  "New website", "Website redesign", "SEO", "Google Business Profile",
+  "Social media", "Branding / logo", "Not sure yet",
+];
