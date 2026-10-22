@@ -16,3 +16,4 @@
 - Keep homepage FAQ content and applicable marketing agreement conditions in the shared content model; render questions with the existing UI accordion to avoid duplicated content and controls.
 - Pre-bundle React entry points and the homepage Radix accordion in Vite alongside existing dependencies to prevent mid-session optimizer changes from mixing React instances.
 - Derive trusted clients and featured homepage work from shared portfolio flags, and render missing homepage media conditionally; this prevents owned projects or incomplete proof from being presented as external client evidence.
+- Keep supplied review transcriptions and original screenshot pointers together in the review content model, using the existing carousel with text/screenshot modes; this avoids duplicate testimonial sections and preserves source evidence.
