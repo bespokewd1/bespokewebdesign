@@ -51,7 +51,7 @@ function DigitalMarketing() {
         <div><span className="eyebrow">Paid search</span><h2 className="mt-3 text-4xl">Where Google Ads fits</h2><p className="mt-5 text-lg text-navy-muted">SEO builds your organic presence over time. Google Ads is paid visibility that can support a specific service, area or business goal.</p></div>
         <div className="space-y-6">
           <div><h3 className="text-xl">A clear target</h3><p className="mt-2 text-navy-muted">Choose the services, location and searches that matter to your business, then send visitors to a relevant page.</p></div>
-          <div><h3 className="text-xl">A separate advertising budget</h3><p className="mt-2 text-navy-muted">Ad spend is paid to Google and is not included in the monthly plans below. Campaign scope, budget and any management fees are agreed separately before starting.</p></div>
+          <div><h3 className="text-xl">A separate advertising budget</h3><p className="mt-2 text-navy-muted">Growth and Advanced include management of one Google Search campaign within the agreed scope. You choose your advertising budget and pay Google directly; ad spend is not included. Foundation campaign management and additional advertising work are quoted separately.</p></div>
           <div><h3 className="text-xl">Measure real inquiries</h3><p className="mt-2 text-navy-muted">Tracking calls and form submissions helps assess what the campaign is producing, not just how many people clicked. Costs and results vary; clicks do not guarantee customers.</p></div>
           <Button asChild variant="outline" className="btn btn-outline-light h-auto bg-transparent"><Link to="/contact" hash="review">Talk about Google Ads<ArrowRight /></Link></Button>
         </div>

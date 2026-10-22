@@ -94,7 +94,7 @@ function Home() {
 
     <section className="section scroll-mt-20" id="plans"><div className="container-site">
       <SectionHead eyebrow="Monthly digital marketing" title="Complete Marketing Support. One Manageable Monthly Investment." center text="Every business has different needs and budgets. Our monthly marketing plans bring together website development and ongoing digital marketing services, making it easier to build and maintain your online presence." />
-      <MarketingPlans showDescriptions />
+      <MarketingPlans />
       <p className="mt-4 text-center text-sm font-semibold">{MARKETING_AGREEMENT.minimumMonths}-month minimum agreement. Your website becomes yours after completing the agreement and required payments, subject to the website ownership terms in your contract.</p>
       <div className="mx-auto mt-10 max-w-2xl text-center"><h3 className="text-xl text-navy">Not Sure Which Plan Is Right for Your Business?</h3><p className="mt-3 text-muted-foreground">Let's take a look at your current online presence, business goals, and budget. We'll help you understand where to start and which services make sense for you.</p><div className="mt-5"><ReviewButton>Get a Free Marketing Review</ReviewButton></div></div>
     </div></section>

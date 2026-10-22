@@ -3,7 +3,7 @@ import { Check, ArrowUpRight } from "lucide-react";
 import { PLANS, PLAN_CURRENCY, PACKAGE_DETAILS } from "@/content/site";
 import { Button } from "@/components/ui/button";
 
-export function MarketingPlans({ showDescriptions = false }: { showDescriptions?: boolean }) {
+export function MarketingPlans() {
   return (
     <>
       <div className="mt-10 grid gap-5 lg:grid-cols-3">
