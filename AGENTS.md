@@ -14,3 +14,4 @@
 - Store imported brand media as Lovable Assets pointers; derive the public favicon from the same logo so branding remains consistent.
 - Reuse LeadForm with a discriminated review/consultation schema and insert-only Cloud inquiries; public visitors must never read, update or delete submitted contact details.
 - Keep homepage FAQ content and applicable marketing agreement conditions in the shared content model; render questions with the existing UI accordion to avoid duplicated content and controls.
+- Pre-bundle React entry points and the homepage Radix accordion in Vite alongside existing dependencies to prevent mid-session optimizer changes from mixing React instances.
