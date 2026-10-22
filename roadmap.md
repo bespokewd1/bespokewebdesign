@@ -1,5 +1,5 @@
 # Tasks
-- [ ] Link Google/Facebook review labels and add a mobile-friendly carousel with supplied text and original screenshots; verify both formats.
+- [x] Link Google/Facebook review labels and add a mobile-friendly carousel with supplied text and original screenshots; verify both formats.
 - [x] Apply the approved package-value content update and verify pricing, scope, FAQs and presentation without redesigning.
 - [x] Apply the latest homepage conversion brief, preserve design and form, and verify desktop/mobile flows.
 - [x] Refine Phase 1 homepage, service cards, trust, portfolio, about and monthly-plan explanation.
