@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { Menu, X, MapPin } from "lucide-react";
+import { Menu, X, MapPin, Facebook } from "lucide-react";
 import { NAV, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
@@ -77,7 +77,9 @@ export function Footer() {
         <div className="lg:col-span-2">
           <Logo light />
           <p className="mt-4 max-w-sm text-sm leading-relaxed">{SITE.description}</p>
+          <p className="mt-3 text-sm">Operated by {SITE.operator}.</p>
           <p className="mt-4 flex items-center gap-2 text-sm"><MapPin className="h-4 w-4 text-accent" /> {SITE.location}</p>
+          {SITE.social.map(s => <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm hover:text-navy-foreground"><Facebook className="h-4 w-4" aria-hidden="true" />{s.label}</a>)}
         </div>
         <FooterCol title="Services" links={[
           { label: "Digital Marketing & Plans", to: "/digital-marketing" },
@@ -104,7 +106,7 @@ export function Footer() {
         ]} />
       </div>
       <div className="border-t border-navy-soft">
-        <p className="container-site py-5 text-xs">© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+        <p className="container-site py-5 text-xs">© {new Date().getFullYear()} {SITE.operator}. All rights reserved.</p>
       </div>
       <div className="mobile-review-bar fixed inset-x-0 bottom-0 z-30 border-t bg-surface/95 px-5 pt-2 backdrop-blur lg:hidden">
         <Button asChild className="btn btn-primary h-auto w-full text-sm"><Link to="/contact" hash="review">Free Website Review</Link></Button>

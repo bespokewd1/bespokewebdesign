@@ -6,18 +6,19 @@ import { Button } from "@/components/ui/button";
 
 type Project = (typeof PROJECTS)[number];
 
-export function ProjectCard({ p, detailed = false }: { p: Project; detailed?: boolean }) {
+export function ProjectCard({ p, detailed = false, hideMissingImage = false }: { p: Project; detailed?: boolean; hideMissingImage?: boolean }) {
   return (
     <article id={p.name.toLowerCase().replaceAll(" ", "-")} className="card-site scroll-mt-24 flex flex-col !p-0 overflow-hidden">
       {p.image ? (
         <img src={p.image} alt={`${p.name} website screenshot`} loading="lazy" className="aspect-[16/10] w-full object-cover" />
-      ) : (
+      ) : !hideMissingImage ? (
         <Placeholder label={`Website screenshot — ${p.name}`} className="aspect-[16/10] !rounded-none !border-0 !border-b" />
-      )}
+      ) : null}
       <div className="flex flex-1 flex-col p-6">
         <span className="eyebrow">{p.industry}</span>
         <h3 className="mt-1 text-xl font-bold text-navy">{p.name}</h3>
         <p className="mt-3 text-sm text-muted-foreground">{p.description}</p>
+        {hideMissingImage && <h4 className="mt-5 text-sm text-navy">What We Delivered</h4>}
         <ul className="mt-4 flex flex-wrap gap-2">
           {p.services.map((s) => (
             <li key={s} className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-navy">{s}</li>
