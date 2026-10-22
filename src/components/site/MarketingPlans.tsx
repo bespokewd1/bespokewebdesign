@@ -15,7 +15,7 @@ export function MarketingPlans() {
             <ul className="mt-8 flex-1 space-y-4 border-t pt-6">
               {plan.items.map((item) => <li key={item} className="flex gap-3 text-sm"><Check className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />{item}</li>)}
             </ul>
-            <Button asChild className="btn btn-primary mt-8 h-auto whitespace-normal"><Link to="/contact" hash="review">{plan.cta}<ArrowUpRight className="h-4 w-4 shrink-0" /></Link></Button>
+             <Button asChild className="btn btn-primary mt-8 h-auto whitespace-normal"><Link to="/contact" hash="consultation">{plan.cta}<ArrowUpRight className="h-4 w-4 shrink-0" /></Link></Button>
           </article>
         ))}
       </div>

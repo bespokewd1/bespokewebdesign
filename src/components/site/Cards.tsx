@@ -1,12 +1,14 @@
 import { ExternalLink, Quote } from "lucide-react";
 import { PROJECTS, TESTIMONIALS } from "@/content/site";
 import { Placeholder } from "./Layout";
+import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 
 type Project = (typeof PROJECTS)[number];
 
 export function ProjectCard({ p, detailed = false }: { p: Project; detailed?: boolean }) {
   return (
-    <article className="card-site flex flex-col !p-0 overflow-hidden">
+    <article id={p.name.toLowerCase().replaceAll(" ", "-")} className="card-site scroll-mt-24 flex flex-col !p-0 overflow-hidden">
       {p.image ? (
         <img src={p.image} alt={`${p.name} website screenshot`} loading="lazy" className="aspect-[16/10] w-full object-cover" />
       ) : (
@@ -27,11 +29,11 @@ export function ProjectCard({ p, detailed = false }: { p: Project; detailed?: bo
         {detailed && p.outcomes && p.outcomes.length > 0 && (
           <ul className="mt-4 list-disc pl-5 text-sm">{p.outcomes.map((o) => <li key={o}>{o}</li>)}</ul>
         )}
-        {p.link && (
-          <a href={p.link} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-navy hover:text-accent">
-            Visit website <ExternalLink className="h-4 w-4" />
-          </a>
-        )}
+        <Button asChild variant="outline" className="btn btn-outline mt-6 h-auto self-start">
+          {p.link ? <a href={p.link} target="_blank" rel="noopener noreferrer">View Project <ExternalLink /></a>
+            : <Link to="/our-work" hash={p.name.toLowerCase().replaceAll(" ", "-")}>View Project <ExternalLink /></Link>}
+        </Button>
+        {detailed && !p.link && <p className="mt-3 text-xs text-muted-foreground">Live website link not yet provided.</p>}
       </div>
     </article>
   );
