@@ -168,25 +168,49 @@ export const FIRST_YEAR = [
 export const TESTIMONIALS: { name: string; business: string; review: string; photo?: string }[] = [];
 
 // PRICING — edit names, prices, and inclusions here.
+const PLAN_BRANDING = { title: "Branding", items: ["Custom logo design", "Branded social media themes"] };
+const PLAN_WEBSITE = { title: "Professional Website", items: ["100% custom-built professional website", "Mobile-friendly design", "Basic SEO setup"] };
+const CAMPAIGN_ITEMS = ["Setup and management of one active Google Search campaign", "One primary business service and agreed target area", "Basic keyword and negative keyword review", "Ad copy and budget-setting optimization", "Regular monitoring and a concise monthly performance summary"];
 export const PLANS = [
   {
-    name: "Starter", price: "$245/month", monthlyPrice: 245, socialPosts: 5, channels: null, seoLevel: "basic", tagline: "Build your business's online foundation.",
-    items: ["Branding", "Website", "Basic SEO", "5 social media posts per month"],
-    description: "Designed for newer businesses looking to establish a professional website and essential marketing presence.", cta: "Get Started", featured: false,
+    name: "Foundation", price: "$245/month", monthlyPrice: 245, socialPosts: 5, channels: 1, platforms: ["Facebook"], seoLevel: "basic", googleSearchCampaigns: 0, tagline: "Build Your Online Foundation",
+    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["5 Facebook posts per month", "Basic content planning", "Branded captions and graphics", "Scheduled publishing"] }, { title: "Google Ads", items: ["Not included — available as a separately quoted service"] }],
+    description: "Ideal for businesses looking to establish a professional online presence.", cta: "Get Started", featured: false,
   },
   {
-    name: "Entrepreneur", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, seoLevel: "basic", tagline: "Keep your business active across two channels.",
-    items: ["Branding", "Website", "Basic SEO", "10 social media posts per month", "2 social media channels"],
-    description: "For businesses ready to invest in more regular marketing content and a stronger presence across multiple channels.", cta: "Choose Entrepreneur", featured: true,
+    name: "Growth", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, platforms: ["Facebook", "Instagram"], seoLevel: "basic", googleSearchCampaigns: 1, tagline: "Grow Your Online Presence",
+    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["10 total posts per month across Facebook and Instagram", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project and promotional content"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS }],
+    description: "Ideal for businesses looking for consistent marketing across multiple channels, plus a focused Google Ads campaign.", cta: "Choose Growth", featured: true,
   },
   {
-    name: "Dominate", price: "$999/month", monthlyPrice: 999, socialPosts: 15, channels: 3, seoLevel: "advanced", tagline: "Expand your reach with more content and advanced SEO.",
-    items: ["Branding", "Website", "Advanced SEO", "15 social media posts per month", "3 social media channels"],
-    description: "For businesses seeking a broader marketing strategy, more content, and advanced SEO support.", cta: "Choose Dominate", featured: false,
+    name: "Advanced", price: "$999/month", monthlyPrice: 999, socialPosts: 15, channels: 3, platforms: ["Facebook", "Instagram", "TikTok"], seoLevel: "advanced", googleSearchCampaigns: 1, tagline: "Expand Your Marketing Reach",
+    groups: [PLAN_BRANDING, { title: "Professional Website", items: ["100% custom-built professional website", "Mobile-friendly design"] }, { title: "Advanced SEO", items: ["More comprehensive website SEO improvements", "Technical SEO and content optimization within the agreed scope", "Ongoing SEO strategy and recommendations"] }, { title: "Social Media Management", items: ["15 total posts per month across Facebook, Instagram, and TikTok", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project highlights, promotions, and events", "Content tailored to the relevant platforms"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS.map(item => item === "Basic keyword and negative keyword review" ? "Keyword and negative keyword review" : item) }],
+    description: "Ideal for businesses investing in more comprehensive SEO and wider digital marketing coverage.", cta: "Choose Advanced", featured: false,
   },
 ];
 
 export const PLAN_CURRENCY = "CAD";
+export const PACKAGE_DETAILS = {
+  posts: "Monthly social media posts are the total number of published posts across the platforms included in your package.",
+  postCounting: "For clarity, publishing the same content separately to Facebook and Instagram counts as two published posts.",
+  socialTitle: "Your Business. Your Photos. Your Story.",
+  socialIntro: "Your business has a story worth sharing. We create a personalized content plan around your services, completed projects, promotions, and upcoming events. Share photos or videos of your work, and we'll turn them into professional branded content that showcases your business and builds customer trust.",
+  socialSteps: [
+    { title: "We Plan", text: "A simple content plan based on your services, goals, and seasonal opportunities." },
+    { title: "You Share", text: "Photos or videos of your projects, team, products, events, or promotions, plus accurate business details." },
+    { title: "We Create", text: "Branded content, captions, and graphics using your materials." },
+    { title: "We Publish", text: "Scheduled posts on the platforms included in your package." },
+  ],
+  socialScope: "Promotions, seasonal services, company announcements, completed projects, events, and new products or services count toward your existing monthly allowance. We can help identify content ideas using supplied materials. TikTok depends on suitable client-supplied photos or videos. On-site photography, filming, advanced video production, and event attendance are not included unless separately agreed. Extra content requires a separate quote.",
+  adsTitle: "Google Ads Management — Without the Confusion",
+  adsIntro: "Growth and Advanced include setup and management of one active Google Search campaign for one primary service or campaign objective and one agreed geographic target area. We target relevant searches, review keywords and negative keywords, adjust ad copy and budget settings, monitor and optimize performance, and provide a concise monthly summary within the agreed scope.",
+  adsBudget: "Your monthly Bespoke package covers the included campaign management. It does not pay for your Google advertisements.",
+  adsPayment: "You choose your advertising budget and pay Google directly. We manage the agreed campaign on your behalf. Foundation Google Ads management is separately quoted.",
+  adsExtras: "Additional campaigns, multiple service-specific campaigns, complex account restructuring, advanced conversion-tracking installations, new landing pages, Display, Shopping or video campaigns, and professional ad video production are not automatically included and can be quoted separately.",
+  adsDifference: "Advanced offers more extensive SEO and social media services than Growth, not additional Google Ads campaigns. Google Ads is paid advertising; organic SEO focuses on unpaid search visibility. They can complement each other, but ads do not improve organic rankings, and advertising performance and rankings are not guaranteed.",
+  scope: "Every business is different. Your package includes an agreed scope of website development and monthly marketing services. Major website changes, additional campaigns, professional photo or video shoots, and work beyond the package are quoted separately.",
+  revisions: "Custom-built websites and logo design do not include unlimited pages or creative revisions. Deliverables and revisions are defined in your agreed scope; monthly post counts are fixed by your selected package.",
+};
 
 export const HELP_OPTIONS = [
   "New website", "Website redesign", "SEO", "Google Business Profile",
@@ -208,8 +232,10 @@ export function websiteOwnershipEligible(completedMonths: number, allRequiredPay
 export const HOME_FAQS = [
   { question: "Why choose an all-in-one digital marketing agency?", paragraphs: ["Your website, SEO, Google Business Profile, and social media work best when they support a coordinated strategy. With Bespoke, you have one marketing partner, consistent branding, and less time spent managing different providers."] },
   { question: "What makes Bespoke different?", paragraphs: ["We're an Edmonton-based business offering personal service, direct communication, and practical digital marketing for trades and service companies. We focus on long-term relationships rather than simply building a website and moving on."] },
-  { question: "What's included in my monthly marketing plan?", paragraphs: ["All our packages include a 100% custom-built professional website, basic SEO, and social media content to help establish and grow your online presence.", "For businesses looking for more competitive growth, our Dominate Package includes advanced SEO and a more comprehensive marketing strategy.", "Each package has clearly defined services and deliverables, so you know exactly what's included in your monthly investment."] },
+  { question: "What's included in my monthly marketing plan?", paragraphs: ["All packages include a 100% custom-built professional website, branding, SEO, and social media content.", "Growth adds broader social media coverage and one managed Google Search campaign. Advanced includes more comprehensive SEO, additional social media content, and one managed Google Search campaign.", "Each package has clearly defined services and deliverables, so you know what's included in your monthly investment."] },
   { question: "Why focus on organic SEO instead of Google Ads?", paragraphs: ["We prioritize building a strong website and improving organic online visibility over time. Google Ads can provide additional paid visibility, but the advertising budget is separate. Both approaches can complement each other when appropriate."] },
+  { question: "Is Google Ads advertising spend included?", paragraphs: ["No. Growth and Advanced include management of one Google Search campaign, but advertising expenditure is separate.", "You control your advertising budget and pay Google directly. We handle the agreed campaign management and optimization."] },
+  { question: "Do I need to provide photos for social media?", paragraphs: ["We recommend sharing real photos or videos of your business, services, projects, and events.", "This helps us create more authentic, personalized content rather than relying on generic graphics.", "We handle the content planning and preparation within your package, using the materials you provide."] },
   { question: "How long does SEO take to show results?", paragraphs: ["SEO is an ongoing process, and results vary based on your industry, competition, and website condition. We focus on consistent improvements rather than promising specific rankings or timelines."] },
   { question: `Why is there a ${MARKETING_AGREEMENT.minimumMonths}-month minimum agreement?`, paragraphs: ["Building and maintaining an online presence takes ongoing work. The agreement provides time to establish your website and deliver the marketing services included in your selected package through manageable monthly payments."] },
   { question: `Will I own my website after ${MARKETING_AGREEMENT.ownershipTransferMonths} months?`, paragraphs: [`Yes. Once you complete the ${MARKETING_AGREEMENT.ownershipTransferMonths}-month agreement and all required payments, the completed website becomes yours under the ownership terms of your contract. Hosting, maintenance, domains, and transferable assets are governed by the agreement.`] },
