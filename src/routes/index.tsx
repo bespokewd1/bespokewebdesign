@@ -37,10 +37,10 @@ function Home() {
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-muted">We help Edmonton trades and service businesses build a professional online presence through custom websites, local SEO, Google Business Profile management, branding, and social media—all handled by one trusted marketing partner.</p>
         <p className="mt-4 font-semibold">We handle your marketing. You focus on running your business.</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ReviewButton /><Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><Link to="/our-work">{CTA_SECONDARY}</Link></Button></div>
-        <div aria-label="Five-star customer reviews" className="mt-5 flex items-center gap-3 sm:gap-6">
+        <div aria-label="Five-star customer reviews" className="mt-5 flex items-center gap-2 sm:gap-6">
           {REVIEW_PROOF.map(review => <div key={review.platform} aria-label={`5-star reviews on ${review.platform}`} className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-            <span aria-hidden="true" className="flex gap-0.5 text-review-gold">{Array.from({ length: review.stars }, (_, i) => <Star key={i} className="size-2.5 fill-current sm:size-3.5" strokeWidth={1.5} />)}</span>
-            <span className="whitespace-nowrap text-[11px] font-medium text-navy-foreground sm:text-sm">{review.platform} Reviews</span>
+            <span aria-hidden="true" className="flex gap-0.5 text-review-gold">{Array.from({ length: review.stars }, (_, i) => <Star key={i} className="size-2 fill-current min-[375px]:size-2.5 sm:size-3.5" strokeWidth={1.5} />)}</span>
+            <span className="whitespace-nowrap text-[10px] font-medium text-navy-foreground min-[375px]:text-[11px] sm:text-sm">{review.platform} Reviews</span>
           </div>)}
         </div>
         <p className="mt-5 text-sm text-navy-muted">Edmonton-based. Personal service. Real client work.</p>
