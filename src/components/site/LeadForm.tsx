@@ -61,8 +61,8 @@ export function LeadForm({ submitLabel, kind = "review" }: { submitLabel?: strin
       {errors[choiceName] && <p id={`${kind}-${choiceName}-error`} className="mt-1 text-sm text-destructive">{errors[choiceName]}</p>}
     </div>
     <div><label htmlFor={`${kind}-message`} className="mb-1.5 block text-sm font-semibold text-navy">{kind === "review" ? "Main marketing challenge" : "Message (optional)"}</label>
-      <textarea id={`${kind}-message`} name="message" rows={3} maxLength={1500} required={kind === "review"} className="field" aria-invalid={!!errors.message} aria-describedby={errors.message ? `${kind}-message-error` : undefined} />
-      {errors.message && <p id={`${kind}-message-error`} className="mt-1 text-sm text-destructive">{errors.message}</p>}
+      <textarea id={`${kind}-message`} name="message" rows={3} maxLength={1500} required={kind === "review"} className="field" aria-invalid={!!errors['message']} aria-describedby={errors['message'] ? `${kind}-message-error` : undefined} />
+      {errors['message'] && <p id={`${kind}-message-error`} className="mt-1 text-sm text-destructive">{errors['message']}</p>}
     </div>
     <div className="hidden" aria-hidden="true"><label>Leave empty<input name="company_url" tabIndex={-1} autoComplete="off" /></label></div>
     <p className="text-xs text-muted-foreground">We use your details to respond to your inquiry. <Link to="/privacy" className="underline">Privacy policy</Link></p>
