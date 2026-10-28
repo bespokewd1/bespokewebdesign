@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { Menu, ChevronDown, MapPin, Facebook } from "lucide-react";
-import { NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
+import { MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
 
@@ -21,31 +21,15 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
-  useEffect(() => {
-    const query = window.matchMedia("(min-width: 1024px)");
-    const closeOnDesktop = () => { if (query.matches) setOpen(false); };
-    query.addEventListener("change", closeOnDesktop);
-    return () => query.removeEventListener("change", closeOnDesktop);
-  }, []);
   const active = (to: string, hash?: string) => location.pathname === to && location.hash === (hash || "");
   const menuLinkClass = "flex min-h-11 min-w-0 items-center border-b px-3 py-3 text-base font-semibold text-navy hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring";
   return (
     <header className="sticky top-0 z-40 border-b bg-surface/95 backdrop-blur">
-      <div className="container-site grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-2 lg:flex lg:justify-between lg:gap-4">
+      <div className="container-site grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
         <Logo />
-        <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Main">
-          {NAV.map((n) => (
-            <Link key={n.to} to={n.to} className="whitespace-nowrap text-sm font-semibold text-foreground hover:text-navy"
-              activeProps={{ className: "text-navy underline decoration-accent decoration-2 underline-offset-8" }}
-              activeOptions={{ exact: true }}>
-              {n.label}
-            </Link>
-          ))}
-        </nav>
         <div className="flex items-center gap-2">
-          <Button asChild className="btn btn-primary hidden h-auto !px-4 !py-2.5 text-sm xl:inline-flex"><Link to="/contact" hash="review">{CTA_PRIMARY}</Link></Button>
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild><Button variant="ghost" className="h-11 shrink-0 gap-1.5 px-2 text-navy lg:hidden" aria-label="Open menu"><Menu className="size-5" /><span>Menu</span></Button></SheetTrigger>
+            <SheetTrigger asChild><Button variant="ghost" className="h-11 shrink-0 gap-1.5 px-2 text-navy" aria-label="Open menu"><Menu className="size-5" /><span>Menu</span></Button></SheetTrigger>
             <SheetContent side="right" aria-describedby={undefined} className="mobile-navigation flex h-dvh w-[90%] max-w-sm flex-col gap-0 bg-surface p-0 pt-16 data-[state=open]:duration-200 data-[state=closed]:duration-200 motion-reduce:animate-none motion-reduce:transition-none">
               <SheetTitle className="sr-only">Bespoke Web Design navigation</SheetTitle>
               <nav aria-label="Mobile" className="min-h-0 flex-1 overflow-y-auto px-4 pb-6">
