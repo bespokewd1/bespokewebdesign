@@ -15,7 +15,7 @@ export default defineConfig({
   // Pre-bundle these so Vite doesn't re-optimize mid-session (which caused a duplicate-React crash).
   vite: {
     optimizeDeps: {
-      include: ["react", "react-dom/client", "react/jsx-runtime", "@radix-ui/react-accordion", "lucide-react", "zod"],
+      include: ["react", "react-dom/client", "react/jsx-runtime", "@radix-ui/react-accordion", "@radix-ui/react-dialog", "lucide-react", "zod"],
     },
   },
 });

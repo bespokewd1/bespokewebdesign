@@ -1,9 +1,12 @@
-import { Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
-import { Menu, X, MapPin, Facebook } from "lucide-react";
-import { NAV, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
+import { Link, useLocation } from "@tanstack/react-router";
+import { useEffect, useState, type ReactNode } from "react";
+import { Menu, ChevronDown, MapPin, Facebook } from "lucide-react";
+import { NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
+
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { WhatsAppContact } from "@/components/site/WhatsAppContact";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
@@ -16,9 +19,19 @@ export function Logo({ light = false }: { light?: boolean }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const location = useLocation();
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => { if (query.matches) setOpen(false); };
+    query.addEventListener("change", closeOnDesktop);
+    return () => query.removeEventListener("change", closeOnDesktop);
+  }, []);
+  const active = (to: string, hash?: string) => location.pathname === to && location.hash === (hash || "");
+  const menuLinkClass = "flex min-h-11 min-w-0 items-center border-b px-3 py-3 text-base font-semibold text-navy hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring";
   return (
     <header className="sticky top-0 z-40 border-b bg-surface/95 backdrop-blur">
-      <div className="container-site flex h-16 items-center justify-between gap-4">
+      <div className="container-site grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-2 lg:flex lg:justify-between lg:gap-4">
         <Logo />
         <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Main">
           {NAV.map((n) => (
@@ -31,26 +44,23 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild className="btn btn-primary hidden h-auto !px-4 !py-2.5 text-sm xl:inline-flex"><Link to="/contact" hash="review">{CTA_PRIMARY}</Link></Button>
-          <Button variant="ghost" size="icon" className="text-navy lg:hidden" onClick={() => setOpen(!open)}
-            aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild><Button variant="ghost" className="h-11 shrink-0 gap-1.5 px-2 text-navy lg:hidden" aria-label="Open menu"><Menu className="size-5" /><span>Menu</span></Button></SheetTrigger>
+            <SheetContent side="right" aria-describedby={undefined} className="mobile-navigation flex h-dvh w-[90%] max-w-sm flex-col gap-0 bg-surface p-0 pt-16 data-[state=open]:duration-200 data-[state=closed]:duration-200 motion-reduce:animate-none motion-reduce:transition-none">
+              <SheetTitle className="sr-only">Bespoke Web Design navigation</SheetTitle>
+              <nav aria-label="Mobile" className="min-h-0 flex-1 overflow-y-auto px-4 pb-6">
+                <Link to="/" onClick={() => setOpen(false)} aria-current={active("/") ? "page" : undefined} className={`${menuLinkClass} ${active("/") ? "bg-muted text-accent" : ""}`}>Home</Link>
+                <Button variant="ghost" className="h-auto min-h-11 w-full justify-between rounded-none border-b px-3 py-3 text-base font-semibold text-navy" onClick={() => setServicesOpen(!servicesOpen)} aria-expanded={servicesOpen} aria-controls="mobile-services">Services<ChevronDown className={`size-5 shrink-0 transition-transform motion-reduce:transition-none ${servicesOpen ? "rotate-180" : ""}`} /></Button>
+                <div id="mobile-services" hidden={!servicesOpen} className="border-l-2 border-accent pl-2">
+                  {MOBILE_SERVICES.map(n => { const hash = "hash" in n ? n.hash : ""; return <Link key={n.label} to={n.to} hash={hash} onClick={() => setOpen(false)} aria-current={active(n.to, hash) ? "page" : undefined} className={`${menuLinkClass} font-normal ${active(n.to, hash) ? "bg-muted text-accent" : ""}`}>{n.label}</Link>; })}
+                </div>
+                {MOBILE_NAV.map(n => { const hash = "hash" in n ? n.hash : ""; return <Link key={n.label} to={n.to} hash={hash} onClick={() => setOpen(false)} aria-current={active(n.to, hash) ? "page" : undefined} className={`${menuLinkClass} ${active(n.to, hash) ? "bg-muted text-accent" : ""}`}>{n.label}</Link>; })}
+                <div className="mt-6"><Button asChild className="btn btn-primary h-auto w-full whitespace-normal"><Link to="/contact" hash="review" onClick={() => setOpen(false)}>{CTA_PRIMARY}</Link></Button><p className="mt-3 text-sm leading-relaxed text-muted-foreground">A preliminary review of your online presence. No obligation.</p></div>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-      {open && (
-        <nav className="border-t bg-surface lg:hidden" aria-label="Mobile">
-          <div className="container-site flex flex-col py-3">
-            {NAV.map((n) => (
-              <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="border-b py-3 font-semibold text-navy last:border-0">
-                {n.label}
-              </Link>
-            ))}
-            <Link to="/website-design" onClick={() => setOpen(false)} className="border-b py-3 font-semibold text-navy">Website Design</Link>
-            <Link to="/seo" onClick={() => setOpen(false)} className="py-3 font-semibold text-navy">SEO & Google Marketing</Link>
-            <Link to="/contact" hash="review" onClick={() => setOpen(false)} className="btn btn-primary mt-3">{CTA_PRIMARY}</Link>
-          </div>
-        </nav>
-      )}
     </header>
   );
 }
@@ -112,6 +122,7 @@ export function Footer() {
       <div className="mobile-review-bar fixed inset-x-0 bottom-0 z-30 border-t bg-surface/95 px-5 pt-2 backdrop-blur lg:hidden">
         <Button asChild className="btn btn-primary h-auto w-full text-sm"><Link to="/contact" hash="review">Free Website Review</Link></Button>
       </div>
+      <WhatsAppContact />
     </footer>
   );
 }

@@ -1,4 +1,7 @@
 # Tasks
+- [x] Simplify mobile navigation, improve review CTAs and service clarity, preserve existing content and verify mobile/desktop destinations.
+- [x] Add and test a hidden-until-configured WhatsApp contact option.
+- [ ] Enable WhatsApp after the owner supplies a verified business number; the contact button remains hidden until then.
 - [x] Add a dedicated Client Reviews page with separate Google and Facebook screenshot galleries and verify desktop and mobile.
 - [x] Link Google/Facebook review labels and add a mobile-friendly carousel with supplied text and original screenshots; verify both formats.
 - [x] Apply the approved package-value content update and verify pricing, scope, FAQs and presentation without redesigning.

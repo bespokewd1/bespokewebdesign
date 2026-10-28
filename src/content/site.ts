@@ -14,6 +14,8 @@ export const SITE = {
   // TODO: add real contact details. Empty values show a "coming soon" placeholder.
   email: "",
   phone: "",
+  // International digits only; leave empty until a verified WhatsApp business number is supplied.
+  whatsappNumber: "",
   // Only add verified profile URLs.
   social: [{ label: "Facebook", href: "https://www.facebook.com/bespokewebdesignEdmonton/" }] as { label: string; href: string }[],
   description:
@@ -32,16 +34,33 @@ export const NAV = [
   { to: "/contact", label: "About & Contact" },
 ] as const;
 
+export const MOBILE_SERVICES = [
+  { label: "All Services", to: "/services" },
+  { label: "Website Design", to: "/website-design" },
+  { label: "Google & SEO", to: "/seo" },
+  { label: "Social Media Marketing", to: "/services", hash: "social-media" },
+  { label: "Branding & Design", to: "/services", hash: "branding" },
+  { label: "Google Ads Management", to: "/digital-marketing", hash: "google-ads" },
+] as const;
+
+export const MOBILE_NAV = [
+  { label: "Our Work", to: "/our-work" },
+  { label: "Industries", to: "/industries" },
+  { label: "Pricing", to: "/", hash: "plans" },
+  { label: "About Us", to: "/contact" },
+  { label: "Contact", to: "/contact", hash: "review" },
+] as const;
+
 export type IconName =
   | "palette" | "monitor" | "map" | "share" | "search" | "wrench"
   | "droplet" | "zap" | "hardhat" | "hammer" | "truck" | "store";
 
 export const HOME_SERVICES: { icon: IconName; title: string; text: string; id: string }[] = [
-  { icon: "palette", title: "Branding & Identity", id: "branding", text: "Build a professional, consistent business identity that customers recognize and remember." },
-  { icon: "monitor", title: "Website Design & Development", id: "website-development", text: "Mobile-friendly websites that explain your services clearly, establish credibility, and make contacting your business easy." },
-  { icon: "map", title: "Google Business Profile & Local SEO", id: "google-business", text: "Improve your local business information and online presence so potential customers can find and learn about your services." },
-  { icon: "search", title: "SEO & Content Marketing", id: "seo", text: "Strengthen your website through technical improvements, relevant content, and ongoing optimization." },
-  { icon: "share", title: "Social Media Marketing", id: "social-media", text: "Keep your business active online with professional content that showcases your work and reinforces customer trust." },
+  { icon: "monitor", title: "Website Design", id: "website-development", text: "Professional, mobile-friendly websites that make it easy for customers to trust and contact your business." },
+  { icon: "map", title: "Google & SEO", id: "seo", text: "Help potential customers discover your business through Google Search and Google Maps." },
+  { icon: "share", title: "Social Media Marketing", id: "social-media", text: "Stay visible, share your work, and build relationships with customers through consistent social media content." },
+  { icon: "palette", title: "Branding & Design", id: "branding", text: "Create a professional, recognizable business identity across your website and marketing materials." },
+  { icon: "search", title: "Google Ads Management", id: "google-ads", text: "Reach potential customers actively searching for your services with professionally managed advertising campaigns." },
 ];
 
 export const SERVICES: {
@@ -179,17 +198,17 @@ export const PLANS = [
   {
     name: "Foundation", price: "$245/month", monthlyPrice: 245, socialPosts: 5, channels: 1, platforms: ["Facebook"], seoLevel: "basic", googleSearchCampaigns: 0, tagline: "Build Your Online Foundation",
     groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["5 Facebook posts per month", "Basic content planning", "Branded captions and graphics", "Scheduled publishing"] }, { title: "Google Ads", items: ["Not included — available as a separately quoted service"] }],
-    description: "Ideal for businesses looking to establish a professional online presence.", cta: "Get Started", featured: false,
+    description: "Ideal for businesses looking to establish a professional online presence.", cta: "Request a Quote", featured: false,
   },
   {
     name: "Growth", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, platforms: ["Facebook", "Instagram"], seoLevel: "basic", googleSearchCampaigns: 1, tagline: "Grow Your Online Presence",
     groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["10 total posts per month across Facebook and Instagram", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project and promotional content"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS }],
-    description: "Ideal for businesses looking for consistent marketing across multiple channels, plus a focused Google Ads campaign.", cta: "Choose Growth", featured: true,
+    description: "Ideal for businesses looking for consistent marketing across multiple channels, plus a focused Google Ads campaign.", cta: "Request a Quote", featured: true,
   },
   {
     name: "Advanced", price: "$999/month", monthlyPrice: 999, socialPosts: 15, channels: 3, platforms: ["Facebook", "Instagram", "TikTok"], seoLevel: "advanced", googleSearchCampaigns: 1, tagline: "Expand Your Marketing Reach",
     groups: [PLAN_BRANDING, { title: "Professional Website", items: ["100% custom-built professional website", "Mobile-friendly design"] }, { title: "Advanced SEO", items: ["More comprehensive website SEO improvements", "Technical SEO and content optimization within the agreed scope", "Ongoing SEO strategy and recommendations"] }, { title: "Social Media Management", items: ["15 total posts per month across Facebook, Instagram, and TikTok", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project highlights, promotions, and events", "Content tailored to the relevant platforms"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS.map(item => item === "Basic keyword and negative keyword review" ? "Keyword and negative keyword review" : item) }],
-    description: "Ideal for businesses investing in more comprehensive SEO and wider digital marketing coverage.", cta: "Choose Advanced", featured: false,
+    description: "Ideal for businesses investing in more comprehensive SEO and wider digital marketing coverage.", cta: "Request a Quote", featured: false,
   },
 ];
 
