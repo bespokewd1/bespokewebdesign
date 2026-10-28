@@ -19,7 +19,7 @@ export const SITE = {
   // Only add verified profile URLs.
   social: [{ label: "Facebook", href: "https://www.facebook.com/bespokewebdesignEdmonton/" }] as { label: string; href: string }[],
   description:
-    "Complete digital marketing for Edmonton and Alberta trades and service businesses. From professional websites and local SEO to Google Business Profile management, branding, and social media—we bring your online marketing together under one trusted partner.",
+    "Complete digital marketing for Edmonton and Alberta trades and service businesses.\u00a0\n\n\nFrom professional websites and local SEO to Google Business Profile management, branding, and social media—we bring your online marketing together under one trusted partner.",
 };
 
 export const CTA_PRIMARY = "Get a Free Website Review";
