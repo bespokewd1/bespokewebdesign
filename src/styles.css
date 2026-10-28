@@ -185,10 +185,9 @@
 .hero-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .hero-photo::before { content: ""; position: absolute; inset: 0; background: var(--hero-shade); z-index: -1; }
 .mobile-review-bar { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
-.whatsapp-contact { right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); }
 /* The review bar is pinned to the bottom of every screen size, so the page always
    leaves room for it and the WhatsApp button always sits above it. */
-.whatsapp-contact { bottom: calc(5.25rem + env(safe-area-inset-bottom)); }
+.whatsapp-contact { right: max(1rem, env(safe-area-inset-right)); bottom: calc(5.25rem + env(safe-area-inset-bottom)); }
 body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
 @media (max-width: 1023px) {
   header .brand-name { font-size: 16px; }
@@ -198,7 +197,6 @@ body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
   header img { width: 28px; height: 28px; }
 }
 .mobile-navigation { padding-bottom: env(safe-area-inset-bottom); }
-@media (max-width: 1023px) { body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); } }
 @media (max-width: 639px) { .hero-photo h1 { font-size: 2rem; } .hero-photo .container-site { padding-block: 2rem; } }
 @media (max-width: 359px) { .brand-name { font-size: 16px; } .container-site { padding-inline: 0.75rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
