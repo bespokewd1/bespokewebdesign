@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { Menu, ChevronDown, MapPin, Facebook } from "lucide-react";
-import { NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
+import { MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
 
