@@ -52,6 +52,21 @@ function Home() {
       {[{ icon: TrendingUp, title: "More Visibility", text: "Help local customers find your business." }, { icon: Phone, title: "Better Connections", text: "Make it easier for customers to get in touch." }, { icon: Users, title: "Less Stress", text: "One partner to coordinate your marketing." }].map(benefit => <div key={benefit.title} className="home-benefit min-w-0 px-2 md:px-6"><benefit.icon className="mb-2 size-6 text-accent md:size-8" aria-hidden="true" /><div className="min-w-0"><p className="text-sm font-bold text-navy md:text-base">{benefit.title}</p><p className="mt-1 text-xs leading-relaxed text-muted-foreground md:text-sm">{benefit.text}</p></div></div>)}
     </div></section>
 
+    <section className="section home-services bg-background"><div className="container-site">
+      <SectionHead eyebrow="How we help" title="Complete Digital Marketing for Service Businesses." text="Your website, branding, Google presence, SEO, and social media — connected through one coordinated strategy." />
+      <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">{HOME_SERVICES.map(s => <article key={s.id} className="card-site home-service flex min-w-0 flex-col"><Icon name={s.icon} className="size-8 text-accent" /><h3 className="mt-4 text-base leading-tight text-navy">{s.title}</h3><p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.text}</p><Button asChild variant="link" className="mt-4 min-h-11 justify-start self-start p-0"><Link aria-label={`Learn more about ${s.title}`} to={s.id === "website-development" ? "/website-design" : s.id === "seo" ? "/seo" : s.id === "google-ads" ? "/digital-marketing" : "/services"} {...(s.id === "branding" || s.id === "social-media" || s.id === "google-ads" ? { hash: s.id } : {})}><ArrowRight /></Link></Button></article>)}</div>
+      <h3 className="mt-8 text-xl text-navy">One Partner. One Connected Marketing Strategy.</h3><p className="mt-3 max-w-3xl text-muted-foreground">Instead of managing separate providers, you have one team coordinating your online marketing around your business goals.</p>
+      <Button asChild variant="link" className="mt-4 h-auto whitespace-normal p-0"><Link to="/digital-marketing">Explore Our Digital Marketing Services <ArrowRight /></Link></Button>
+    </div></section>
+
+    <section className="section home-partner bg-navy text-navy-foreground" id="why-bespoke"><div className={`container-site grid items-center gap-10 ${HOME_MEDIA.ownerPhoto ? "lg:grid-cols-2" : ""}`}>
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]"><div><span className="eyebrow">Why partner with us?</span><h2 className="mt-3 text-3xl leading-tight md:text-4xl">A Marketing Partner That Gets It.</h2><p className="mt-4 text-sm leading-relaxed text-navy-muted">Personal support, practical strategy, and an understanding of what Edmonton trades and service businesses need.</p></div>
+        <div className="grid gap-5 sm:grid-cols-2">{WHY.map(w => <div key={w.title} className="grid grid-cols-[auto_minmax(0,1fr)] gap-3"><span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><w.icon className="size-5" aria-hidden="true" /></span><div><h3 className="text-base normal-case not-italic">{w.title}</h3><p className="mt-2 text-sm leading-relaxed text-navy-muted">{w.text}</p></div></div>)}</div>
+      </div>
+      {HOME_MEDIA.ownerPhoto && <img src={HOME_MEDIA.ownerPhoto} alt="Bespoke Web Design owner" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />}
+    </div></section>
+
+
     <section className="border-y bg-surface py-8" aria-labelledby="trusted-heading">
       <div className="container-site">
         <h2 id="trusted-heading" className="text-xl text-navy">Trusted by Local Businesses</h2>
@@ -77,20 +92,6 @@ function Home() {
       <SectionHead eyebrow="Our work" title="Real Businesses. Real Projects." text="Every business has different goals. Take a look at how we help clients establish a professional online presence through thoughtful website development and digital marketing." />
       <div className="mt-10 grid gap-6 md:grid-cols-2">{FEATURED_PROJECTS.map(p => <ProjectCard key={p.name} p={p} hideMissingImage />)}</div>
       <div className="mt-8"><Button asChild variant="outline" className="btn btn-outline h-auto"><Link to="/our-work">View All Our Work <ArrowRight /></Link></Button></div>
-    </div></section>
-
-    <section className="section home-services bg-background"><div className="container-site">
-      <SectionHead eyebrow="How we help" title="Complete Digital Marketing for Service Businesses." text="Your website, branding, Google presence, SEO, and social media — connected through one coordinated strategy." />
-      <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">{HOME_SERVICES.map(s => <article key={s.id} className="card-site home-service flex min-w-0 flex-col"><Icon name={s.icon} className="size-8 text-accent" /><h3 className="mt-4 text-base leading-tight text-navy">{s.title}</h3><p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.text}</p><Button asChild variant="link" className="mt-4 min-h-11 justify-start self-start p-0"><Link aria-label={`Learn more about ${s.title}`} to={s.id === "website-development" ? "/website-design" : s.id === "seo" ? "/seo" : s.id === "google-ads" ? "/digital-marketing" : "/services"} {...(s.id === "branding" || s.id === "social-media" || s.id === "google-ads" ? { hash: s.id } : {})}><ArrowRight /></Link></Button></article>)}</div>
-      <h3 className="mt-8 text-xl text-navy">One Partner. One Connected Marketing Strategy.</h3><p className="mt-3 max-w-3xl text-muted-foreground">Instead of managing separate providers, you have one team coordinating your online marketing around your business goals.</p>
-      <Button asChild variant="link" className="mt-4 h-auto whitespace-normal p-0"><Link to="/digital-marketing">Explore Our Digital Marketing Services <ArrowRight /></Link></Button>
-    </div></section>
-
-    <section className="section home-partner bg-navy text-navy-foreground" id="why-bespoke"><div className={`container-site grid items-center gap-10 ${HOME_MEDIA.ownerPhoto ? "lg:grid-cols-2" : ""}`}>
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]"><div><span className="eyebrow">Why partner with us?</span><h2 className="mt-3 text-3xl leading-tight md:text-4xl">A Marketing Partner That Gets It.</h2><p className="mt-4 text-sm leading-relaxed text-navy-muted">Personal support, practical strategy, and an understanding of what Edmonton trades and service businesses need.</p></div>
-        <div className="grid gap-5 sm:grid-cols-2">{WHY.map(w => <div key={w.title} className="grid grid-cols-[auto_minmax(0,1fr)] gap-3"><span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><w.icon className="size-5" aria-hidden="true" /></span><div><h3 className="text-base normal-case not-italic">{w.title}</h3><p className="mt-2 text-sm leading-relaxed text-navy-muted">{w.text}</p></div></div>)}</div>
-      </div>
-      {HOME_MEDIA.ownerPhoto && <img src={HOME_MEDIA.ownerPhoto} alt="Bespoke Web Design owner" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />}
     </div></section>
 
     <section className="section border-y bg-surface"><div className="container-site">
