@@ -19,3 +19,4 @@
 - Keep supplied review transcriptions and original screenshot pointers together in the review content model, split into Google and Facebook collections rendered by the homepage carousel and the /testimonials galleries; this avoids duplicate testimonial sections and preserves source evidence.
 - Keep mobile destinations in shared navigation data and use the existing modal Sheet for focus trapping, Escape/outside dismissal and scroll locking; desktop navigation stays independent.
 - Gate the reusable WhatsApp contact link on a verified international number from shared site configuration; an absent or invalid number must not render a contact button.
+- Scope reference-inspired homepage styling to home-specific classes and reuse existing photo, service content and review data so other pages and verified business facts remain unchanged.
