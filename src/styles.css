@@ -215,6 +215,9 @@ body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
   .home-hero > img { object-position: 65% center; }
   .home-hero::before { background: var(--hero-shade); }
   .home-hero .container-site { padding-block: 2.25rem; }
+  .home-hero h1 { font-size: 1.75rem; }
+  .home-hero p { font-size: 0.875rem; line-height: 1.6; }
+  .home-hero p:last-child { margin-top: 0.5rem; font-size: 0.75rem; }
   .home-service:last-child { grid-column: 1 / -1; }
   .home-service h3 { overflow-wrap: anywhere; }
 }
