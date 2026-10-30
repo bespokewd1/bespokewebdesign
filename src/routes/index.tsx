@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck, Star } from "lucide-react";
+import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck, Star, Phone, Users } from "lucide-react";
 import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, TRUSTED_CLIENTS, FEATURED_PROJECTS, HOME_MEDIA, FIRST_YEAR, SITE, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
-import { IconBadge } from "@/components/site/Icon";
+import { Icon } from "@/components/site/Icon";
 import { ProjectCard } from "@/components/site/Cards";
 import { ReviewCarousel } from "@/components/site/ReviewCarousel";
 import { LeadForm } from "@/components/site/LeadForm";
@@ -15,7 +15,7 @@ import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
 export const Route = createFileRoute("/")({
   head: () => {
     const head = pageHead({ path: "/", title: "Bespoke Web Design | Edmonton Digital Marketing Agency", description: "Done-for-you digital marketing for Edmonton businesses. Custom websites, local SEO, Google Business Profile management, branding, and social media." });
-    return { ...head, meta: [...head.meta, { property: "og:image", content: heroAsset.url }, { name: "twitter:image", content: heroAsset.url }] };
+    return head;
   },
   component: Home,
 });
@@ -29,15 +29,15 @@ function ReviewButton({ children = "Get a Free Website Review" }: { children?: R
   return <Button asChild className="btn btn-primary h-auto whitespace-normal"><Link to="/" hash="review">{children}<ArrowRight className="shrink-0" /></Link></Button>;
 }
 function Home() {
-  return <>
-    <section className="hero-photo overflow-hidden">
+  return <div className="home-page">
+    <section className="hero-photo home-hero overflow-hidden">
       <img src={heroAsset.url} alt="" fetchPriority="high" />
-      <div className="container-site py-14 md:py-20">
+      <div className="container-site py-12 md:py-20">
         <span className="eyebrow">Edmonton Digital Marketing for Trades &amp; Service Businesses</span>
-        <h1 className="mt-4 max-w-4xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Get Found Online.<br />Build Trust. Grow Your Business.</h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy-muted">We help small businesses build a stronger online presence through professional websites, Google visibility, SEO, and social media — all managed in one place.</p>
+        <h1 className="mt-4 max-w-2xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Get Found Online.<br />Build Trust.<br /><span className="text-hero-accent">Grow Your Business.</span></h1>
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-navy-muted sm:text-lg">We help small businesses build a stronger online presence through professional websites, Google visibility, SEO, and social media — all managed in one place.</p>
         <p className="mt-4 font-semibold">We handle your marketing. You focus on running your business.</p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ReviewButton /><Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><Link to="/our-work">{CTA_SECONDARY}</Link></Button></div>
+        <div className="home-hero-actions mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton /><Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><Link to="/our-work">{CTA_SECONDARY}</Link></Button></div>
         <div aria-label="Five-star customer reviews" className="mt-5 flex items-center gap-1 min-[375px]:gap-2 sm:gap-6">
           {REVIEW_PROOF.map(review => <a key={review.platform} href={REVIEW_LINKS[review.platform]} target="_blank" rel="noopener noreferrer" aria-label={`5-star reviews on ${review.platform}`} className="flex min-h-11 shrink-0 items-center gap-1 min-[375px]:gap-1.5 sm:gap-2 hover:underline focus-visible:outline-2 focus-visible:outline-ring">
             <span aria-hidden="true" className="flex gap-px min-[375px]:gap-0.5 text-review-gold">{Array.from({ length: review.stars }, (_, i) => <Star key={i} className="size-2 fill-current min-[375px]:size-2.5 sm:size-3.5" strokeWidth={1.5} />)}</span>
@@ -47,6 +47,25 @@ function Home() {
         <p className="mt-5 text-sm text-navy-muted">Edmonton-based. Personal service. Real client work.</p>
       </div>
     </section>
+
+    <section className="home-benefits border-b bg-surface" aria-label="Your marketing priorities"><div className="container-site grid grid-cols-3 py-5 md:py-7">
+      {[{ icon: TrendingUp, title: "More Visibility", text: "Help local customers find your business." }, { icon: Phone, title: "Better Connections", text: "Make it easier for customers to get in touch." }, { icon: Users, title: "Less Stress", text: "One partner to coordinate your marketing." }].map(benefit => <div key={benefit.title} className="home-benefit min-w-0 px-2 md:px-6"><benefit.icon className="mb-2 size-6 text-accent md:size-8" aria-hidden="true" /><div className="min-w-0"><p className="text-sm font-bold text-navy md:text-base">{benefit.title}</p><p className="mt-1 text-xs leading-relaxed text-muted-foreground md:text-sm">{benefit.text}</p></div></div>)}
+    </div></section>
+
+    <section className="section home-services bg-background"><div className="container-site">
+      <SectionHead eyebrow="How we help" title="Complete Digital Marketing for Service Businesses." text="Your website, branding, Google presence, SEO, and social media — connected through one coordinated strategy." />
+      <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">{HOME_SERVICES.map(s => <article key={s.id} className="card-site home-service flex min-w-0 flex-col"><Icon name={s.icon} className="size-8 text-accent" /><h3 className="mt-4 text-base leading-tight text-navy">{s.title}</h3><p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.text}</p><Button asChild variant="link" className="mt-4 min-h-11 justify-start self-start p-0"><Link aria-label={`Learn more about ${s.title}`} to={s.id === "website-development" ? "/website-design" : s.id === "seo" ? "/seo" : s.id === "google-ads" ? "/digital-marketing" : "/services"} {...(s.id === "branding" || s.id === "social-media" || s.id === "google-ads" ? { hash: s.id } : {})}><ArrowRight /></Link></Button></article>)}</div>
+      <h3 className="mt-8 text-xl text-navy">One Partner. One Connected Marketing Strategy.</h3><p className="mt-3 max-w-3xl text-muted-foreground">Instead of managing separate providers, you have one team coordinating your online marketing around your business goals.</p>
+      <Button asChild variant="link" className="mt-4 h-auto whitespace-normal p-0"><Link to="/digital-marketing">Explore Our Digital Marketing Services <ArrowRight /></Link></Button>
+    </div></section>
+
+    <section className="section home-partner bg-navy text-navy-foreground" id="why-bespoke"><div className={`container-site grid items-center gap-10 ${HOME_MEDIA.ownerPhoto ? "lg:grid-cols-2" : ""}`}>
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]"><div><span className="eyebrow">Why partner with us?</span><h2 className="mt-3 text-3xl leading-tight md:text-4xl">A Marketing Partner That Gets It.</h2><p className="mt-4 text-sm leading-relaxed text-navy-muted">Personal support, practical strategy, and an understanding of what Edmonton trades and service businesses need.</p></div>
+        <div className="grid gap-5 sm:grid-cols-2">{WHY.map(w => <div key={w.title} className="grid grid-cols-[auto_minmax(0,1fr)] gap-3"><span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><w.icon className="size-5" aria-hidden="true" /></span><div><h3 className="text-base normal-case not-italic">{w.title}</h3><p className="mt-2 text-sm leading-relaxed text-navy-muted">{w.text}</p></div></div>)}</div>
+      </div>
+      {HOME_MEDIA.ownerPhoto && <img src={HOME_MEDIA.ownerPhoto} alt="Bespoke Web Design owner" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />}
+    </div></section>
+
 
     <section className="border-y bg-surface py-8" aria-labelledby="trusted-heading">
       <div className="container-site">
@@ -76,20 +95,6 @@ function Home() {
     </div></section>
 
     <section className="section border-y bg-surface"><div className="container-site">
-      <SectionHead eyebrow="Everything done for you" title="Everything Your Business Needs to Build a Stronger Online Presence." text="Your website, branding, Google presence, SEO, and social media shouldn't operate separately. At Bespoke, we bring your digital marketing together under one coordinated strategy, helping you stay consistent while you focus on your customers and daily operations." />
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{HOME_SERVICES.map(s => <article key={s.id} className="card-site flex flex-col"><IconBadge name={s.icon} /><h3 className="mt-4 text-lg text-navy">{s.title}</h3><p className="mt-2 flex-1 text-muted-foreground">{s.text}</p><Button asChild variant="link" className="mt-5 min-h-11 justify-start self-start p-0"><Link to={s.id === "website-development" ? "/website-design" : s.id === "seo" ? "/seo" : s.id === "google-ads" ? "/digital-marketing" : "/services"} {...(s.id === "branding" || s.id === "social-media" || s.id === "google-ads" ? { hash: s.id } : {})}>Learn More <ArrowRight /></Link></Button></article>)}</div>
-      <h3 className="mt-8 text-xl text-navy">One Partner. One Connected Marketing Strategy.</h3><p className="mt-3 max-w-3xl text-muted-foreground">Instead of managing separate providers, you have one team coordinating your online marketing around your business goals.</p>
-      <Button asChild variant="link" className="mt-4 h-auto whitespace-normal p-0"><Link to="/digital-marketing">Explore Our Digital Marketing Services <ArrowRight /></Link></Button>
-    </div></section>
-
-    <section className="section"><div className={`container-site grid items-center gap-12 ${HOME_MEDIA.ownerPhoto ? "lg:grid-cols-2" : ""}`}>
-      <div><SectionHead eyebrow="Why Bespoke" title="A Local Marketing Partner You Can Actually Talk To." text="We're an Edmonton-based digital marketing business focused on building long-term relationships with trades and service companies. We combine practical marketing solutions with personal support, straightforward communication, and an understanding of what small businesses need." />
-        <div className={`mt-8 grid gap-6 sm:grid-cols-2 ${HOME_MEDIA.ownerPhoto ? "" : "lg:grid-cols-4"}`}>{WHY.map(w => <div key={w.title}><w.icon className="h-6 w-6 text-accent" aria-hidden="true" /><h3 className="mt-2 text-navy">{w.title}</h3><p className="mt-2 text-sm text-muted-foreground">{w.text}</p></div>)}</div>
-      </div>
-      {HOME_MEDIA.ownerPhoto && <img src={HOME_MEDIA.ownerPhoto} alt="Bespoke Web Design owner" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />}
-    </div></section>
-
-    <section className="section border-y bg-surface"><div className="container-site">
       <SectionHead eyebrow="What your first year looks like" title="A Great Website Is Just the Beginning." text="Building a professional online presence is an ongoing process. Your website needs attention, your content should remain relevant, and your business needs consistent marketing activity. Our monthly plans help bring these efforts together so your marketing can develop alongside your business." />
       <ol className="mt-10 grid gap-6 lg:grid-cols-4">{FIRST_YEAR.map(step => <li key={step.period} className="border-l-2 border-accent pl-5 lg:border-l-0 lg:border-t-2 lg:pl-0 lg:pt-5"><span className="eyebrow">{step.period}</span><h3 className="mt-2 text-lg text-navy">{step.title}</h3><p className="mt-3 text-sm text-muted-foreground">{step.text}</p></li>)}</ol>
       <p className="mt-6 text-sm text-muted-foreground">Illustrative timeline only. Deliverables and schedules depend on your selected plan and agreed scope; rankings and lead improvements are not guaranteed.</p>
@@ -112,5 +117,5 @@ function Home() {
       <div><span className="eyebrow">Free website &amp; marketing review</span><h2 className="mt-2 text-3xl md:text-4xl">Find Out Where Your Online Marketing Could Improve.</h2><p className="mt-4 text-lg text-navy-muted">Not sure how your website and online presence are performing?</p><p className="mt-3 text-navy-muted">Request a free introductory review. We'll look at your website and available online business information, identify practical opportunities, and discuss where you could improve.</p></div>
       <div className="text-foreground"><LeadForm submitLabel="Request My Free Marketing Review" /><p className="mt-4 text-sm text-navy-muted">Find out what's working, what's missing, and how your business can improve its online presence. No obligation.</p></div>
     </div></section>
-  </>;
+  </div>;
 }

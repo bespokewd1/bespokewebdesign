@@ -1,4 +1,5 @@
 # Tasks
+- [x] Apply the supplied mobile homepage reference in the existing brand and verify desktop/mobile layout and review CTA.
 - [x] Simplify mobile navigation, improve review CTAs and service clarity, preserve existing content and verify mobile/desktop destinations.
 - [x] Add and test a hidden-until-configured WhatsApp contact option.
 - [ ] Enable WhatsApp after the owner supplies a verified business number; the contact button remains hidden until then.

@@ -40,6 +40,7 @@
   --color-review-gold: var(--review-gold);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-hero-accent: var(--hero-accent);
 }
 
 :root {
@@ -72,6 +73,8 @@
   --whatsapp: oklch(0.48 0.13 155);
   --whatsapp-foreground: oklch(1 0 0);
   --hero-shade: linear-gradient(90deg, oklch(0.13 0.01 260 / 0.94), oklch(0.13 0.01 260 / 0.76));
+  --hero-accent: oklch(0.73 0.16 244);
+  --home-hero-shade: linear-gradient(90deg, oklch(0.13 0.01 260 / 0.97) 0%, oklch(0.13 0.01 260 / 0.88) 38%, oklch(0.13 0.01 260 / 0.24) 100%);
 }
 
 @layer base {
@@ -197,6 +200,27 @@ body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
   header img { width: 28px; height: 28px; }
 }
 .mobile-navigation { padding-bottom: env(safe-area-inset-bottom); }
+.home-hero::before { background: var(--home-hero-shade); }
+.home-hero > img { object-position: 70% center; }
+.home-hero .eyebrow, .home-partner .eyebrow { color: var(--hero-accent); letter-spacing: 0; }
+.home-benefit + .home-benefit { border-left: 1px solid var(--border); }
+.home-service { padding: 1.25rem; }
+.home-page .section { padding-block: 3rem; }
+@media (min-width: 768px) {
+  .home-page .section { padding-block: 4rem; }
+  .home-benefit { display: flex; align-items: flex-start; gap: 1rem; }
+  .home-benefit > svg { flex-shrink: 0; }
+}
+@media (max-width: 639px) {
+  .home-hero > img { object-position: 65% center; }
+  .home-hero::before { background: var(--hero-shade); }
+  .home-hero .container-site { padding-block: 2.25rem; }
+  .home-hero h1 { font-size: 1.75rem; }
+  .home-hero p { font-size: 0.875rem; line-height: 1.6; }
+  .home-hero p:last-child { margin-top: 0.5rem; font-size: 0.75rem; }
+  .home-service:last-child { grid-column: 1 / -1; }
+  .home-service h3 { overflow-wrap: anywhere; }
+}
 @media (max-width: 639px) { .hero-photo h1 { font-size: 2rem; } .hero-photo .container-site { padding-block: 2rem; } }
 @media (max-width: 359px) { .brand-name { font-size: 16px; } .container-site { padding-inline: 0.75rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
