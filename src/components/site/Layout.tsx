@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, ChevronDown, MapPin, Facebook } from "lucide-react";
-import { MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
+import { NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
 
@@ -28,8 +28,12 @@ export function Header() {
       <div className="container-site grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
         <Logo />
         <div className="flex items-center gap-2">
+          <nav aria-label="Main" className="hidden items-center gap-1 xl:flex">
+            {NAV.map(n => <Link key={n.to} to={n.to} aria-current={active(n.to) ? "page" : undefined} className={`rounded px-3 py-2 text-sm font-semibold hover:text-accent focus-visible:outline-2 focus-visible:outline-ring ${active(n.to) ? "text-accent" : "text-navy"}`}>{n.label}</Link>)}
+            <Button asChild className="btn btn-primary ml-2 h-auto py-2 text-sm"><Link to="/contact" hash="review">{CTA_PRIMARY}</Link></Button>
+          </nav>
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild><Button variant="ghost" className="h-11 shrink-0 gap-1.5 px-2 text-navy" aria-label="Open menu"><Menu className="size-5" /><span>Menu</span></Button></SheetTrigger>
+            <SheetTrigger asChild><Button variant="ghost" className="h-11 shrink-0 gap-1.5 px-2 text-navy xl:hidden" aria-label="Open menu"><Menu className="size-5" /><span>Menu</span></Button></SheetTrigger>
             <SheetContent side="right" aria-describedby={undefined} className="mobile-navigation flex h-dvh w-[90%] max-w-sm flex-col gap-0 bg-surface p-0 pt-16 data-[state=open]:duration-200 data-[state=closed]:duration-200 motion-reduce:animate-none motion-reduce:transition-none">
               <SheetTitle className="sr-only">Bespoke Web Design navigation</SheetTitle>
               <nav aria-label="Mobile" className="min-h-0 flex-1 overflow-y-auto px-4 pb-6">
