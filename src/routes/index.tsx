@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck, Star, Phone, Users } from "lucide-react";
+import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck, Star, Phone, Users, ExternalLink } from "lucide-react";
 import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, TRUSTED_CLIENTS, FEATURED_PROJECTS, HOME_MEDIA, FIRST_YEAR, SITE, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
@@ -87,6 +87,25 @@ function Home() {
     </section>
 
     <ReviewCarousel />
+
+    <section className="section border-b bg-surface" aria-labelledby="real-business-heading"><div className="container-site">
+      <SectionHead eyebrow="Real people. Real partnerships." title="Supporting Real Businesses. Growing Together." text="Bespoke is a local Edmonton business. You work directly with the person building and managing your marketing — we meet our clients, learn their trade and grow alongside them." />
+      <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{TRUSTED_CLIENTS.map(c => <li key={c.name} className="card-site flex flex-col p-0 overflow-hidden">
+        <div className="flex aspect-[4/3] items-center justify-center border-b border-dashed bg-muted text-center text-sm text-muted-foreground"><span className="flex flex-col items-center gap-2"><Users className="size-8" aria-hidden="true" />Photo with {c.name} coming soon</span></div>
+        <div className="p-5"><p className="font-display text-lg font-bold uppercase italic text-navy">{c.name}</p><p className="text-sm text-muted-foreground">{c.industry} · Alberta</p></div>
+      </li>)}</ul>
+    </div></section>
+
+    <section className="section border-b" aria-labelledby="seo-steps-heading"><div className="container-site">
+      <SectionHead eyebrow="How SEO actually works" title="Marketing Is Not a One-Time Task." text="Search visibility is built through consistency. Launching a website is the start — regular updates, accurate business information and steady activity are what help you get found over time." />
+      <ol className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <li className="card-site flex flex-col border-t-2 border-t-primary"><span className="eyebrow">Step 1</span><h3 className="mt-2 text-lg text-navy">Test Your Technical SEO</h3><p className="mt-3 flex-1 text-sm text-muted-foreground">Speed, mobile usability and clean code come first. Check your site for free with Google's own tool.</p><Button asChild className="btn btn-primary mt-5 h-auto"><a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">Test with Google PageSpeed <ExternalLink /></a></Button></li>
+        <li className="card-site border-t-2 border-t-primary"><span className="eyebrow">Step 2</span><h3 className="mt-2 text-lg text-navy">NAP &amp; Google Maps</h3><p className="mt-3 text-sm text-muted-foreground">Your Name, Address and Phone must match everywhere — website, Google Business Profile and directories — so Google trusts your location.</p></li>
+        <li className="card-site border-t-2 border-t-primary"><span className="eyebrow">Step 3</span><h3 className="mt-2 text-lg text-navy">Local Keywords</h3><p className="mt-3 text-sm text-muted-foreground">Pages written around the exact services and areas your customers search for.</p></li>
+        <li className="card-site border-t-2 border-t-primary"><span className="eyebrow">Step 4</span><h3 className="mt-2 text-lg text-navy">Social Media Consistency</h3><p className="mt-3 text-sm text-muted-foreground">Regular, genuine posts show customers and search engines your business is active and trusted.</p></li>
+      </ol>
+      <p className="mt-8 max-w-3xl font-semibold text-navy">Consistency is the strategy. We keep updating, reviewing and improving every month — results build over time and are never guaranteed overnight.</p>
+    </div></section>
 
     <section className="section"><div className="container-site">
       <SectionHead eyebrow="Our work" title="Real Businesses. Real Projects." text="Every business has different goals. Take a look at how we help clients establish a professional online presence through thoughtful website development and digital marketing." />
