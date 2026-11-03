@@ -224,3 +224,9 @@ body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
 @media (max-width: 639px) { .hero-photo h1 { font-size: 2rem; } .hero-photo .container-site { padding-block: 2rem; } }
 @media (max-width: 359px) { .brand-name { font-size: 16px; } .container-site { padding-inline: 0.75rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Light decorative graphics for homepage sections */
+.home-deco { position: relative; overflow: hidden; }
+.home-deco::before { content: ""; position: absolute; right: -8rem; top: -8rem; width: 22rem; height: 22rem; border-radius: 9999px; background: radial-gradient(circle, color-mix(in oklab, var(--primary) 35%, transparent), transparent 70%); pointer-events: none; }
+.home-deco > * { position: relative; }
+.home-deco-light { background-color: var(--surface); background-image: radial-gradient(color-mix(in oklab, var(--primary) 14%, transparent) 1px, transparent 1px); background-size: 22px 22px; }
