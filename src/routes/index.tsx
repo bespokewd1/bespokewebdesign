@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck, Star, Phone, Users, ExternalLink } from "lucide-react";
+import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck, Star, Phone, Users, ExternalLink, MapPin, Handshake, RefreshCw } from "lucide-react";
 import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, TRUSTED_CLIENTS, FEATURED_PROJECTS, HOME_MEDIA, MARKETING_PHASES, FOUNDER, SITE, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
@@ -64,6 +64,16 @@ function Home() {
         <div className="grid gap-5 sm:grid-cols-2">{WHY.map(w => <div key={w.title} className="grid grid-cols-[auto_minmax(0,1fr)] gap-3"><span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><w.icon className="size-5" aria-hidden="true" /></span><div><h3 className="text-base normal-case not-italic">{w.title}</h3><p className="mt-2 text-sm leading-relaxed text-navy-muted">{w.text}</p></div></div>)}</div>
       </div>
       {HOME_MEDIA.ownerPhoto && <img src={HOME_MEDIA.ownerPhoto} alt="Bespoke Web Design owner" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />}
+    </div></section>
+
+    <section className="section border-b bg-surface" aria-labelledby="trust-heading"><div className="container-site">
+      <SectionHead eyebrow="Why businesses trust us" title="Built for Growing Businesses." text="If you can handle your own marketing, great. If you'd rather delegate it to someone with the expertise, that's what we're here for." />
+      <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{[
+        { icon: MapPin, title: "Local in Edmonton", text: "We meet you in person, learn your trade and discuss what your business actually needs." },
+        { icon: Star, title: "5-Star Rated by Real Businesses", text: "Every review we've received on Google is five stars — from real local small businesses." },
+        { icon: Handshake, title: "One Partner, Less Stress", text: "No juggling providers or marketing decisions. One person coordinates everything for you." },
+        { icon: RefreshCw, title: "Always On, Always Ongoing", text: "Your marketing stays active every month while you focus on running jobs and operations." },
+      ].map(b => <li key={b.title} className="card-site text-center"><span className="mx-auto flex size-14 items-center justify-center rounded-full bg-muted text-accent"><b.icon className="size-6" strokeWidth={1.5} aria-hidden="true" /></span><h3 className="mt-4 text-base leading-tight text-navy">{b.title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.text}</p></li>)}</ul>
     </div></section>
 
     <section className="section border-b" id="founder" aria-labelledby="founder-heading"><div className="container-site grid items-center gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
