@@ -180,12 +180,18 @@ export const REVIEW_PROOF = [
   { platform: "Google", stars: 5 },
   { platform: "Facebook", stars: 5 },
 ] as const;
-export const FIRST_YEAR = [
-  { period: "Month 1", title: "Build Your Foundation", text: "Learn about your business, define marketing priorities, plan the website and branding, and begin agreed setup activities." },
-  { period: "Months 2–3", title: "Launch & Optimize", text: "Continue agreed website development, SEO setup, content improvements, and social media activity." },
-  { period: "Months 4–6", title: "Build Your Presence", text: "Continue monthly marketing deliverables, maintain consistency, and review available performance information." },
-  { period: "Months 7–12", title: "Improve & Refine", text: "Improve agreed marketing activities, evaluate progress, and adjust priorities based on business needs." },
-];
+// The single done-for-you process shown on the homepage (replaces the separate SEO steps and first-year timeline).
+export const MARKETING_PHASES = [
+  { title: "Assess Your Business", text: "We learn your services, customers and goals, review your current online presence and local competitors, and test your site's speed with Google's free tool.", tool: { label: "Test Your Site with Google PageSpeed", href: "https://pagespeed.web.dev/" } },
+  { title: "Build a 100% Custom Website", text: "A fast, mobile-first website built from scratch — no templates — structured for SEO and designed to turn visitors into calls and quote requests." },
+  { title: "Optimize & Manage Your Google Business Profile", text: "We set up and manage your profile with consistent Name, Address and Phone (NAP) details so customers can find you on Google Maps." },
+  { title: "Keep Your Social Media Consistent", text: "Regular, genuine posts that show customers your business is active, professional and trustworthy." },
+  { title: "Update Your Site & Research Keywords", text: "We research the services and areas your customers search for, then update your pages and content to match." },
+  { title: "Track, Improve & Repeat", text: "Marketing is not a one-time task. Every month we review progress, apply updates and keep improving your online presence." },
+] as const;
+
+// Founder section — photo and bio are placeholders until the owner supplies them.
+export const FOUNDER = { name: "", title: "Founder", photo: "" };
 
 // TESTIMONIALS — add only genuine reviews. Empty list shows placeholders.
 export const TESTIMONIALS: { name: string; business: string; review: string; photo?: string }[] = [];

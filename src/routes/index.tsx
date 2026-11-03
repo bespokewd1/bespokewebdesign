@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Layers, TrendingUp, ShieldCheck, Star, Phone, Users, ExternalLink } from "lucide-react";
-import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, TRUSTED_CLIENTS, FEATURED_PROJECTS, HOME_MEDIA, FIRST_YEAR, SITE, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
+import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, TRUSTED_CLIENTS, FEATURED_PROJECTS, HOME_MEDIA, MARKETING_PHASES, FOUNDER, SITE, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
 import { Icon } from "@/components/site/Icon";
@@ -66,6 +66,16 @@ function Home() {
       {HOME_MEDIA.ownerPhoto && <img src={HOME_MEDIA.ownerPhoto} alt="Bespoke Web Design owner" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />}
     </div></section>
 
+    <section className="section border-b" id="founder" aria-labelledby="founder-heading"><div className="container-site grid items-center gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+      {FOUNDER.photo ? <img src={FOUNDER.photo} alt={`${FOUNDER.name}, ${FOUNDER.title} of Bespoke Web Design`} loading="lazy" className="aspect-[4/5] w-full max-w-sm rounded-lg object-cover" />
+        : <div className="flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-lg border border-dashed bg-muted text-center text-sm text-muted-foreground"><span className="flex flex-col items-center gap-2"><Users className="size-8" aria-hidden="true" />Founder photo coming soon</span></div>}
+      <div><span className="eyebrow">Meet the {FOUNDER.title.toLowerCase()}</span><h2 id="founder-heading" className="mt-3 text-3xl leading-tight text-navy md:text-4xl">{FOUNDER.name ? `Hi, I'm ${FOUNDER.name}.` : "The Person Behind Your Marketing."}</h2>
+        <p className="mt-4 leading-relaxed text-muted-foreground">I started Bespoke Web Design to give Edmonton trades and service businesses a marketing partner they can actually reach. When you work with us, you work directly with me — from your first review to your monthly updates.</p>
+        <p className="mt-3 leading-relaxed text-muted-foreground">No call centres, no hand-offs. Just honest advice and consistent work on your website, Google presence and social media.</p>
+        <div className="mt-6"><ReviewButton>Talk to Me About Your Business</ReviewButton></div>
+      </div>
+    </div></section>
+
 
     <section className="border-y bg-surface py-8" aria-labelledby="trusted-heading">
       <div className="container-site">
@@ -96,15 +106,14 @@ function Home() {
       </li>)}</ul>
     </div></section>
 
-    <section className="section border-b" aria-labelledby="seo-steps-heading"><div className="container-site">
-      <SectionHead eyebrow="How SEO actually works" title="Marketing Is Not a One-Time Task." text="Search visibility is built through consistency. Launching a website is the start — regular updates, accurate business information and steady activity are what help you get found over time." />
-      <ol className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <li className="card-site flex flex-col border-t-2 border-t-primary"><span className="eyebrow">Step 1</span><h3 className="mt-2 text-lg text-navy">Test Your Technical SEO</h3><p className="mt-3 flex-1 text-sm text-muted-foreground">Speed, mobile usability and clean code come first. Check your site for free with Google's own tool.</p><Button asChild className="btn btn-primary mt-5 h-auto"><a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">Test with Google PageSpeed <ExternalLink /></a></Button></li>
-        <li className="card-site border-t-2 border-t-primary"><span className="eyebrow">Step 2</span><h3 className="mt-2 text-lg text-navy">NAP &amp; Google Maps</h3><p className="mt-3 text-sm text-muted-foreground">Your Name, Address and Phone must match everywhere — website, Google Business Profile and directories — so Google trusts your location.</p></li>
-        <li className="card-site border-t-2 border-t-primary"><span className="eyebrow">Step 3</span><h3 className="mt-2 text-lg text-navy">Local Keywords</h3><p className="mt-3 text-sm text-muted-foreground">Pages written around the exact services and areas your customers search for.</p></li>
-        <li className="card-site border-t-2 border-t-primary"><span className="eyebrow">Step 4</span><h3 className="mt-2 text-lg text-navy">Social Media Consistency</h3><p className="mt-3 text-sm text-muted-foreground">Regular, genuine posts show customers and search engines your business is active and trusted.</p></li>
-      </ol>
-      <p className="mt-8 max-w-3xl font-semibold text-navy">Consistency is the strategy. We keep updating, reviewing and improving every month — results build over time and are never guaranteed overnight.</p>
+    <section className="section border-b bg-surface" id="our-process" aria-label="Our done-for-you marketing process"><div className="container-site">
+      <SectionHead eyebrow="All-in-one. Done for you." title="Your Marketing, Handled in 6 Clear Phases." text="You run your business. We take care of your online marketing — step by step, under one roof, with one point of contact." />
+      <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{MARKETING_PHASES.map((phase, i) => <li key={phase.title} className="card-site flex flex-col border-t-2 border-t-primary">
+        <span className="eyebrow">Phase {i + 1}</span><h3 className="mt-2 text-lg leading-tight text-navy">{phase.title}</h3><p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{phase.text}</p>
+        {"tool" in phase && <Button asChild className="btn btn-primary mt-5 h-auto whitespace-normal"><a href={phase.tool.href} target="_blank" rel="noopener noreferrer">{phase.tool.label} <ExternalLink className="shrink-0" /></a></Button>}
+      </li>)}</ol>
+      <p className="mt-8 max-w-3xl font-semibold text-navy">Then we repeat phases 5 and 6 every month. Consistency builds results over time — they are never guaranteed overnight.</p>
+      <Button asChild variant="outline" className="btn btn-outline mt-6 h-auto"><Link to="/" hash="plans">Explore Our Monthly Plans <ArrowRight /></Link></Button>
     </div></section>
 
     <section className="section"><div className="container-site">
@@ -113,12 +122,6 @@ function Home() {
       <div className="mt-8"><Button asChild variant="outline" className="btn btn-outline h-auto"><Link to="/our-work">View All Our Work <ArrowRight /></Link></Button></div>
     </div></section>
 
-    <section className="section border-y bg-surface"><div className="container-site">
-      <SectionHead eyebrow="What your first year looks like" title="A Great Website Is Just the Beginning." text="Building a professional online presence is an ongoing process. Your website needs attention, your content should remain relevant, and your business needs consistent marketing activity. Our monthly plans help bring these efforts together so your marketing can develop alongside your business." />
-      <ol className="mt-10 grid gap-6 lg:grid-cols-4">{FIRST_YEAR.map(step => <li key={step.period} className="border-l-2 border-accent pl-5 lg:border-l-0 lg:border-t-2 lg:pl-0 lg:pt-5"><span className="eyebrow">{step.period}</span><h3 className="mt-2 text-lg text-navy">{step.title}</h3><p className="mt-3 text-sm text-muted-foreground">{step.text}</p></li>)}</ol>
-      <p className="mt-6 text-sm text-muted-foreground">Illustrative timeline only. Deliverables and schedules depend on your selected plan and agreed scope; rankings and lead improvements are not guaranteed.</p>
-      <Button asChild variant="outline" className="btn btn-outline mt-6 h-auto"><Link to="/" hash="plans">Explore Our Monthly Plans <ArrowRight /></Link></Button>
-    </div></section>
 
     <section className="section scroll-mt-20" id="plans"><div className="container-site">
       <SectionHead eyebrow="Monthly digital marketing" title="Complete Marketing Support. One Manageable Monthly Investment." center text="Every business has different needs and budgets. Our monthly marketing plans bring together website development and ongoing digital marketing services, making it easier to build and maintain your online presence." />
