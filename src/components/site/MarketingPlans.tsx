@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 export function MarketingPlans() {
   return (
     <>
-      <div className="mt-10 grid gap-5 lg:grid-cols-3">
+      <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-2">
         {PLANS.map((plan) => (
           <article key={plan.name} className={`card-site flex flex-col md:p-8 ${plan.featured ? "border-2 border-accent" : ""}`}>
             <h3 className="text-2xl font-extrabold text-navy">{plan.name}</h3>

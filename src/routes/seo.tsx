@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Info } from "lucide-react";
 import { pageHead } from "@/lib/seo";
 import { PageHero, CtaBand } from "@/components/site/Layout";
+import pagespeedAsset from "@/assets/desktop-pagespeed-result.png.asset.json";
 
 export const Route = createFileRoute("/seo")({
   head: () => pageHead({
@@ -25,6 +26,23 @@ function Seo() {
     <>
       <PageHero eyebrow="SEO & Google" title="SEO & Google Business Marketing in Edmonton"
         intro="Help more local customers find your business through Google — without relying entirely on paid ads." />
+      <section className="section border-b bg-surface" aria-labelledby="seo-foundation-heading">
+        <div className="container-site grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <span className="eyebrow">Built right from the start</span>
+            <h2 id="seo-foundation-heading" className="mt-3 text-3xl text-navy">100/100 SEO. A Strong Foundation.</h2>
+            <p className="mt-5 leading-relaxed text-muted-foreground">A custom-built website gives us control over its structure, page titles, mobile layout and loading speed. We build these foundations into your site instead of treating SEO as an afterthought.</p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">The supplied desktop Google PageSpeed Insights report shows 100/100 for SEO, performance, accessibility and best practices.</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">The SEO score checks basic search-readiness, not every aspect of technical SEO. This is one test result—not a guaranteed score or Google ranking. Keywords, useful content, accurate Google Maps details and consistent updates still matter.</p>
+          </div>
+          <figure className="min-w-0">
+            <a href={pagespeedAsset.url} target="_blank" rel="noopener noreferrer" aria-label="View the full desktop PageSpeed report screenshot" className="block rounded-lg border focus-visible:outline-2 focus-visible:outline-ring">
+              <img src={pagespeedAsset.url} alt="Supplied desktop PageSpeed Insights report showing scores of 100 for performance, accessibility, best practices and SEO." width={1210} height={1204} loading="lazy" className="h-auto w-full rounded-lg" />
+            </a>
+            <figcaption className="mt-3 text-sm text-muted-foreground">Supplied desktop test, October 19, 2026. Scores can vary by page, device and test conditions.</figcaption>
+          </figure>
+        </div>
+      </section>
       <section className="section">
         <div className="container-site grid gap-5 md:grid-cols-2">
           {TOPICS.map((t, i) => (
