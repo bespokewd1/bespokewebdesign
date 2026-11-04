@@ -63,9 +63,11 @@ function Home() {
     <section className="section border-b" id="founder" aria-labelledby="founder-heading"><div className="container-site grid items-center gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
       {FOUNDER.photo ? <img src={FOUNDER.photo} alt={`${FOUNDER.name}, ${FOUNDER.title} of Bespoke Web Design`} loading="lazy" className="aspect-[4/5] w-full max-w-sm rounded-lg object-cover" />
         : <div className="flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-lg border border-dashed bg-muted text-center text-sm text-muted-foreground"><span className="flex flex-col items-center gap-2"><Users className="size-8" aria-hidden="true" />Founder photo coming soon</span></div>}
-      <div><span className="eyebrow">Meet the {FOUNDER.title.toLowerCase()}</span><h2 id="founder-heading" className="mt-3 text-3xl leading-tight text-navy md:text-4xl">{FOUNDER.name ? `Hi, I'm ${FOUNDER.name}.` : "The Person Behind Your Marketing."}</h2>
-        <p className="mt-4 leading-relaxed text-muted-foreground">I started Bespoke Web Design to give Edmonton trades and service businesses a marketing partner they can actually reach. When you work with us, you work directly with me — from your first review to your monthly updates.</p>
-        <p className="mt-3 leading-relaxed text-muted-foreground">No call centres, no hand-offs. Just honest advice and consistent work on your website, Google presence and social media.</p>
+      <div><span className="eyebrow">Meet the {FOUNDER.title.toLowerCase()}</span><h2 id="founder-heading" className="mt-3 text-3xl leading-tight text-navy md:text-4xl">Put Your Marketing on Autopilot.</h2>
+        <p className="mt-4 leading-relaxed text-muted-foreground">You started your business to do great work, not to become a full-time marketer. When you partner with Bespoke, marketing stops being another headache on your to-do list.</p>
+        <p className="mt-3 leading-relaxed text-muted-foreground">We bring your marketing together under one done-for-you system—combining your vision with our execution. We keep your website fast, your Google Maps profile active, and your business top-of-mind with local customers.</p>
+        <p className="mt-3 leading-relaxed text-muted-foreground">You work directly with me every month. Zero decision fatigue, zero hand-offs, and complete peace of mind that your online presence is alive and working for you.</p>
+        <p className="mt-4 font-display text-xl italic text-navy">— Charles</p>
         <div className="mt-6"><ReviewButton>Talk to Me About Your Business</ReviewButton></div>
       </div>
     </div></section>
