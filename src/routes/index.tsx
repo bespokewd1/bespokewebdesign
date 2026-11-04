@@ -91,7 +91,7 @@ function Home() {
 
 
     <section className="section scroll-mt-20" id="plans"><div className="container-site">
-      <SectionHead eyebrow="Monthly digital marketing" title="Simple Monthly Plans." center text="Your website and ongoing marketing in one monthly price." />
+      <SectionHead eyebrow="Monthly digital marketing" title="Two Simple Monthly Plans." center text="Start with Foundation or choose Growth for more social content and Google Ads management." />
       <MarketingPlans />
       <div className="mx-auto mt-10 max-w-2xl text-center"><h3 className="text-xl text-navy">Not Sure Which Plan Is Right for Your Business?</h3><p className="mt-3 text-muted-foreground">We'll look at your business and suggest where to start.</p><div className="mt-5"><ReviewButton>Get a Free Marketing Review</ReviewButton></div></div>
     </div></section>

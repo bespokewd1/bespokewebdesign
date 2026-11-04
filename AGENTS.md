@@ -20,3 +20,4 @@
 - Keep mobile destinations in shared navigation data and use the existing modal Sheet for focus trapping, Escape/outside dismissal and scroll locking; desktop navigation stays independent.
 - Gate the reusable WhatsApp contact link on a verified international number from shared site configuration; an absent or invalid number must not render a contact button.
 - Scope reference-inspired homepage styling to home-specific classes and reuse existing photo, service content and review data so other pages and verified business facts remain unchanged.
+- Place supplied marketing diagrams on the digital-marketing journey and performance evidence on the SEO page via asset pointers; keep the homepage concise and distinguish measured audit scores from ranking promises.

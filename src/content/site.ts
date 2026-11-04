@@ -211,11 +211,6 @@ export const PLANS = [
     groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["10 total posts per month across Facebook and Instagram", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project and promotional content"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS }],
     description: "Ideal for businesses looking for consistent marketing across multiple channels, plus a focused Google Ads campaign.", cta: "Request a Quote", featured: true,
   },
-  {
-    name: "Advanced", price: "$999/month", monthlyPrice: 999, socialPosts: 15, channels: 3, platforms: ["Facebook", "Instagram", "TikTok"], seoLevel: "advanced", googleSearchCampaigns: 1, tagline: "Expand Your Marketing Reach",
-    groups: [PLAN_BRANDING, { title: "Professional Website", items: ["100% custom-built professional website", "Mobile-friendly design"] }, { title: "Advanced SEO", items: ["More comprehensive website SEO improvements", "Technical SEO and content optimization within the agreed scope", "Ongoing SEO strategy and recommendations"] }, { title: "Social Media Management", items: ["15 total posts per month across Facebook, Instagram, and TikTok", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project highlights, promotions, and events", "Content tailored to the relevant platforms"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS.map(item => item === "Basic keyword and negative keyword review" ? "Keyword and negative keyword review" : item) }],
-    description: "Ideal for businesses investing in more comprehensive SEO and wider digital marketing coverage.", cta: "Request a Quote", featured: false,
-  },
 ];
 
 export const PLAN_CURRENCY = "CAD";
@@ -243,10 +238,10 @@ export const PACKAGE_DETAILS = {
     { title: "We Create", text: "Branded content, captions, and graphics using your materials." },
     { title: "We Publish", text: "Scheduled posts on the platforms included in your package." },
   ],
-  socialScope: "Promotions, seasonal services, company announcements, completed projects, events, and new products or services count toward your existing monthly allowance. We can help identify content ideas using supplied materials. TikTok depends on suitable client-supplied photos or videos. On-site photography, filming, advanced video production, and event attendance are not included unless separately agreed. Extra content requires a separate quote.",
+  socialScope: "Promotions, seasonal services, company announcements, completed projects, events, and new products or services count toward your existing monthly allowance. We can help identify content ideas using supplied materials. On-site photography, filming, advanced video production, and event attendance are not included unless separately agreed. Extra content requires a separate quote.",
   adsTitle: "Google Ads Management — Without the Confusion",
   adsSubtitle: "We Handle It for You!",
-  adsIntro: "Our Growth and Advanced plans include the setup and management of one Google Ads campaign to help your business reach potential customers searching for your services.",
+  adsIntro: "Our Growth plan includes the setup and management of one Google Ads campaign to help your business reach potential customers searching for your services.",
   adsStepsTitle: "How it works:",
   adsSteps: [
     "We create, manage, and improve your ads.",
@@ -271,9 +266,9 @@ export const HELP_OPTIONS = [
 export const HOME_FAQS = [
   { question: "Why choose an all-in-one digital marketing agency?", paragraphs: ["Your website, SEO, Google Business Profile, and social media work best when they support a coordinated strategy. With Bespoke, you have one marketing partner, consistent branding, and less time spent managing different providers."] },
   { question: "What makes Bespoke different?", paragraphs: ["We're an Edmonton-based business offering personal service, direct communication, and practical digital marketing for trades and service companies. We focus on long-term relationships rather than simply building a website and moving on."] },
-  { question: "What's included in my monthly marketing plan?", paragraphs: ["All packages include a 100% custom-built professional website, branding, SEO, and social media content.", "Growth adds broader social media coverage and one managed Google Search campaign. Advanced includes more comprehensive SEO, additional social media content, and one managed Google Search campaign.", "Each package has clearly defined services and deliverables, so you know what's included in your monthly investment."] },
+  { question: "What's included in my monthly marketing plan?", paragraphs: ["Both plans include a 100% custom-built professional website, branding, basic SEO, and social media content.", "Foundation includes 5 Facebook posts per month. Growth includes 10 posts total across Facebook and Instagram, plus one managed Google Search campaign.", "Each package has clearly defined services and deliverables, so you know what's included in your monthly investment."] },
   { question: "Why focus on organic SEO instead of Google Ads?", paragraphs: ["We prioritize building a strong website and improving organic online visibility over time. Google Ads can provide additional paid visibility, but the advertising budget is separate. Both approaches can complement each other when appropriate."] },
-  { question: "Is Google Ads advertising spend included?", paragraphs: ["No. Growth and Advanced include management of one Google Search campaign, but advertising expenditure is separate.", "You control your advertising budget and pay Google directly. We handle the agreed campaign management and optimization."] },
+  { question: "Is Google Ads advertising spend included?", paragraphs: ["No. Growth includes management of one Google Search campaign, but advertising expenditure is separate.", "You control your advertising budget and pay Google directly. We handle the agreed campaign management and optimization."] },
   { question: "Do I need to provide photos for social media?", paragraphs: ["We recommend sharing real photos or videos of your business, services, projects, and events.", "This helps us create more authentic, personalized content rather than relying on generic graphics.", "We handle the content planning and preparation within your package, using the materials you provide."] },
   { question: "How long does SEO take to show results?", paragraphs: ["SEO is an ongoing process, and results vary based on your industry, competition, and website condition. We focus on consistent improvements rather than promising specific rankings or timelines."] },
   { question: `Why is there a ${MARKETING_AGREEMENT.minimumMonths}-month minimum agreement?`, paragraphs: ["Building and maintaining an online presence takes ongoing work. The agreement provides time to establish your website and deliver the marketing services included in your selected package through manageable monthly payments."] },

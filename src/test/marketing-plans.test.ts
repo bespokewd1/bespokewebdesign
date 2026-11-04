@@ -8,17 +8,14 @@ describe("Monthly marketing packages", () => {
   it("provides Growth at $499 with 10 total posts across Facebook and Instagram", () => {
     expect(PLANS.find(p => p.name === "Growth")).toMatchObject({ monthlyPrice: 499, socialPosts: 10, channels: 2, platforms: ["Facebook", "Instagram"], seoLevel: "basic" });
   });
-  it("provides Advanced at $999 with advanced SEO and 15 total posts across three platforms", () => {
-    expect(PLANS.find(p => p.name === "Advanced")).toMatchObject({ monthlyPrice: 999, socialPosts: 15, channels: 3, platforms: ["Facebook", "Instagram", "TikTok"], seoLevel: "advanced" });
+  it("offers exactly Foundation and Growth, with no Advanced package", () => {
+    expect(PLANS.map(p => p.name)).toEqual(["Foundation", "Growth"]);
   });
   it("excludes Google Search campaign management from Foundation", () => {
     expect(PLANS.find(p => p.name === "Foundation")?.googleSearchCampaigns).toBe(0);
   });
   it("includes exactly one Google Search campaign in Growth", () => {
     expect(PLANS.find(p => p.name === "Growth")?.googleSearchCampaigns).toBe(1);
-  });
-  it("includes exactly one Google Search campaign in Advanced, not extra campaigns", () => {
-    expect(PLANS.find(p => p.name === "Advanced")?.googleSearchCampaigns).toBe(1);
   });
   it("keeps Google Ads spending separate from the monthly package", () => {
     expect(PACKAGE_DETAILS.adsIntro).toContain("setup and management of one Google Ads campaign");
