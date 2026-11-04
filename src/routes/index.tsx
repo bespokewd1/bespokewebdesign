@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Star, Users, MapPin, Handshake, RefreshCw } from "lucide-react";
-import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, FEATURED_PROJECTS, MARKETING_PHASES, FOUNDER, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
+import { useEffect, useState } from "react";
+import { ArrowRight, Star, MapPin, Handshake, RefreshCw } from "lucide-react";
+import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, FEATURED_PROJECTS, MARKETING_PHASES, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
 import { Icon } from "@/components/site/Icon";
@@ -11,6 +12,9 @@ import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
+import founderPhoto1 from "@/assets/founder-client-1.jpg.asset.json";
+import founderPhoto2 from "@/assets/founder-client-2.jpg.asset.json";
+import founderPhoto3 from "@/assets/founder-client-3.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => {
@@ -21,6 +25,26 @@ export const Route = createFileRoute("/")({
 });
 function ReviewButton({ children = "Get a Free Website Review" }: { children?: React.ReactNode }) {
   return <Button asChild className="btn btn-primary h-auto whitespace-normal"><Link to="/" hash="review">{children}<ArrowRight className="shrink-0" /></Link></Button>;
+}
+const FOUNDER_PHOTOS = [
+  { src: founderPhoto1.url, alt: "Charles meeting with a client, reviewing their new website together" },
+  { src: founderPhoto2.url, alt: "Charles with a client outside their business" },
+  { src: founderPhoto3.url, alt: "Charles with a client going over their new website on a laptop" },
+];
+function FounderPhotoCarousel() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  useEffect(() => {
+    if (paused) return;
+    const timer = window.setInterval(() => setActive(current => (current + 1) % FOUNDER_PHOTOS.length), 3000);
+    return () => window.clearInterval(timer);
+  }, [paused]);
+  return <div role="group" aria-roledescription="carousel" aria-label="Charles working with clients" className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-lg" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={() => setPaused(false)}>
+    {FOUNDER_PHOTOS.map((photo, index) => <img key={photo.src} src={photo.src} alt={index === active ? photo.alt : ""} aria-hidden={index !== active} loading={index === 0 ? "eager" : "lazy"} className={`absolute inset-0 size-full object-cover transition-opacity duration-700 ${index === active ? "opacity-100" : "opacity-0"}`} />)}
+    <div className="absolute inset-x-0 bottom-3 flex justify-center gap-2">
+      {FOUNDER_PHOTOS.map((photo, index) => <button key={photo.src} type="button" onClick={() => setActive(index)} aria-label={`Show photo ${index + 1} of ${FOUNDER_PHOTOS.length}`} aria-current={index === active} className={`size-3 rounded-full border border-white/80 shadow-sm transition-colors ${index === active ? "bg-white" : "bg-white/40 hover:bg-white/70 focus-visible:bg-white"}`} />)}
+    </div>
+  </div>;
 }
 function Home() {
   return <div className="home-page">
@@ -47,8 +71,7 @@ function Home() {
     </div></section>
 
     <section className="section border-y bg-surface" id="founder" aria-labelledby="founder-heading"><div className="container-site grid items-center gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-      {FOUNDER.photo ? <img src={FOUNDER.photo} alt={`${FOUNDER.name}, ${FOUNDER.title} of Bespoke Web Design`} loading="lazy" className="aspect-[4/5] w-full max-w-sm rounded-lg object-cover" />
-        : <div className="flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-lg border border-dashed bg-muted text-center text-sm text-muted-foreground"><span className="flex flex-col items-center gap-2"><Users className="size-8" aria-hidden="true" />Founder photo coming soon</span></div>}
+      <FounderPhotoCarousel />
       <div><span className="eyebrow">Meet the founder</span><h2 id="founder-heading" className="mt-3 text-3xl leading-tight text-navy md:text-4xl">You Focus on Your Business. I'll Handle the Marketing.</h2>
         <div className="mt-4 space-y-4 leading-relaxed text-muted-foreground">
           <p className="font-semibold text-navy">Hi, I'm Charles, founder of Bespoke Web Design in Edmonton, Alberta.</p>
