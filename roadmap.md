@@ -1,4 +1,5 @@
 # Tasks
+- [ ] Simplify to Foundation and Growth, place supplied marketing/SEO images on relevant pages, and verify desktop/mobile presentation.
 - [x] Apply the supplied mobile homepage reference in the existing brand and verify desktop/mobile layout and review CTA.
 - [x] Simplify mobile navigation, improve review CTAs and service clarity, preserve existing content and verify mobile/desktop destinations.
 - [x] Add and test a hidden-until-configured WhatsApp contact option.
