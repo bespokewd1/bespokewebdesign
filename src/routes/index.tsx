@@ -40,14 +40,26 @@ function Home() {
       </div>
     </section>
 
-    <section className="home-benefits border-b bg-surface" aria-label="Your marketing priorities"><div className="container-site grid grid-cols-3 py-5 md:py-7">
-      {[{ icon: TrendingUp, title: "More Visibility", text: "Help local customers find your business." }, { icon: Phone, title: "Better Connections", text: "Make it easier for customers to get in touch." }, { icon: Users, title: "Less Stress", text: "One partner to coordinate your marketing." }].map(benefit => <div key={benefit.title} className="home-benefit min-w-0 px-2 md:px-6"><benefit.icon className="mb-2 size-6 text-accent md:size-8" aria-hidden="true" /><div className="min-w-0"><p className="text-sm font-bold text-navy md:text-base">{benefit.title}</p><p className="mt-1 text-xs leading-relaxed text-muted-foreground md:text-sm">{benefit.text}</p></div></div>)}
-    </div></section>
-
     <section className="section home-services bg-background"><div className="container-site">
       <SectionHead eyebrow="How we help" title="Everything You Need to Get Found." text="Website, Google, SEO and social media — all handled for you." />
       <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">{HOME_SERVICES.map(s => <article key={s.id} className="card-site home-service flex min-w-0 flex-col"><Icon name={s.icon} className="size-8 text-accent" /><h3 className="mt-4 text-base leading-tight text-navy">{s.title}</h3><p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.text}</p><Button asChild variant="link" className="mt-4 min-h-11 justify-start self-start p-0"><Link aria-label={`Learn more about ${s.title}`} to={s.id === "website-development" ? "/website-design" : s.id === "seo" ? "/seo" : s.id === "google-ads" ? "/digital-marketing" : "/services"} {...(s.id === "branding" || s.id === "social-media" || s.id === "google-ads" ? { hash: s.id } : {})}><ArrowRight /></Link></Button></article>)}</div>
       <Button asChild variant="link" className="mt-6 h-auto whitespace-normal p-0"><Link to="/digital-marketing">Explore Our Digital Marketing Services <ArrowRight /></Link></Button>
+    </div></section>
+
+    <section className="section border-y bg-surface" id="founder" aria-labelledby="founder-heading"><div className="container-site grid items-center gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+      {FOUNDER.photo ? <img src={FOUNDER.photo} alt={`${FOUNDER.name}, ${FOUNDER.title} of Bespoke Web Design`} loading="lazy" className="aspect-[4/5] w-full max-w-sm rounded-lg object-cover" />
+        : <div className="flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-lg border border-dashed bg-muted text-center text-sm text-muted-foreground"><span className="flex flex-col items-center gap-2"><Users className="size-8" aria-hidden="true" />Founder photo coming soon</span></div>}
+      <div><span className="eyebrow">Meet the founder</span><h2 id="founder-heading" className="mt-3 text-3xl leading-tight text-navy md:text-4xl">You Focus on Your Business. I'll Handle the Marketing.</h2>
+        <div className="mt-4 space-y-4 leading-relaxed text-muted-foreground">
+          <p className="font-semibold text-navy">Hi, I'm Charles, founder of Bespoke Web Design in Edmonton, Alberta.</p>
+          <p>I started Bespoke to help hardworking business owners get noticed, attract more customers, and grow without the hassle of managing their own marketing.</p>
+          <p>From branding and websites to Google and social media, I take care of your online presence so you can focus on what you do best.</p>
+          <p>My goal is to be your long-term marketing partner, not just another agency.</p>
+          <p>When you work with Bespoke, you work directly with me. No middlemen, no confusing jargon. Just practical, done-for-you marketing.</p>
+        </div>
+        <p className="mt-4 font-display text-xl italic text-navy">— Charles</p>
+        <div className="mt-6"><ReviewButton>Let's Get Your Business Noticed</ReviewButton></div>
+      </div>
     </div></section>
 
     <section className="section home-partner home-deco bg-navy text-navy-foreground" id="why-bespoke"><div className="container-site">
@@ -55,47 +67,26 @@ function Home() {
       <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{[
         { icon: MapPin, title: "Local in Edmonton", text: "We meet you and learn what your business needs." },
         { icon: Star, title: "5-Star Rated", text: "Real reviews from real local businesses." },
-        { icon: Handshake, title: "One Partner", text: "One person to call. No juggling providers." },
+        { icon: Handshake, title: "One Partner, Less Stress", text: "One person to call. No juggling providers." },
         { icon: RefreshCw, title: "Always Ongoing", text: "We keep your marketing active every month." },
       ].map(b => <li key={b.title} className="grid grid-cols-[auto_minmax(0,1fr)] gap-3"><span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><b.icon className="size-5" aria-hidden="true" /></span><div><h3 className="text-base normal-case not-italic">{b.title}</h3><p className="mt-1 text-sm leading-relaxed text-navy-muted">{b.text}</p></div></li>)}</ul>
-    </div></section>
-
-    <section className="section border-b" id="founder" aria-labelledby="founder-heading"><div className="container-site grid items-center gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-      {FOUNDER.photo ? <img src={FOUNDER.photo} alt={`${FOUNDER.name}, ${FOUNDER.title} of Bespoke Web Design`} loading="lazy" className="aspect-[4/5] w-full max-w-sm rounded-lg object-cover" />
-        : <div className="flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-lg border border-dashed bg-muted text-center text-sm text-muted-foreground"><span className="flex flex-col items-center gap-2"><Users className="size-8" aria-hidden="true" />Founder photo coming soon</span></div>}
-      <div><span className="eyebrow">Meet the {FOUNDER.title.toLowerCase()}</span><h2 id="founder-heading" className="mt-3 text-3xl leading-tight text-navy md:text-4xl">Put Your Marketing on Autopilot.</h2>
-        <p className="mt-4 leading-relaxed text-muted-foreground">You started your business to do great work, not to become a full-time marketer. When you partner with Bespoke, marketing stops being another headache on your to-do list.{"\n\n\n"}When you hire a marketing agency, you usually get sold by the owner and then handed off to a junior coordinator. At Bespoke Web Design, you work directly with me.{"\n\n"}My job is simple: take marketing completely off your plate, give you clear advice without jargon, and keep your business visible while you focus on jobs.</p>
-        <p className="mt-4 font-display text-xl italic text-navy">— Charles</p>
-        <div className="mt-6"><ReviewButton>Talk to Me About Your Business</ReviewButton></div>
-      </div>
-    </div></section>
-
-
-    <ReviewCarousel />
-
-    <section className="section border-b bg-surface" aria-labelledby="real-business-heading"><div className="container-site">
-      <SectionHead eyebrow="Real people. Real partnerships." title="Supporting Real Businesses. Growing Together." text="Local businesses we work with, face to face." />
-      <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{TRUSTED_CLIENTS.map(c => <li key={c.name} className="card-site flex flex-col p-0 overflow-hidden">
-        <div className="flex aspect-[4/3] items-center justify-center border-b border-dashed bg-muted text-center text-sm text-muted-foreground"><span className="flex flex-col items-center gap-2"><Users className="size-8" aria-hidden="true" />Photo with {c.name} coming soon</span></div>
-        <div className="p-5"><p className="font-display text-lg font-bold uppercase italic text-navy">{c.name}</p><p className="text-sm text-muted-foreground">{c.industry} · Alberta</p></div>
-      </li>)}</ul>
-      <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3"><Button asChild variant="link" className="h-auto p-0"><Link to="/our-work">View Client Projects <ArrowRight /></Link></Button><Button asChild variant="link" className="h-auto p-0"><Link to="/testimonials">Read Client Reviews <ArrowRight /></Link></Button></div>
     </div></section>
 
     <section className="section home-deco-light border-b" id="our-process" aria-label="Our done-for-you marketing process"><div className="container-site">
       <SectionHead eyebrow="All-in-one. Done for you." title="How It Works: 6 Simple Steps." text="One plan, one point of contact, done for you." />
       <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{MARKETING_PHASES.map((phase, i) => <li key={phase.title} className="card-site flex flex-col border-t-2 border-t-primary">
         <span className="flex size-9 items-center justify-center rounded-full bg-primary font-display text-sm font-bold text-primary-foreground">{i + 1}</span><h3 className="mt-2 text-lg leading-tight text-navy">{phase.title}</h3><p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{phase.text}</p>
-        {"tool" in phase && <Button asChild className="btn btn-primary mt-5 h-auto whitespace-normal"><a href={phase.tool.href} target="_blank" rel="noopener noreferrer">{phase.tool.label} <ExternalLink className="shrink-0" /></a></Button>}
       </li>)}</ol>
       <p className="mt-8 max-w-3xl font-semibold text-navy">Steps 5 and 6 repeat every month. Results build over time with consistency.</p>
-      <Button asChild variant="outline" className="btn btn-outline mt-6 h-auto"><Link to="/" hash="plans">Explore Our Monthly Plans <ArrowRight /></Link></Button>
+      <div className="mt-6 flex flex-wrap gap-3"><ReviewButton>Get My Free Website Check</ReviewButton><Button asChild variant="outline" className="btn btn-outline h-auto"><Link to="/" hash="plans">See Monthly Plans <ArrowRight /></Link></Button></div>
     </div></section>
+
+    <ReviewCarousel />
 
     <section className="section"><div className="container-site">
       <SectionHead eyebrow="Our work" title="Real Businesses. Real Projects." text="A few websites and marketing projects we've built." />
       <div className="mt-10 grid gap-6 md:grid-cols-2">{FEATURED_PROJECTS.map(p => <ProjectCard key={p.name} p={p} hideMissingImage />)}</div>
-      <div className="mt-8"><Button asChild variant="outline" className="btn btn-outline h-auto"><Link to="/our-work">View All Our Work <ArrowRight /></Link></Button></div>
+      <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3"><Button asChild variant="outline" className="btn btn-outline h-auto"><Link to="/our-work">View All Our Work <ArrowRight /></Link></Button><Button asChild variant="link" className="h-auto p-0"><Link to="/testimonials">Read Client Reviews <ArrowRight /></Link></Button></div>
     </div></section>
 
 
