@@ -58,7 +58,7 @@ export type IconName =
 export const HOME_SERVICES: { icon: IconName; title: string; text: string; id: string }[] = [
   { icon: "monitor", title: "Website Design", id: "website-development", text: "Professional, mobile-friendly websites that make it easy for customers to trust and contact your business." },
   { icon: "map", title: "Google & SEO", id: "seo", text: "Help potential customers discover your business through Google Search and Google Maps." },
-  { icon: "share", title: "Social Media Marketing", id: "social-media", text: "Stay visible, share your work, and build relationships with customers through consistent social media content." },
+  { icon: "share", title: "Social Media Marketing", id: "social-media", text: "We keep your profiles active and professional with real project photos, so you never look closed or forgotten." },
   { icon: "palette", title: "Branding & Design", id: "branding", text: "Create a professional, recognizable business identity across your website and marketing materials." },
   { icon: "search", title: "Google Ads Management", id: "google-ads", text: "Reach potential customers actively searching for your services with professionally managed advertising campaigns." },
 ];
@@ -182,7 +182,7 @@ export const REVIEW_PROOF = [
 ] as const;
 // The single done-for-you process shown on the homepage (replaces the separate SEO steps and first-year timeline).
 export const MARKETING_PHASES = [
-  { title: "Assess Your Business", text: "We learn your services, customers and goals, review your current online presence and local competitors, and test your site's speed with Google's free tool.", tool: { label: "Test Your Site with Google PageSpeed", href: "https://pagespeed.web.dev/" } },
+  { title: "Assess Your Business", text: "We learn your services, customers and goals, then run a free check of your website and Google presence for you — explained in plain language, no jargon." },
   { title: "Build a 100% Custom Website", text: "A fast, mobile-first website built from scratch — no templates — structured for SEO and designed to turn visitors into calls and quote requests." },
   { title: "Optimize & Manage Your Google Business Profile", text: "We set up and manage your profile with consistent Name, Address and Phone (NAP) details so customers can find you on Google Maps." },
   { title: "Keep Your Social Media Consistent", text: "Regular, genuine posts that show customers your business is active, professional and trustworthy." },
