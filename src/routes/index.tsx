@@ -27,9 +27,9 @@ function ReviewButton({ children = "Get a Free Website Review" }: { children?: R
   return <Button asChild className="btn btn-primary h-auto whitespace-normal"><Link to="/" hash="review">{children}<ArrowRight className="shrink-0" /></Link></Button>;
 }
 const FOUNDER_PHOTOS = [
-  { src: founderPhoto1, alt: "Charles meeting with a client, reviewing their new website together" },
-  { src: founderPhoto2, alt: "Charles with a client outside their business" },
-  { src: founderPhoto3, alt: "Charles with a client going over their new website on a laptop" },
+  { src: founderPhoto1.url, alt: "Charles meeting with a client, reviewing their new website together" },
+  { src: founderPhoto2.url, alt: "Charles with a client outside their business" },
+  { src: founderPhoto3.url, alt: "Charles with a client going over their new website on a laptop" },
 ];
 function FounderPhotoCarousel() {
   const [active, setActive] = useState(0);
