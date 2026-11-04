@@ -41,7 +41,7 @@ function Home() {
     </section>
 
     <section className="section home-services bg-background"><div className="container-site">
-      <SectionHead eyebrow="How we help" title="Everything You Need to Get Found." text="Website, Google, SEO and social media — all handled for you." />
+      <SectionHead eyebrow="How we help" title="Everything You Need to Get Found." text="Website, Google, SEO and social media marketing— all handled for you." />
       <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">{HOME_SERVICES.map(s => <article key={s.id} className="card-site home-service flex min-w-0 flex-col"><Icon name={s.icon} className="size-8 text-accent" /><h3 className="mt-4 text-base leading-tight text-navy">{s.title}</h3><p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.text}</p><Button asChild variant="link" className="mt-4 min-h-11 justify-start self-start p-0"><Link aria-label={`Learn more about ${s.title}`} to={s.id === "website-development" ? "/website-design" : s.id === "seo" ? "/seo" : s.id === "google-ads" ? "/digital-marketing" : "/services"} {...(s.id === "branding" || s.id === "social-media" || s.id === "google-ads" ? { hash: s.id } : {})}><ArrowRight /></Link></Button></article>)}</div>
       <Button asChild variant="link" className="mt-6 h-auto whitespace-normal p-0"><Link to="/digital-marketing">Explore Our Digital Marketing Services <ArrowRight /></Link></Button>
     </div></section>
@@ -52,10 +52,10 @@ function Home() {
       <div><span className="eyebrow">Meet the founder</span><h2 id="founder-heading" className="mt-3 text-3xl leading-tight text-navy md:text-4xl">You Focus on Your Business. I'll Handle the Marketing.</h2>
         <div className="mt-4 space-y-4 leading-relaxed text-muted-foreground">
           <p className="font-semibold text-navy">Hi, I'm Charles, founder of Bespoke Web Design in Edmonton, Alberta.</p>
-          <p>I started Bespoke to help hardworking business owners get noticed, attract more customers, and grow without the hassle of managing their own marketing.</p>
+          <p>I started Bespoke Marketing to help hardworking business owners get noticed, attract more customers, and grow without the hassle of managing their own marketing.</p>
           <p>From branding and websites to Google and social media, I take care of your online presence so you can focus on what you do best.</p>
-          <p>My goal is to be your long-term marketing partner, not just another agency.</p>
-          <p>When you work with Bespoke, you work directly with me. No middlemen, no confusing jargon. Just practical, done-for-you marketing.</p>
+          <p>{"\n"}</p>
+          <p>When you work with Bespoke Web Design, you work directly with me. No middlemen, no confusing jargon. Just practical, all done-for-you marketing.</p>
         </div>
         <p className="mt-4 font-display text-xl italic text-navy">— Charles</p>
         <div className="mt-6"><ReviewButton>Let's Get Your Business Noticed</ReviewButton></div>
