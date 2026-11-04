@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Star, MapPin, Handshake, RefreshCw } from "lucide-react";
-import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, FEATURED_PROJECTS, MARKETING_PHASES, FOUNDER, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
+import { CTA_SECONDARY, HOME_SERVICES, HOME_FAQS, FEATURED_PROJECTS, MARKETING_PHASES, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
 import { Icon } from "@/components/site/Icon";
