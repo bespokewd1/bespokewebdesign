@@ -204,7 +204,31 @@ body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
 .home-hero > img { object-position: 70% center; }
 .home-hero .eyebrow, .home-partner .eyebrow { color: var(--hero-accent); letter-spacing: 0; }
 .home-benefit + .home-benefit { border-left: 1px solid var(--border); }
-.home-service { padding: 1.25rem; }
+.home-service { padding: 1.75rem 1.25rem; border-top: 1px solid var(--border); transition: background-color 220ms; }
+.home-service:hover { background-color: var(--surface); }
+.home-service a svg { transition: transform 220ms; }
+.home-service a:hover svg { transform: translateX(4px); }
+.home-founder-photos { width: 100%; min-width: 0; max-width: 34rem; }
+.home-page .eyebrow { letter-spacing: 0; }
+.home-page h2 { text-wrap: balance; }
+.home-page .home-projects article { border: 0; border-radius: 0; }
+.home-projects article > img { transition: transform 300ms; }
+.home-projects article:hover > img { transform: scale(1.025); }
+.home-enter { animation: home-enter 500ms both; }
+.home-enter-delayed { animation-delay: 80ms; }
+.home-enter-late { animation-delay: 160ms; }
+@keyframes home-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .home-page .home-service, .home-page .home-projects article, .home-page #our-process li {
+      animation: home-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 20%;
+    }
+  }
+}
+.home-page #plans article { box-shadow: none; }
+.home-page #plans article h4 { font-style: normal; text-transform: none; }
 .home-page .section { padding-block: 3rem; }
 @media (min-width: 768px) {
   .home-page .section { padding-block: 4rem; }
@@ -218,15 +242,12 @@ body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
   .home-hero h1 { font-size: 1.75rem; }
   .home-hero p { font-size: 0.875rem; line-height: 1.6; }
   .home-hero p:last-child { margin-top: 0.5rem; font-size: 0.75rem; }
-  .home-service:last-child { grid-column: 1 / -1; }
   .home-service h3 { overflow-wrap: anywhere; }
 }
 @media (max-width: 639px) { .hero-photo h1 { font-size: 2rem; } .hero-photo .container-site { padding-block: 2rem; } }
 @media (max-width: 359px) { .brand-name { font-size: 16px; } .container-site { padding-inline: 0.75rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-/* Light decorative graphics for homepage sections */
-.home-deco { position: relative; overflow: hidden; }
-.home-deco::before { content: ""; position: absolute; right: -8rem; top: -8rem; width: 22rem; height: 22rem; border-radius: 9999px; background: radial-gradient(circle, color-mix(in oklab, var(--primary) 35%, transparent), transparent 70%); pointer-events: none; }
-.home-deco > * { position: relative; }
-.home-deco-light { background-color: var(--surface); background-image: radial-gradient(color-mix(in oklab, var(--primary) 14%, transparent) 1px, transparent 1px); background-size: 22px 22px; }
+@media (prefers-reduced-motion: reduce) {
+  .home-page *, .home-page *::before, .home-page *::after { animation: none !important; transition: none !important; }
+}

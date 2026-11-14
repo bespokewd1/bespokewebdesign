@@ -21,3 +21,5 @@
 - Gate the reusable WhatsApp contact link on a verified international number from shared site configuration; an absent or invalid number must not render a contact button.
 - Scope reference-inspired homepage styling to home-specific classes and reuse existing photo, service content and review data so other pages and verified business facts remain unchanged.
 - Place supplied marketing diagrams on the digital-marketing journey and performance evidence on the SEO page via asset pointers; keep the homepage concise and distinguish measured audit scores from ranking promises.
+- Keep homepage getting-started steps separate from the detailed marketing journey, and require both approved imagery and a project link before featuring a portfolio item; this keeps the overview concise and evidence complete.
+- Use the reusable founder photo carousel with manual controls, pausing and reduced-motion support; this preserves authentic client imagery without forcing constant motion.

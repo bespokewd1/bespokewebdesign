@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { PLAN_CURRENCY, TRUSTED_CLIENTS, FEATURED_PROJECTS, SITE, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
+import { PLAN_CURRENCY, TRUSTED_CLIENTS, FEATURED_PROJECTS, HOME_FEATURED_PROJECTS, SITE, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
 import { CLIENT_REVIEWS } from "@/content/reviews";
 
 describe("homepage business rules", () => {
@@ -27,5 +27,9 @@ describe("homepage business rules", () => {
   });
   it("uses the supplied business operator", () => {
     expect(SITE.operator).toBe("Bespoke Marketing Ltd.");
+  });
+  it("keeps the two incomplete featured projects out of the finished homepage portfolio", () => {
+    expect(FEATURED_PROJECTS.map(project => project.name)).toEqual(["Iron Fist Transport", "Stone Massage"]);
+    expect(HOME_FEATURED_PROJECTS).toEqual([]);
   });
 });

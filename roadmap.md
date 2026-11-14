@@ -1,4 +1,7 @@
 # Tasks
+- [x] Refine homepage hierarchy, spacing, authentic image presentation and motion; verify mobile, accessibility and enquiry flow.
+- [ ] Owner review: supply approved standalone client website screenshots and project links for the hero and featured portfolio; retain current photo until then.
+- [ ] Owner review: uploaded brief names older packages; current approved Foundation/Growth pricing remains unchanged until confirmed otherwise.
 - [x] Simplify to Foundation and Growth, place supplied marketing/SEO images on relevant pages, and verify desktop/mobile presentation.
 - [x] Apply the supplied mobile homepage reference in the existing brand and verify desktop/mobile layout and review CTA.
 - [x] Simplify mobile navigation, improve review CTAs and service clarity, preserve existing content and verify mobile/desktop destinations.

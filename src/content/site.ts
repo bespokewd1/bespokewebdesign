@@ -56,11 +56,11 @@ export type IconName =
   | "droplet" | "zap" | "hardhat" | "hammer" | "truck" | "store";
 
 export const HOME_SERVICES: { icon: IconName; title: string; text: string; id: string }[] = [
-  { icon: "monitor", title: "Website Design", id: "website-development", text: "Professional, mobile-friendly websites that make it easy for customers to trust and contact your business." },
-  { icon: "map", title: "Google & SEO", id: "seo", text: "Help potential customers discover your business through Google Search and Google Maps." },
+  { icon: "monitor", title: "Custom Website Design", id: "website-development", text: "A 100% custom-built website that clearly shows your services and makes it easy to get in touch." },
+  { icon: "map", title: "Local SEO & Google Business Profile", id: "seo", text: "Help customers find and understand your business on Google Search and Maps." },
   { icon: "share", title: "Social Media Marketing", id: "social-media", text: "We keep your profiles active and professional with real project photos, so you never look closed or forgotten." },
-  { icon: "palette", title: "Branding & Design", id: "branding", text: "Create a professional, recognizable business identity across your website and marketing materials." },
-  { icon: "search", title: "Google Ads Management", id: "google-ads", text: "Reach potential customers actively searching for your services with professionally managed advertising campaigns." },
+  { icon: "palette", title: "Branding & Content", id: "branding", text: "A consistent identity, clear writing and branded graphics that make your business look professional." },
+  { icon: "wrench", title: "Website Maintenance & Support", id: "maintenance", text: "Keep your website current with ongoing care and updates within your agreed services." },
 ];
 
 export const SERVICES: {
@@ -170,6 +170,7 @@ export const PROJECTS: {
 
 export const TRUSTED_CLIENTS = PROJECTS.filter(project => !project.ownedProject);
 export const FEATURED_PROJECTS = PROJECTS.filter(project => project.featured);
+export const HOME_FEATURED_PROJECTS = FEATURED_PROJECTS.filter(project => project.image && project.link);
 export const REVIEW_LINKS = {
   Google: "https://maps.app.goo.gl/KmQRwn9H6c6U74Zm7",
   Facebook: "https://www.facebook.com/bespokewebdesignEdmonton/",
@@ -188,6 +189,12 @@ export const MARKETING_PHASES = [
   { title: "Keep Your Social Media Consistent", text: "Regular, genuine posts that show customers your business is active, professional and trustworthy." },
   { title: "Update Your Site & Research Keywords", text: "We research the services and areas your customers search for, then update your pages and content to match." },
   { title: "Track, Improve & Repeat", text: "Marketing is not a one-time task. Every month we review progress, apply updates and keep improving your online presence." },
+] as const;
+
+export const HOME_START_STEPS = [
+  { title: "Tell Us About Your Business", text: "Share your current website, services, and goals." },
+  { title: "We Build Your Online Presence", text: "We prepare the agreed website and marketing work for your review and approval." },
+  { title: "We Manage & Improve", text: "We provide the ongoing services and updates included in your chosen plan." },
 ] as const;
 
 // Founder section — photo and bio are placeholders until the owner supplies them.
