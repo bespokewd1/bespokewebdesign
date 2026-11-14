@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Star, Handshake, RefreshCw, MessageCircle, HardHat } from "lucide-react";
-import { HOME_SERVICES, HOME_FAQS, HOME_FEATURED_PROJECTS, HOME_START_STEPS, TRUSTED_CLIENTS, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
+import { HOME_SERVICES, HOME_FAQS, HOME_FEATURED_PROJECTS, HOME_START_STEPS, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
 import { Icon } from "@/components/site/Icon";
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
 import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
+import { HomeTrust } from "@/components/site/HomeTrust";
 
 export const Route = createFileRoute("/")({
   head: () => {
@@ -41,7 +42,7 @@ function Home() {
       </div>
     </section>
 
-    <section className="home-trust border-b bg-surface" aria-label="Businesses we have worked with"><div className="container-site py-7"><p className="text-xs font-semibold uppercase text-muted-foreground">Working with real local businesses</p><ul className="mt-5 grid grid-cols-2 items-center gap-x-5 gap-y-4 sm:grid-cols-3 lg:grid-cols-6">{TRUSTED_CLIENTS.map(client => <li key={client.name} className="text-sm font-semibold text-navy">{client.logo ? <img src={client.logo} alt={client.name} width="160" height="48" loading="lazy" className="h-10 w-full object-contain" /> : client.name}</li>)}</ul></div></section>
+    <HomeTrust />
 
     {HOME_FEATURED_PROJECTS.length > 0 && <section className="section home-projects" aria-label="Featured projects"><div className="container-site"><SectionHead eyebrow="Our work" title="Real Projects. Built for Real Businesses." text="Explore websites, branding, and digital marketing created for businesses like yours." /><div className="mt-8 grid gap-6 md:grid-cols-2">{HOME_FEATURED_PROJECTS.slice(0, 3).map(project => <ProjectCard key={project.name} p={project} hideMissingImage />)}</div></div></section>}
 

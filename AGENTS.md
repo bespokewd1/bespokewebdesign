@@ -23,3 +23,4 @@
 - Place supplied marketing diagrams on the digital-marketing journey and performance evidence on the SEO page via asset pointers; keep the homepage concise and distinguish measured audit scores from ranking promises.
 - Keep homepage getting-started steps separate from the detailed marketing journey, and require both approved imagery and a project link before featuring a portfolio item; this keeps the overview concise and evidence complete.
 - Use the reusable founder photo carousel with manual controls, pausing and reduced-motion support; this preserves authentic client imagery without forcing constant motion.
+- Keep second-fold Google reviews and the CSS client marquee in HomeTrust, sourcing shared verified reviews and portfolio flags; keep manual pause controls and hide duplicate marquee content from assistive technology.

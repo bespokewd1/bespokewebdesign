@@ -251,3 +251,20 @@ body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
 @media (prefers-reduced-motion: reduce) {
   .home-page *, .home-page *::before, .home-page *::after { animation: none !important; transition: none !important; }
 }
+
+.home-google-review { min-height: 16rem; }
+.home-brand-window { overflow-x: auto; scrollbar-width: thin; }
+.home-brand-window:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
+.home-brand-track { display: flex; width: max-content; animation: home-brands 36s linear infinite; }
+.home-brand-group { display: flex; align-items: center; gap: 4rem; padding-right: 4rem; flex-shrink: 0; }
+.home-brand-item { white-space: nowrap; }
+.home-brand-window:hover .home-brand-track, .home-brand-window:focus-within .home-brand-track, .home-brand-window.is-paused .home-brand-track { animation-play-state: paused; }
+@keyframes home-brands { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@media (max-width: 639px) {
+  .home-brand-group { gap: 2.5rem; padding-right: 2.5rem; }
+  .home-google-review { min-height: 18rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-brand-track { transform: none; }
+  .home-brand-group[aria-hidden="true"] { display: none; }
+}

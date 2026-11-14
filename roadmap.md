@@ -1,4 +1,5 @@
 # Tasks
+- [x] Add Google-only second-fold reviews and moving verified client names; check controls, motion preferences and mobile presentation.
 - [x] Refine homepage hierarchy, spacing, authentic image presentation and motion; verify mobile, accessibility and enquiry flow.
 - [ ] Owner review: supply approved standalone client website screenshots and project links for the hero and featured portfolio; retain current photo until then.
 - [ ] Owner review: uploaded brief names older packages; current approved Foundation/Growth pricing remains unchanged until confirmed otherwise.
