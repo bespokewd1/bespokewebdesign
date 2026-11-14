@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Star, Handshake, RefreshCw, MessageCircle, HardHat } from "lucide-react";
-import { HOME_SERVICES, HOME_FAQS, HOME_FEATURED_PROJECTS, HOME_START_STEPS, REVIEW_PROOF, REVIEW_LINKS } from "@/content/site";
+import { ArrowRight, Handshake, RefreshCw, MessageCircle, HardHat } from "lucide-react";
+import { HOME_SERVICES, HOME_FAQS, HOME_FEATURED_PROJECTS, HOME_START_STEPS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
 import { Icon } from "@/components/site/Icon";
@@ -27,17 +27,12 @@ function Home() {
   return <div className="home-page">
     <section className="hero-photo home-hero overflow-hidden">
       <img src={heroAsset.url} alt="" fetchPriority="high" />
-      <div className="container-site py-12 md:py-20">
+      <div className="container-site py-10 md:py-14">
         <span className="eyebrow home-enter">Edmonton Digital Marketing for Trades &amp; Service Businesses</span>
-        <h1 className="home-enter mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Complete Digital Marketing.<br /><span className="text-hero-accent">One Trusted Partner.</span></h1>
-        <p className="home-enter home-enter-delayed mt-5 max-w-xl text-base leading-relaxed text-navy-muted sm:text-lg">Custom websites, local SEO, and social media marketing for Edmonton trades and service businesses. Fully managed for you, so you can focus on running your business.</p>
-        <div className="home-hero-actions home-enter home-enter-late mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton /><Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><Link to="/our-work">View Our Work</Link></Button></div>
-        <div aria-label="Five-star customer reviews" className="mt-5 flex items-center gap-1 min-[375px]:gap-2 sm:gap-6">
-          {REVIEW_PROOF.map(review => <a key={review.platform} href={REVIEW_LINKS[review.platform]} target="_blank" rel="noopener noreferrer" aria-label={`5-star reviews on ${review.platform}`} className="flex min-h-11 shrink-0 items-center gap-1 min-[375px]:gap-1.5 sm:gap-2 hover:underline focus-visible:outline-2 focus-visible:outline-ring">
-            <span aria-hidden="true" className="flex gap-px min-[375px]:gap-0.5 text-review-gold">{Array.from({ length: review.stars }, (_, i) => <Star key={i} className="size-2 fill-current min-[375px]:size-2.5 sm:size-3.5" strokeWidth={1.5} />)}</span>
-            <span className="whitespace-nowrap text-[10px] font-medium text-navy-foreground min-[375px]:text-[11px] sm:text-sm">{review.platform} Reviews</span>
-          </a>)}
-        </div>
+        <h1 className="home-enter mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Complete Digital Marketing. <span className="text-hero-accent md:block">One Trusted Partner.</span></h1>
+        <p className="home-hero-benefit home-enter home-enter-delayed mt-5 max-w-xl text-base font-medium leading-relaxed text-navy-foreground sm:text-lg">Get found by more local customers, build trust online, and turn more visitors into enquiries.</p>
+        <p className="home-hero-description home-enter home-enter-delayed mt-3 max-w-xl text-sm leading-relaxed text-navy-muted sm:text-base">From custom websites and local SEO to social media marketing, we manage your online presence so you can focus on running your business.</p>
+        <div className="home-hero-actions home-enter home-enter-late mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton>Get a Free Marketing Review</ReviewButton><Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><Link to="/our-work">View Our Work</Link></Button></div>
       </div>
     </section>
 
