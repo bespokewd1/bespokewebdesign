@@ -5,7 +5,6 @@ import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
 import { Icon } from "@/components/site/Icon";
 import { ProjectCard } from "@/components/site/Cards";
-import { ReviewCarousel } from "@/components/site/ReviewCarousel";
 import { LeadForm } from "@/components/site/LeadForm";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { Button } from "@/components/ui/button";
@@ -77,8 +76,6 @@ function Home() {
       <MarketingPlans />
       <div className="mx-auto mt-10 max-w-2xl text-center"><h3 className="text-xl text-navy">Not Sure Which Plan Is Right for Your Business?</h3><p className="mt-3 text-muted-foreground">We'll look at your business and suggest where to start.</p><div className="mt-5"><ReviewButton>Get a Free Marketing Review</ReviewButton></div></div>
     </div></section>
-
-    <ReviewCarousel />
 
     <section className="section bg-surface border-b" aria-labelledby="industries-heading"><div className="container-site"><h2 id="industries-heading" className="max-w-3xl text-3xl leading-tight text-navy md:text-4xl">Built for Businesses That Keep Things Moving.</h2><ul className="mt-7 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">{[
       { name: "Plumbing", hash: "plumbing" }, { name: "Electrical", hash: "electrical" }, { name: "HVAC", hash: "services" }, { name: "General Contractors", hash: "contractors" }, { name: "Transportation & Logistics", hash: "transportation" }, { name: "Other Local Service Businesses", hash: "services" },
