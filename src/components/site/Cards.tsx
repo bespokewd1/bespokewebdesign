@@ -8,7 +8,7 @@ type Project = (typeof PROJECTS)[number];
 
 export function ProjectCard({ p, detailed = false, hideMissingImage = false }: { p: Project; detailed?: boolean; hideMissingImage?: boolean }) {
   return (
-    <article id={p.name.toLowerCase().replaceAll(" ", "-")} className="card-site scroll-mt-24 flex flex-col !p-0 overflow-hidden">
+    <article id={p.name.toLowerCase().replaceAll(" ", "-")} className={`card-site scroll-mt-24 flex flex-col !p-0 overflow-hidden ${p.slug ? "portfolio-card" : ""}`}>
       {p.image ? (
         <img src={p.image} alt={`${p.name} website screenshot`} loading="lazy" className="aspect-[16/10] w-full object-cover" />
       ) : !hideMissingImage ? (
@@ -31,7 +31,8 @@ export function ProjectCard({ p, detailed = false, hideMissingImage = false }: {
           <ul className="mt-4 list-disc pl-5 text-sm">{p.outcomes.map((o) => <li key={o}>{o}</li>)}</ul>
         )}
         <Button asChild variant="outline" className="btn btn-outline mt-6 h-auto self-start">
-          {p.link ? <a href={p.link} target="_blank" rel="noopener noreferrer">View Project <ExternalLink /></a>
+          {p.slug ? <Link to="/our-work/$slug" params={{ slug: p.slug }} aria-label={`View ${p.name} project`}>View Project <ExternalLink /></Link>
+            : p.link ? <a href={p.link} target="_blank" rel="noopener noreferrer">View Project <ExternalLink /></a>
             : <Link to="/our-work" hash={p.name.toLowerCase().replaceAll(" ", "-")}>View Project <ExternalLink /></Link>}
         </Button>
         {detailed && !p.link && <p className="mt-3 text-xs text-muted-foreground">Live website link not yet provided.</p>}

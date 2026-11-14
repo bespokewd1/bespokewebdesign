@@ -23,13 +23,13 @@ describe("homepage business rules", () => {
     expect(TRUSTED_CLIENTS).toHaveLength(6);
   });
   it("features the two projects with existing verified summaries", () => {
-    expect(FEATURED_PROJECTS.map(p => p.name)).toEqual(["Iron Fist Transport", "Stone Massage"]);
+    expect(FEATURED_PROJECTS.map(p => p.name)).toEqual(["Iron Fist Transport Ltd.", "Stone Massage"]);
   });
   it("uses the supplied business operator", () => {
     expect(SITE.operator).toBe("Bespoke Marketing Ltd.");
   });
   it("keeps the two incomplete featured projects out of the finished homepage portfolio", () => {
-    expect(FEATURED_PROJECTS.map(project => project.name)).toEqual(["Iron Fist Transport", "Stone Massage"]);
+    expect(FEATURED_PROJECTS.map(project => project.name)).toEqual(["Iron Fist Transport Ltd.", "Stone Massage"]);
     expect(HOME_FEATURED_PROJECTS).toEqual([]);
   });
 });

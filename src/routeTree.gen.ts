@@ -21,6 +21,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as WebsiteDesignRouteImport } from './routes/website-design'
+import { Route as OurWorkSlugRouteImport } from './routes/our-work_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -82,6 +83,11 @@ const WebsiteDesignRoute = WebsiteDesignRouteImport.update({
   path: '/website-design',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OurWorkSlugRoute = OurWorkSlugRouteImport.update({
+  id: '/our-work_/$slug',
+  path: '/our-work/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/website-design': typeof WebsiteDesignRoute
+  '/our-work/$slug': typeof OurWorkSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/website-design': typeof WebsiteDesignRoute
+  '/our-work/$slug': typeof OurWorkSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,6 +133,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/website-design': typeof WebsiteDesignRoute
+  '/our-work_/$slug': typeof OurWorkSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +150,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/testimonials'
     | '/website-design'
+    | '/our-work/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/testimonials'
     | '/website-design'
+    | '/our-work/$slug'
   id:
     | '__root__'
     | '/'
@@ -169,6 +180,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/testimonials'
     | '/website-design'
+    | '/our-work_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -184,6 +196,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
   WebsiteDesignRoute: typeof WebsiteDesignRoute
+  OurWorkSlugRoute: typeof OurWorkSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -272,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WebsiteDesignRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/our-work_/$slug': {
+      id: '/our-work_/$slug'
+      path: '/our-work/$slug'
+      fullPath: '/our-work/$slug'
+      preLoaderRoute: typeof OurWorkSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -288,6 +308,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
   WebsiteDesignRoute: WebsiteDesignRoute,
+  OurWorkSlugRoute: OurWorkSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

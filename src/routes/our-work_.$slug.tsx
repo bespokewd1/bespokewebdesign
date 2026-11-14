@@ -1,0 +1,26 @@
+import { createFileRoute, notFound } from "@tanstack/react-router";
+import { PORTFOLIO_PROJECTS } from "@/content/site";
+import { ProjectShowcase } from "@/components/site/ProjectShowcase";
+import { pageHead } from "@/lib/seo";
+
+export const Route = createFileRoute("/our-work_/$slug")({
+  beforeLoad: ({ params }) => {
+    if (!PORTFOLIO_PROJECTS.some(project => project.slug === params.slug)) throw notFound();
+  },
+  head: ({ params }) => {
+    const project = PORTFOLIO_PROJECTS.find(p => p.slug === params.slug);
+    const head = pageHead({ path: `/our-work/${params.slug}`, crumb: project?.name ?? "Project",
+      title: `${project?.name ?? "Project Not Found"} — Client Portfolio | Bespoke Web Design`,
+      description: project?.description ?? "Explore real client websites and digital marketing projects from Bespoke Web Design." });
+    return project?.image.startsWith("https://") ? { ...head, meta: [...head.meta,
+      { property: "og:image", content: project.image }, { name: "twitter:image", content: project.image }] } : head;
+  },
+  component: ClientProject,
+});
+
+function ClientProject() {
+  const { slug } = Route.useParams();
+  const project = PORTFOLIO_PROJECTS.find(p => p.slug === slug);
+  if (!project) return null;
+  return <ProjectShowcase project={project} />;
+}

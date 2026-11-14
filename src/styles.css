@@ -253,6 +253,13 @@ body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
 }
 
 .home-google-review { min-height: 16rem; }
+.portfolio-card { transition: transform 250ms, border-color 250ms; }
+.portfolio-card:hover { border-color: var(--primary); transform: translateY(-8px); }
+.portfolio-card > img { transition: transform 300ms; }
+.portfolio-card:hover > img { transform: scale(1.025); }
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card, .portfolio-card > img { transition: none; transform: none !important; }
+}
 .home-brand-window { overflow-x: auto; scrollbar-width: thin; }
 .home-brand-window:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
 .home-brand-track { display: flex; width: max-content; animation: home-brands 36s linear infinite; }
