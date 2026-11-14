@@ -14,7 +14,7 @@
 - Store imported brand media as Lovable Assets pointers; derive the public favicon from the same logo so branding remains consistent.
 - Reuse LeadForm with a discriminated review/consultation schema and insert-only Cloud inquiries; mirror field limits, contact formats and kind-specific payload rules in the INSERT policy so direct requests cannot bypass validation, and never allow public reads, updates or deletes of contact details.
 - Keep homepage FAQ content and applicable marketing agreement conditions in the shared content model; render questions with the existing UI accordion to avoid duplicated content and controls.
-- Pre-bundle React entry points and the homepage Radix accordion in Vite alongside existing dependencies to prevent mid-session optimizer changes from mixing React instances.
+- Pre-bundle React entry points, Radix accordion/dialog/tabs and Embla in Vite alongside existing dependencies; newly used interactive dependencies must join this list to prevent mid-session optimizer changes from mixing React instances.
 - Derive trusted clients and featured homepage work from shared portfolio flags, and render missing homepage media conditionally; this prevents owned projects or incomplete proof from being presented as external client evidence.
 - Keep supplied review transcriptions and original screenshot pointers together in the review content model, split into Google and Facebook collections rendered by the homepage carousel and the /testimonials galleries; this avoids duplicate testimonial sections and preserves source evidence.
 - Keep mobile destinations in shared navigation data and use the existing modal Sheet for focus trapping, Escape/outside dismissal and scroll locking; desktop navigation stays independent.
