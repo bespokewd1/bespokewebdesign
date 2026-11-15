@@ -24,4 +24,5 @@
 - Keep homepage getting-started steps separate from the detailed marketing journey, and require both approved imagery and a project link before featuring a portfolio item; this keeps the overview concise and evidence complete.
 - Use the reusable founder photo carousel with manual controls, pausing and reduced-motion support; this preserves authentic client imagery without forcing constant motion.
 - Keep second-fold Google reviews and the CSS client marquee in HomeTrust, sourcing shared verified reviews and portfolio flags; keep manual pause controls and hide duplicate marquee content from assistive technology.
+- Source the client-logo marquee from the owner-supplied logo collection model, independently of portfolio showcases, so all approved logos appear without changing portfolio evidence.
 - Keep portfolio records in the shared site model, distinguish published showcases from retained legacy entries, and use one parameterized detail route; evidence-based filters and hidden empty media/audits prevent invented proof.

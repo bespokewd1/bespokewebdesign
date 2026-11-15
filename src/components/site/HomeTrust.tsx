@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Pause, Play, Star } from "lucide-react";
 import { GOOGLE_REVIEWS } from "@/content/reviews";
-import { REVIEW_LINKS, TRUSTED_CLIENTS } from "@/content/site";
+import { REVIEW_LINKS } from "@/content/site";
+import { CLIENT_LOGOS } from "@/content/client-logos";
 import googleG from "@/assets/google-g.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
@@ -67,7 +68,7 @@ export function HomeTrust() {
     </section>
     <section className="home-brand-showcase border-b bg-background py-8" aria-labelledby="brand-showcase-heading">
       <div className="container-site flex items-center justify-between gap-4"><h2 id="brand-showcase-heading" className="text-xl text-navy">Businesses We Support</h2>{!reduced && <Button variant="ghost" size="icon" className="size-11" aria-label={brandsPaused ? "Play client names" : "Pause client names"} title={brandsPaused ? "Play client names" : "Pause client names"} onClick={() => setBrandsPaused(current => !current)}>{brandsPaused ? <Play /> : <Pause />}</Button>}</div>
-      <div className={`home-brand-window mt-6 ${brandsPaused ? "is-paused" : ""}`} tabIndex={0} aria-label="Client businesses"><div className="home-brand-track">{[false, true].map(duplicate => <ul key={String(duplicate)} className="home-brand-group" aria-hidden={duplicate || undefined}>{TRUSTED_CLIENTS.map(client => <li key={client.name} className="home-brand-item font-display text-lg font-bold text-navy">{client.logo ? <img src={client.logo} alt={client.name} width="160" height="48" loading="lazy" className="h-12 w-40 object-contain" /> : client.name}</li>)}</ul>)}</div></div>
+      <div className={`home-brand-window mt-6 ${brandsPaused ? "is-paused" : ""}`} tabIndex={0} aria-label="Client businesses"><div className="home-brand-track">{[false, true].map(duplicate => <ul key={String(duplicate)} className="home-brand-group" aria-hidden={duplicate || undefined}>{CLIENT_LOGOS.map(client => <li key={client.name} className="home-brand-item"><img src={client.src} alt={duplicate ? "" : client.name} width="184" height="112" decoding="async" /></li>)}</ul>)}</div></div>
     </section>
   </>;
 }
