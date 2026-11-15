@@ -25,4 +25,5 @@
 - Use the reusable founder photo carousel with manual controls, pausing and reduced-motion support; this preserves authentic client imagery without forcing constant motion.
 - Keep second-fold Google reviews and the CSS client marquee in HomeTrust, sourcing shared verified reviews and portfolio flags; keep manual pause controls and hide duplicate marquee content from assistive technology.
 - Source the client-logo marquee from the owner-supplied logo collection model, independently of portfolio showcases, so all approved logos appear without changing portfolio evidence.
+- Keep homepage service cards in HomeServiceCard with optional photo source/alt props and shared service copy; this allows replacing icon placeholders without changing layout or links.
 - Keep portfolio records in the shared site model, distinguish published showcases from retained legacy entries, and use one parameterized detail route; evidence-based filters and hidden empty media/audits prevent invented proof.

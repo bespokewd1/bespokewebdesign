@@ -3,7 +3,7 @@ import { ArrowRight, Handshake, RefreshCw, MessageCircle, HardHat } from "lucide
 import { HOME_SERVICES, HOME_FAQS, HOME_FEATURED_PROJECTS, HOME_START_STEPS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
-import { Icon } from "@/components/site/Icon";
+import { HomeServiceCard } from "@/components/site/HomeServiceCard";
 import { ProjectCard } from "@/components/site/Cards";
 import { LeadForm } from "@/components/site/LeadForm";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
@@ -42,7 +42,7 @@ function Home() {
 
     <section className="section home-services bg-background"><div className="container-site">
       <SectionHead eyebrow="How we help" title="Everything Your Business Needs Online." text="From your website to your Google presence and social media, we take care of the details that help customers find and trust your business." />
-      <div className="mt-8 grid gap-0 md:grid-cols-2 lg:grid-cols-3">{HOME_SERVICES.map(s => <article key={s.id} className="home-service flex min-w-0 flex-col"><Icon name={s.icon} className="size-8 text-accent" /><h3 className="mt-4 text-base leading-tight text-navy">{s.title}</h3><p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.text}</p><Button asChild variant="link" className="mt-4 min-h-11 justify-start self-start p-0"><Link aria-label={`Learn more about ${s.title}`} to={s.id === "website-development" ? "/website-design" : s.id === "seo" ? "/seo" : s.id === "google-ads" ? "/digital-marketing" : "/services"} {...(s.id === "branding" || s.id === "social-media" || s.id === "maintenance" ? { hash: s.id } : {})}><ArrowRight /></Link></Button></article>)}</div>
+      <div className="home-service-grid mt-8 grid gap-6">{HOME_SERVICES.map(service => <HomeServiceCard key={service.id} service={service} />)}</div>
       <Button asChild variant="link" className="mt-6 h-auto whitespace-normal p-0"><Link to="/digital-marketing">Explore Our Digital Marketing Services <ArrowRight /></Link></Button>
     </div></section>
 
