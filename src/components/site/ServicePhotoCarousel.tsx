@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 
-export function ServicePhotoCarousel({ photos, label, interval }: { photos: { src: string; alt: string }[]; label: string; interval: number }) {
+export function ServicePhotoCarousel({ photos, label, interval }: { photos: { src: string; alt: string; content?: ReactNode }[]; label: string; interval: number }) {
   const container = useRef<HTMLDivElement>(null);
   const [api, setApi] = useState<CarouselApi>();
   const [selected, setSelected] = useState(0);
@@ -43,7 +43,7 @@ export function ServicePhotoCarousel({ photos, label, interval }: { photos: { sr
     <Carousel setApi={setApi} opts={{ loop: true, duration: reducedMotion ? 0 : 25 }} className="size-full" aria-label={`${label} samples`} onKeyDown={() => setPlaying(false)}>
       <div className="absolute inset-x-0 top-0 bottom-11 overflow-hidden [&>div]:h-full">
         <CarouselContent className="ml-0 h-full">{photos.map((photo, index) => <CarouselItem key={photo.src} className="h-full pl-0" aria-label={`${index + 1} of ${photos.length}`}>
-          <figure className="service-card-art"><img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" /></figure>
+          {photo.content ?? <figure className="service-card-art"><img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" /></figure>}
         </CarouselItem>)}</CarouselContent>
       </div>
       <div className="absolute inset-x-0 bottom-0 flex h-11 items-center justify-center bg-card" aria-label={`Choose ${label} sample`}>
