@@ -28,6 +28,13 @@ function Contact() {
           </div>
           <FounderPhotoCarousel tone="light" />
         </div>
+        <div className="container-site mt-10">
+          <div className="rounded-lg border-l-4 border-primary bg-surface p-6">
+            <h2 className="flex items-center gap-2 text-2xl text-navy"><MapPin className="h-5 w-5 text-accent" aria-hidden="true" /> Let's Meet in Person in Edmonton</h2>
+            <p className="mt-3 text-muted-foreground">Just like with all my clients, I believe the best way to understand your business is face-to-face. Phone and video calls are always welcome, but meeting in person is preferred.</p>
+            <p className="mt-3 text-muted-foreground">I invest real time preparing for each meeting and getting to know your business before we sit down. Because of this, in-person consultations are reserved for business owners who are genuinely ready to invest in and grow their marketing.</p>
+          </div>
+        </div>
       </section>
       <section id="consultation" className="section scroll-mt-20 border-t">
         <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.4fr]">
