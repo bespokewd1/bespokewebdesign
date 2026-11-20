@@ -154,11 +154,11 @@ export function AIAssistant() {
   }, []);
 
   return (
-    <aside className="bespoke-assistant" aria-label="Bespoke AI Assistant">
+    <aside className="bespoke-assistant" aria-label="Talk to Casey - Bespoke AI Assistant">
       {failed && <p role="alert" className="rounded border bg-surface p-4 text-sm text-navy">The assistant couldn’t load. Please refresh to try again.</p>}
-      <span className="bespoke-assistant-label" hidden={!ready || opened}>Bespoke AI Assistant</span>
+      <span className="bespoke-assistant-label" hidden={!ready || opened}>Talk to Casey - Bespoke AI Assistant</span>
       {header && createPortal(<div className="bespoke-chat-header">
-        <div className="bespoke-chat-title-row"><strong>Bespoke AI Assistant</strong><Button variant="ghost" size="icon" title="Minimize conversation" aria-label="Minimize conversation" onClick={minimize}><Minus /></Button></div>
+        <div className="bespoke-chat-title-row"><strong>Talk to Casey - Bespoke AI Assistant</strong><Button variant="ghost" size="icon" title="Minimize conversation" aria-label="Minimize conversation" onClick={minimize}><Minus /></Button></div>
         <label className="bespoke-chat-language">Language<select aria-label="Conversation language" value={language} disabled={active} onChange={event => {
           const code = event.target.value;
           if (code !== "en" && !supported.includes(code)) return;
@@ -184,9 +184,9 @@ export function AIAssistant() {
           transcript: "true",
           dismissible: "true",
           "mobile-fullscreen": "false",
-          "action-text": "Bespoke AI Assistant",
+          "action-text": "Talk to Casey - Bespoke AI Assistant",
           "show-resize-button": "false",
-          "text-contents": JSON.stringify({ main_label: "Bespoke AI Assistant", start_chat: "Chat with us", input_placeholder: "Type your question here...", input_placeholder_text_only: "Type your question here...", input_placeholder_new_conversation: "Type your question here...", send_message: "Send", start_call: "Start a voice call", end_call: "End call" }),
+          "text-contents": JSON.stringify({ main_label: "Talk to Casey - Bespoke AI Assistant", start_chat: "Chat with us", input_placeholder: "Type your question here...", input_placeholder_text_only: "Type your question here...", input_placeholder_new_conversation: "Type your question here...", send_message: "Send", start_call: "Start a voice call", end_call: "End call" }),
       })}
     </aside>
   );
