@@ -1,4 +1,5 @@
 # Tasks
+- [x] Move desktop Casey assistant to bottom-right while keeping mobile centered; add and verify a lightweight construction/electrician/plumber/massage background montage.
 - [x] Update the displayed assistant welcome, suggested questions, verified language availability and session-preserving minimize controls; verify real text/voice, navigation and five screen sizes.
 - [x] Add the real global ElevenLabs assistant and verify its interface on all 17 content pages and mobile.
 - [x] Refine the assistant with a moving blue globe and real text chat alongside voice; verify both modes.

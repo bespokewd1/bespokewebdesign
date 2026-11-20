@@ -201,8 +201,11 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   .whatsapp-contact { bottom: calc(5.25rem + env(safe-area-inset-bottom)); }
   body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
   .bespoke-assistant-label { bottom: calc(8.75rem + env(safe-area-inset-bottom)); }
+  .bespoke-assistant-label { left: auto; right: max(0.75rem, env(safe-area-inset-right)); transform: none; }
+  :host .overlay { align-items: flex-end !important; }
   .bespoke-assistant elevenlabs-convai { inset: 0 0 calc(4.5rem + env(safe-area-inset-bottom)) !important; }
   .bespoke-assistant > [role="alert"] { bottom: calc(9rem + env(safe-area-inset-bottom)); }
+  .bespoke-assistant > [role="alert"] { left: auto; right: max(0.75rem, env(safe-area-inset-right)); transform: none; }
 }
 /* Also loaded inside the version-pinned official widget's shadow root. */
 .bespoke-chat-sheet { width: min(420px, calc(100vw - 24px)) !important; height: min(620px, calc(100dvh - 240px)) !important; max-height: calc(100dvh - 240px) !important; border: 1px solid var(--border); border-radius: 8px !important; font-family: var(--font-sans); }
