@@ -9,7 +9,8 @@ import { LeadForm } from "@/components/site/LeadForm";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
+import heroAsset from "@/assets/trades-workday-poster.webp.asset.json";
+import { HomeHeroVideo } from "@/components/site/HomeHeroVideo";
 import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
 import { HomeTrust } from "@/components/site/HomeTrust";
 
@@ -26,7 +27,7 @@ function ReviewButton({ children = "Get a Free Website Review" }: { children?: R
 function Home() {
   return <div className="home-page">
     <section className="hero-photo home-hero overflow-hidden">
-      <img src={heroAsset.url} alt="" fetchPriority="high" />
+      <HomeHeroVideo />
       <div className="container-site py-10 md:py-14">
         <span className="eyebrow home-enter">Edmonton Digital Marketing for Trades &amp; Service Businesses</span>
         <h1 className="home-enter mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Complete Digital Marketing. <span className="text-hero-accent md:block">One Trusted Partner.</span></h1>

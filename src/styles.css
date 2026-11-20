@@ -243,6 +243,8 @@ p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
 .mobile-navigation { padding-bottom: env(safe-area-inset-bottom); }
 .home-hero::before { background: var(--home-hero-shade); }
 .home-hero > img { object-position: 70% center; }
+.home-hero > .home-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; z-index: -2; }
+.home-hero-video-control { position: absolute; right: 0.75rem; bottom: 0.75rem; z-index: 1; background: var(--navy); border: 1px solid var(--navy-muted); }
 .home-hero .eyebrow, .home-partner .eyebrow { color: var(--hero-accent); letter-spacing: 0; }
 .home-benefit + .home-benefit { border-left: 1px solid var(--border); }
 .home-services .home-service { box-shadow: 0 2px 6px color-mix(in oklab, var(--navy) 5%, transparent); transition: transform 200ms, box-shadow 200ms; }
@@ -290,6 +292,7 @@ p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
 }
 @media (max-width: 639px) {
   .home-hero > img { object-position: 65% center; }
+  .home-hero > .home-hero-video { object-position: 75% center; }
   .home-hero::before { background: var(--hero-shade); }
   .home-hero .container-site { padding-block: 2.25rem; }
   .home-hero h1 { font-size: 2rem; text-wrap: balance; }
