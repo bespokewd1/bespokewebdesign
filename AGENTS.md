@@ -27,7 +27,7 @@
 - Source the client-logo marquee from the owner-supplied logo collection model, independently of portfolio showcases, so all approved logos appear without changing portfolio evidence.
 - Keep homepage service cards in HomeServiceCard with optional photo source/alt props and shared service copy; this allows replacing icon placeholders without changing layout or links.
 - Use ServiceGraphic for optimized CDN service artwork and authentic shared client logos; preserve supplied images with contain-fit in consistent service-card frames, omit overlay labels, and retain HomeServiceCard image overrides.
-- Use ServicePhotoCarousel for supplied social samples within the existing service frame; reuse Embla with visible-only autoplay, manual controls and reduced-motion support to keep other service cards unchanged.
+- Use ServicePhotoCarousel with shared service-photo collections for website and social samples; reuse Embla with per-service intervals, visible-only autoplay, manual controls and reduced-motion support to keep other cards unchanged.
 - Keep portfolio records in the shared site model, distinguish published showcases from retained legacy entries, and use one parameterized detail route; evidence-based filters and hidden empty media/audits prevent invented proof.
 - Mount the pinned ElevenLabs widget globally with one script and native transport; preserve provider greetings/messages, minimize without ending sessions, and keep the website language fixed to English.
 - Share the complete anchored service destinations between desktop dropdown and mobile Sheet so both menus stay consistent.

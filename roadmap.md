@@ -1,4 +1,5 @@
 # Tasks
+- [x] Add four website mockups to the custom web design carousel with four-second autoplay; verified both card carousels and visible controls on desktop/mobile.
 - [x] Add supplied social media card photos with swipe, clickable dots and three-second autoplay; verified desktop/mobile while preserving other cards.
 - [x] Add complete anchored Services dropdowns on desktop/mobile; verified logo returns to the top of home.
 - [x] Make Casey English-only and add compact live Edmonton weather/local time in the footer; verified desktop and phone, including daylight-saving tests.
