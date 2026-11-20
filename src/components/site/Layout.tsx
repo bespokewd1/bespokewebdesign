@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { Menu, ChevronDown, Facebook } from "lucide-react";
-import { NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
+import { REVIEW_LINKS, NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
 
@@ -78,6 +78,20 @@ function FooterCol({ title, links }: { title: string; links: { label: string; to
 
 export function Footer() {
   return (
+    <>
+    <section aria-label="Client reviews" className="border-t border-border bg-secondary">
+      <div className="container-site flex flex-col items-center justify-between gap-4 py-6 text-center md:flex-row md:text-left">
+        <p className="text-sm font-medium text-foreground">Supporting real, growing businesses in Edmonton and area.</p>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {(["Google", "Facebook"] as const).map(p => (
+            <a key={p} href={REVIEW_LINKS[p]} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent">
+              {p} 5.0 <span className="text-review-gold tracking-tight" aria-label="5 out of 5 stars">★★★★★</span>
+            </a>
+          ))}
+          <Link to="/testimonials" className="px-2 text-sm font-semibold text-accent hover:underline">Read all reviews</Link>
+        </div>
+      </div>
+    </section>
     <footer className="bg-navy text-navy-muted">
       <div className="container-site grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
@@ -120,6 +134,7 @@ export function Footer() {
       </div>
       <WhatsAppContact />
     </footer>
+    </>
   );
 }
 
