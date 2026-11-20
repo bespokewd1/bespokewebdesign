@@ -1,4 +1,5 @@
 # Tasks
+- [x] Replace the five homepage service emblems with optimized device, map, Squad V illustrative social post, existing logo and headset graphics; verified desktop, tablet and phone.
 - [x] Remove the website-only Casey greeting and verify the exact live ElevenLabs greeting on desktop and mobile; native conversation transport remains unchanged.
 - [x] Move desktop Casey assistant to bottom-right while keeping mobile centered; add and verify a lightweight construction/electrician/plumber/massage background montage.
 - [x] Update the displayed assistant welcome, suggested questions, verified language availability and session-preserving minimize controls; verify real text/voice, navigation and five screen sizes.

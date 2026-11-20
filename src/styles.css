@@ -256,6 +256,12 @@ p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
 .home-benefit + .home-benefit { border-left: 1px solid var(--border); }
 .home-services .home-service { box-shadow: 0 2px 6px color-mix(in oklab, var(--navy) 5%, transparent); transition: transform 200ms, box-shadow 200ms; }
 .home-service-grid { grid-template-columns: minmax(0, 1fr); }
+.service-card-art { position: relative; width: 100%; height: 100%; margin: 0; }
+.service-card-art > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.service-art-caption { position: absolute; right: 8px; bottom: 8px; border-radius: 4px; padding: 2px 6px; background: var(--surface); color: var(--muted-foreground); font-size: 10px; line-height: 1.5; }
+.service-brand-art { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 10px; width: 100%; height: 100%; padding: 20px; background: var(--service-art-ground); }
+.service-brand-logo { display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 0; padding: 8px 12px; border: 1px solid var(--border); border-radius: 4px; background: var(--surface); }
+.service-brand-logo img { width: 100%; height: 100%; object-fit: contain; }
 .service-graphic { display: block; width: 100%; height: 100%; --graphic-ground: var(--service-art-ground); }
 .service-graphic-seo, .service-graphic-maintenance { --graphic-ground: var(--service-art-mint); }
 .service-graphic-branding { --graphic-ground: var(--service-art-rose); }
