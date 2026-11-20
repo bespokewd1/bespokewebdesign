@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { Menu, ChevronDown, MapPin, Facebook } from "lucide-react";
+import { Menu, ChevronDown, Facebook } from "lucide-react";
 import { NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
@@ -84,8 +84,7 @@ export function Footer() {
           <Logo light />
           <p className="mt-4 max-w-sm text-sm leading-relaxed">{SITE.description}</p>
           <p className="mt-3 text-sm">Operated by {SITE.operator}.</p>
-          <p className="mt-4 flex items-center gap-2 text-sm"><MapPin className="h-4 w-4 text-accent" /> {SITE.location}</p>
-          {SITE.social.map(s => <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm hover:text-navy-foreground"><Facebook className="h-4 w-4" aria-hidden="true" />{s.label}</a>)}
+          {SITE.social.map(s => <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="mt-4 flex w-fit items-center gap-2 text-sm hover:text-navy-foreground">Follow us on Facebook <Facebook className="h-4 w-4" aria-hidden="true" /></a>)}
           <EdmontonWeather />
         </div>
         <FooterCol title="Services" links={[
