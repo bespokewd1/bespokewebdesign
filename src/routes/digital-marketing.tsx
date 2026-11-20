@@ -3,6 +3,7 @@ import { ArrowRight, Palette, Monitor, Share2, Search, Target, ChartNoAxesCombin
 import { pageHead } from "@/lib/seo";
 import { SectionHead, CtaBand } from "@/components/site/Layout";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
+import { TechnicalSeoProof } from "@/components/site/TechnicalSeoProof";
 import { Button } from "@/components/ui/button";
 import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
 import marketingCycleAsset from "@/assets/marketing-growth-cycle.png.asset.json";
@@ -61,6 +62,7 @@ function DigitalMarketing() {
         </div>
       </div>
     </section>
+    <TechnicalSeoProof />
     <section id="plans" className="section scroll-mt-20 bg-surface">
       <div className="container-site"><SectionHead eyebrow="Monthly plans" title="Two simple plans" text="Both include branding, a custom website and basic SEO. Growth adds more social content and Google Ads management." center /><MarketingPlans /></div>
     </section>
