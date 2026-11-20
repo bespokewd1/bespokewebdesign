@@ -221,7 +221,8 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .bespoke-chat-header { padding: 8px 14px 12px; color: var(--navy); }
 .bespoke-chat-title-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 14px; }
 .bespoke-chat-title-row button { min-width: 44px; height: 44px; }
-.bespoke-chat-language { display: flex; align-items: center; gap: 12px; font-size: 12px; }
+.bespoke-chat-language { margin-top: 4px; font-size: 12px; }
+.edmonton-weather { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--navy-soft); max-width: 360px; min-height: 92px; }
 .bespoke-chat-language select { min-width: 0; flex: 1; min-height: 36px; border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; background: var(--surface); color: var(--navy); }
 .bespoke-chat-language select:focus-visible { outline: 2px solid var(--ring); }
 .bespoke-chat-language select:disabled { opacity: 0.6; }

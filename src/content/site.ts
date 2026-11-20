@@ -39,10 +39,12 @@ export const NAV = [
 
 export const MOBILE_SERVICES = [
   { label: "All Services", to: "/services" },
-  { label: "Website Design", to: "/website-design" },
-  { label: "Google & SEO", to: "/seo" },
+  { label: "Custom Website Design", to: "/services", hash: "website-development" },
+  { label: "Local SEO", to: "/services", hash: "seo" },
+  { label: "Google Business Profile", to: "/services", hash: "google-business" },
   { label: "Social Media Marketing", to: "/services", hash: "social-media" },
-  { label: "Branding & Design", to: "/services", hash: "branding" },
+  { label: "Branding & Content", to: "/services", hash: "branding" },
+  { label: "Website Maintenance & Support", to: "/services", hash: "maintenance" },
   { label: "Google Ads Management", to: "/digital-marketing", hash: "google-ads" },
 ] as const;
 

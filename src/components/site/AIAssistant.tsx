@@ -2,7 +2,7 @@ import { createElement, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ASSISTANT_AGENT_ID, assistantLanguages } from "@/lib/assistant";
+import { ASSISTANT_AGENT_ID, ASSISTANT_LANGUAGE } from "@/lib/assistant";
 import appCss from "@/styles.css?url";
 
 const WIDGET_SCRIPT = "https://unpkg.com/@elevenlabs/convai-widget-embed@0.27.1";
@@ -12,21 +12,7 @@ export function AIAssistant() {
   const [ready, setReady] = useState(false);
   const widgetRef = useRef<HTMLElement | null>(null);
   const [header, setHeader] = useState<HTMLElement | null>(null);
-  const [active, setActive] = useState(false);
   const [opened, setOpened] = useState(false);
-  const [language, setLanguage] = useState("en");
-  const [supported, setSupported] = useState<string[]>([]);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    void fetch(`https://api.elevenlabs.io/v1/convai/agents/${ASSISTANT_AGENT_ID}/widget`, { signal: controller.signal })
-      .then(async response => {
-        if (!response.ok) throw new Error(`ElevenLabs settings: ${response.status}`);
-        const data = await response.json() as { widget_config?: { supported_language_overrides?: string[] | null } };
-        setSupported(data.widget_config?.supported_language_overrides ?? []);
-      }).catch(() => { /* Unverified languages remain unavailable. */ });
-    return () => controller.abort();
-  }, []);
 
   const minimize = () => {
     const widget = widgetRef.current;
@@ -90,8 +76,6 @@ export function AIAssistant() {
           dismiss.click();
           setReady(true);
         }
-        const isActive = Boolean(root.querySelector('button[aria-label="End chat"], button[aria-label="End call"], button[aria-label="End"]'));
-        setActive(isActive);
         const sheet = root.querySelector<HTMLElement>(".sheet");
         if (!sheet) return;
         sheet.classList.add("bespoke-chat-sheet");
@@ -138,19 +122,13 @@ export function AIAssistant() {
       <span className="bespoke-assistant-label" hidden={!ready || opened}>Talk to Casey - Bespoke AI Assistant</span>
       {header && createPortal(<div className="bespoke-chat-header">
         <div className="bespoke-chat-title-row"><strong>Talk to Casey - Bespoke AI Assistant</strong><Button variant="ghost" size="icon" title="Minimize conversation" aria-label="Minimize conversation" onClick={minimize}><Minus /></Button></div>
-        <label className="bespoke-chat-language">Language<select aria-label="Conversation language" value={language} disabled={active} onChange={event => {
-          const code = event.target.value;
-          if (code !== "en" && !supported.includes(code)) return;
-          setLanguage(code);
-          if (supported.includes(code)) widgetRef.current?.setAttribute("override-language", code);
-          else widgetRef.current?.removeAttribute("override-language");
-        }}>{assistantLanguages(supported).map(option => <option key={option.code} value={option.code} disabled={!option.supported}>{option.name}{!option.supported ? " — unavailable" : ""}</option>)}</select></label>
+        <p className="bespoke-chat-language">English</p>
       </div>, header)}
       {createElement("elevenlabs-convai", {
           ref: widgetRef,
           class: ready ? "is-ready" : "",
           "agent-id": ASSISTANT_AGENT_ID,
-          language: "en",
+          language: ASSISTANT_LANGUAGE,
           variant: "compact",
           placement: "bottom",
           "show-avatar-when-collapsed": "true",

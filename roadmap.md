@@ -1,4 +1,6 @@
 # Tasks
+- [x] Add complete anchored Services dropdowns on desktop/mobile; verified logo returns to the top of home.
+- [x] Make Casey English-only and add compact live Edmonton weather/local time in the footer; verified desktop and phone, including daylight-saving tests.
 - [x] Apply the three supplied service images, remove mockup labels, and unify all five image frames without cropping; verified phone, tablet and desktop.
 - [x] Replace the five homepage service emblems with optimized device, map, Squad V illustrative social post, existing logo and headset graphics; verified desktop, tablet and phone.
 - [x] Remove the website-only Casey greeting and verify the exact live ElevenLabs greeting on desktop and mobile; native conversation transport remains unchanged.

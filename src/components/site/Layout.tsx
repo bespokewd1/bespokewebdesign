@@ -1,5 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Menu, ChevronDown, MapPin, Facebook } from "lucide-react";
 import { NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
@@ -7,10 +7,12 @@ import { Button } from "@/components/ui/button";
 
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { WhatsAppContact } from "@/components/site/WhatsAppContact";
+import { EdmontonWeather } from "@/components/site/EdmontonWeather";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
-    <Link to="/" className="flex shrink-0 items-center gap-2" aria-label="Bespoke Web Design home">
+    <Link to="/" hash="top" resetScroll className="flex shrink-0 items-center gap-2" aria-label="Bespoke Web Design home">
       <img src={logoAsset.url} alt="" width="40" height="40" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
       <span className={`brand-name text-[19px] sm:text-[22px] ${light ? "text-navy-foreground" : "text-navy"}`}>Bespoke<span className="text-accent">Web</span>Design</span>
     </Link>
@@ -21,15 +23,20 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
+  useEffect(() => {
+    if (location.pathname !== "/" || location.hash !== "top") return;
+    const frame = requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    return () => cancelAnimationFrame(frame);
+  }, [location.pathname, location.hash]);
   const active = (to: string, hash?: string) => location.pathname === to && location.hash === (hash || "");
   const menuLinkClass = "flex min-h-11 min-w-0 items-center border-b px-3 py-3 text-base font-semibold text-navy hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring";
   return (
-    <header className="sticky top-0 z-40 border-b bg-surface/95 backdrop-blur">
+    <><div id="top" aria-hidden="true" /><header className="sticky top-0 z-40 border-b bg-surface/95 backdrop-blur">
       <div className="container-site grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
         <Logo />
         <div className="flex items-center gap-2">
           <nav aria-label="Main" className="hidden items-center gap-0 md:flex xl:gap-1">
-            {NAV.map(n => <Link key={n.to} to={n.to} aria-current={active(n.to) ? "page" : undefined} className={`whitespace-nowrap rounded px-1.5 py-2 text-[13px] font-semibold lg:px-2.5 lg:text-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-ring ${active(n.to) ? "text-accent" : "text-navy"}`}>{n.label}</Link>)}
+            {NAV.map(n => n.to === "/services" ? <DropdownMenu key={n.to}><DropdownMenuTrigger asChild><Button variant="ghost" className="h-11 gap-1 px-1.5 text-[13px] font-semibold text-navy lg:px-2.5 lg:text-sm">Services<ChevronDown className="size-3.5" /></Button></DropdownMenuTrigger><DropdownMenuContent align="start" className="w-72 max-w-[calc(100vw-24px)]">{MOBILE_SERVICES.map(service => <DropdownMenuItem key={service.label} asChild className="min-h-11"><Link to={service.to} hash={"hash" in service ? service.hash : ""}>{service.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu> : <Link key={n.to} to={n.to} aria-current={active(n.to) ? "page" : undefined} className={`whitespace-nowrap rounded px-1.5 py-2 text-[13px] font-semibold lg:px-2.5 lg:text-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-ring ${active(n.to) ? "text-accent" : "text-navy"}`}>{n.label}</Link>)}
             <Button asChild className="btn btn-primary ml-2 hidden h-auto py-2 text-sm xl:inline-flex"><Link to="/contact" hash="review">{CTA_PRIMARY}</Link></Button>
           </nav>
           <Sheet open={open} onOpenChange={setOpen}>
@@ -49,7 +56,7 @@ export function Header() {
           </Sheet>
         </div>
       </div>
-    </header>
+    </header></>
   );
 }
 
@@ -78,6 +85,7 @@ export function Footer() {
           <p className="mt-3 text-sm">Operated by {SITE.operator}.</p>
           <p className="mt-4 flex items-center gap-2 text-sm"><MapPin className="h-4 w-4 text-accent" /> {SITE.location}</p>
           {SITE.social.map(s => <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm hover:text-navy-foreground"><Facebook className="h-4 w-4" aria-hidden="true" />{s.label}</a>)}
+          <EdmontonWeather />
         </div>
         <FooterCol title="Services" links={[
           { label: "Digital Marketing & Plans", to: "/digital-marketing" },
