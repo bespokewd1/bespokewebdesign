@@ -75,6 +75,13 @@
   --hero-shade: linear-gradient(90deg, oklch(0.13 0.01 260 / 0.94), oklch(0.13 0.01 260 / 0.76));
   --hero-accent: oklch(0.73 0.16 244);
   --home-hero-shade: linear-gradient(90deg, oklch(0.13 0.01 260 / 0.97) 0%, oklch(0.13 0.01 260 / 0.88) 38%, oklch(0.13 0.01 260 / 0.24) 100%);
+  --service-art-blue: oklch(0.56 0.18 252);
+  --service-art-green: oklch(0.63 0.12 171);
+  --service-art-gold: oklch(0.8 0.13 85);
+  --service-art-coral: oklch(0.67 0.16 26);
+  --service-art-ground: oklch(0.95 0.016 240);
+  --service-art-mint: oklch(0.95 0.023 165);
+  --service-art-rose: oklch(0.96 0.02 20);
 }
 
 @layer base {
@@ -252,6 +259,24 @@ p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
 .home-benefit + .home-benefit { border-left: 1px solid var(--border); }
 .home-services .home-service { box-shadow: 0 2px 6px color-mix(in oklab, var(--navy) 5%, transparent); transition: transform 200ms, box-shadow 200ms; }
 .home-service-grid { grid-template-columns: minmax(0, 1fr); }
+.service-graphic { display: block; width: 100%; height: 100%; --graphic-ground: var(--service-art-ground); }
+.service-graphic-seo, .service-graphic-maintenance { --graphic-ground: var(--service-art-mint); }
+.service-graphic-branding { --graphic-ground: var(--service-art-rose); }
+.graphic-ground { fill: var(--graphic-ground); }
+.graphic-paper { fill: var(--surface); }
+.graphic-soft { fill: var(--service-art-ground); }
+.graphic-blue { fill: var(--service-art-blue); }
+.graphic-green { fill: var(--service-art-green); }
+.graphic-gold { fill: var(--service-art-gold); }
+.graphic-coral { fill: var(--service-art-coral); }
+.graphic-ink { fill: var(--navy); }
+.graphic-line { stroke: var(--input); stroke-width: 2; stroke-linecap: round; }
+.graphic-ink-stroke { stroke: var(--navy); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.graphic-blue-stroke { stroke: var(--service-art-blue); stroke-width: 3; stroke-linecap: round; }
+.graphic-paper-stroke { stroke: var(--surface); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.graphic-gold-stroke { stroke: var(--service-art-gold); stroke-width: 5; stroke-linecap: round; }
+.graphic-coral-stroke { stroke: var(--service-art-coral); stroke-width: 3; stroke-linecap: round; }
+.graphic-map-road { stroke: var(--surface); stroke-width: 10; }
 @media (min-width: 768px) {
   .home-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-service-grid > :last-child { grid-column: 1 / -1; width: calc((100% - 1.5rem) / 2); justify-self: center; }
