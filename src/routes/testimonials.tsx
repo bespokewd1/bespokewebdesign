@@ -29,9 +29,6 @@ function ReviewCard({ review }: { review: ClientReview }) {
       <a href={review.screenshot} target="_blank" rel="noopener noreferrer" className="mt-4 block focus-visible:outline-2 focus-visible:outline-ring" aria-label={`Open the original ${review.platform} review screenshot from ${review.name}`}>
         <img src={review.screenshot} alt={`Original ${review.platform} review from ${review.name}`} loading="lazy" className="h-auto w-full rounded-md border" />
       </a>
-      <blockquote tabIndex={0} aria-label={`Full review from ${review.name}`} className="mt-4 space-y-3 text-base leading-relaxed">
-        {review.paragraphs.map(p => <p key={p}>{p}</p>)}
-      </blockquote>
       <div className="mt-auto border-t pt-4">
         <a href={REVIEW_LINKS[review.platform]} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy underline decoration-accent decoration-2 underline-offset-4">
           View on {review.platform} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
