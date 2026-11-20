@@ -1,13 +1,13 @@
-import customWeb from "@/assets/service-custom-web.webp.asset.json";
-import localSearch from "@/assets/service-local-search.webp.asset.json";
-import socialContent from "@/assets/service-social-content.webp.asset.json";
+import customWeb from "@/assets/service-squad-website.webp.asset.json";
+import localSearch from "@/assets/service-maps-phone.webp.asset.json";
+import socialContent from "@/assets/service-iron-fist-post.webp.asset.json";
 import websiteSupport from "@/assets/service-website-support.webp.asset.json";
 import { CLIENT_LOGOS } from "@/content/client-logos";
 
-const SERVICE_IMAGES: Record<string, { src: string; alt: string; mockup?: boolean }> = {
-  "website-development": { src: customWeb.url, alt: "Illustrative custom trades website displayed on a laptop and phone", mockup: true },
-  seo: { src: localSearch.url, alt: "Illustrative local map search and business profile on a phone", mockup: true },
-  "social-media": { src: socialContent.url, alt: "Illustrative Squad V branded plumbing posts on a laptop and phone, not screenshots of published posts", mockup: true },
+const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
+  "website-development": { src: customWeb.url, alt: "Squad V Plumbing and Heating website and social post displayed on a laptop and phone" },
+  seo: { src: localSearch.url, alt: "Example Google local search and Edmonton map displayed on a phone" },
+  "social-media": { src: socialContent.url, alt: "Iron Fist Transport branded social media post featuring forklift delivery" },
   maintenance: { src: websiteSupport.url, alt: "Graphic illustration of a headset-wearing website support specialist" },
 };
 const BRAND_LOGOS = CLIENT_LOGOS.filter(logo => ["Squad V Plumbing and Heating", "Rod's Electrical", "Glow and Relax", "Stone Massage"].includes(logo.name));
@@ -20,6 +20,5 @@ export function ServiceGraphic({ id }: { id: string }) {
   if (!image) return null;
   return <figure className="service-card-art">
     <img src={image.src} alt={image.alt} width={960} height={540} loading="lazy" decoding="async" />
-    {image.mockup && <figcaption className="service-art-caption">Illustrative mockup</figcaption>}
   </figure>;
 }

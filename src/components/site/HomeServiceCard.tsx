@@ -12,8 +12,8 @@ type HomeServiceCardProps = {
 
 export function HomeServiceCard({ service, imageSrc, imageAlt = "" }: HomeServiceCardProps) {
   return <article className="home-service flex min-w-0 flex-col overflow-hidden rounded-lg border bg-card">
-    <div className="aspect-video w-full shrink-0 overflow-hidden bg-secondary">
-      {imageSrc ? <img src={imageSrc} alt={imageAlt} loading="lazy" decoding="async" className="size-full object-cover" /> : <ServiceGraphic id={service.id} />}
+    <div className="home-service-media aspect-[4/3] w-full shrink-0 overflow-hidden bg-secondary">
+      {imageSrc ? <img src={imageSrc} alt={imageAlt} loading="lazy" decoding="async" className="size-full object-contain" /> : <ServiceGraphic id={service.id} />}
     </div>
     <div className="flex flex-1 flex-col p-6">
       <h3 className="text-base leading-tight text-navy">{service.title}</h3>
