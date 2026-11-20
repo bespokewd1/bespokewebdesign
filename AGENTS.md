@@ -33,3 +33,4 @@
 - Share the complete anchored service destinations between desktop dropdown and mobile Sheet so both menus stay consistent.
 - Load fixed-location Edmonton weather lazily through a public server function with a short cache and honest unavailable state; format local time with America/Edmonton for automatic daylight saving.
 - Keep homepage background video in HomeHeroVideo with CDN asset pointers, a matching poster, muted inline looping, manual pause and reduced-motion handling; defer video loading until after page load and omit automatic downloads for reduced motion to protect initial rendering.
+- Keep the back-to-top utility in the shared footer with passive scroll tracking and reduced-motion-aware scrolling; position it beside mobile Casey and above desktop Casey to avoid collisions across pages.

@@ -194,9 +194,8 @@
 .hero-photo { position: relative; isolation: isolate; background: var(--navy); color: var(--navy-foreground); }
 .hero-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .hero-photo::before { content: ""; position: absolute; inset: 0; background: var(--hero-shade); z-index: -1; }
-.mobile-review-bar { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
-/* On phones the review bar is hidden and the assistant owns the bottom edge;
-   from the lg width up the page leaves room for the bar and lifts the controls above it. */
+.back-to-top { right: max(1rem, env(safe-area-inset-right)); bottom: calc(1.25rem + env(safe-area-inset-bottom)); }
+/* Keep mobile utilities beside Casey and desktop utilities above its label. */
 .whatsapp-contact { right: max(1rem, env(safe-area-inset-right)); bottom: calc(1rem + env(safe-area-inset-bottom)); }
 body { padding-bottom: env(safe-area-inset-bottom); }
 .bespoke-assistant-label { position: fixed; left: 50%; bottom: calc(5rem + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 34; pointer-events: none; background: var(--surface); color: var(--navy); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.25rem 0.5rem; font-size: 0.6875rem; font-weight: 500; white-space: nowrap; }
@@ -205,13 +204,12 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .bespoke-assistant elevenlabs-convai { position: fixed !important; inset: 0 0 calc(0.75rem + env(safe-area-inset-bottom)) !important; transform: none !important; z-index: 35 !important; --el-base: var(--surface); --el-base-primary: var(--navy); --el-base-border: var(--border); --el-base-hover: var(--muted); --el-base-subtle: var(--muted-foreground); --el-accent: var(--accent); --el-accent-primary: var(--accent-foreground); --el-accent-hover: var(--primary); --el-sheet-radius: 8px; --el-input-radius: 8px; --el-overlay-padding: 12px; }
 .bespoke-assistant > [role="alert"] { position: fixed; left: 50%; bottom: calc(5.5rem + env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(320px, calc(100vw - 2rem)); z-index: 35; }
 @media (min-width: 64rem) {
-  .whatsapp-contact { bottom: calc(5.25rem + env(safe-area-inset-bottom)); }
-  body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
-  .bespoke-assistant-label { bottom: calc(8.75rem + env(safe-area-inset-bottom)); }
+  .back-to-top { right: max(1.5rem, env(safe-area-inset-right)); bottom: calc(7rem + env(safe-area-inset-bottom)); }
+  .bespoke-assistant-label { bottom: calc(5rem + env(safe-area-inset-bottom)); }
   .bespoke-assistant-label { left: auto; right: max(0.75rem, env(safe-area-inset-right)); transform: none; }
   :host .overlay { align-items: flex-end !important; }
-  .bespoke-assistant elevenlabs-convai { inset: 0 0 calc(4.5rem + env(safe-area-inset-bottom)) !important; }
-  .bespoke-assistant > [role="alert"] { bottom: calc(9rem + env(safe-area-inset-bottom)); }
+  .bespoke-assistant elevenlabs-convai { inset: 0 0 calc(0.75rem + env(safe-area-inset-bottom)) !important; }
+  .bespoke-assistant > [role="alert"] { bottom: calc(5.5rem + env(safe-area-inset-bottom)); }
   .bespoke-assistant > [role="alert"] { left: auto; right: max(0.75rem, env(safe-area-inset-right)); transform: none; }
 }
 /* Also loaded inside the version-pinned official widget's shadow root. */

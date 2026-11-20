@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { Menu, ChevronDown, Facebook } from "lucide-react";
+import { Menu, ChevronDown, Facebook, ArrowUp } from "lucide-react";
 import { REVIEW_LINKS, NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
@@ -127,15 +127,39 @@ export function Footer() {
         ]} />
       </div>
       <div className="border-t border-navy-soft">
-        <p className="container-site pt-5 pb-28 text-xs lg:pb-5">© {new Date().getFullYear()} {SITE.operator.replace(/\.$/, "")}. All rights reserved.</p>
+        <p className="container-site pt-5 pb-28 text-xs lg:pb-8">© {new Date().getFullYear()} {SITE.operator.replace(/\.$/, "")}. All rights reserved.</p>
       </div>
-      <div className="mobile-review-bar fixed inset-x-0 bottom-0 z-30 hidden border-t bg-surface/95 px-5 pt-2 backdrop-blur lg:flex lg:justify-center">
-        <Button asChild className="btn btn-primary h-auto w-full text-sm lg:max-w-sm"><Link to="/contact" hash="review">Free Website Review</Link></Button>
-      </div>
+      <BackToTop />
       <WhatsAppContact />
     </footer>
     </>
   );
+}
+
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const update = () => setVisible(window.scrollY > 500);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, [pathname]);
+
+  if (!visible) return null;
+
+  return <Button
+    variant="ghost"
+    size="icon"
+    className="back-to-top fixed z-30 size-11 rounded-full border border-border bg-navy text-navy-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring"
+    aria-label="Back to top"
+    title="Back to top"
+    onClick={() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "instant" : "smooth" });
+    }}
+  ><ArrowUp className="size-5" aria-hidden="true" /></Button>;
 }
 
 export function PageHero({ eyebrow, title, intro, children }: { eyebrow?: string; title: string; intro?: string; children?: ReactNode }) {
