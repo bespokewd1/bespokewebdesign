@@ -1,4 +1,5 @@
 # Tasks
+- [ ] Update the existing assistant welcome, suggested questions, language availability and session-preserving minimize controls; verify real text and voice.
 - [x] Add the real global ElevenLabs assistant and verify its interface on all 17 content pages and mobile.
 - [x] Refine the assistant with a moving blue globe and real text chat alongside voice; verify both modes.
 - [ ] Owner setup: customize the supplied ElevenLabs agent’s greeting and knowledge for Bespoke; it currently responds as Jamie providing AI-platform support.
