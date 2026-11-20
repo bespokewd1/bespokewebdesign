@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SITE } from "@/content/site";
 import { pageHead } from "@/lib/seo";
-import { PageHero, Placeholder } from "@/components/site/Layout";
+import { PageHero } from "@/components/site/Layout";
+import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
 import { LeadForm } from "@/components/site/LeadForm";
 
 export const Route = createFileRoute("/contact")({
@@ -35,7 +36,7 @@ function Contact() {
               </div>
             </div>
           </div>
-          <Placeholder label="Agency owner photo coming soon" className="aspect-[4/5] max-h-[560px]" />
+          <FounderPhotoCarousel tone="light" />
         </div>
       </section>
       <section id="consultation" className="section scroll-mt-20 border-t">
