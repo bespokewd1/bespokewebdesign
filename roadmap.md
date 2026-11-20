@@ -1,8 +1,8 @@
 # Tasks
-- [ ] Update the existing assistant welcome, suggested questions, language availability and session-preserving minimize controls; verify real text and voice.
+- [x] Update the displayed assistant welcome, suggested questions, verified language availability and session-preserving minimize controls; verify real text/voice, navigation and five screen sizes.
 - [x] Add the real global ElevenLabs assistant and verify its interface on all 17 content pages and mobile.
 - [x] Refine the assistant with a moving blue globe and real text chat alongside voice; verify both modes.
-- [ ] Owner setup: customize the supplied ElevenLabs agent’s greeting and knowledge for Bespoke; it currently responds as Jamie providing AI-platform support.
+- [ ] Owner setup: provide ElevenLabs agent read/write permissions or update the agent in ElevenLabs; the connected key still lacks convai_read after reconnect. Its spoken greeting, Bespoke service knowledge and additional languages remain blocked; the website shows the requested welcome and labels unsupported languages unavailable.
 - [x] Enhance the six-client portfolio with shared showcases, honest optional content, filters and responsive verification; preserve unrelated pages.
 - [x] Apply the targeted hero content brief and remove duplicate Google/Facebook hero badges; preserve the trusted-business section and review destinations.
 - [x] Add Google-only second-fold reviews and moving verified client names; check controls, motion preferences and mobile presentation.
