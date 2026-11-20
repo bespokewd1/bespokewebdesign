@@ -15,7 +15,8 @@ export const SITE = {
   city: "Edmonton",
   region: "Alberta",
   // TODO: add real contact details. Empty values show a "coming soon" placeholder.
-  email: "",
+  email: "bespokewd1@gmail.com",
+  calendly: "",
   phone: "",
   // International digits only; leave empty until a verified WhatsApp business number is supplied.
   whatsappNumber: "",

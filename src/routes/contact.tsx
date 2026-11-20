@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { CalendarDays, Facebook, Mail, MapPin } from "lucide-react";
 import { SITE } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { PageHero } from "@/components/site/Layout";
@@ -46,13 +46,11 @@ function Contact() {
               <li className="flex gap-3"><Mail className="h-5 w-5 text-accent" />
                 {SITE.email ? <a href={`mailto:${SITE.email}`} className="font-semibold text-navy">{SITE.email}</a> : <span className="text-muted-foreground">Email coming soon</span>}
               </li>
-              <li className="flex gap-3"><Phone className="h-5 w-5 text-accent" />
-                {SITE.phone ? <a href={`tel:${SITE.phone}`} className="font-semibold text-navy">{SITE.phone}</a> : <span className="text-muted-foreground">Phone coming soon</span>}
-              </li>
+              {SITE.calendly && <li className="flex gap-3"><CalendarDays className="h-5 w-5 text-accent" /><a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="font-semibold text-navy">Book a call on Calendly</a></li>}
             </ul>
             {SITE.social.length > 0 && (
               <div className="mt-6 flex flex-wrap gap-3">
-                {SITE.social.map((s) => <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="btn btn-outline !py-2 text-sm">{s.label}</a>)}
+                {SITE.social.map((s) => <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="btn btn-outline inline-flex items-center gap-2 !py-2 text-sm">Follow us on Facebook <Facebook className="h-4 w-4" aria-hidden="true" /></a>)}
               </div>
             )}
           </div>
