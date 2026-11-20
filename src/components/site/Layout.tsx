@@ -22,6 +22,7 @@ export function Logo({ light = false }: { light?: boolean }) {
 export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [desktopServices, setDesktopServices] = useState(false);
   const location = useLocation();
   useEffect(() => {
     if (location.pathname !== "/" || location.hash !== "top") return;
@@ -36,7 +37,7 @@ export function Header() {
         <Logo />
         <div className="flex items-center gap-2">
           <nav aria-label="Main" className="hidden items-center gap-0 md:flex xl:gap-1">
-            {NAV.map(n => n.to === "/services" ? <DropdownMenu key={n.to}><DropdownMenuTrigger asChild><Button variant="ghost" className="h-11 gap-1 px-1.5 text-[13px] font-semibold text-navy lg:px-2.5 lg:text-sm">Services<ChevronDown className="size-3.5" /></Button></DropdownMenuTrigger><DropdownMenuContent align="start" className="w-72 max-w-[calc(100vw-24px)]">{MOBILE_SERVICES.map(service => <DropdownMenuItem key={service.label} asChild className="min-h-11"><Link to={service.to} hash={"hash" in service ? service.hash : ""}>{service.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu> : <Link key={n.to} to={n.to} aria-current={active(n.to) ? "page" : undefined} className={`whitespace-nowrap rounded px-1.5 py-2 text-[13px] font-semibold lg:px-2.5 lg:text-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-ring ${active(n.to) ? "text-accent" : "text-navy"}`}>{n.label}</Link>)}
+            {NAV.map(n => n.to === "/services" ? <div key={n.to} onMouseEnter={() => setDesktopServices(true)} onMouseLeave={() => setDesktopServices(false)}><DropdownMenu modal={false} open={desktopServices} onOpenChange={setDesktopServices}><DropdownMenuTrigger asChild><Button variant="ghost" className="h-11 gap-1 px-1.5 text-[13px] font-semibold text-navy lg:px-2.5 lg:text-sm">Services<ChevronDown className="size-3.5" /></Button></DropdownMenuTrigger><DropdownMenuContent align="start" sideOffset={0} onMouseEnter={() => setDesktopServices(true)} onMouseLeave={() => setDesktopServices(false)} className="w-72 max-w-[calc(100vw-24px)]">{MOBILE_SERVICES.map(service => <DropdownMenuItem key={service.label} asChild className="min-h-11"><Link to={service.to} hash={"hash" in service ? service.hash : ""}>{service.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu></div> : <Link key={n.to} to={n.to} aria-current={active(n.to) ? "page" : undefined} className={`whitespace-nowrap rounded px-1.5 py-2 text-[13px] font-semibold lg:px-2.5 lg:text-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-ring ${active(n.to) ? "text-accent" : "text-navy"}`}>{n.label}</Link>)}
             <Button asChild className="btn btn-primary ml-2 hidden h-auto py-2 text-sm xl:inline-flex"><Link to="/contact" hash="review">{CTA_PRIMARY}</Link></Button>
           </nav>
           <Sheet open={open} onOpenChange={setOpen}>

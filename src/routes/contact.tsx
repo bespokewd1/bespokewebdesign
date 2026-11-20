@@ -25,16 +25,6 @@ function Contact() {
             <p>Bespoke Web Design is an Edmonton-based digital marketing business helping local companies build a professional online presence.</p>
             <p className="text-muted-foreground">You work directly with a marketing partner who gets to know your business. We offer personalized service, straightforward communication, and long-term support so you can focus on your customers.</p>
             <p className="text-muted-foreground">From website design and branding to SEO, Google Business Profile management, and social media, our goal is to make digital marketing easier to understand and manage.</p>
-            <div className="grid gap-4 pt-4 sm:grid-cols-2">
-              <div className="card-site">
-                <h2 className="text-lg font-bold text-navy">Our Mission</h2>
-                <p className="mt-2 text-base text-muted-foreground">To make professional digital marketing accessible and manageable for growing businesses by bringing website development, SEO, and online marketing together under one trusted partner.</p>
-              </div>
-              <div className="card-site">
-                <h2 className="text-lg font-bold text-navy">Our Vision</h2>
-                <p className="mt-2 text-base text-muted-foreground">To become a trusted digital marketing partner for local businesses across Alberta.</p>
-              </div>
-            </div>
           </div>
           <FounderPhotoCarousel tone="light" />
         </div>
