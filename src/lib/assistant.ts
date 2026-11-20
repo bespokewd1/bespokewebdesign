@@ -1,7 +1,4 @@
 export const ASSISTANT_AGENT_ID = "agent_7901m7vtp3enfsn8b288jnamtafg";
-export const ASSISTANT_WELCOME = [
-  "Hi, I’m Casey, Bespoke’s AI assistant. How can I help you today?",
-];
 const REQUESTED_LANGUAGES = [
   { code: "en", name: "English" },
   { code: "fr", name: "French" },

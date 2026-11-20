@@ -2,7 +2,7 @@ import { createElement, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ASSISTANT_AGENT_ID, ASSISTANT_WELCOME, assistantLanguages } from "@/lib/assistant";
+import { ASSISTANT_AGENT_ID, assistantLanguages } from "@/lib/assistant";
 import appCss from "@/styles.css?url";
 
 const WIDGET_SCRIPT = "https://unpkg.com/@elevenlabs/convai-widget-embed@0.27.1";
@@ -12,12 +12,10 @@ export function AIAssistant() {
   const [ready, setReady] = useState(false);
   const widgetRef = useRef<HTMLElement | null>(null);
   const [header, setHeader] = useState<HTMLElement | null>(null);
-  const [intro, setIntro] = useState<HTMLElement | null>(null);
   const [active, setActive] = useState(false);
   const [opened, setOpened] = useState(false);
   const [language, setLanguage] = useState("en");
   const [supported, setSupported] = useState<string[]>([]);
-  const [languagesLoaded, setLanguagesLoaded] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -26,7 +24,6 @@ export function AIAssistant() {
         if (!response.ok) throw new Error(`ElevenLabs settings: ${response.status}`);
         const data = await response.json() as { widget_config?: { supported_language_overrides?: string[] | null } };
         setSupported(data.widget_config?.supported_language_overrides ?? []);
-        setLanguagesLoaded(true);
       }).catch(() => { /* Unverified languages remain unavailable. */ });
     return () => controller.abort();
   }, []);
@@ -121,15 +118,8 @@ export function AIAssistant() {
         const scroll = sheet.querySelector<HTMLElement>(".overflow-y-auto");
         if (!scroll) return;
         scroll.classList.add("bespoke-chat-scroll");
-        let introNode = scroll.querySelector<HTMLElement>(".bespoke-chat-intro-mount");
-        if (!introNode) {
-          introNode = document.createElement("div");
-          introNode.className = "bespoke-chat-intro-mount";
-          scroll.prepend(introNode);
-        }
-        setIntro(introNode);
-        const firstMessage = scroll.querySelector<HTMLElement>(".markdown")?.parentElement;
-        if (firstMessage && !firstMessage.closest(".bespoke-chat-intro-mount")) firstMessage.hidden = !isActive;
+        // Leave the provider's greeting and conversation messages untouched.
+        // ElevenLabs loads the current agent greeting for each new conversation.
       };
       observer = new MutationObserver(adaptPanel);
       observer.observe(root, { childList: true, subtree: true });
@@ -156,10 +146,6 @@ export function AIAssistant() {
           else widgetRef.current?.removeAttribute("override-language");
         }}>{assistantLanguages(supported).map(option => <option key={option.code} value={option.code} disabled={!option.supported}>{option.name}{!option.supported ? " — unavailable" : ""}</option>)}</select></label>
       </div>, header)}
-      {intro && createPortal(!active ? <div className="bespoke-chat-intro">
-        {ASSISTANT_WELCOME.map((paragraph, index) => index === 0 ? <strong key={paragraph}>{paragraph}</strong> : <p key={paragraph}>{paragraph}</p>)}
-        <p className="bespoke-chat-language-note">{languagesLoaded ? supported.length === 0 ? "This agent currently supports English only." : "Language changes apply to a new conversation." : "Additional languages could not be verified and are unavailable."}</p>
-      </div> : null, intro)}
       {createElement("elevenlabs-convai", {
           ref: widgetRef,
           class: ready ? "is-ready" : "",

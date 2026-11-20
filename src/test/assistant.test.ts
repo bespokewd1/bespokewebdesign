@@ -18,9 +18,3 @@ describe("assistant conversation languages", () => {
   });
 });
 
-describe("assistant intro content", () => {
-  it("shows only the welcome line, with no pre-made question list", () => {
-    expect(assistant.ASSISTANT_WELCOME).toEqual(["Hi, I’m Casey, Bespoke’s AI assistant. How can I help you today?"]);
-    expect("ASSISTANT_QUESTIONS" in assistant).toBe(false);
-  });
-});

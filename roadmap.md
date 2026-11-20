@@ -1,9 +1,10 @@
 # Tasks
+- [x] Remove the website-only Casey greeting and verify the exact live ElevenLabs greeting on desktop and mobile; native conversation transport remains unchanged.
 - [x] Move desktop Casey assistant to bottom-right while keeping mobile centered; add and verify a lightweight construction/electrician/plumber/massage background montage.
 - [x] Update the displayed assistant welcome, suggested questions, verified language availability and session-preserving minimize controls; verify real text/voice, navigation and five screen sizes.
 - [x] Add the real global ElevenLabs assistant and verify its interface on all 17 content pages and mobile.
 - [x] Refine the assistant with a moving blue globe and real text chat alongside voice; verify both modes.
-- [ ] Owner setup: provide ElevenLabs agent read/write permissions or update the agent in ElevenLabs; the connected key still lacks convai_read after reconnect. Its spoken greeting, Bespoke service knowledge and additional languages remain blocked; the website shows the requested welcome and labels unsupported languages unavailable.
+- [ ] Owner setup: provide ElevenLabs agent read/write permissions only if website-side agent administration is required; the connected key previously lacked convai_read. Greetings now come directly from ElevenLabs, and unadvertised language overrides remain unavailable.
 - [x] Enhance the six-client portfolio with shared showcases, honest optional content, filters and responsive verification; preserve unrelated pages.
 - [x] Apply the targeted hero content brief and remove duplicate Google/Facebook hero badges; preserve the trusted-business section and review destinations.
 - [x] Add Google-only second-fold reviews and moving verified client names; check controls, motion preferences and mobile presentation.
