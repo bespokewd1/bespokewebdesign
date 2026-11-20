@@ -229,9 +229,6 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .bespoke-chat-intro { font-size: 13px; line-height: 1.65; color: var(--foreground); }
 .bespoke-chat-intro > strong { color: var(--navy); font-size: 16px; }
 .bespoke-chat-intro p { margin-top: 12px; }
-.bespoke-chat-questions { display: flex; flex-direction: column; gap: 2px; margin-top: 16px; }
-.bespoke-chat-question { display: flex; justify-content: space-between; min-height: 44px; height: auto; text-align: left; white-space: normal; padding: 10px 0; border-bottom: 1px solid var(--border); border-radius: 0; font-size: 12px; color: var(--accent); }
-.bespoke-chat-question:hover { background: var(--muted); color: var(--navy); }
 .bespoke-chat-language-note { font-size: 11px; color: var(--muted-foreground); }
 .bespoke-chat-sheet textarea { font-size: 16px; }
 /* The app stylesheet is also injected into the widget's shadow root, so these

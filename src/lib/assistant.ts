@@ -2,13 +2,6 @@ export const ASSISTANT_AGENT_ID = "agent_7901m7vtp3enfsn8b288jnamtafg";
 export const ASSISTANT_WELCOME = [
   "Hi, I’m Casey, Bespoke’s AI assistant. How can I help you today?",
 ];
-export const ASSISTANT_QUESTIONS = [
-  "What digital marketing services do you offer?",
-  "How much does a website cost?",
-  "How can you help my business rank on Google?",
-  "Do you manage social media?",
-  "How do I get started?",
-];
 const REQUESTED_LANGUAGES = [
   { code: "en", name: "English" },
   { code: "fr", name: "French" },

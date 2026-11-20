@@ -1,8 +1,8 @@
 import { createElement, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { Minus, ArrowUpRight } from "lucide-react";
+import { Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ASSISTANT_AGENT_ID, ASSISTANT_WELCOME, ASSISTANT_QUESTIONS, assistantLanguages } from "@/lib/assistant";
+import { ASSISTANT_AGENT_ID, ASSISTANT_WELCOME, assistantLanguages } from "@/lib/assistant";
 import appCss from "@/styles.css?url";
 
 const WIDGET_SCRIPT = "https://unpkg.com/@elevenlabs/convai-widget-embed@0.27.1";
@@ -35,17 +35,6 @@ export function AIAssistant() {
     const widget = widgetRef.current;
     widget?.setAttribute("data-minimized", "true");
     widget?.dispatchEvent(new CustomEvent("elevenlabs-agent:expand", { detail: { action: "collapse" } }));
-  };
-
-  const askQuestion = (question: string) => {
-    const root = widgetRef.current?.shadowRoot;
-    const input = root?.querySelector<HTMLTextAreaElement>("textarea");
-    const setter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, "value")?.set;
-    if (!input || !setter) return;
-    setter.call(input, question);
-    input.dispatchEvent(new Event("input", { bubbles: true }));
-    input.focus();
-    requestAnimationFrame(() => root?.querySelector<HTMLButtonElement>('button[aria-label="Send"]')?.click());
   };
 
   useEffect(() => {
@@ -169,7 +158,6 @@ export function AIAssistant() {
       </div>, header)}
       {intro && createPortal(!active ? <div className="bespoke-chat-intro">
         {ASSISTANT_WELCOME.map((paragraph, index) => index === 0 ? <strong key={paragraph}>{paragraph}</strong> : <p key={paragraph}>{paragraph}</p>)}
-        <div className="bespoke-chat-questions">{ASSISTANT_QUESTIONS.map(question => <Button key={question} variant="ghost" className="bespoke-chat-question" onClick={() => askQuestion(question)}>{question}<ArrowUpRight /></Button>)}</div>
         <p className="bespoke-chat-language-note">{languagesLoaded ? supported.length === 0 ? "This agent currently supports English only." : "Language changes apply to a new conversation." : "Additional languages could not be verified and are unavailable."}</p>
       </div> : null, intro)}
       {createElement("elevenlabs-convai", {
