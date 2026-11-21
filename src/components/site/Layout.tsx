@@ -1,5 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Menu, ChevronDown, Facebook, ArrowUp } from "lucide-react";
 import { REVIEW_LINKS, NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
@@ -23,6 +23,31 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [desktopServices, setDesktopServices] = useState(false);
+  const servicesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const servicesOpenedByHover = useRef(false);
+  const cancelServicesClose = () => {
+    if (servicesCloseTimer.current !== null) {
+      clearTimeout(servicesCloseTimer.current);
+      servicesCloseTimer.current = null;
+    }
+  };
+  const enterServices = () => {
+    cancelServicesClose();
+    servicesOpenedByHover.current = true;
+    setDesktopServices(true);
+  };
+  const leaveServices = () => {
+    cancelServicesClose();
+    // The dropdown is portalled: allow the pointer to cross into it.
+    servicesCloseTimer.current = setTimeout(() => setDesktopServices(false), 200);
+  };
+  const changeServicesOpen = (nextOpen: boolean) => {
+    cancelServicesClose();
+    setDesktopServices(nextOpen);
+  };
+  useEffect(() => () => {
+    if (servicesCloseTimer.current !== null) clearTimeout(servicesCloseTimer.current);
+  }, []);
   const location = useLocation();
   useEffect(() => {
     if (location.pathname !== "/" || location.hash !== "top") return;
@@ -37,7 +62,7 @@ export function Header() {
         <Logo />
         <div className="flex items-center gap-2">
           <nav aria-label="Main" className="hidden items-center gap-0 md:flex xl:gap-1">
-            {NAV.map(n => { const hash = "hash" in n ? n.hash : ""; return n.to === "/services" ? <div key={n.to} onMouseEnter={() => setDesktopServices(true)} onMouseLeave={() => setDesktopServices(false)}><DropdownMenu modal={false} open={desktopServices} onOpenChange={setDesktopServices}><DropdownMenuTrigger asChild><Button variant="ghost" className="h-11 gap-1 px-1.5 text-[13px] font-semibold text-navy lg:px-2.5 lg:text-sm">Services<ChevronDown className="size-3.5" /></Button></DropdownMenuTrigger><DropdownMenuContent align="start" sideOffset={0} onMouseEnter={() => setDesktopServices(true)} onMouseLeave={() => setDesktopServices(false)} className="w-72 max-w-[calc(100vw-24px)]">{MOBILE_SERVICES.map(service => <DropdownMenuItem key={service.label} asChild className="min-h-11"><Link to={service.to} hash={"hash" in service ? service.hash : ""}>{service.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu></div> : <Link key={`${n.to}${hash}`} to={n.to} hash={hash} aria-current={active(n.to, hash) ? "page" : undefined} className={`whitespace-nowrap rounded px-1.5 py-2 text-[13px] font-semibold lg:px-2.5 lg:text-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-ring ${active(n.to, hash) ? "text-accent" : "text-navy"}`}>{n.label}</Link>; })}
+            {NAV.map(n => { const hash = "hash" in n ? n.hash : ""; return n.to === "/services" ? <div key={n.to} onMouseEnter={enterServices} onMouseLeave={leaveServices}><DropdownMenu modal={false} open={desktopServices} onOpenChange={changeServicesOpen}><DropdownMenuTrigger asChild><Button variant="ghost" onKeyDown={() => { servicesOpenedByHover.current = false; cancelServicesClose(); }} className="h-11 gap-1 px-1.5 text-[13px] font-semibold text-navy lg:px-2.5 lg:text-sm">Services<ChevronDown className="size-3.5" /></Button></DropdownMenuTrigger><DropdownMenuContent align="start" sideOffset={0} onMouseEnter={enterServices} onMouseLeave={leaveServices} onCloseAutoFocus={event => { if (servicesOpenedByHover.current) event.preventDefault(); }} className="w-72 max-w-[calc(100vw-24px)]">{MOBILE_SERVICES.map(service => <DropdownMenuItem key={service.label} asChild className="min-h-11"><Link to={service.to} hash={"hash" in service ? service.hash : ""}>{service.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu></div> : <Link key={`${n.to}${hash}`} to={n.to} hash={hash} aria-current={active(n.to, hash) ? "page" : undefined} className={`whitespace-nowrap rounded px-1.5 py-2 text-[13px] font-semibold lg:px-2.5 lg:text-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-ring ${active(n.to, hash) ? "text-accent" : "text-navy"}`}>{n.label}</Link>; })}
             <Button asChild className="btn btn-primary ml-2 hidden h-auto py-2 text-sm xl:inline-flex"><Link to="/contact" hash="review">{CTA_PRIMARY}</Link></Button>
           </nav>
           <Sheet open={open} onOpenChange={setOpen}>
