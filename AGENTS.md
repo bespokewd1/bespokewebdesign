@@ -37,3 +37,4 @@
 - Keep homepage background video in HomeHeroVideo with CDN asset pointers, a matching poster, muted inline looping, manual pause and reduced-motion handling; defer video loading until after page load and omit automatic downloads for reduced motion to protect initial rendering.
 - Keep the back-to-top utility in the shared footer with passive scroll tracking and reduced-motion-aware scrolling; position it beside mobile Casey and above desktop Casey to avoid collisions across pages.
 - Digital-marketing intro graphics live in MarketingIntro with CSS-only scroll reveals gated on reduced-motion; content stays visible without JS.
+- Standalone AI & Automation education page at /ai-automation, linked from Services menu and footer; kept separate from marketing plans (consult-first, not upsell).

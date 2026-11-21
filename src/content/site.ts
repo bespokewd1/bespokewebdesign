@@ -54,6 +54,7 @@ export const MOBILE_SERVICES = [
   { label: "Branding & Content", to: "/services", hash: "branding" },
   { label: "Website Maintenance & Support", to: "/services", hash: "maintenance" },
   { label: "Google Ads Management", to: "/digital-marketing", hash: "google-ads" },
+  { label: "AI & Automation", to: "/ai-automation" },
 ] as const;
 
 export const MOBILE_NAV = [

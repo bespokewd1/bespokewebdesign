@@ -141,6 +141,7 @@ export function Footer() {
           { label: "Google Business Profile", to: "/services", hash: "google-business" },
           { label: "Social Media Marketing", to: "/services", hash: "social-media" },
           { label: "Branding", to: "/services", hash: "branding" },
+          { label: "AI & Automation", to: "/ai-automation" },
         ]} />
         <FooterCol title="Industries" links={[
           { label: "Plumbing", to: "/industries", hash: "plumbing" },
