@@ -33,7 +33,7 @@ export const NAV = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/digital-marketing", label: "Digital Marketing" },
-  { to: "/industries", label: "Industries" },
+  { to: "/", hash: "plans", label: "Pricing" },
   { to: "/our-work", label: "Our Work" },
   { to: "/contact", label: "About & Contact" },
 ] as const;
@@ -51,7 +51,6 @@ export const MOBILE_SERVICES = [
 
 export const MOBILE_NAV = [
   { label: "Our Work", to: "/our-work" },
-  { label: "Industries", to: "/industries" },
   { label: "Pricing", to: "/", hash: "plans" },
   { label: "About Us", to: "/contact" },
   { label: "Contact", to: "/contact", hash: "review" },
