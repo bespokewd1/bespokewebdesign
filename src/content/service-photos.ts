@@ -23,3 +23,8 @@ export const WEBSITE_PHOTOS = [
   { src: imassageWeb.url, alt: "iMassage website displayed on desktop and mobile" },
   { src: kmsWeb.url, alt: "KMS Plumbing and Gasfitting website displayed on desktop and mobile" },
 ];
+import mapsPhone from "@/assets/service-maps-phone.webp.asset.json";
+// Add new SEO / Google Maps proof images here.
+export const SEO_PHOTOS = [
+  { src: mapsPhone.url, alt: "Google Maps local search results for a plumber shown on a phone" },
+];
