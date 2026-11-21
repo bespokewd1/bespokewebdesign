@@ -38,3 +38,4 @@
 - Keep the back-to-top utility in the shared footer with passive scroll tracking and reduced-motion-aware scrolling; position it beside mobile Casey and above desktop Casey to avoid collisions across pages.
 - Digital-marketing intro graphics live in MarketingIntro with CSS-only scroll reveals gated on reduced-motion; content stays visible without JS.
 - Standalone AI & Automation education page at /ai-automation, linked from Services menu and footer; kept separate from marketing plans (consult-first, not upsell).
+- Contact uses one review LeadForm; retain the consultation anchor as an alias so old links work, and source meeting buttons from shared configuration.

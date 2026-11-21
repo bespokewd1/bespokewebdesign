@@ -20,7 +20,7 @@ export function MarketingPlans() {
             </div>
             <p className="mt-6 rounded-lg bg-secondary px-4 py-3 text-sm font-semibold text-navy"><span className="text-accent">Best for: </span>{plan.bestFor}</p>
             {plan.googleSearchCampaigns > 0 && <p className="mt-6 text-sm font-semibold">Google Ads advertising expenditure is not included.</p>}
-             <Button asChild className="btn btn-primary mt-8 h-auto whitespace-normal"><Link to="/contact" hash="consultation">{plan.cta}<ArrowUpRight className="h-4 w-4 shrink-0" /></Link></Button>
+             <Button asChild className="btn btn-primary mt-8 h-auto whitespace-normal"><Link to="/contact" hash="review">{plan.cta}<ArrowUpRight className="h-4 w-4 shrink-0" /></Link></Button>
           </article>
         ))}
       </div>

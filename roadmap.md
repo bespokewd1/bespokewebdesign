@@ -1,4 +1,5 @@
 # Tasks
+- [x] Simplify About & Contact to one form; verified meeting button, old anchor, pricing links, desktop/mobile and successful test inquiry.
 - [x] Streamline homepage FAQs to five benefit-led questions; verified desktop/mobile accordion controls, subtle motion, reduced-motion handling, and review link; preserved agreement and package rules pass 18 tests.
 - [x] Remove the desktop bottom review bar and verify the shared back-to-top arrow on desktop, tablet and mobile, including reduced-motion scrolling.
 - [x] Add four website mockups to the custom web design carousel with four-second autoplay; verified both card carousels and visible controls on desktop/mobile.

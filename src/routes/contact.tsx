@@ -6,6 +6,7 @@ import ogAsset from "@/assets/founder-client-1.jpg.asset.json";
 import { PageHero } from "@/components/site/Layout";
 import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
 import { LeadForm } from "@/components/site/LeadForm";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contact")({
   head: () => pageHead({ image: ogAsset.url,
@@ -34,16 +35,12 @@ function Contact() {
             <h2 className="flex items-center gap-2 text-2xl text-navy"><MapPin className="h-5 w-5 text-accent" aria-hidden="true" /> Let's Meet in Person in Edmonton</h2>
             <p className="mt-3 text-muted-foreground">Just like with all my clients, I believe the best way to understand your business is face-to-face. Phone and video calls are always welcome, but meeting in person is preferred.</p>
             <p className="mt-3 text-muted-foreground">I invest real time preparing for each meeting and getting to know your business before we sit down. Because of this, in-person consultations are reserved for business owners who are genuinely ready to invest in and grow their marketing.</p>
+            {SITE.calendly && <Button asChild className="btn btn-primary mt-5 h-auto min-h-11 max-w-full whitespace-normal"><a href={SITE.calendly} target="_blank" rel="noopener noreferrer"><CalendarDays className="h-5 w-5" aria-hidden="true" />Book a Meeting or Call</a></Button>}
           </div>
         </div>
       </section>
-      <section id="consultation" className="section scroll-mt-20 border-t">
-        <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div><span className="eyebrow">Consultation</span><h2 className="mt-2 text-3xl text-navy md:text-4xl">Find the Right Marketing Support.</h2><p className="mt-4 text-muted-foreground">Discuss your goals, services or a monthly marketing package with Bespoke. Tell us what you need, and we’ll take it from there.</p></div>
-          <LeadForm kind="consultation" />
-        </div>
-      </section>
-      <section id="review" className="section scroll-mt-16 bg-surface border-t">
+      <section id="review" className="section relative scroll-mt-16 bg-surface border-t">
+        <span id="consultation" className="absolute top-0 scroll-mt-16" aria-hidden="true" />
         <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
             <span className="eyebrow">Contact</span>
