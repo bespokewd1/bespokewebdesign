@@ -2,11 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { SERVICES } from "@/content/site";
 import { pageHead } from "@/lib/seo";
+import ogAsset from "@/assets/service-custom-web.webp.asset.json";
 import { PageHero, CtaBand } from "@/components/site/Layout";
 import { IconBadge } from "@/components/site/Icon";
 
 export const Route = createFileRoute("/services")({
-  head: () => pageHead({
+  head: () => pageHead({ image: ogAsset.url,
     path: "/services", crumb: "Services",
     title: "Digital Marketing Services Edmonton | Bespoke Web Design",
     description: "Branding, custom websites, SEO, Google Business Profile management, social media, and website maintenance for Edmonton businesses.",

@@ -2,11 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Code2, Smartphone, Gauge, FileText, Search, MousePointerClick, Wrench } from "lucide-react";
 import { PROJECTS } from "@/content/site";
 import { pageHead } from "@/lib/seo";
+import ogAsset from "@/assets/service-custom-web.webp.asset.json";
 import { PageHero, CtaBand, SectionHead } from "@/components/site/Layout";
 import { ProjectCard } from "@/components/site/Cards";
 
 export const Route = createFileRoute("/website-design")({
-  head: () => pageHead({
+  head: () => pageHead({ image: ogAsset.url,
     path: "/website-design", crumb: "Website Design",
     title: "Website Design Edmonton | Custom Websites | Bespoke Web Design",
     description: "Custom, mobile-friendly, fast-loading websites for Edmonton trades and service businesses — built with SEO-friendly structure and clear calls to action.",

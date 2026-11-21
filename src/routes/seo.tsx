@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Info } from "lucide-react";
 import { pageHead } from "@/lib/seo";
+import ogAsset from "@/assets/desktop-pagespeed-result.png.asset.json";
 import { PageHero, CtaBand } from "@/components/site/Layout";
 import pagespeedAsset from "@/assets/desktop-pagespeed-result.png.asset.json";
 
 export const Route = createFileRoute("/seo")({
-  head: () => pageHead({
+  head: () => pageHead({ image: ogAsset.url,
     path: "/seo", crumb: "SEO & Google Marketing",
     title: "SEO & Google Business Marketing Edmonton | Bespoke Web Design",
     description: "Local SEO, Google Business Profile optimization, technical SEO, and ongoing content for Edmonton businesses — explained in plain language.",

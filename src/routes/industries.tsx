@@ -2,11 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Camera, FileText, MapPin, Star } from "lucide-react";
 import { INDUSTRIES } from "@/content/site";
 import { pageHead } from "@/lib/seo";
+import ogAsset from "@/assets/squad-fixture-installation.webp.asset.json";
 import { PageHero, CtaBand, SectionHead } from "@/components/site/Layout";
 import { IconBadge } from "@/components/site/Icon";
 
 export const Route = createFileRoute("/industries")({
-  head: () => pageHead({
+  head: () => pageHead({ image: ogAsset.url,
     path: "/industries", crumb: "Industries",
     title: "Digital Marketing for Trades & Service Businesses | Bespoke Web Design",
     description: "Websites, SEO, and Google Business marketing for Edmonton plumbers, electricians, contractors, renovators, transportation companies, and local services.",
