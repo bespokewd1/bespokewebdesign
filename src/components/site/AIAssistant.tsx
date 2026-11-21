@@ -145,7 +145,6 @@ export function AIAssistant() {
         <button type="button" className="casey-bubble-body" onClick={openFromBubble}>👋 Have questions about our services? Talk or chat with Casey, our AI assistant.</button>
         <button type="button" className="casey-bubble-close" aria-label="Dismiss message" onClick={dismissBubble}><X className="size-3.5" /></button>
       </div>}
-      <span className="bespoke-assistant-label" hidden={!ready || opened}>Talk to Casey - Bespoke AI Assistant</span>
       {header && createPortal(<div className="bespoke-chat-header">
         <div className="bespoke-chat-title-row"><strong>Talk to Casey - Bespoke AI Assistant</strong><Button variant="ghost" size="icon" title="Minimize conversation" aria-label="Minimize conversation" onClick={minimize}><Minus /></Button></div>
         <p className="bespoke-chat-language">English</p>
