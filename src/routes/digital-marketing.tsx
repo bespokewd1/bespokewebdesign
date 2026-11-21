@@ -3,6 +3,7 @@ import { ArrowRight, Palette, Monitor, Share2, Search, Target, ChartNoAxesCombin
 import { pageHead } from "@/lib/seo";
 import { SectionHead, CtaBand } from "@/components/site/Layout";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
+import { MarketingIntro } from "@/components/site/MarketingIntro";
 import { TechnicalSeoProof } from "@/components/site/TechnicalSeoProof";
 import { Button } from "@/components/ui/button";
 import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
@@ -35,6 +36,7 @@ function DigitalMarketing() {
         <Button asChild className="btn btn-primary mt-8 h-auto"><Link to="/digital-marketing" hash="plans">Compare monthly plans<ArrowRight /></Link></Button>
       </div>
     </section>
+    <MarketingIntro />
     <section className="section">
       <div className="container-site">
         <SectionHead eyebrow="From first impression to first inquiry" title="How your marketing works together" text="You don't need every channel at once. Start with a strong foundation, then grow your activity around your goals." />

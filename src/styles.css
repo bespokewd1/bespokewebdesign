@@ -392,3 +392,25 @@ p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
   .home-brand-track { transform: none; }
   .home-brand-group[aria-hidden="true"] { display: none; }
 }
+
+/* Digital marketing intro graphics */
+.dm-pieces { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); position: relative; }
+@media (min-width: 768px) { .dm-pieces { grid-template-columns: repeat(5, minmax(0, 1fr)); } .dm-pieces::before { content: ""; position: absolute; top: 2.75rem; left: 10%; right: 10%; height: 2px; background: linear-gradient(90deg, var(--accent), var(--primary)); z-index: 0; transform-origin: left; } }
+.dm-piece { position: relative; z-index: 1; text-align: center; padding: 1.25rem 0.75rem; border-radius: var(--radius); background: var(--card); border: 1px solid var(--border); }
+.dm-piece:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (min-width: 768px) { .dm-piece:last-child:nth-child(odd) { grid-column: auto; } }
+.dm-piece-icon { display: inline-grid; place-items: center; width: 3rem; height: 3rem; border-radius: 999px; background: var(--navy); color: var(--navy-foreground); }
+.dm-piece-icon svg { width: 1.4rem; height: 1.4rem; }
+.dm-loop { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); counter-reset: s; }
+.dm-loop-step { position: relative; padding: 1.25rem; border-radius: var(--radius); background: var(--card); border: 1px solid var(--border); border-top: 3px solid var(--accent); }
+.dm-loop-num { position: absolute; top: 0.75rem; right: 0.9rem; font-family: var(--font-display, inherit); font-weight: 900; font-size: 1.5rem; color: var(--muted-foreground); opacity: 0.35; }
+@media (max-width: 479px) { .dm-loop { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: no-preference) {
+  .dm-reveal-ready > * { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; transition-delay: calc(var(--i, 0) * 110ms); }
+  .dm-reveal-ready.dm-in > * { opacity: 1; transform: none; }
+  .dm-pieces.dm-reveal-ready::before { transform: scaleX(0); transition: transform 1s ease .2s; }
+  .dm-pieces.dm-in::before { transform: scaleX(1); }
+  .dm-in .dm-piece-icon { animation: dm-pop .5s ease both; animation-delay: calc(var(--i, 0) * 110ms + 200ms); }
+  .dm-loop-step:hover { transform: translateY(-3px); box-shadow: 0 10px 24px -14px var(--navy); }
+}
+@keyframes dm-pop { 0% { transform: scale(.6); } 70% { transform: scale(1.1); } 100% { transform: scale(1); } }
