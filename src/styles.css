@@ -316,6 +316,14 @@ p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
 .home-founder-photos { width: 100%; min-width: 0; max-width: 34rem; }
 .home-page .eyebrow { letter-spacing: 0; }
 .home-page h2 { text-wrap: balance; }
+.home-faq h3 button { transition: color 160ms, background-color 160ms; }
+.home-faq h3 button:hover, .home-faq h3 button[data-state="open"] { color: var(--primary); }
+@media (prefers-reduced-motion: no-preference) {
+  .home-faq [role="region"][data-state="open"] { animation: home-faq-open 180ms ease-out; }
+  .home-faq [role="region"][data-state="closed"] { animation: home-faq-close 180ms ease-out; }
+}
+@keyframes home-faq-open { from { height: 0; opacity: 0.6; } to { height: var(--radix-accordion-content-height); opacity: 1; } }
+@keyframes home-faq-close { from { height: var(--radix-accordion-content-height); opacity: 1; } to { height: 0; opacity: 0.6; } }
 .home-page .home-projects article { border: 0; border-radius: 0; }
 .home-projects article > img { transition: transform 300ms; }
 .home-projects article:hover > img { transform: scale(1.025); }
