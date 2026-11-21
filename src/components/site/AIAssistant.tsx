@@ -1,6 +1,6 @@
 import { createElement, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { Minus } from "lucide-react";
+import { Minus, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ASSISTANT_AGENT_ID, ASSISTANT_LANGUAGE } from "@/lib/assistant";
 import appCss from "@/styles.css?url";
@@ -13,6 +13,27 @@ export function AIAssistant() {
   const widgetRef = useRef<HTMLElement | null>(null);
   const [header, setHeader] = useState<HTMLElement | null>(null);
   const [opened, setOpened] = useState(false);
+  const [bubble, setBubble] = useState(false);
+
+  useEffect(() => {
+    if (!ready || opened || sessionStorage.getItem("casey-bubble-dismissed")) return;
+    const timer = setTimeout(() => setBubble(true), 4000);
+    return () => clearTimeout(timer);
+  }, [ready, opened]);
+
+  const dismissBubble = () => {
+    setBubble(false);
+    sessionStorage.setItem("casey-bubble-dismissed", "1");
+  };
+
+  const openFromBubble = () => {
+    dismissBubble();
+    const widget = widgetRef.current;
+    if (!widget) return;
+    widget.removeAttribute("data-minimized");
+    setOpened(true);
+    requestAnimationFrame(() => widget.dispatchEvent(new CustomEvent("elevenlabs-agent:expand", { detail: { action: "expand" } })));
+  };
 
   const minimize = () => {
     const widget = widgetRef.current;
@@ -119,6 +140,10 @@ export function AIAssistant() {
   return (
     <aside className="bespoke-assistant" aria-label="Talk to Casey - Bespoke AI Assistant">
       {failed && <p role="alert" className="rounded border bg-surface p-4 text-sm text-navy">The assistant couldn’t load. Please refresh to try again.</p>}
+      {bubble && !opened && <div className="casey-bubble" role="status">
+        <button type="button" className="casey-bubble-body" onClick={openFromBubble}>👋 Have a question about our services or pricing? Ask Casey anything!</button>
+        <button type="button" className="casey-bubble-close" aria-label="Dismiss message" onClick={dismissBubble}><X className="size-3.5" /></button>
+      </div>}
       <span className="bespoke-assistant-label" hidden={!ready || opened}>Talk to Casey - Bespoke AI Assistant</span>
       {header && createPortal(<div className="bespoke-chat-header">
         <div className="bespoke-chat-title-row"><strong>Talk to Casey - Bespoke AI Assistant</strong><Button variant="ghost" size="icon" title="Minimize conversation" aria-label="Minimize conversation" onClick={minimize}><Minus /></Button></div>

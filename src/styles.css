@@ -414,3 +414,11 @@ p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
   .dm-loop-step:hover { transform: translateY(-3px); box-shadow: 0 10px 24px -14px var(--navy); }
 }
 @keyframes dm-pop { 0% { transform: scale(.6); } 70% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+.casey-bubble { position: fixed; left: 50%; bottom: calc(7rem + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 36; display: flex; align-items: flex-start; gap: 0.25rem; width: min(280px, calc(100vw - 2rem)); background: var(--surface); color: var(--navy); border: 1px solid var(--border); border-radius: 12px; padding: 0.625rem 0.5rem 0.625rem 0.875rem; box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--navy) 35%, transparent); animation: casey-bubble-in 0.35s ease-out; }
+.casey-bubble-body { flex: 1; text-align: left; font-size: 0.8125rem; line-height: 1.4; font-weight: 500; cursor: pointer; background: none; border: 0; color: inherit; }
+.casey-bubble-close { display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 999px; color: var(--muted-foreground); background: none; border: 0; cursor: pointer; }
+.casey-bubble-close:hover { background: var(--muted); }
+@keyframes casey-bubble-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+@media (min-width: 768px) { .casey-bubble { left: auto; right: max(0.75rem, env(safe-area-inset-right)); transform: none; } }
+@media (prefers-reduced-motion: reduce) { .casey-bubble { animation: none; } }
