@@ -216,13 +216,13 @@ const CAMPAIGN_ITEMS = ["Setup and management of one active Google Search campai
 export const PLANS = [
   {
     name: "Foundation", price: "$245/month", monthlyPrice: 245, socialPosts: 5, channels: 1, platforms: ["Facebook"], seoLevel: "basic", googleSearchCampaigns: 0, tagline: "Build Your Online Foundation",
-    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["5 Facebook posts per month", "Basic content planning", "Branded captions and graphics", "Scheduled publishing"] }, { title: "Google Ads", items: ["Not included — available as a separately quoted service"] }],
-    description: "Ideal for businesses looking to establish a professional online presence.", cta: "Request a Quote", featured: false,
+    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["5 Facebook posts per month", "Basic content planning", "Branded captions and graphics", "Scheduled publishing"] }, { title: "Monthly Reporting", items: ["Basic monthly summary of your website visitors", "Facebook post reach and engagement at a glance", "Simple, plain-English results you can read in minutes"] }, { title: "Google Ads", items: ["Not included — available as a separately quoted service"] }],
+    description: "Ideal for businesses looking to establish a professional online presence.", bestFor: "Great for new and emerging entrepreneurs ready to look professional online and start getting found.", cta: "Request a Quote", featured: false,
   },
   {
-    name: "Growth", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, platforms: ["Facebook", "Instagram"], seoLevel: "basic", googleSearchCampaigns: 1, tagline: "Grow Your Online Presence",
-    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["10 total posts per month across Facebook and Instagram", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project and promotional content"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS }],
-    description: "Ideal for businesses looking for consistent marketing across multiple channels, plus a focused Google Ads campaign.", cta: "Request a Quote", featured: true,
+    name: "Growth", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, platforms: ["Facebook", "Instagram"], seoLevel: "advanced", googleSearchCampaigns: 1, tagline: "Grow Your Online Presence",
+    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["10 total posts per month across Facebook and Instagram", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project and promotional content"] }, { title: "Advanced SEO", items: ["Advanced local SEO and ongoing keyword targeting", "Regular on-page updates so Google understands your services and area", "Ongoing speed and search-ranking improvements"] }, { title: "Advanced Reporting & Tracking", items: ["Google Analytics (GA4) setup — see how many people visit, call, or request a quote", "Live Google Looker Studio dashboard — your website, calls and ad results in one easy screen, anytime", "In-depth monthly report in plain English: traffic, rankings, ad results and what we'll improve next"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS }],
+    description: "Ideal for businesses looking for consistent marketing across multiple channels, plus a focused Google Ads campaign.", bestFor: "Great for businesses ready for aggressive marketing, with a clear strategy and the numbers to prove it.", cta: "Request a Quote", featured: true,
   },
 ];
 

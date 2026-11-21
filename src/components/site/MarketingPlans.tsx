@@ -18,6 +18,7 @@ export function MarketingPlans() {
             <div className="mt-8 flex-1 space-y-6 border-t pt-6">
               {plan.groups.map(group => <div key={group.title}><h4 className="text-sm font-bold text-navy">{group.title}</h4><ul className="mt-3 space-y-3">{group.items.map(item => <li key={item} className="flex gap-3 text-sm"><Check className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" /><span>{item}</span></li>)}</ul></div>)}
             </div>
+            <p className="mt-6 rounded-lg bg-secondary px-4 py-3 text-sm font-semibold text-navy"><span className="text-accent">Best for: </span>{plan.bestFor}</p>
             {plan.googleSearchCampaigns > 0 && <p className="mt-6 text-sm font-semibold">Google Ads advertising expenditure is not included.</p>}
              <Button asChild className="btn btn-primary mt-8 h-auto whitespace-normal"><Link to="/contact" hash="consultation">{plan.cta}<ArrowUpRight className="h-4 w-4 shrink-0" /></Link></Button>
           </article>
