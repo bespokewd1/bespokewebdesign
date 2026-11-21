@@ -1,3 +1,10 @@
+import squadWebShot from "@/assets/service-squad-website.webp.asset.json";
+import glowWebShot from "@/assets/glow-relax-website.webp.asset.json";
+import stoneWebShot from "@/assets/stone-massage-website.webp.asset.json";
+import imassageWebShot from "@/assets/imassage-website.webp.asset.json";
+import kmsWebShot from "@/assets/kms-website.webp.asset.json";
+import rodsLogoShot from "@/assets/client-rods-electrical.webp.asset.json";
+import ironFistShot from "@/assets/iron-fist-trucking.webp.asset.json";
 // =============================================================
 import type { Project } from "@/lib/portfolio";
 import { featuredPortfolio } from "@/lib/portfolio";
@@ -147,36 +154,35 @@ export const INDUSTRIES: { id: string; icon: IconName; name: string; short: stri
 // Six empty social slots per client are editable here; only real images are rendered.
 const emptySocialPosts = () => Array.from({ length: 6 }, (_, i) => ({ image: "", alt: `Social Post ${String(i + 1).padStart(2, "0")}` }));
 export const PROJECTS: Project[] = [
-  { name: "Squad V Plumbing", slug: "squad-v-plumbing", industry: "Plumbing & Gasfitting", category: "Trades", services: [], description: "Website project for Squad V Plumbing, a plumbing and gasfitting business.", image: "", link: "https://www.squadvplumbing.ca/", facebookUrl: "https://www.facebook.com/squadvplumbing", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
-  { name: "KMS Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
-  { name: "Glow & Relax", slug: "glow-relax", industry: "Massage & Beauty", category: "Wellness", services: [], description: "Website project for Glow & Relax, a massage and beauty business.", image: "", link: "https://glowandrelax.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
+  { name: "Squad V Plumbing", slug: "squad-v-plumbing", industry: "Plumbing & Gasfitting", category: "Trades", services: ["Full Digital Marketing"], description: "Website project for Squad V Plumbing, a plumbing and gasfitting business.", image: squadWebShot.url, link: "https://www.squadvplumbing.ca/", facebookUrl: "https://www.facebook.com/squadvplumbing", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
+  { name: "KMS Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: kmsWebShot.url, link: "" },
+  { name: "Glow & Relax", slug: "glow-relax", industry: "Massage & Beauty", category: "Wellness", services: ["Full Digital Marketing"], description: "Website project for Glow & Relax, a massage and beauty business.", image: glowWebShot.url, link: "https://glowandrelax.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
   { name: "Bespoke Music App", industry: "Music App", services: ["Own project"], description: "Project details and screenshot coming soon.", image: "", link: "", ownedProject: true },
-  { name: "Rod's Electrical", slug: "rods-electrical", industry: "Electrical Services", category: "Trades", services: [], description: "Website project for Rod's Electrical, an electrical services business.", image: "", link: "https://rodselectrical.com/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
+  { name: "Rod's Electrical", slug: "rods-electrical", industry: "Electrical Services", category: "Trades", services: ["Web Design & Development", "Local SEO"], description: "Website project for Rod's Electrical, an electrical services business.", image: rodsLogoShot.url, link: "https://rodselectrical.com/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
   {
-    name: "Iron Fist Transport Ltd.", slug: "iron-fist-transport", category: "Transportation", publicationStatus: "published",
-    featured: true,
+    name: "Iron Fist Transport Ltd.", slug: "iron-fist-transport", category: "Transportation", publicationStatus: "published", featured: true,
     industry: "Transportation & Logistics",
     services: ["Website development", "SEO-focused service content", "Digital marketing foundation"],
     description: "A professional website for a transportation and logistics company, built to clearly present their services and give them a solid foundation for ongoing digital marketing.",
-    image: "",
+    image: ironFistShot.url,
     link: "https://ironfisttransport.ca/", facebookUrl: "https://www.facebook.com/ironfisttransport", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "",
   },
   {
     name: "Stone Massage",
-    featured: true,
-    slug: "stone-massage", category: "Wellness", publicationStatus: "published", industry: "Massage & Wellness",
+    slug: "stone-massage", category: "Wellness", publicationStatus: "published", featured: true, industry: "Massage & Wellness",
     services: ["Website development", "Technical SEO", "Mobile optimization"],
     description: "A clean, mobile-friendly website for a massage therapy clinic, with technical SEO groundwork to help local clients find them.",
-    image: "",
+    image: stoneWebShot.url,
     link: "https://www.stonemassage.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", review: FACEBOOK_REVIEWS.find(review => review.name === "Stone Massage"),
   },
-  { name: "iMassage Therapeutic", slug: "imassage-therapeutic", industry: "Massage Therapy", category: "Wellness", services: [], description: "Website project for iMassage Therapeutic, a massage therapy business.", image: "", link: "https://imassage-therapeutic.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published", review: GOOGLE_REVIEWS.find(review => review.name === "iMassage Therapeutic Clinique") },
+  { name: "iMassage Therapeutic", slug: "imassage-therapeutic", industry: "Massage Therapy", category: "Wellness", services: ["Web Design & Development"], description: "Website project for iMassage Therapeutic, a massage therapy business.", image: imassageWebShot.url, link: "https://imassage-therapeutic.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published", review: GOOGLE_REVIEWS.find(review => review.name === "iMassage Therapeutic Clinique") },
 ];
 
 export const PORTFOLIO_PROJECTS = PROJECTS.filter(project => project.publicationStatus === "published");
 export const TRUSTED_CLIENTS = PORTFOLIO_PROJECTS.filter(project => !project.ownedProject);
 export const FEATURED_PROJECTS = PROJECTS.filter(project => project.featured);
-export const HOME_FEATURED_PROJECTS = featuredPortfolio(PROJECTS);
+// Homepage showcase stays hidden until the owner approves specific projects for it.
+export const HOME_FEATURED_PROJECTS = featuredPortfolio(PROJECTS.filter(project => project.homeApproved));
 export const REVIEW_LINKS = {
   Google: "https://maps.app.goo.gl/KmQRwn9H6c6U74Zm7",
   Facebook: "https://www.facebook.com/bespokewebdesignEdmonton/",
