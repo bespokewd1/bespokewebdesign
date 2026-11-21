@@ -1,6 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Menu, ChevronDown, Facebook, ArrowUp } from "lucide-react";
+import { Menu, ChevronDown, Facebook, ArrowUp, Star } from "lucide-react";
+import googleG from "@/assets/google-g.png.asset.json";
 import { REVIEW_LINKS, NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
@@ -109,8 +110,14 @@ export function Footer() {
         <p className="text-sm font-medium text-foreground">Supporting real, growing businesses in Edmonton and area.</p>
         <div className="flex flex-wrap items-center justify-center gap-2">
           {(["Google", "Facebook"] as const).map(p => (
-            <a key={p} href={REVIEW_LINKS[p]} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent">
-              {p} 5.0 <span className="text-review-gold tracking-tight" aria-label="5 out of 5 stars">★★★★★</span>
+            <a key={p} href={REVIEW_LINKS[p]} target="_blank" rel="noopener noreferrer" aria-label={`${p} reviews, rated 5.0 out of 5`} className="inline-flex items-center gap-3 rounded-full border border-border bg-background py-2 pl-2 pr-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+              <span className="flex size-8 items-center justify-center rounded-full bg-background ring-1 ring-border">
+                {p === "Google" ? <img src={googleG.url} alt="" width={20} height={20} /> : <svg viewBox="0 0 24 24" className="size-8" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877F2" /><path fill="#fff" d="M15.1 12.6l.4-2.6H13V8.3c0-.7.4-1.4 1.5-1.4h1.1V4.7s-1-.2-2-.2c-2.1 0-3.4 1.2-3.4 3.5V10H8v2.6h2.2V19a8 8 0 0 0 2.8 0v-6.4z" /></svg>}
+              </span>
+              <span className="flex flex-col items-start leading-tight">
+                <span className="flex items-center gap-1.5"><span className="text-base font-bold text-navy">5.0</span><span className="flex text-review-gold">{Array.from({ length: 5 }, (_, i) => <Star key={i} className="size-3.5 fill-current" aria-hidden="true" />)}</span></span>
+                <span className="text-xs font-medium text-muted-foreground">{p} Reviews</span>
+              </span>
             </a>
           ))}
           <Link to="/testimonials" className="px-2 text-sm font-semibold text-accent hover:underline">Read all reviews</Link>
