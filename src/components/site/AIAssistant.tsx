@@ -14,16 +14,17 @@ export function AIAssistant() {
   const [header, setHeader] = useState<HTMLElement | null>(null);
   const [opened, setOpened] = useState(false);
   const [bubble, setBubble] = useState(false);
+  const bubbleDismissed = useRef(false);
 
   useEffect(() => {
-    if (!ready || opened || sessionStorage.getItem("casey-bubble-dismissed")) return;
+    if (opened || bubbleDismissed.current) return;
     const timer = setTimeout(() => setBubble(true), 4000);
     return () => clearTimeout(timer);
-  }, [ready, opened]);
+  }, [opened]);
 
   const dismissBubble = () => {
     setBubble(false);
-    sessionStorage.setItem("casey-bubble-dismissed", "1");
+    bubbleDismissed.current = true;
   };
 
   const openFromBubble = () => {
@@ -141,7 +142,7 @@ export function AIAssistant() {
     <aside className="bespoke-assistant" aria-label="Talk to Casey - Bespoke AI Assistant">
       {failed && <p role="alert" className="rounded border bg-surface p-4 text-sm text-navy">The assistant couldn’t load. Please refresh to try again.</p>}
       {bubble && !opened && <div className="casey-bubble" role="status">
-        <button type="button" className="casey-bubble-body" onClick={openFromBubble}>👋 Have a question about our services or pricing? Ask Casey anything!</button>
+        <button type="button" className="casey-bubble-body" onClick={openFromBubble}>👋 Have questions about our services? Talk or chat with Casey, our AI assistant.</button>
         <button type="button" className="casey-bubble-close" aria-label="Dismiss message" onClick={dismissBubble}><X className="size-3.5" /></button>
       </div>}
       <span className="bespoke-assistant-label" hidden={!ready || opened}>Talk to Casey - Bespoke AI Assistant</span>
