@@ -1,4 +1,4 @@
-import shareHome from "@/assets/share-home-handled.jpg.asset.json";
+import shareHome from "@/assets/share-home-looker.jpg.asset.json";
 import shareServices from "@/assets/share-services.jpg.asset.json";
 import shareDigitalMarketing from "@/assets/share-digital-marketing.jpg.asset.json";
 import shareOurWork from "@/assets/share-our-work.jpg.asset.json";
