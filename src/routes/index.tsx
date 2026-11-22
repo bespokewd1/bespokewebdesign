@@ -14,7 +14,7 @@ import { HomeTrust } from "@/components/site/HomeTrust";
 import { BookingSteps, HeroTrust } from "@/components/site/ConversionDetails";
 
 export const Route = createFileRoute("/")({
-  head: () => pageHead({ path: "/", title: "Bespoke Web Design | Edmonton Digital Marketing Agency", description: "Done-for-you digital marketing for Edmonton businesses. Custom websites, local SEO, Google Business Profile management, branding, and social media." }),
+  head: () => pageHead({ path: "/", title: "Bespoke Web Design | Edmonton Digital Marketing Agency", description: "Done-for-you digital marketing for Edmonton trades & service businesses. Custom websites, local SEO & Google presence to win more calls. 100% hands-off." }),
   component: Home,
 });
 function CallButton() {
