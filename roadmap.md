@@ -1,4 +1,5 @@
 # Tasks
+- [x] Add an eight-second portrait marketing-and-trades homepage video on mobile only; verified 320–1440px playback, text, review navigation, pause/play and reduced motion; desktop video unchanged and 12 checks pass.
 - [x] Update Alberta-focused terms and privacy disclosures; verified phone/tablet/desktop, contact links and metadata, with 20 agreement and inquiry checks passing; existing agreement conditions preserved.
 - [x] Polish mobile header, readable headings, benefit emphasis, booking steps and touch targets; verified 320–1440px layouts, review/menu navigation, form choices, FAQ, booking links and Casey clearance; 29 checks pass.
 - [x] Create 16 page-specific branded sharing images and concise social text; verified initial HTML tags, image delivery and dimensions on all 18 content pages, with 17 existing checks passing.
