@@ -2,14 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, PhoneMissed, Clock, CalendarCheck, MessageSquare, Star, ClipboardList, Wrench, HardHat, HeartHandshake, Ear, Lightbulb, Handshake, Rocket, Check } from "lucide-react";
 import type { CSSProperties } from "react";
 import { pageHead } from "@/lib/seo";
-import ogAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
 import { SectionHead } from "@/components/site/Layout";
 import { useReveal } from "@/components/site/MarketingIntro";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/ai-automation")({
-  head: () => pageHead({ image: ogAsset.url,
+  head: () => pageHead({
     path: "/ai-automation", crumb: "AI & Automation",
     title: "AI Assistants & Automation for Trades and Clinics | Bespoke Web Design",
     description: "Plain-English guide to how AI assistants and simple automation can help Edmonton plumbers, contractors and massage clinics answer calls, book jobs and save admin time.",

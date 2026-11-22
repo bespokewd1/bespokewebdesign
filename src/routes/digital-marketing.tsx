@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { pageHead } from "@/lib/seo";
-import ogAsset from "@/assets/marketing-growth-cycle.png.asset.json";
 import { SectionHead, CtaBand } from "@/components/site/Layout";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { MarketingIntro } from "@/components/site/MarketingIntro";
@@ -11,7 +10,7 @@ import heroAsset from "@/assets/trades-marketing-workspace.webp.asset.json";
 
 export const Route = createFileRoute("/digital-marketing")({
   head: () => {
-    return pageHead({ image: ogAsset.url, path: "/digital-marketing", crumb: "Digital Marketing", title: "Digital Marketing Plans & Google Ads Edmonton | Bespoke Web Design", description: "Done-for-you branding, custom websites, social media and SEO for Edmonton businesses. Compare Foundation at $245 CAD and Growth at $499 CAD per month." });
+    return pageHead({ path: "/digital-marketing", crumb: "Digital Marketing", title: "Digital Marketing Plans & Google Ads Edmonton | Bespoke Web Design", description: "Done-for-you branding, custom websites, social media and SEO for Edmonton businesses. Compare Foundation at $245 CAD and Growth at $499 CAD per month." });
   },
   component: DigitalMarketing,
 });

@@ -1,13 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ExternalLink, Star, ThumbsUp } from "lucide-react";
 import { pageHead } from "@/lib/seo";
-import ogAsset from "@/assets/review-david-google.png.asset.json";
 import { FACEBOOK_REVIEWS, GOOGLE_REVIEWS, type ClientReview, type ReviewPlatform } from "@/content/reviews";
 import { REVIEW_LINKS, REVIEW_PROOF } from "@/content/site";
 import { PageHero, SectionHead } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/testimonials")({
-  head: () => pageHead({ image: ogAsset.url,
+  head: () => pageHead({
     path: "/testimonials", crumb: "Client Reviews",
     title: "Client Reviews & Testimonials | Bespoke Web Design Edmonton",
     description: "Read genuine Google and Facebook reviews from Bespoke Web Design clients. Discover why Edmonton businesses trust us with their websites and digital marketing.",

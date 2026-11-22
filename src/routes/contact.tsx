@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CalendarDays, CheckCircle2, Mail, MapPin } from "lucide-react";
 import { SITE } from "@/content/site";
 import { pageHead } from "@/lib/seo";
-import ogAsset from "@/assets/founder-client-1.jpg.asset.json";
 import { PageHero } from "@/components/site/Layout";
 import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
 import { LeadForm } from "@/components/site/LeadForm";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contact")({
-  head: () => pageHead({ image: ogAsset.url,
+  head: () => pageHead({
     path: "/contact", crumb: "About & Contact",
     title: "About & Contact | Bespoke Web Design Edmonton",
     description: "Meet Charles, founder of Bespoke Web Design in Edmonton. Book a discovery call or request a free marketing review.",

@@ -8,16 +8,12 @@ import { ProjectCard } from "@/components/site/Cards";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import heroAsset from "@/assets/trades-workday-poster.webp.asset.json";
 import { HomeHeroVideo } from "@/components/site/HomeHeroVideo";
 import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
 import { HomeTrust } from "@/components/site/HomeTrust";
 
 export const Route = createFileRoute("/")({
-  head: () => {
-    const head = pageHead({ path: "/", title: "Bespoke Web Design | Edmonton Digital Marketing Agency", description: "Done-for-you digital marketing for Edmonton businesses. Custom websites, local SEO, Google Business Profile management, branding, and social media." });
-    return { ...head, meta: [...head.meta, { property: "og:image", content: `https://bespokewebdesign.lovable.app${heroAsset.url}` }, { name: "twitter:image", content: `https://bespokewebdesign.lovable.app${heroAsset.url}` }] };
-  },
+  head: () => pageHead({ path: "/", title: "Bespoke Web Design | Edmonton Digital Marketing Agency", description: "Done-for-you digital marketing for Edmonton businesses. Custom websites, local SEO, Google Business Profile management, branding, and social media." }),
   component: Home,
 });
 function CallButton() {

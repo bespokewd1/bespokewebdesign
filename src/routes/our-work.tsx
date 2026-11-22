@@ -3,7 +3,6 @@ import { PORTFOLIO_PROJECTS } from "@/content/site";
 import { PORTFOLIO_FILTERS, matchesPortfolioFilter } from "@/lib/portfolio";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { pageHead } from "@/lib/seo";
-import ogAsset from "@/assets/service-squad-website.webp.asset.json";
 import { PageHero, CtaBand } from "@/components/site/Layout";
 import { ProjectCard } from "@/components/site/Cards";
 import { WorkGallery, type GalleryItem } from "@/components/site/WorkGallery";
@@ -17,7 +16,7 @@ const GALLERIES: Partial<Record<string, { items: GalleryItem[]; variant: "photo"
 };
 
 export const Route = createFileRoute("/our-work")({
-  head: () => pageHead({ image: ogAsset.url,
+  head: () => pageHead({
     path: "/our-work", crumb: "Our Work",
     title: "Our Work — Websites & Digital Marketing Projects | Bespoke Web Design",
     description: "See websites and digital marketing projects Bespoke Web Design has built for Edmonton and Alberta businesses.",

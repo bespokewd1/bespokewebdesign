@@ -1,4 +1,5 @@
 # Tasks
+- [x] Create 16 page-specific branded sharing images and concise social text; verified initial HTML tags, image delivery and dimensions on all 18 content pages, with 17 existing checks passing.
 - [x] Add subtle blueprint accents and evidence-linked PageSpeed score animations; verified desktop, tablet, mobile, report links, carousel controls and reduced motion; 19 existing content checks pass.
 - [x] Simplify About & Contact to one form; verified meeting button, old anchor, pricing links, desktop/mobile and successful test inquiry.
 - [x] Streamline homepage FAQs to five benefit-led questions; verified desktop/mobile accordion controls, subtle motion, reduced-motion handling, and review link; preserved agreement and package rules pass 18 tests.
