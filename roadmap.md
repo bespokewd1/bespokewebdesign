@@ -1,4 +1,5 @@
 # Tasks
+- [x] Expand AI & Automation with benefit-led optional tools, simple graphics, no prices, and a needs/goals/budget contact invitation; verified 320–1440px layouts, all niche tabs and contact booking destination; nine existing checks pass.
 - [x] Add an eight-second portrait marketing-and-trades homepage video on mobile only; verified 320–1440px playback, text, review navigation, pause/play and reduced motion; desktop video unchanged and 12 checks pass.
 - [x] Update Alberta-focused terms and privacy disclosures; verified phone/tablet/desktop, contact links and metadata, with 20 agreement and inquiry checks passing; existing agreement conditions preserved.
 - [x] Polish mobile header, readable headings, benefit emphasis, booking steps and touch targets; verified 320–1440px layouts, review/menu navigation, form choices, FAQ, booking links and Casey clearance; 29 checks pass.
