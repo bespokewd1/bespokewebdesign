@@ -196,8 +196,9 @@
 .hero-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .hero-photo::before { content: ""; position: absolute; inset: 0; background: var(--hero-shade); z-index: -1; }
 .digital-marketing-hero { overflow: hidden; }
-.digital-marketing-hero > img { opacity: 0.5; object-position: center; }
-.digital-marketing-hero::before { background: var(--dm-hero-shade); }
+.page-hero > img { opacity: 0.45; object-position: 70% center; }
+.page-hero::before { background: linear-gradient(90deg, color-mix(in oklab, var(--navy) 90%, transparent) 35%, color-mix(in oklab, var(--navy) 45%, transparent)); }
+.page-hero .eyebrow { color: var(--hero-accent); }
 .digital-marketing-hero .eyebrow { color: var(--hero-accent); }
 .digital-marketing-hero p { color: var(--navy-foreground); }
 @media (max-width: 639px) { .digital-marketing-hero > img { object-position: 62% center; } }

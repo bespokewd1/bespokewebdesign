@@ -1,3 +1,4 @@
+import pageHeroAsset from "@/assets/trades-marketing-workspace.webp.asset.json";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Menu, ChevronDown, Facebook, ArrowUp, Star } from "lucide-react";
@@ -197,7 +198,8 @@ function BackToTop() {
 
 export function PageHero({ eyebrow, title, intro, children }: { eyebrow?: string; title: string; intro?: string; children?: ReactNode }) {
   return (
-    <section className="bg-navy text-navy-foreground">
+    <section className="hero-photo page-hero overflow-hidden">
+      <img src={pageHeroAsset.url} alt="" width={1920} height={1047} fetchPriority="high" />
       <div className="container-site py-16 md:py-24">
         {eyebrow && <span className="eyebrow">{eyebrow}</span>}
         <h1 className="mt-3 max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">{title}</h1>

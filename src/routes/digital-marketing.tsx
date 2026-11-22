@@ -7,7 +7,7 @@ import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { MarketingIntro } from "@/components/site/MarketingIntro";
 import { TechnicalSeoProof } from "@/components/site/TechnicalSeoProof";
 import { Button } from "@/components/ui/button";
-import heroAsset from "@/assets/digital-marketing-analytics.webp.asset.json";
+import heroAsset from "@/assets/trades-marketing-workspace.webp.asset.json";
 
 export const Route = createFileRoute("/digital-marketing")({
   head: () => {
@@ -18,8 +18,8 @@ export const Route = createFileRoute("/digital-marketing")({
 
 function DigitalMarketing() {
   return <>
-    <section className="hero-photo digital-marketing-hero">
-      <img src={heroAsset.url} alt="" width={1677} height={938} fetchPriority="high" />
+    <section className="hero-photo page-hero digital-marketing-hero">
+      <img src={heroAsset.url} alt="" width={1920} height={1047} fetchPriority="high" />
       <div className="container-site py-16 md:py-20">
         <span className="eyebrow">Bespoke Web Design / Edmonton</span>
         <h1 className="mt-4 max-w-3xl text-4xl leading-tight md:text-6xl">Digital Marketing.<br />One connected journey.</h1>
