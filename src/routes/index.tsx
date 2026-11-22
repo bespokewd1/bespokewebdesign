@@ -11,7 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { HomeHeroVideo } from "@/components/site/HomeHeroVideo";
 import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
 import { HomeTrust } from "@/components/site/HomeTrust";
-import { BookingSteps, HeroTrust } from "@/components/site/ConversionDetails";
+import { HeroTrust } from "@/components/site/ConversionDetails";
 
 export const Route = createFileRoute("/")({
   head: () => pageHead({ path: "/", title: "Bespoke Web Design | Edmonton Digital Marketing Agency", description: "Done-for-you digital marketing for Edmonton trades & service businesses. Custom websites, local SEO & Google presence to win more calls. 100% hands-off." }),
@@ -34,7 +34,6 @@ function Home() {
         <p className="home-hero-description home-enter home-enter-delayed mt-3 max-w-xl text-sm leading-relaxed text-navy-muted sm:text-base">From custom websites and local SEO to social media marketing, we manage your online presence so you can focus on running your business.</p>
         <div className="home-hero-actions home-enter home-enter-late mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton>Get a Free Marketing Review</ReviewButton><CallButton /></div>
         <HeroTrust />
-        {SITE.calendly && <div className="max-w-xl"><BookingSteps light /></div>}
       </div>
     </section>
 
@@ -86,7 +85,7 @@ function Home() {
 
     <section className="section scroll-mt-20 bg-navy text-navy-foreground" id="review"><div className="container-site grid gap-10 lg:grid-cols-2">
       <div><span className="eyebrow">Free marketing review</span><h2 className="mt-2 text-3xl md:text-4xl">Ready to Put Your Marketing in Good Hands?</h2><p className="mt-4 text-navy-muted">Tell us about your business. We'll help you explore the right website and marketing support for your goals. Free, no obligation.</p></div>
-      <div className="lg:self-center"><div className="flex flex-col justify-center gap-3 sm:flex-row lg:justify-end"><ReviewButton /><CallButton /></div>{SITE.calendly && <BookingSteps light />}</div>
+      <div className="lg:self-center"><div className="flex flex-col justify-center gap-3 sm:flex-row lg:justify-end"><ReviewButton /><CallButton /></div></div>
     </div></section>
   </div>;
 }

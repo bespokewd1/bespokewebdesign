@@ -6,7 +6,6 @@ import { PageHero } from "@/components/site/Layout";
 import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
 import { LeadForm } from "@/components/site/LeadForm";
 import { Button } from "@/components/ui/button";
-import { BookingSteps } from "@/components/site/ConversionDetails";
 
 export const Route = createFileRoute("/contact")({
   head: () => pageHead({
@@ -55,7 +54,6 @@ function Contact() {
                 {EXPECT.map(item => <li key={item} className="flex gap-3"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />{item}</li>)}
               </ul>
               {SITE.calendly && <Button asChild className="btn btn-primary mt-6 h-auto min-h-11 max-w-full whitespace-normal"><a href={SITE.calendly} target="_blank" rel="noopener noreferrer"><CalendarDays className="h-5 w-5" aria-hidden="true" />Book a Discovery Call</a></Button>}
-              {SITE.calendly && <BookingSteps />}
               <p className="mt-4 text-sm text-muted-foreground">I prepare for every meeting, so these are reserved for business owners ready to invest in their marketing.</p>
               {SITE.email && <p className="mt-6 flex items-center gap-2 border-t pt-4 text-sm"><Mail className="h-4 w-4 text-accent" aria-hidden="true" /><a href={`mailto:${SITE.email}`} className="font-semibold text-navy">{SITE.email}</a></p>}
             </div>
