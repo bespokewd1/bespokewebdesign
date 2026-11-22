@@ -2,7 +2,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Menu, ChevronDown, Facebook, ArrowUp, Star } from "lucide-react";
 import googleG from "@/assets/google-g.png.asset.json";
-import { REVIEW_LINKS, NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY } from "@/content/site";
+import { REVIEW_LINKS, NAV, MOBILE_NAV, MOBILE_SERVICES, SITE, CTA_PRIMARY, CTA_SECONDARY, CTA_CALL } from "@/content/site";
 import logoAsset from "@/assets/bespoke-reference-logo-correct.png.asset.json";
 import { Button } from "@/components/ui/button";
 
@@ -77,7 +77,7 @@ export function Header() {
                   {MOBILE_SERVICES.map(n => { const hash = "hash" in n ? n.hash : ""; return <Link key={n.label} to={n.to} hash={hash} onClick={() => setOpen(false)} aria-current={active(n.to, hash) ? "page" : undefined} className={`${menuLinkClass} font-normal ${active(n.to, hash) ? "bg-muted text-accent" : ""}`}>{n.label}</Link>; })}
                 </div>
                 {MOBILE_NAV.map(n => { const hash = "hash" in n ? n.hash : ""; return <Link key={n.label} to={n.to} hash={hash} onClick={() => setOpen(false)} aria-current={active(n.to, hash) ? "page" : undefined} className={`${menuLinkClass} ${active(n.to, hash) ? "bg-muted text-accent" : ""}`}>{n.label}</Link>; })}
-                <div className="mt-6"><Button asChild className="btn btn-primary h-auto w-full whitespace-normal"><Link to="/contact" hash="review" onClick={() => setOpen(false)}>{CTA_PRIMARY}</Link></Button><p className="mt-3 text-sm leading-relaxed text-muted-foreground">A preliminary review of your online presence. No obligation.</p></div>
+                <div className="mt-6"><Button asChild className="btn btn-primary h-auto w-full whitespace-normal"><Link to="/contact" hash="review" onClick={() => setOpen(false)}>{CTA_PRIMARY}</Link></Button><p className="mt-3 text-sm leading-relaxed text-muted-foreground">A preliminary review of your online presence. No obligation.</p>{SITE.calendly && <a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-outline mt-3 inline-flex w-full justify-center">{CTA_CALL}</a>}</div>
               </nav>
             </SheetContent>
           </Sheet>
@@ -227,7 +227,7 @@ export function CtaBand({ title = "Let's Talk About Your Business.", text = "Boo
           <p className="mx-auto mt-4 max-w-xl text-navy-muted">{text}</p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link to="/contact" hash="review" className="btn btn-primary">{button}</Link>
-            <Link to="/our-work" className="btn btn-outline-light">{CTA_SECONDARY}</Link>
+            {SITE.calendly ? <a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light">{CTA_CALL}</a> : <Link to="/our-work" className="btn btn-outline-light">{CTA_SECONDARY}</Link>}
           </div>
         </div>
       </div>

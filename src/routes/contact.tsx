@@ -45,7 +45,7 @@ function Contact() {
           <div>
             <span className="eyebrow">Contact</span>
             <h2 className="mt-2 text-3xl font-extrabold text-navy md:text-4xl">Let's Talk About Your Business.</h2>
-            <p className="mt-4 text-muted-foreground">Request a free introductory review of your website and online presence.</p>
+            <p className="mt-4 text-muted-foreground">Request a free marketing review of your website and online presence, or book a call if you prefer to talk.</p>
             <ul className="mt-8 space-y-4">
               <li className="flex gap-3"><MapPin className="h-5 w-5 text-accent" /> Edmonton, Alberta</li>
               <li className="flex gap-3"><Mail className="h-5 w-5 text-accent" />
@@ -59,7 +59,7 @@ function Contact() {
               </div>
             )}
           </div>
-          <LeadForm />
+          <div><LeadForm />{SITE.calendly && <p className="mt-4 text-sm text-muted-foreground">Prefer to talk first? <a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="font-semibold text-navy underline decoration-accent underline-offset-4">Book a call with Charles</a></p>}</div>
         </div>
       </section>
     </>

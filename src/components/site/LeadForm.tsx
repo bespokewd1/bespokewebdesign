@@ -36,7 +36,7 @@ export function LeadForm({ submitLabel, kind = "review" }: { submitLabel?: strin
   if (done) return <div className="card-site text-center" role="status">
     <CheckCircle2 className="mx-auto h-10 w-10 text-accent" />
     <h3 className="mt-3 text-xl text-navy">Request received</h3>
-    <p className="mt-3 text-muted-foreground">Your {kind === "review" ? "free website review" : "consultation"} request has been saved securely. Thank you for telling us about your business.</p>
+    <p className="mt-3 text-muted-foreground">Your {kind === "review" ? "free marketing review" : "consultation"} request has been saved securely. Thank you for telling us about your business.</p>
   </div>;
   function field(name: string, label: string, maxLength: number, type = "text", optional = false, autoComplete?: string) {
     return <div><label htmlFor={`${kind}-${name}`} className="mb-1.5 block text-sm font-semibold text-navy">{label}{optional && <span className="font-normal text-muted-foreground"> (optional)</span>}</label>
@@ -45,7 +45,7 @@ export function LeadForm({ submitLabel, kind = "review" }: { submitLabel?: strin
     </div>;
   }
   const choiceName = kind === "review" ? "industry" : "services";
-  return <form onSubmit={onSubmit} noValidate className="card-site grid gap-4 md:p-8" aria-label={kind === "review" ? "Free website review" : "Consultation request"}>
+  return <form onSubmit={onSubmit} noValidate className="card-site grid gap-4 md:p-8" aria-label={kind === "review" ? "Free marketing review" : "Consultation request"}>
     <div className="grid gap-4 sm:grid-cols-2">
       {field("business", "Business name", 120, "text", false, "organization")}
       {field("name", kind === "review" ? "Contact name" : "Name", 100, "text", false, "name")}
@@ -67,6 +67,6 @@ export function LeadForm({ submitLabel, kind = "review" }: { submitLabel?: strin
     <div className="hidden" aria-hidden="true"><label>Leave empty<input name="company_url" tabIndex={-1} autoComplete="off" /></label></div>
     <p className="text-xs text-muted-foreground">We use your details to respond to your inquiry. <Link to="/privacy" className="underline">Privacy policy</Link></p>
     {failure && <p role="alert" className="text-sm text-destructive">{failure}</p>}
-    <Button type="submit" disabled={pending} className="btn btn-primary h-auto whitespace-normal w-full sm:w-auto sm:justify-self-start">{pending && <LoaderCircle className="animate-spin motion-reduce:animate-none" />}{pending ? "Submitting…" : submitLabel || (kind === "review" ? "Request My Free Review" : "Request a Consultation")}</Button>
+    <Button type="submit" disabled={pending} className="btn btn-primary h-auto whitespace-normal w-full sm:w-auto sm:justify-self-start">{pending && <LoaderCircle className="animate-spin motion-reduce:animate-none" />}{pending ? "Submitting…" : submitLabel || (kind === "review" ? "Get a Free Marketing Review" : "Request a Consultation")}</Button>
   </form>;
 }

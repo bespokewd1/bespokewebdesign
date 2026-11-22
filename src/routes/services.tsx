@@ -37,7 +37,7 @@ function Services() {
                 <ul className="mt-3 space-y-2">
                   {s.help.map((h) => <li key={h} className="flex gap-2 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{h}</li>)}
                 </ul>
-                <Link to="/contact" hash="review" className="mt-5 inline-block text-sm font-bold text-navy underline decoration-accent decoration-2 underline-offset-4">Book a free consultation</Link>
+                <Link to="/contact" hash="review" className="mt-5 inline-block text-sm font-bold text-navy underline decoration-accent decoration-2 underline-offset-4">Get a Free Marketing Review</Link>
               </div>
             </article>
           ))}

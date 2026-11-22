@@ -32,7 +32,7 @@ export function TechnicalSeoProof() {
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">PageSpeed Insights is Google's free, official tool. Enter your website address and check both the Mobile and Desktop tabs. If your scores are low, we're happy to explain what they mean.</p>
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="btn btn-primary h-auto"><a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">Run the free Google test<ArrowUpRight /></a></Button>
-            <Button asChild variant="outline" className="h-auto"><Link to="/contact" hash="review">Get a free website review<ArrowRight /></Link></Button>
+            <Button asChild variant="outline" className="h-auto"><Link to="/contact" hash="review">Get a Free Marketing Review<ArrowRight /></Link></Button>
           </div>
         </div>
         <p className="mt-4 text-xs text-muted-foreground">Scores are real client results from Google PageSpeed Insights at the time of testing. A strong score supports SEO but does not guarantee rankings.</p>

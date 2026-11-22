@@ -1,11 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Handshake, RefreshCw, MessageCircle, HardHat } from "lucide-react";
-import { HOME_SERVICES, HOME_FAQS, HOME_FEATURED_PROJECTS, HOME_START_STEPS } from "@/content/site";
+import { ArrowRight, Handshake, RefreshCw, MessageCircle, HardHat, CalendarDays } from "lucide-react";
+import { HOME_SERVICES, HOME_FAQS, HOME_FEATURED_PROJECTS, HOME_START_STEPS, SITE } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
 import { HomeServiceCard } from "@/components/site/HomeServiceCard";
 import { ProjectCard } from "@/components/site/Cards";
-import { LeadForm } from "@/components/site/LeadForm";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -21,8 +20,11 @@ export const Route = createFileRoute("/")({
   },
   component: Home,
 });
-function ReviewButton({ children = "Get a Free Website Review" }: { children?: React.ReactNode }) {
-  return <Button asChild className="btn btn-primary h-auto whitespace-normal"><Link to="/" hash="review">{children}<ArrowRight className="shrink-0" /></Link></Button>;
+function CallButton() {
+  return SITE.calendly ? <Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><a href={SITE.calendly} target="_blank" rel="noopener noreferrer"><CalendarDays className="shrink-0" aria-hidden="true" />Book a Call</a></Button> : null;
+}
+function ReviewButton({ children = "Get a Free Marketing Review" }: { children?: React.ReactNode }) {
+  return <Button asChild className="btn btn-primary h-auto whitespace-normal"><Link to="/contact" hash="review">{children}<ArrowRight className="shrink-0" /></Link></Button>;
 }
 function Home() {
   return <div className="home-page">
@@ -33,7 +35,7 @@ function Home() {
         <h1 className="home-enter mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Complete Digital Marketing. <span className="text-hero-accent md:block">One Trusted Partner.</span></h1>
         <p className="home-hero-benefit home-enter home-enter-delayed mt-5 max-w-xl text-base font-medium leading-relaxed text-navy-foreground sm:text-lg">Get found by more local customers, build trust online, and turn more visitors into enquiries.</p>
         <p className="home-hero-description home-enter home-enter-delayed mt-3 max-w-xl text-sm leading-relaxed text-navy-muted sm:text-base">From custom websites and local SEO to social media marketing, we manage your online presence so you can focus on running your business.</p>
-        <div className="home-hero-actions home-enter home-enter-late mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton>Get a Free Marketing Review</ReviewButton><Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><Link to="/our-work">View Our Work</Link></Button></div>
+        <div className="home-hero-actions home-enter home-enter-late mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton>Get a Free Marketing Review</ReviewButton><CallButton /></div>
       </div>
     </section>
 
@@ -80,12 +82,12 @@ function Home() {
     <section className="section home-faq border-t" aria-labelledby="faq-heading"><div className="container-site"><div className="mx-auto max-w-3xl">
       <h2 id="faq-heading" className="text-3xl md:text-4xl">Frequently Asked Questions</h2>
       <Accordion type="single" collapsible className="mt-8 border-t">{HOME_FAQS.map((faq,index) => <AccordionItem key={faq.question} value={`faq-${index+1}`}><AccordionTrigger className="min-h-14 gap-4 py-5 text-base font-semibold text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none [&>svg]:motion-reduce:transition-none">{faq.question}</AccordionTrigger><AccordionContent className="space-y-3 pr-6 text-base leading-relaxed text-muted-foreground">{faq.paragraphs.map(p => <p key={p}>{p}</p>)}</AccordionContent></AccordionItem>)}</Accordion>
-      <div className="mt-6"><ReviewButton>Get My Free Website &amp; Marketing Review</ReviewButton></div>
+      <div className="mt-6"><ReviewButton>Get a Free Marketing Review</ReviewButton></div>
     </div></div></section>
 
     <section className="section scroll-mt-20 bg-navy text-navy-foreground" id="review"><div className="container-site grid gap-10 lg:grid-cols-2">
-      <div><span className="eyebrow">Free website &amp; marketing review</span><h2 className="mt-2 text-3xl md:text-4xl">Ready to Put Your Marketing in Good Hands?</h2><p className="mt-4 text-navy-muted">Tell us about your business. We'll help you explore the right website and marketing support for your goals. Free, no obligation.</p></div>
-      <div className="text-foreground"><LeadForm submitLabel="Get a Free Website Review" /></div>
+      <div><span className="eyebrow">Free marketing review</span><h2 className="mt-2 text-3xl md:text-4xl">Ready to Put Your Marketing in Good Hands?</h2><p className="mt-4 text-navy-muted">Tell us about your business. We'll help you explore the right website and marketing support for your goals. Free, no obligation.</p></div>
+      <div className="flex flex-col justify-center gap-3 sm:flex-row lg:justify-end lg:self-center"><ReviewButton /><CallButton /></div>
     </div></section>
   </div>;
 }

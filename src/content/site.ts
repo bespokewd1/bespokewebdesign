@@ -33,7 +33,8 @@ export const SITE = {
     "Complete digital marketing for Edmonton and Alberta trades and service businesses.\u00a0\n\n\nFrom professional websites and local SEO to Google Business Profile management, branding, and social media—we bring your online marketing together under one trusted partner.",
 };
 
-export const CTA_PRIMARY = "Get a Free Website Review";
+export const CTA_PRIMARY = "Get a Free Marketing Review";
+export const CTA_CALL = "Book a Call";
 export const CTA_SECONDARY = "See Our Work";
 
 export const NAV = [
