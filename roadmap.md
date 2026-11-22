@@ -1,4 +1,5 @@
 # Tasks
+- [x] Update Alberta-focused terms and privacy disclosures; verified phone/tablet/desktop, contact links and metadata, with 20 agreement and inquiry checks passing; existing agreement conditions preserved.
 - [x] Polish mobile header, readable headings, benefit emphasis, booking steps and touch targets; verified 320–1440px layouts, review/menu navigation, form choices, FAQ, booking links and Casey clearance; 29 checks pass.
 - [x] Create 16 page-specific branded sharing images and concise social text; verified initial HTML tags, image delivery and dimensions on all 18 content pages, with 17 existing checks passing.
 - [x] Add subtle blueprint accents and evidence-linked PageSpeed score animations; verified desktop, tablet, mobile, report links, carousel controls and reduced motion; 19 existing content checks pass.
