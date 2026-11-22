@@ -28,18 +28,23 @@ export function AIAssistant() {
   };
 
   const openFromBubble = () => {
-    dismissBubble();
     const widget = widgetRef.current;
     if (!widget) return;
+    setBubble(false);
     widget.removeAttribute("data-minimized");
     setOpened(true);
-    requestAnimationFrame(() => widget.dispatchEvent(new CustomEvent("elevenlabs-agent:expand", { detail: { action: "expand" } })));
+    const nativeOpen = widget.shadowRoot?.querySelector<HTMLButtonElement>('button[aria-label="Open chat"]');
+    if (nativeOpen) nativeOpen.click();
+    else requestAnimationFrame(() => widget.dispatchEvent(new CustomEvent("elevenlabs-agent:expand", { detail: { action: "expand" } })));
   };
 
   const minimize = () => {
     const widget = widgetRef.current;
     widget?.setAttribute("data-minimized", "true");
     widget?.dispatchEvent(new CustomEvent("elevenlabs-agent:expand", { detail: { action: "collapse" } }));
+    setOpened(false);
+    bubbleDismissed.current = false;
+    setBubble(true);
   };
 
   useEffect(() => {
@@ -76,6 +81,7 @@ export function AIAssistant() {
       if (opensGlobe) {
         if (widget.hasAttribute("data-minimized")) event.stopPropagation();
         widget.removeAttribute("data-minimized");
+        setBubble(false);
         setOpened(true);
         requestAnimationFrame(() => widget.dispatchEvent(new CustomEvent("elevenlabs-agent:expand", { detail: { action: "expand" } })));
       }
@@ -142,8 +148,8 @@ export function AIAssistant() {
     <aside className="bespoke-assistant" aria-label="Talk to Casey - Bespoke AI Assistant">
       {failed && <p role="alert" className="rounded border bg-surface p-4 text-sm text-navy">The assistant couldn’t load. Please refresh to try again.</p>}
       {bubble && !opened && <div className="casey-bubble" role="status">
-        <button type="button" className="casey-bubble-body" onClick={openFromBubble}>👋 Have questions about our services? Talk or chat with Casey, our AI assistant.</button>
-        <button type="button" className="casey-bubble-close" aria-label="Dismiss message" onClick={dismissBubble}><X className="size-3.5" /></button>
+        <Button variant="ghost" className="casey-bubble-body h-auto min-h-12 whitespace-normal rounded-none p-0 hover:bg-transparent" onClick={openFromBubble}>👋 Have questions? Talk or type with Casey, our AI assistant.</Button>
+        <Button variant="ghost" size="icon" className="casey-bubble-close shrink-0" aria-label="Dismiss message" onClick={dismissBubble}><X className="size-3.5" /></Button>
       </div>}
       {header && createPortal(<div className="bespoke-chat-header">
         <div className="bespoke-chat-title-row"><strong>Talk to Casey - Bespoke AI Assistant</strong><Button variant="ghost" size="icon" title="Minimize conversation" aria-label="Minimize conversation" onClick={minimize}><Minus /></Button></div>
