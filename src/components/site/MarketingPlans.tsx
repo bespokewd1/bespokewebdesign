@@ -1,5 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { Check, ArrowUpRight, Star } from "lucide-react";
+import { Check, ArrowUpRight, Star, Camera, Target, TrendingUp, KeyRound, ClipboardList, Paintbrush, Send, Wrench, MapPin, PhoneCall } from "lucide-react";
+
+const STEP_ICONS = [ClipboardList, Camera, Paintbrush, Send];
+const PHASE_ICONS = [Wrench, MapPin, PhoneCall];
 import { PLANS, PLAN_CURRENCY, PACKAGE_DETAILS } from "@/content/site";
 import { Button } from "@/components/ui/button";
 
@@ -25,9 +28,20 @@ export function MarketingPlans() {
         ))}
       </div>
       <div className="mt-6 space-y-2 text-sm text-muted-foreground"><p className="font-semibold">{PACKAGE_DETAILS.posts}</p><p>{PLANS.map(plan => `${plan.name}: ${plan.socialPosts} ${plan.channels === 1 ? "Facebook posts" : `posts total across ${plan.platforms.join(", ")}`}`).join(" · ")}</p><p>{PACKAGE_DETAILS.postCounting}</p></div>
-      <div className="mt-8 border-t pt-6"><h3 className="text-xl text-navy">{PACKAGE_DETAILS.socialTitle}</h3><p className="mt-3 text-sm text-muted-foreground">{PACKAGE_DETAILS.socialIntro}</p><ol className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{PACKAGE_DETAILS.socialSteps.map((step, index) => <li key={step.title}><h4 className="text-sm text-navy">{index + 1}. {step.title}</h4><p className="mt-2 text-sm text-muted-foreground">{step.text}</p></li>)}</ol><p className="mt-5 text-sm text-muted-foreground">{PACKAGE_DETAILS.socialScope}</p></div>
-      <div className="mt-8 border-t pt-6"><h3 className="text-xl text-navy">{PACKAGE_DETAILS.adsTitle}</h3><p className="mt-2 text-base font-semibold text-navy">{PACKAGE_DETAILS.adsSubtitle}</p><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{PACKAGE_DETAILS.adsIntro}</p><p className="mt-6 text-sm font-bold text-navy">{PACKAGE_DETAILS.adsStepsTitle}</p><ul className="mt-3 grid gap-3 sm:grid-cols-2">{PACKAGE_DETAILS.adsSteps.map(step => <li key={step} className="flex gap-3 text-sm"><Check className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" /><span>{step}</span></li>)}</ul><h4 className="mt-7 text-lg text-navy">{PACKAGE_DETAILS.adsPricingTitle}</h4><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{PACKAGE_DETAILS.adsPricing}</p><p className="mt-4 text-sm font-semibold">{PACKAGE_DETAILS.adsAgreement}</p><p className="mt-5 text-sm font-semibold text-navy">{PACKAGE_DETAILS.adsGoal}</p></div>
-      <div className="mt-6 space-y-2 text-sm text-muted-foreground"><p>{PACKAGE_DETAILS.scope}</p><p>{PACKAGE_DETAILS.revisions}</p></div>
+      <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <div className="card-site"><span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-navy text-accent"><Camera className="h-5 w-5" aria-hidden="true" /></span><h3 className="mt-4 text-xl text-navy">{PACKAGE_DETAILS.socialTitle}</h3><p className="mt-2 text-sm text-muted-foreground">{PACKAGE_DETAILS.socialShort}</p>
+          <ol className="mt-5 grid grid-cols-2 gap-3">{PACKAGE_DETAILS.socialSteps.map((step, i) => { const I = STEP_ICONS[i] ?? Check; return <li key={step.title} className="rounded-lg bg-secondary p-3"><span className="flex items-center gap-2 text-sm font-bold text-navy"><I className="h-4 w-4 text-accent" aria-hidden="true" />{i + 1}. {step.title}</span><p className="mt-1 text-xs text-muted-foreground">{step.text}</p></li>; })}</ol></div>
+        <div className="card-site"><span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-navy text-accent"><Target className="h-5 w-5" aria-hidden="true" /></span><h3 className="mt-4 text-xl text-navy">{PACKAGE_DETAILS.adsTitle}</h3><p className="mt-2 text-sm text-muted-foreground">{PACKAGE_DETAILS.adsShort}</p>
+          <ul className="mt-5 space-y-3">{PACKAGE_DETAILS.adsSteps.map(step => <li key={step} className="flex gap-3 text-sm"><Check className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" /><span>{step}</span></li>)}</ul></div>
+      </div>
+      <div className="card-site mt-5 border-2 border-accent">
+        <div className="flex items-center gap-3"><span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-accent-foreground"><TrendingUp className="h-5 w-5" aria-hidden="true" /></span><h3 className="text-xl text-navy md:text-2xl">{PACKAGE_DETAILS.engineTitle}</h3></div>
+        <p className="mt-3 text-sm text-muted-foreground">{PACKAGE_DETAILS.engineIntro}</p>
+        <ol className="mt-6 grid gap-4 md:grid-cols-3">{PACKAGE_DETAILS.phases.map((ph, i) => { const I = PHASE_ICONS[i] ?? Check; return <li key={ph.months} className="relative rounded-lg bg-secondary p-4"><div className="h-1.5 rounded-full bg-muted"><div className="h-1.5 rounded-full bg-accent" style={{ width: `${(i + 1) * 33.4}%` }} /></div><span className="mt-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-accent"><I className="h-4 w-4" aria-hidden="true" />{ph.months}</span><h4 className="mt-1 text-base text-navy">{ph.title}</h4><p className="mt-1 text-sm text-muted-foreground">{ph.text}</p></li>; })}</ol>
+        <p className="mt-5 flex gap-2 text-sm font-semibold text-navy"><KeyRound className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />{PACKAGE_DETAILS.adsAgreement}</p>
+        <p className="mt-3 text-sm font-semibold text-navy">{PACKAGE_DETAILS.adsGoal}</p>
+      </div>
+      <p className="mt-6 text-xs text-muted-foreground">{PACKAGE_DETAILS.scope} {PACKAGE_DETAILS.revisions}</p>
     </>
   );
 }
