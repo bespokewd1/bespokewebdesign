@@ -113,7 +113,7 @@ function AiAutomation() {
           <h2 className="mt-3 text-3xl leading-tight text-navy md:text-4xl">This isn't part of our plans, and you don't need all of it.</h2>
           <p className="mt-5 text-lg text-muted-foreground">AI isn't for every business, and I won't push it on you. Most owners only need one or two small things, and some need nothing yet.</p>
           <p className="mt-4 text-lg text-muted-foreground">Tell me your goals and what's frustrating you. I'll be straight about whether automation would help. If it makes sense, we meet and plan it together, priced separately from your marketing plan.</p>
-          <p className="mt-5 font-bold text-navy">— Charles</p>
+          <p className="mt-5 font-bold text-navy">— Charles</p><p className="text-sm text-muted-foreground">Founder, Bespoke Marketing LTD.</p>
         </div>
         <ul className="card-site space-y-3 self-start">
           {["No obligation to add anything", "Start small and only expand if it works", "Separate from Foundation and Growth plans", "You approve everything before it goes live"].map(t => <li key={t} className="flex gap-2"><Check className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />{t}</li>)}

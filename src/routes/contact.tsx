@@ -32,7 +32,7 @@ function Contact() {
           <div className="space-y-5 text-lg">
             <p>Hi, I'm Charles, founder of Bespoke Web Design.</p>
             <p className="text-muted-foreground">When you work with us, you deal directly with me. No account managers, no ticket system and no runaround. I work side by side with Edmonton trade and service businesses to bring in steady local customers.</p>
-            <p className="font-semibold text-navy">— Charles</p>
+            <div><p className="font-semibold text-navy">— Charles</p><p className="text-sm text-muted-foreground">Founder, Bespoke Marketing LTD.</p></div>
           </div>
           <FounderPhotoCarousel tone="light" />
         </div>

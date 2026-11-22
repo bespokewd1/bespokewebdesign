@@ -50,7 +50,7 @@ export function MarketingIntro() {
           <h3 className="text-2xl text-navy md:text-3xl">Marketing is never a one-time project.</h3>
           <p className="mt-4 leading-relaxed text-muted-foreground">Google changes, competitors advertise and customers expect fast answers. It takes consistency and data-driven updates. If you're running crews and quoting jobs all day, you don't have 15 hours a week for marketing. That's where we step in.</p>
           <p className="mt-5 font-semibold text-navy">You focus on running your business. We handle your marketing.</p>
-          <p className="mt-2 font-display font-bold italic text-accent">— Charles, Founder</p>
+          <p className="mt-2 font-display font-bold italic text-accent">— Charles</p><p className="text-sm font-semibold text-navy-muted">Founder, Bespoke Marketing LTD.</p>
         </div>
         <ol ref={loop} className="dm-loop" aria-label="How we work, step by step">
           {LOOP.map((s, i) => <li key={s.title} className="dm-loop-step" style={{ "--i": i } as CSSProperties}>

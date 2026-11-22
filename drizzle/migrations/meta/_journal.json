@@ -15,6 +15,13 @@
       "when": 1794630722363,
       "tag": "0001_validate_public_marketing_inquiry_submissions",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795315099676,
+      "tag": "0002_add_social_link_to_inquiries",
+      "breakpoints": true
     }
   ]
 }
