@@ -28,7 +28,7 @@ function Home() {
     <section className="hero-photo home-hero overflow-hidden">
       <HomeHeroVideo />
       <div className="container-site py-10 md:py-14">
-        <span className="eyebrow home-enter">Edmonton Digital Marketing for Trades &amp; Service Businesses</span>
+        <span className="eyebrow home-enter hidden md:inline-block">Edmonton Digital Marketing for Trades &amp; Service Businesses</span>
         <h1 className="home-enter mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Complete Digital Marketing. <span className="text-hero-accent md:block">One Trusted Partner.</span></h1>
         <p className="home-hero-benefit home-enter home-enter-delayed mt-5 max-w-xl text-base font-medium leading-relaxed text-navy-foreground sm:text-lg">Get found by more local customers, build trust online, and turn more visitors into enquiries.</p>
         <p className="home-hero-description home-enter home-enter-delayed mt-3 max-w-xl text-sm leading-relaxed text-navy-muted sm:text-base">From custom websites and local SEO to social media marketing, we manage your online presence so you can focus on running your business.</p>
@@ -75,7 +75,7 @@ function Home() {
 
     <section className="section bg-surface border-b" aria-labelledby="industries-heading"><div className="container-site"><h2 id="industries-heading" className="max-w-3xl text-3xl leading-tight text-navy md:text-4xl">Built for Businesses That Keep Things Moving.</h2><ul className="mt-7 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">{[
       { name: "Plumbing", hash: "plumbing" }, { name: "Electrical", hash: "electrical" }, { name: "HVAC", hash: "services" }, { name: "General Contractors", hash: "contractors" }, { name: "Transportation & Logistics", hash: "transportation" }, { name: "Other Local Service Businesses", hash: "services" },
-    ].map(industry => <li key={industry.name} className="border-b"><Button asChild variant="link" className="h-auto min-h-14 w-full justify-between whitespace-normal py-3 text-left text-navy"><Link to="/industries" hash={industry.hash}>{industry.name}<ArrowRight /></Link></Button></li>)}</ul></div></section>
+    ].map(industry => <li key={industry.name} className="border-b"><Button asChild variant="link" className="h-auto min-h-14 w-full justify-between whitespace-normal py-3 text-left text-navy"><Link to="/industries" hash={industry.hash}>{industry.name}<ArrowRight className="text-primary" /></Link></Button></li>)}</ul></div></section>
 
     <section className="section home-faq border-t" aria-labelledby="faq-heading"><div className="container-site"><div className="mx-auto max-w-3xl">
       <h2 id="faq-heading" className="text-3xl md:text-4xl">Frequently Asked Questions</h2>

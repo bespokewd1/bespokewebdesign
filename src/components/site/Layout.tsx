@@ -13,8 +13,13 @@ import { EdmontonWeather } from "@/components/site/EdmontonWeather";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export function Logo({ light = false }: { light?: boolean }) {
+  const { pathname } = useLocation();
   return (
-    <Link to="/" hash="top" resetScroll className="flex shrink-0 items-center gap-2" aria-label="Bespoke Web Design home">
+    <Link to="/" hash="top" resetScroll onClick={event => {
+      if (pathname !== "/" || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      event.preventDefault();
+      requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    }} className="flex shrink-0 items-center gap-2" aria-label="Bespoke Web Design home">
       <img src={logoAsset.url} alt="" width="40" height="40" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
       <span className={`brand-name text-[19px] sm:text-[22px] ${light ? "text-navy-foreground" : "text-navy"}`}><span className="brand-first">Bespoke</span><span><span className="text-accent">Web</span>Design</span></span>
     </Link>
@@ -63,7 +68,6 @@ export function Header() {
       <div className="container-site grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
         <Logo />
         <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-          <Button asChild className="h-12 shrink-0 px-2 text-xs font-semibold md:hidden"><Link to="/contact" hash="review">Free Review</Link></Button>
           <nav aria-label="Main" className="hidden items-center gap-0 md:flex xl:gap-1">
             {NAV.map(n => { const hash = "hash" in n ? n.hash : ""; return n.to === "/services" ? <div key={n.to} onMouseEnter={enterServices} onMouseLeave={leaveServices}><DropdownMenu modal={false} open={desktopServices} onOpenChange={changeServicesOpen}><DropdownMenuTrigger asChild><Button variant="ghost" onKeyDown={() => { servicesOpenedByHover.current = false; cancelServicesClose(); }} className="h-11 gap-1 px-1.5 text-[13px] font-semibold text-navy lg:px-2.5 lg:text-sm">Services<ChevronDown className="size-3.5" /></Button></DropdownMenuTrigger><DropdownMenuContent align="start" sideOffset={0} onMouseEnter={enterServices} onMouseLeave={leaveServices} onCloseAutoFocus={event => { if (servicesOpenedByHover.current) event.preventDefault(); }} className="w-72 max-w-[calc(100vw-24px)]">{MOBILE_SERVICES.map(service => <DropdownMenuItem key={service.label} asChild className="min-h-11"><Link to={service.to} hash={"hash" in service ? service.hash : ""}>{service.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu></div> : <Link key={`${n.to}${hash}`} to={n.to} hash={hash} aria-current={active(n.to, hash) ? "page" : undefined} className={`whitespace-nowrap rounded px-1.5 py-2 text-[13px] font-semibold lg:px-2.5 lg:text-sm hover:text-accent focus-visible:outline-2 focus-visible:outline-ring ${active(n.to, hash) ? "text-accent" : "text-navy"}`}>{n.label}</Link>; })}
             <Button asChild className="btn btn-primary ml-2 hidden h-auto py-2 text-sm xl:inline-flex"><Link to="/contact" hash="review">{CTA_PRIMARY}</Link></Button>
@@ -187,7 +191,7 @@ function BackToTop() {
   return <Button
     variant="ghost"
     size="icon"
-    className="back-to-top fixed z-30 size-12 rounded-full border border-border bg-navy text-navy-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring"
+    className="back-to-top fixed z-30 size-12 rounded-full border border-border bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring"
     aria-label="Back to top"
     title="Back to top"
     onClick={() => {
