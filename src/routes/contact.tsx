@@ -31,7 +31,9 @@ function Contact() {
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <div className="space-y-5 text-lg">
             <p>Hi, I'm Charles, founder of Bespoke Web Design.</p>
-            <p className="text-muted-foreground">When you work with us, you deal directly with me. No account managers, no ticket system and no runaround. I work side by side with Edmonton trade and service businesses to bring in steady local customers.</p>
+            <p className="font-semibold text-navy">You focus on running your business—we handle your marketing on autopilot.</p>
+            <p className="text-muted-foreground">With our fully managed, done-for-you service, you never have to stress about marketing, websites, Google or online growth. We get your goals, put together the work, you approve it, and we keep it running.</p>
+            <p className="text-muted-foreground">Consider me your long-term in-house marketing partner in Edmonton, always one direct call away. Trusted by businesses across Edmonton.</p>
             <div><p className="font-semibold text-navy">— Charles</p><p className="text-sm text-muted-foreground">Founder, Bespoke Marketing LTD.</p></div>
           </div>
           <FounderPhotoCarousel tone="light" />
