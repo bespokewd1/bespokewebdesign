@@ -23,7 +23,7 @@ function Services() {
       <section className="section">
         <div className="container-site space-y-6">
           {SERVICES.map((s) => (
-            <article key={s.id} id={s.id} className="card-site scroll-mt-24 grid min-w-0 gap-6 md:grid-cols-[220px_minmax(0,1fr)] md:p-8 xl:grid-cols-[280px_minmax(0,1fr)_minmax(0,1fr)]">
+            <article key={s.id} id={s.id} className="blueprint-accent card-site scroll-mt-24 grid min-w-0 gap-6 md:grid-cols-[220px_minmax(0,1fr)] md:p-8 xl:grid-cols-[280px_minmax(0,1fr)_minmax(0,1fr)]">
               <div className="home-service-media relative aspect-[4/3] w-full min-w-0 overflow-hidden rounded-lg md:row-span-2 xl:row-span-1">
                 <ServiceGraphic id={s.id === "google-business" ? "seo" : s.id} />
               </div>

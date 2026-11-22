@@ -12,7 +12,7 @@ export function MarketingPlans() {
       <p className="mt-8 text-center text-sm text-muted-foreground md:hidden">Swipe to compare plans →</p>
       <div className="-mx-5 mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:mx-auto md:mt-10 md:grid md:max-w-5xl md:snap-none md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
         {PLANS.map((plan) => (
-          <article key={plan.name} className={`card-site flex w-[85%] shrink-0 snap-center flex-col shadow-lg md:w-auto md:shadow-none md:p-8 ${plan.featured ? "border-2 border-accent" : ""}`}>
+          <article key={plan.name} className={`blueprint-accent card-site flex w-[85%] shrink-0 snap-center flex-col shadow-lg md:w-auto md:shadow-none md:p-8 ${plan.featured ? "border-2 border-accent" : ""}`}>
             <h3 className="text-2xl font-extrabold text-navy">{plan.name}</h3>
             <p className="mt-3 min-h-12 text-sm text-muted-foreground">{plan.tagline}</p>
             <p className="text-sm text-muted-foreground">{plan.description}</p>

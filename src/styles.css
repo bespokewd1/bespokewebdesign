@@ -41,6 +41,7 @@
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-foreground: var(--whatsapp-foreground);
   --color-hero-accent: var(--hero-accent);
+  --color-score: var(--score);
 }
 
 :root {
@@ -83,7 +84,31 @@
   --service-art-ground: oklch(0.95 0.016 240);
   --service-art-mint: oklch(0.95 0.023 165);
   --service-art-rose: oklch(0.96 0.02 20);
+  --score: oklch(0.46 0.12 155);
+  --score-track: color-mix(in oklab, var(--score) 12%, var(--card));
+  --blueprint-grid: color-mix(in oklab, var(--primary) 8%, transparent);
+  --blueprint-mark: color-mix(in oklab, var(--primary) 30%, transparent);
+  --blueprint-pattern: linear-gradient(var(--blueprint-grid) 1px, transparent 1px), linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
 }
+
+/* Precision details stay in the corners, clear of copy and existing photos. */
+.blueprint-accent, .home-partner { position: relative; isolation: isolate; }
+.blueprint-accent::before, .home-partner::before {
+  content: ""; position: absolute; top: 0; right: 0; width: min(42%, 180px); height: 150px;
+  border-top-right-radius: inherit; background-image: var(--blueprint-pattern); background-size: 20px 20px;
+  mask-image: linear-gradient(225deg, var(--surface), transparent 75%); pointer-events: none; z-index: -1;
+}
+.blueprint-accent::after, .home-partner::after {
+  content: ""; position: absolute; top: 12px; right: 12px; width: 12px; height: 12px;
+  border-top: 1px solid var(--blueprint-mark); border-right: 1px solid var(--blueprint-mark); pointer-events: none;
+}
+.home-partner { --blueprint-grid: color-mix(in oklab, var(--hero-accent) 14%, transparent); --blueprint-mark: color-mix(in oklab, var(--hero-accent) 40%, transparent); }
+.home-partner::before { width: min(45%, 400px); height: 260px; }
+.pagespeed-gauges { padding-block: 1rem; }
+.pagespeed-dial { position: relative; width: 88px; aspect-ratio: 1; margin-inline: auto; }
+.pagespeed-track, .pagespeed-ring { fill: none; stroke-width: 5; }
+.pagespeed-track { stroke: var(--score-track); }
+.pagespeed-ring { stroke: var(--score); stroke-linecap: round; transform: rotate(-90deg); transform-origin: center; }
 
 @layer base {
   * { border-color: var(--color-border); }

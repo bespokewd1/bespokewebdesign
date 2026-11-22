@@ -4,6 +4,7 @@ import { pageHead } from "@/lib/seo";
 import ogAsset from "@/assets/desktop-pagespeed-result.png.asset.json";
 import { PageHero, CtaBand } from "@/components/site/Layout";
 import pagespeedAsset from "@/assets/desktop-pagespeed-result.png.asset.json";
+import { PageSpeedGauges } from "@/components/site/PageSpeedGauges";
 
 export const Route = createFileRoute("/seo")({
   head: () => pageHead({ image: ogAsset.url,
@@ -37,7 +38,8 @@ function Seo() {
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">The SEO score checks basic search-readiness, not every aspect of technical SEO. This is one test result—not a guaranteed score or Google ranking. Keywords, useful content, accurate Google Maps details and consistent updates still matter.</p>
           </div>
           <figure className="min-w-0">
-            <a href={pagespeedAsset.url} target="_blank" rel="noopener noreferrer" aria-label="View the full desktop PageSpeed report screenshot" className="block rounded-lg border focus-visible:outline-2 focus-visible:outline-ring">
+            <PageSpeedGauges source="Supplied desktop report · October 19, 2026" sourceUrl={pagespeedAsset.url} />
+            <a href={pagespeedAsset.url} target="_blank" rel="noopener noreferrer" aria-label="View the full desktop PageSpeed report screenshot" className="mt-6 block rounded-lg border focus-visible:outline-2 focus-visible:outline-ring">
               <img src={pagespeedAsset.url} alt="Supplied desktop PageSpeed Insights report showing scores of 100 for performance, accessibility, best practices and SEO." width={1210} height={1204} loading="lazy" className="h-auto w-full rounded-lg" />
             </a>
             <figcaption className="mt-3 text-sm text-muted-foreground">Supplied desktop test, October 19, 2026. Scores can vary by page, device and test conditions.</figcaption>

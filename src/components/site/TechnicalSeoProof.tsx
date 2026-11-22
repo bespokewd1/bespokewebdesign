@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ServicePhotoCarousel } from "@/components/site/ServicePhotoCarousel";
+import { PageSpeedGauges } from "@/components/site/PageSpeedGauges";
 import moffettDesktop from "@/assets/pagespeed-moffett-desktop.png.asset.json";
 import moffettMobile from "@/assets/pagespeed-moffett-mobile.png.asset.json";
 import stoneDesktop from "@/assets/pagespeed-stone-desktop.png.asset.json";
@@ -37,8 +38,11 @@ export function TechnicalSeoProof() {
         </div>
         <p className="mt-4 text-xs text-muted-foreground">Scores are real client results from Google PageSpeed Insights at the time of testing. A strong score supports SEO but does not guarantee rankings.</p>
       </div>
-      <div className="relative aspect-square w-full overflow-hidden rounded-lg border bg-card shadow-lg">
+      <div className="min-w-0">
+        <PageSpeedGauges source="Moffett Delivery · Desktop report" sourceUrl={moffettDesktop.url} />
+        <div className="relative mt-6 aspect-square w-full overflow-hidden rounded-lg border bg-card shadow-lg">
         <ServicePhotoCarousel photos={RESULTS} label="PageSpeed result" interval={4000} />
+        </div>
       </div>
     </div>
   </section>;
