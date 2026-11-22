@@ -27,7 +27,7 @@ const FEATURES = [
 function WebsiteDesign() {
   return (
     <>
-      <PageHero eyebrow="Website Design" title="Website Design in Edmonton for Growing Businesses"
+      <PageHero eyebrow="Website Design" title="Custom Websites in Edmonton"
         intro="Your website should clearly explain what you do, build trust, and make it easy for customers to contact you. We build websites that do exactly that." />
       <section className="section">
         <div className="container-site">

@@ -24,7 +24,7 @@ const TRUST = [
 function Industries() {
   return (
     <>
-      <PageHero eyebrow="Industries" title="Digital Marketing for Edmonton Trades & Service Businesses"
+      <PageHero eyebrow="Industries" title="Marketing for Trades & Services"
         intro="Every industry gets found and chosen differently. Here's how we approach the businesses we work with most." />
       <section className="section">
         <div className="container-site grid gap-5 md:grid-cols-2">

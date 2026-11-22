@@ -66,7 +66,7 @@ export function LeadForm({ submitLabel, kind = "review" }: { submitLabel?: strin
     {kind === "review" ? <fieldset aria-describedby={errors['message'] ? "review-message-error" : undefined}>
       <legend className="mb-1.5 text-sm font-semibold text-navy">What's your biggest marketing challenge? <span className="font-normal text-muted-foreground">(choose any)</span></legend>
       <div className="grid gap-2 sm:grid-cols-2">
-        {[...CHALLENGES, "Other"].map(c => <label key={c} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-md border bg-background px-3 py-2 text-sm has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+        {[...CHALLENGES, "Other"].map(c => <label key={c} className="flex min-h-12 cursor-pointer items-center gap-3 rounded-md border bg-background px-3 py-3 text-sm has-[:checked]:border-primary has-[:checked]:bg-primary/5">
           <input type="checkbox" name="challenge" value={c} className="h-4 w-4 shrink-0 accent-primary" onChange={c === "Other" ? e => setOther(e.currentTarget.checked) : undefined} />{c}
         </label>)}
       </div>

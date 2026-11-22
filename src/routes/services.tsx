@@ -4,6 +4,7 @@ import { SERVICES } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { PageHero, CtaBand } from "@/components/site/Layout";
 import { ServiceGraphic } from "@/components/site/ServiceGraphic";
+import { BenefitText } from "@/components/site/BenefitText";
 
 export const Route = createFileRoute("/services")({
   head: () => pageHead({
@@ -17,7 +18,7 @@ export const Route = createFileRoute("/services")({
 function Services() {
   return (
     <>
-      <PageHero eyebrow="Services" title="Complete Digital Marketing for Growing Businesses."
+      <PageHero eyebrow="Services" title="Complete Digital Marketing."
         intro="We help businesses build and maintain a professional online presence through connected digital marketing services." />
       <section className="section">
         <div className="container-site space-y-6">
@@ -29,9 +30,9 @@ function Services() {
               <div className="min-w-0">
                 <h2 className="text-2xl font-extrabold text-navy">{s.title}</h2>
                 <h3 className="mt-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">What it is</h3>
-                <p className="mt-1">{s.what}</p>
+                <p className="mt-1"><BenefitText text={s.what} phrases={["your services", "Regular, professional posts", "Ongoing care", "Google Maps", "your logo"]} /></p>
                 <h3 className="mt-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">Why it matters</h3>
-                <p className="mt-1">{s.why}</p>
+                <p className="mt-1"><BenefitText text={s.why} phrases={["established and trustworthy", "make it easy to reach you", "already looking for your services", "who to call", "busy, reliable", "fresh content"]} /></p>
               </div>
               <div className="min-w-0 border-l pl-5 md:col-start-2 xl:col-auto">
                 <h3 className="font-bold text-navy">How Bespoke can help</h3>

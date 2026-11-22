@@ -26,7 +26,7 @@ export function TechnicalSeoProof() {
     <div className="container-site grid items-center gap-10 lg:grid-cols-2">
       <div>
         <span className="eyebrow">Technical foundation</span>
-        <h2 className="mt-3 text-3xl text-navy md:text-4xl">100/100 on Google's own test. A foundation for serious businesses.</h2>
+        <h2 className="mt-3 text-3xl text-navy md:text-4xl">Real Results on Google's Website Test.</h2>
         <ul className="mt-6 space-y-5">{POINTS.map(p => <li key={p.title} className="flex gap-3"><Check className="mt-1 h-5 w-5 shrink-0 text-accent" aria-hidden="true" /><div><h3 className="text-lg text-navy">{p.title}</h3><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{p.text}</p></div></li>)}</ul>
         <div className="mt-8 rounded-lg border bg-surface p-5">
           <h3 className="text-lg text-navy">Test your website yourself</h3>

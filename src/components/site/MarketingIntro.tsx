@@ -35,7 +35,7 @@ export function MarketingIntro() {
     <div className="container-site">
       <div className="mx-auto max-w-3xl text-center">
         <span className="eyebrow">What digital marketing actually means</span>
-        <h2 className="mt-3 text-3xl leading-tight text-navy md:text-5xl">It's not just posting on social media. It's one connected growth engine.</h2>
+        <h2 className="mt-3 text-3xl leading-tight text-navy md:text-5xl">One Connected Marketing System.</h2>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">"Charles, we posted on Facebook for two months and nothing happened." I hear this a lot. Random posts aren't a strategy. Real marketing is a system where every piece does its job.</p>
       </div>
       <div ref={pieces} className="dm-pieces mt-12">
@@ -48,7 +48,7 @@ export function MarketingIntro() {
       <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-center">
         <div>
           <h3 className="text-2xl text-navy md:text-3xl">Marketing is never a one-time project.</h3>
-          <p className="mt-4 leading-relaxed text-muted-foreground">Google changes, competitors advertise and customers expect fast answers. It takes consistency and data-driven updates. If you're running crews and quoting jobs all day, you don't have 15 hours a week for marketing. That's where we step in.</p>
+          <p className="mt-4 leading-relaxed text-muted-foreground">Google changes, competitors advertise and customers expect fast answers. It takes <strong className="font-semibold text-navy">consistent work and regular improvements</strong>. While you run your business, we manage the marketing included in your plan.</p>
           <p className="mt-5 font-semibold text-navy">You focus on running your business. We handle your marketing.</p>
           <p className="mt-2 font-display font-bold italic text-accent">— Charles</p><p className="text-sm font-semibold text-navy-muted">Founder, Bespoke Marketing LTD.</p>
         </div>

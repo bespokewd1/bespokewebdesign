@@ -21,18 +21,18 @@ function DigitalMarketing() {
       <img src={heroAsset.url} alt="" width={1920} height={1047} fetchPriority="high" />
       <div className="container-site py-16 md:py-20">
         <span className="eyebrow">Bespoke Web Design / Edmonton</span>
-        <h1 className="mt-4 max-w-3xl text-4xl leading-tight md:text-6xl">Digital Marketing.<br />One connected journey.</h1>
-        <p className="mt-6 max-w-2xl text-lg text-navy-muted">Branding gets you recognized. Your website gives customers a place to act. Social media builds familiarity, and SEO helps people find you. Each part supports the next.</p>
+        <h1 className="mt-4 max-w-3xl text-4xl leading-tight md:text-6xl">Digital Marketing. One Connected Journey.</h1>
+        <p className="mt-6 max-w-2xl text-lg text-navy-muted"><strong className="font-semibold">Done-for-you marketing, working together.</strong> Branding gets you recognized. Your website gives customers a place to act. Social media builds familiarity, and SEO helps people find you.</p>
         <Button asChild className="btn btn-primary mt-8 h-auto"><Link to="/digital-marketing" hash="plans">Compare monthly plans<ArrowRight /></Link></Button>
       </div>
     </section>
     <MarketingIntro />
     <section id="google-ads" className="section scroll-mt-20 bg-navy text-navy-foreground">
       <div className="container-site grid gap-10 md:grid-cols-2">
-        <div><span className="eyebrow">Paid search</span><h2 className="mt-3 text-4xl">Where Google Ads fits</h2><p className="mt-5 text-lg text-navy-muted">SEO builds your organic presence over time. Google Ads is paid visibility that can support a specific service, area or business goal.</p></div>
+        <div><span className="eyebrow">Paid search</span><h2 className="mt-3 text-4xl">Where Google Ads fits</h2><p className="mt-5 text-lg text-navy-muted"><strong className="font-semibold text-navy-foreground">SEO builds your organic presence over time.</strong> Google Ads is paid visibility that can support a specific service, area or business goal.</p></div>
         <div className="space-y-6">
           <div><h3 className="text-xl">A clear target</h3><p className="mt-2 text-navy-muted">Choose the services, location and searches that matter to your business, then send visitors to a relevant page.</p></div>
-          <div><h3 className="text-xl">A separate advertising budget</h3><p className="mt-2 text-navy-muted">Growth includes management of one Google Search campaign within the agreed scope. You choose your advertising budget and pay Google directly; ad spend is not included. Foundation campaign management and additional advertising work are quoted separately.</p></div>
+          <div><h3 className="text-xl">A separate advertising budget</h3><p className="mt-2 text-navy-muted">Growth includes management of one Google Search campaign within the agreed scope. <strong className="font-semibold text-navy-foreground">You choose your advertising budget and pay Google directly</strong>; ad spend is not included. Foundation campaign management and additional advertising work are quoted separately.</p></div>
           <div><h3 className="text-xl">Measure real inquiries</h3><p className="mt-2 text-navy-muted">Tracking calls and form submissions helps assess what the campaign is producing, not just how many people clicked. Costs and results vary; clicks do not guarantee customers.</p></div>
           <Button asChild variant="outline" className="btn btn-outline-light h-auto bg-transparent"><Link to="/contact" hash="review">Talk about Google Ads<ArrowRight /></Link></Button>
         </div>

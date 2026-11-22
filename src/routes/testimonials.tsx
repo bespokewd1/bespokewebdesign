@@ -69,7 +69,7 @@ function Testimonials() {
     <>
       <PageHero
         eyebrow="Client Reviews & Testimonials"
-        title="Trusted by Edmonton Businesses. Built on Real Relationships."
+        title="Trusted by Edmonton Businesses."
         intro="At Bespoke Web Design, we're proud of the businesses that trust us with their online presence. From professional websites to ongoing SEO and social media marketing, we focus on building lasting relationships through quality work, personal service, and clear communication."
       >
         <p className="mt-6 text-lg font-semibold text-navy-foreground">Don't just take our word for it. See what our clients have to say!</p>
@@ -95,7 +95,7 @@ function Testimonials() {
       <section className="section">
         <div className="container-site">
           <div className="rounded-3xl bg-navy px-6 py-12 text-center text-navy-foreground md:px-12 md:py-16">
-            <h2 className="mx-auto max-w-2xl text-3xl font-extrabold md:text-4xl">Ready to Work With a Marketing Partner You Can Trust?</h2>
+            <h2 className="mx-auto max-w-2xl text-3xl font-extrabold md:text-4xl">Your Next Marketing Partner?</h2>
             <p className="mx-auto mt-4 max-w-xl text-navy-muted">
               Your business deserves more than just a website. At Bespoke Web Design, we bring your branding, website, SEO, Google Business Profile, and social media together under one trusted marketing partner. We handle your digital marketing so you can focus on running your business. Whether you're just getting started or ready to grow, let's talk about your goals.
             </p>
