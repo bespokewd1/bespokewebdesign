@@ -24,3 +24,18 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Media on Cloudflare
+
+Lovable asset pointers in `src/assets/*.asset.json` use `/__l5e/assets-v1/` URLs.
+The matching images and videos are committed under `public/__l5e/assets-v1/`
+so the production build serves them on Cloudflare without Lovable's asset proxy.
+Keep the pointers and public copies together.
+
+After adding or replacing a Lovable asset, run `bun run assets:sync` and commit
+the downloaded media along with its pointer. The sync command downloads missing
+or size-mismatched files from the published Lovable site and checks their content
+type and size. `bun run assets:check` verifies the copies without network access.
+Both production build commands run this check before building, so missing media
+cannot silently ship again. Deploy the generated Worker and its static asset
+directory together.
