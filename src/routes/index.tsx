@@ -1,38 +1,39 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Handshake, RefreshCw, MessageCircle, HardHat } from "lucide-react";
-import { HOME_SERVICES, HOME_FAQS, HOME_FEATURED_PROJECTS, HOME_START_STEPS } from "@/content/site";
+import { ArrowRight, Handshake, RefreshCw, MessageCircle, HardHat, CalendarDays } from "lucide-react";
+import { HOME_SERVICES, HOME_FAQS, HOME_FEATURED_PROJECTS, HOME_START_STEPS, SITE } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { SectionHead } from "@/components/site/Layout";
 import { HomeServiceCard } from "@/components/site/HomeServiceCard";
 import { ProjectCard } from "@/components/site/Cards";
-import { LeadForm } from "@/components/site/LeadForm";
 import { MarketingPlans } from "@/components/site/MarketingPlans";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import heroAsset from "@/assets/bespoke-worker-hero.webp.asset.json";
+import { HomeHeroVideo } from "@/components/site/HomeHeroVideo";
 import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
 import { HomeTrust } from "@/components/site/HomeTrust";
+import { HeroTrust } from "@/components/site/ConversionDetails";
 
 export const Route = createFileRoute("/")({
-  head: () => {
-    const head = pageHead({ path: "/", title: "Bespoke Web Design | Edmonton Digital Marketing Agency", description: "Done-for-you digital marketing for Edmonton businesses. Custom websites, local SEO, Google Business Profile management, branding, and social media." });
-    return { ...head, meta: [...head.meta, { property: "og:image", content: `https://bespokewebdesign.lovable.app${heroAsset.url}` }, { name: "twitter:image", content: `https://bespokewebdesign.lovable.app${heroAsset.url}` }] };
-  },
+  head: () => pageHead({ path: "/", title: "Bespoke Web Design | Edmonton Digital Marketing Agency", description: "Done-for-you digital marketing for Edmonton trades & service businesses. Custom websites, local SEO & Google presence to win more calls. 100% hands-off." }),
   component: Home,
 });
-function ReviewButton({ children = "Get a Free Website Review" }: { children?: React.ReactNode }) {
-  return <Button asChild className="btn btn-primary h-auto whitespace-normal"><Link to="/" hash="review">{children}<ArrowRight className="shrink-0" /></Link></Button>;
+function CallButton() {
+  return SITE.calendly ? <Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><a href={SITE.calendly} target="_blank" rel="noopener noreferrer"><CalendarDays className="shrink-0" aria-hidden="true" />Book a Call</a></Button> : null;
+}
+function ReviewButton({ children = "Get a Free Marketing Review" }: { children?: React.ReactNode }) {
+  return <Button asChild className="btn btn-primary h-auto whitespace-normal"><Link to="/contact" hash="review">{children}<ArrowRight className="shrink-0" /></Link></Button>;
 }
 function Home() {
   return <div className="home-page">
     <section className="hero-photo home-hero overflow-hidden">
-      <img src={heroAsset.url} alt="" fetchPriority="high" />
+      <HomeHeroVideo />
       <div className="container-site py-10 md:py-14">
-        <span className="eyebrow home-enter">Edmonton Digital Marketing for Trades &amp; Service Businesses</span>
+        <span className="eyebrow home-enter hidden md:inline-block">Edmonton Digital Marketing for Trades &amp; Service Businesses</span>
         <h1 className="home-enter mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Complete Digital Marketing. <span className="text-hero-accent md:block">One Trusted Partner.</span></h1>
         <p className="home-hero-benefit home-enter home-enter-delayed mt-5 max-w-xl text-base font-medium leading-relaxed text-navy-foreground sm:text-lg">Get found by more local customers, build trust online, and turn more visitors into enquiries.</p>
         <p className="home-hero-description home-enter home-enter-delayed mt-3 max-w-xl text-sm leading-relaxed text-navy-muted sm:text-base">From custom websites and local SEO to social media marketing, we manage your online presence so you can focus on running your business.</p>
-        <div className="home-hero-actions home-enter home-enter-late mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton>Get a Free Marketing Review</ReviewButton><Button asChild variant="outline" className="btn btn-outline-light h-auto whitespace-normal bg-transparent"><Link to="/our-work">View Our Work</Link></Button></div>
+        <div className="home-hero-actions home-enter home-enter-late mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton>Get a Free Marketing Review</ReviewButton><CallButton /></div>
+        <HeroTrust />
       </div>
     </section>
 
@@ -56,7 +57,7 @@ function Home() {
       ].map(b => <li key={b.title} className="border-t border-navy-muted/30 pt-5"><b.icon className="size-6 text-hero-accent" aria-hidden="true" /><h3 className="mt-3 text-base normal-case not-italic">{b.title}</h3><p className="mt-2 text-sm leading-relaxed text-navy-muted">{b.text}</p></li>)}</ul>
       <div id="founder" className="mt-12 grid items-center gap-8 border-t border-navy-muted/30 pt-10 md:grid-cols-2">
         <FounderPhotoCarousel />
-        <div><span className="eyebrow">Meet the founder</span><h2 className="mt-3 text-2xl leading-tight md:text-3xl">You Focus on Your Business. I'll Handle the Marketing.</h2><p className="mt-4 leading-relaxed text-navy-muted">Hi, I'm Charles, founder of Bespoke Web Design in Edmonton. I started Bespoke Marketing to take online marketing off busy business owners' plates.</p><p className="mt-4 leading-relaxed text-navy-muted">You work directly with me. No middlemen, no confusing jargon. Just practical, done-for-you marketing.</p><p className="mt-4 font-display text-xl italic">— Charles</p><div className="mt-6"><ReviewButton>Let's Get Your Business Noticed</ReviewButton></div></div>
+        <div><span className="eyebrow">Meet the founder</span><h2 className="mt-3 text-2xl leading-tight md:text-3xl">You Focus on Your Business. I'll Handle the Marketing.</h2><p className="mt-4 leading-relaxed text-navy-muted">Hi, I'm Charles, founder of Bespoke Web Design in Edmonton. I started Bespoke Marketing to take online marketing off busy business owners' plates.</p><p className="mt-4 leading-relaxed text-navy-muted">You work directly with me. No middlemen, no confusing jargon. Just practical, done-for-you marketing.</p><p className="mt-4 leading-relaxed text-navy-muted">I meet clients in person right here in Edmonton, and phone or video calls work too. I invest real time preparing for each meeting, so in-person consultations are reserved for business owners genuinely ready to invest in and grow their marketing.</p><p className="mt-4 font-display text-xl italic">— Charles</p><p className="text-sm font-semibold tracking-wide text-navy-muted">Founder, Bespoke Marketing LTD.</p><div className="mt-6"><ReviewButton>Let's Get Your Business Noticed</ReviewButton></div></div>
       </div>
     </div></section>
 
@@ -74,17 +75,17 @@ function Home() {
 
     <section className="section bg-surface border-b" aria-labelledby="industries-heading"><div className="container-site"><h2 id="industries-heading" className="max-w-3xl text-3xl leading-tight text-navy md:text-4xl">Built for Businesses That Keep Things Moving.</h2><ul className="mt-7 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">{[
       { name: "Plumbing", hash: "plumbing" }, { name: "Electrical", hash: "electrical" }, { name: "HVAC", hash: "services" }, { name: "General Contractors", hash: "contractors" }, { name: "Transportation & Logistics", hash: "transportation" }, { name: "Other Local Service Businesses", hash: "services" },
-    ].map(industry => <li key={industry.name} className="border-b"><Button asChild variant="link" className="h-auto min-h-14 w-full justify-between whitespace-normal py-3 text-left text-navy"><Link to="/industries" hash={industry.hash}>{industry.name}<ArrowRight /></Link></Button></li>)}</ul></div></section>
+    ].map(industry => <li key={industry.name} className="border-b"><Button asChild variant="link" className="h-auto min-h-14 w-full justify-between whitespace-normal py-3 text-left text-navy"><Link to="/industries" hash={industry.hash}>{industry.name}<ArrowRight className="text-primary" /></Link></Button></li>)}</ul></div></section>
 
-    <section className="section border-t" aria-labelledby="faq-heading"><div className="container-site"><div className="mx-auto max-w-3xl">
+    <section className="section home-faq border-t" aria-labelledby="faq-heading"><div className="container-site"><div className="mx-auto max-w-3xl">
       <h2 id="faq-heading" className="text-3xl md:text-4xl">Frequently Asked Questions</h2>
-      <Accordion type="single" collapsible className="mt-8 border-t">{HOME_FAQS.map((faq,index) => <AccordionItem key={faq.question} value={`faq-${index+1}`}><AccordionTrigger className="min-h-14 gap-4 py-5 text-base font-semibold text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none [&>svg]:motion-reduce:transition-none">{faq.question}</AccordionTrigger><AccordionContent className="space-y-3 pr-6 text-base leading-relaxed text-muted-foreground" style={{ animation: "none" }}>{faq.paragraphs.map(p => <p key={p}>{p}</p>)}</AccordionContent></AccordionItem>)}</Accordion>
-      <div className="mt-6"><ReviewButton>Get My Free Website &amp; Marketing Review</ReviewButton></div>
+      <Accordion type="single" collapsible className="mt-8 border-t">{HOME_FAQS.map((faq,index) => <AccordionItem key={faq.question} value={`faq-${index+1}`}><AccordionTrigger className="min-h-14 gap-4 py-5 text-base font-semibold text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none [&>svg]:motion-reduce:transition-none">{faq.question}</AccordionTrigger><AccordionContent className="space-y-3 pr-6 text-base leading-relaxed text-muted-foreground">{faq.paragraphs.map(p => <p key={p}>{p}</p>)}</AccordionContent></AccordionItem>)}</Accordion>
+      <div className="mt-6"><ReviewButton>Get a Free Marketing Review</ReviewButton></div>
     </div></div></section>
 
     <section className="section scroll-mt-20 bg-navy text-navy-foreground" id="review"><div className="container-site grid gap-10 lg:grid-cols-2">
-      <div><span className="eyebrow">Free website &amp; marketing review</span><h2 className="mt-2 text-3xl md:text-4xl">Ready to Put Your Marketing in Good Hands?</h2><p className="mt-4 text-navy-muted">Tell us about your business. We'll help you explore the right website and marketing support for your goals. Free, no obligation.</p></div>
-      <div className="text-foreground"><LeadForm submitLabel="Get a Free Website Review" /></div>
+      <div><span className="eyebrow">Free marketing review</span><h2 className="mt-2 text-3xl md:text-4xl">Ready to Put Your Marketing in Good Hands?</h2><p className="mt-4 text-navy-muted">Tell us about your business. We'll help you explore the right website and marketing support for your goals. Free, no obligation.</p></div>
+      <div className="lg:self-center"><div className="flex flex-col justify-center gap-3 sm:flex-row lg:justify-end"><ReviewButton /><CallButton /></div></div>
     </div></section>
   </div>;
 }

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AiAutomationRouteImport } from './routes/ai-automation'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DigitalMarketingRouteImport } from './routes/digital-marketing'
 import { Route as IndustriesRouteImport } from './routes/industries'
@@ -26,6 +27,11 @@ import { Route as OurWorkSlugRouteImport } from './routes/our-work_.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAutomationRoute = AiAutomationRouteImport.update({
+  id: '/ai-automation',
+  path: '/ai-automation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -91,6 +97,7 @@ const OurWorkSlugRoute = OurWorkSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-automation': typeof AiAutomationRoute
   '/contact': typeof ContactRoute
   '/digital-marketing': typeof DigitalMarketingRoute
   '/industries': typeof IndustriesRoute
@@ -106,6 +113,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-automation': typeof AiAutomationRoute
   '/contact': typeof ContactRoute
   '/digital-marketing': typeof DigitalMarketingRoute
   '/industries': typeof IndustriesRoute
@@ -122,6 +130,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai-automation': typeof AiAutomationRoute
   '/contact': typeof ContactRoute
   '/digital-marketing': typeof DigitalMarketingRoute
   '/industries': typeof IndustriesRoute
@@ -139,6 +148,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ai-automation'
     | '/contact'
     | '/digital-marketing'
     | '/industries'
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ai-automation'
     | '/contact'
     | '/digital-marketing'
     | '/industries'
@@ -169,6 +180,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/ai-automation'
     | '/contact'
     | '/digital-marketing'
     | '/industries'
@@ -185,6 +197,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiAutomationRoute: typeof AiAutomationRoute
   ContactRoute: typeof ContactRoute
   DigitalMarketingRoute: typeof DigitalMarketingRoute
   IndustriesRoute: typeof IndustriesRoute
@@ -206,6 +219,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-automation': {
+      id: '/ai-automation'
+      path: '/ai-automation'
+      fullPath: '/ai-automation'
+      preLoaderRoute: typeof AiAutomationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -297,6 +317,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiAutomationRoute: AiAutomationRoute,
   ContactRoute: ContactRoute,
   DigitalMarketingRoute: DigitalMarketingRoute,
   IndustriesRoute: IndustriesRoute,

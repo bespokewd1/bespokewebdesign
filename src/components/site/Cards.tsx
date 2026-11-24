@@ -10,7 +10,7 @@ export function ProjectCard({ p, detailed = false, hideMissingImage = false }: {
   return (
     <article id={p.name.toLowerCase().replaceAll(" ", "-")} className={`card-site scroll-mt-24 flex flex-col !p-0 overflow-hidden ${p.slug ? "portfolio-card" : ""}`}>
       {p.image ? (
-        <img src={p.image} alt={`${p.name} website screenshot`} loading="lazy" className="aspect-[16/10] w-full object-cover" />
+        <img src={p.image} alt={`${p.name} website screenshot`} loading="lazy" className="aspect-[16/10] w-full bg-muted object-contain" />
       ) : !hideMissingImage ? (
         <Placeholder label={`Website screenshot — ${p.name}`} className="aspect-[16/10] !rounded-none !border-0 !border-b" />
       ) : null}

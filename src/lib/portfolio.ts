@@ -9,7 +9,7 @@ export type SeoAudit = {
 };
 export type Project = {
   name: string; industry: string; services: string[]; description: string;
-  image: string; link: string; logo?: string; ownedProject?: boolean; featured?: boolean;
+  image: string; link: string; logo?: string; ownedProject?: boolean; featured?: boolean; homeApproved?: boolean;
   testimonial?: string; outcomes?: string[];
   slug?: string; category?: "Trades" | "Transportation" | "Wellness";
   facebookUrl?: string; mobileScreenshot?: string;

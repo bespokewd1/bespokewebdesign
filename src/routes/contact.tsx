@@ -1,71 +1,68 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { CalendarDays, CheckCircle2, Mail, MapPin } from "lucide-react";
 import { SITE } from "@/content/site";
 import { pageHead } from "@/lib/seo";
-import { PageHero, Placeholder } from "@/components/site/Layout";
+import { PageHero } from "@/components/site/Layout";
+import { FounderPhotoCarousel } from "@/components/site/FounderPhotoCarousel";
 import { LeadForm } from "@/components/site/LeadForm";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contact")({
   head: () => pageHead({
     path: "/contact", crumb: "About & Contact",
     title: "About & Contact | Bespoke Web Design Edmonton",
-    description: "Meet Bespoke Web Design, an Edmonton-based digital marketing business. Get in touch for a free website and online presence review.",
+    description: "Meet Charles, founder of Bespoke Web Design in Edmonton. Book a discovery call or request a free marketing review.",
   }),
   component: Contact,
 });
+
+const EXPECT = [
+  "A quick look at your website, Google ranking and local competition.",
+  "An honest view of what is holding your leads back.",
+  "No sales pitch or jargon, just clear advice and straightforward pricing.",
+];
 
 function Contact() {
   return (
     <>
       <PageHero eyebrow="About us" title="Meet Bespoke Web Design" />
       <section className="section">
-        <div className="container-site grid items-start gap-12 lg:grid-cols-2">
+        <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <div className="space-y-5 text-lg">
-            <p>Bespoke Web Design is an Edmonton-based digital marketing business helping local companies build a professional online presence.</p>
-            <p className="text-muted-foreground">You work directly with a marketing partner who gets to know your business. We offer personalized service, straightforward communication, and long-term support so you can focus on your customers.</p>
-            <p className="text-muted-foreground">From website design and branding to SEO, Google Business Profile management, and social media, our goal is to make digital marketing easier to understand and manage.</p>
-            <div className="grid gap-4 pt-4 sm:grid-cols-2">
-              <div className="card-site">
-                <h2 className="text-lg font-bold text-navy">Our Mission</h2>
-                <p className="mt-2 text-base text-muted-foreground">To make professional digital marketing accessible and manageable for growing businesses by bringing website development, SEO, and online marketing together under one trusted partner.</p>
-              </div>
-              <div className="card-site">
-                <h2 className="text-lg font-bold text-navy">Our Vision</h2>
-                <p className="mt-2 text-base text-muted-foreground">To become a trusted digital marketing partner for local businesses across Alberta.</p>
-              </div>
+            <p>Hi, I'm Charles, founder of Bespoke Web Design.</p>
+            <p className="font-semibold text-navy">You focus on running your business—we handle your marketing on autopilot.</p>
+            <p className="text-muted-foreground">With our fully managed, done-for-you service, you never have to stress about marketing, websites, Google or online growth. We get your goals, put together the work, you approve it, and we keep it running.</p>
+            <p className="text-muted-foreground">Consider me your long-term in-house marketing partner in Edmonton, always one direct call away. Trusted by businesses across Edmonton.</p>
+            <div><p className="font-semibold text-navy">— Charles</p><p className="text-sm text-muted-foreground">Founder, Bespoke Marketing LTD.</p></div>
+          </div>
+          <FounderPhotoCarousel tone="light" />
+        </div>
+      </section>
+      <section id="review" className="section relative scroll-mt-16 bg-surface border-t">
+        <span id="consultation" className="absolute top-0 scroll-mt-16" aria-hidden="true" />
+        <div className="container-site">
+          <div className="text-center">
+            <span className="eyebrow">Contact</span>
+            <h2 className="mt-2 text-3xl font-extrabold text-navy md:text-4xl">Choose How You'd Like to Start</h2>
+          </div>
+          <div className="mt-10 grid items-start gap-8 lg:grid-cols-2">
+            <div className="card-site border-2 border-primary md:p-8">
+              <span className="eyebrow">Fastest way to get clarity</span>
+              <h3 className="mt-2 flex items-center gap-2 text-2xl text-navy"><MapPin className="h-5 w-5 text-accent" aria-hidden="true" /> Meet in Person or on a Call</h3>
+              <p className="mt-3 text-muted-foreground">Face to face in Edmonton, or by phone or video, whichever suits your schedule. In-person is preferred.</p>
+              <ul className="mt-5 space-y-3">
+                {EXPECT.map(item => <li key={item} className="flex gap-3"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />{item}</li>)}
+              </ul>
+              {SITE.calendly && <Button asChild className="btn btn-primary mt-6 h-auto min-h-11 max-w-full whitespace-normal"><a href={SITE.calendly} target="_blank" rel="noopener noreferrer"><CalendarDays className="h-5 w-5" aria-hidden="true" />Book a Discovery Call</a></Button>}
+              <p className="mt-4 text-sm text-muted-foreground">I prepare for every meeting, so these are reserved for business owners ready to invest in their marketing.</p>
+              {SITE.email && <p className="mt-6 flex items-center gap-2 border-t pt-4 text-sm"><Mail className="h-4 w-4 text-accent" aria-hidden="true" /><a href={`mailto:${SITE.email}`} className="font-semibold text-navy">{SITE.email}</a></p>}
+            </div>
+            <div>
+              <h3 className="text-2xl text-navy">Prefer a Written Review First?</h3>
+              <p className="mt-2 mb-5 text-muted-foreground">Send your details and Charles will personally review your website and online presence.</p>
+              <LeadForm submitLabel="Get My Free Marketing Review" />
             </div>
           </div>
-          <Placeholder label="Agency owner photo coming soon" className="aspect-[4/5] max-h-[560px]" />
-        </div>
-      </section>
-      <section id="consultation" className="section scroll-mt-20 border-t">
-        <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div><span className="eyebrow">Consultation</span><h2 className="mt-2 text-3xl text-navy md:text-4xl">Find the Right Marketing Support.</h2><p className="mt-4 text-muted-foreground">Discuss your goals, services or a monthly marketing package with Bespoke. Tell us what you need, and we’ll take it from there.</p></div>
-          <LeadForm kind="consultation" />
-        </div>
-      </section>
-      <section id="review" className="section scroll-mt-16 bg-surface border-t">
-        <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <span className="eyebrow">Contact</span>
-            <h2 className="mt-2 text-3xl font-extrabold text-navy md:text-4xl">Let's Talk About Your Business.</h2>
-            <p className="mt-4 text-muted-foreground">Request a free introductory review of your website and online presence.</p>
-            <ul className="mt-8 space-y-4">
-              <li className="flex gap-3"><MapPin className="h-5 w-5 text-accent" /> Edmonton, Alberta</li>
-              <li className="flex gap-3"><Mail className="h-5 w-5 text-accent" />
-                {SITE.email ? <a href={`mailto:${SITE.email}`} className="font-semibold text-navy">{SITE.email}</a> : <span className="text-muted-foreground">Email coming soon</span>}
-              </li>
-              <li className="flex gap-3"><Phone className="h-5 w-5 text-accent" />
-                {SITE.phone ? <a href={`tel:${SITE.phone}`} className="font-semibold text-navy">{SITE.phone}</a> : <span className="text-muted-foreground">Phone coming soon</span>}
-              </li>
-            </ul>
-            {SITE.social.length > 0 && (
-              <div className="mt-6 flex flex-wrap gap-3">
-                {SITE.social.map((s) => <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="btn btn-outline !py-2 text-sm">{s.label}</a>)}
-              </div>
-            )}
-          </div>
-          <LeadForm />
         </div>
       </section>
     </>

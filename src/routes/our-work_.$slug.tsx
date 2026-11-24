@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PORTFOLIO_PROJECTS } from "@/content/site";
 import { ProjectShowcase } from "@/components/site/ProjectShowcase";
 import { pageHead } from "@/lib/seo";
+import { PROJECT_SHARE_IMAGES } from "@/content/social-previews";
 
 export const Route = createFileRoute("/our-work_/$slug")({
   beforeLoad: ({ params }) => {
@@ -9,11 +10,11 @@ export const Route = createFileRoute("/our-work_/$slug")({
   },
   head: ({ params }) => {
     const project = PORTFOLIO_PROJECTS.find(p => p.slug === params.slug);
-    const head = pageHead({ path: `/our-work/${params.slug}`, crumb: project?.name ?? "Project",
+    const image = PROJECT_SHARE_IMAGES[params.slug];
+    return pageHead({ path: `/our-work/${params.slug}`, crumb: project?.name ?? "Project",
+      ...(image ? { image } : {}),
       title: `${project?.name ?? "Project Not Found"} — Client Portfolio | Bespoke Web Design`,
       description: project?.description ?? "Explore real client websites and digital marketing projects from Bespoke Web Design." });
-    return project?.image.startsWith("https://") ? { ...head, meta: [...head.meta,
-      { property: "og:image", content: project.image }, { name: "twitter:image", content: project.image }] } : head;
   },
   component: ClientProject,
 });

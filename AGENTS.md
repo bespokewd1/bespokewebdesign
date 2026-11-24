@@ -14,6 +14,7 @@
 - Store imported brand media as Lovable Assets pointers; derive the public favicon from the same logo so branding remains consistent.
 - Reuse LeadForm with a discriminated review/consultation schema and insert-only Cloud inquiries; mirror field limits, contact formats and kind-specific payload rules in the INSERT policy so direct requests cannot bypass validation, and never allow public reads, updates or deletes of contact details.
 - Keep homepage FAQ content and applicable marketing agreement conditions in the shared content model; render questions with the existing UI accordion to avoid duplicated content and controls.
+- Scope FAQ motion to the homepage accordion with short CSS transitions and reduced-motion support; reuse the shared control without changing other pages or adding animation dependencies.
 - Pre-bundle React entry points, Radix accordion/dialog/tabs and Embla in Vite alongside existing dependencies; newly used interactive dependencies must join this list to prevent mid-session optimizer changes from mixing React instances.
 - Derive trusted clients and featured homepage work from shared portfolio flags, and render missing homepage media conditionally; this prevents owned projects or incomplete proof from being presented as external client evidence.
 - Keep supplied review transcriptions and original screenshot pointers together in the review content model, split into Google and Facebook collections rendered by the homepage carousel and the /testimonials galleries; this avoids duplicate testimonial sections and preserves source evidence.
@@ -26,4 +27,15 @@
 - Keep second-fold Google reviews and the CSS client marquee in HomeTrust, sourcing shared verified reviews and portfolio flags; keep manual pause controls and hide duplicate marquee content from assistive technology.
 - Source the client-logo marquee from the owner-supplied logo collection model, independently of portfolio showcases, so all approved logos appear without changing portfolio evidence.
 - Keep homepage service cards in HomeServiceCard with optional photo source/alt props and shared service copy; this allows replacing icon placeholders without changing layout or links.
+- Reuse ServiceGraphic on the homepage and All Services for identical CDN artwork, client logos and sliders; Google Business Profile uses the homepage local SEO image. Preserve contain-fit frames, omit overlay labels, and retain HomeServiceCard image overrides so media cannot drift between pages.
+- Use ServicePhotoCarousel with shared service-photo collections for website and social samples; reuse Embla with per-service intervals, visible-only autoplay, manual controls and reduced-motion support to keep other cards unchanged.
 - Keep portfolio records in the shared site model, distinguish published showcases from retained legacy entries, and use one parameterized detail route; evidence-based filters and hidden empty media/audits prevent invented proof.
+- Mount the pinned ElevenLabs widget globally with one script and native transport; preserve provider greetings/messages, minimize without ending sessions, and keep the website language fixed to English.
+- Share the complete anchored service destinations between desktop dropdown and mobile Sheet so both menus stay consistent.
+- Desktop service hover uses a cancellable close delay across the portalled menu and avoids restoring focus after hover dismissal; this prevents flashing while preserving keyboard navigation.
+- Load fixed-location Edmonton weather lazily through a public server function with a short cache and honest unavailable state; format local time with America/Edmonton for automatic daylight saving.
+- Keep homepage background video in HomeHeroVideo with CDN asset pointers, a matching poster, muted inline looping, manual pause and reduced-motion handling; defer video loading until after page load and omit automatic downloads for reduced motion to protect initial rendering.
+- Keep the back-to-top utility in the shared footer with passive scroll tracking and reduced-motion-aware scrolling; position it beside mobile Casey and above desktop Casey to avoid collisions across pages.
+- Digital-marketing intro graphics live in MarketingIntro with CSS-only scroll reveals gated on reduced-motion; content stays visible without JS.
+- Standalone AI & Automation education page at /ai-automation, linked from Services menu and footer; kept separate from marketing plans (consult-first, not upsell).
+- Contact uses one review LeadForm; retain the consultation anchor as an alias so old links work, and source meeting buttons from shared configuration.

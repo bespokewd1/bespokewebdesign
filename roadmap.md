@@ -1,4 +1,27 @@
 # Tasks
+- [x] Remove the monthly-time FAQ, lead with done-for-you benefits, and limit mobile review dots to four with a Google Maps review pill; all nine reviews, autoplay and unchanged desktop controls verified at 320–1440px; 19 checks pass.
+- [x] Hide the homepage eyebrow on phones, remove the mobile header review button, verify repeat logo navigation home, and use theme-blue arrows; verified seven sizes from 320–1440px and 13 existing checks.
+- [x] Expand AI & Automation with benefit-led optional tools, simple graphics, no prices, and a needs/goals/budget contact invitation; verified 320–1440px layouts, all niche tabs and contact booking destination; nine existing checks pass.
+- [x] Add an eight-second portrait marketing-and-trades homepage video on mobile only; verified 320–1440px playback, text, review navigation, pause/play and reduced motion; desktop video unchanged and 12 checks pass.
+- [x] Update Alberta-focused terms and privacy disclosures; verified phone/tablet/desktop, contact links and metadata, with 20 agreement and inquiry checks passing; existing agreement conditions preserved.
+- [x] Polish mobile header, readable headings, benefit emphasis, booking steps and touch targets; verified 320–1440px layouts, review/menu navigation, form choices, FAQ, booking links and Casey clearance; 29 checks pass.
+- [x] Create 16 page-specific branded sharing images and concise social text; verified initial HTML tags, image delivery and dimensions on all 18 content pages, with 17 existing checks passing.
+- [x] Add subtle blueprint accents and evidence-linked PageSpeed score animations; verified desktop, tablet, mobile, report links, carousel controls and reduced motion; 19 existing content checks pass.
+- [x] Simplify About & Contact to one form; verified meeting button, old anchor, pricing links, desktop/mobile and successful test inquiry.
+- [x] Streamline homepage FAQs to five benefit-led questions; verified desktop/mobile accordion controls, subtle motion, reduced-motion handling, and review link; preserved agreement and package rules pass 18 tests.
+- [x] Remove the desktop bottom review bar and verify the shared back-to-top arrow on desktop, tablet and mobile, including reduced-motion scrolling.
+- [x] Add four website mockups to the custom web design carousel with four-second autoplay; verified both card carousels and visible controls on desktop/mobile.
+- [x] Add supplied social media card photos with swipe, clickable dots and three-second autoplay; verified desktop/mobile while preserving other cards.
+- [x] Add complete anchored Services dropdowns on desktop/mobile; verified logo returns to the top of home.
+- [x] Make Casey English-only and add compact live Edmonton weather/local time in the footer; verified desktop and phone, including daylight-saving tests.
+- [x] Apply the three supplied service images, remove mockup labels, and unify all five image frames without cropping; verified phone, tablet and desktop.
+- [x] Replace the five homepage service emblems with optimized device, map, Squad V illustrative social post, existing logo and headset graphics; verified desktop, tablet and phone.
+- [x] Remove the website-only Casey greeting and verify the exact live ElevenLabs greeting on desktop and mobile; native conversation transport remains unchanged.
+- [x] Move desktop Casey assistant to bottom-right while keeping mobile centered; add and verify a lightweight construction/electrician/plumber/massage background montage.
+- [x] Update the displayed assistant welcome, suggested questions, verified language availability and session-preserving minimize controls; verify real text/voice, navigation and five screen sizes.
+- [x] Add the real global ElevenLabs assistant and verify its interface on all 17 content pages and mobile.
+- [x] Refine the assistant with a moving blue globe and real text chat alongside voice; verify both modes.
+- [ ] Owner setup: provide ElevenLabs agent read/write permissions only if website-side agent administration is required; the connected key previously lacked convai_read. Greetings now come directly from ElevenLabs, and unadvertised language overrides remain unavailable.
 - [x] Enhance the six-client portfolio with shared showcases, honest optional content, filters and responsive verification; preserve unrelated pages.
 - [x] Apply the targeted hero content brief and remove duplicate Google/Facebook hero badges; preserve the trusted-business section and review destinations.
 - [x] Add Google-only second-fold reviews and moving verified client names; check controls, motion preferences and mobile presentation.

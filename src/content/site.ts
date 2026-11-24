@@ -1,3 +1,10 @@
+import squadWebShot from "@/assets/service-squad-website.webp.asset.json";
+import glowWebShot from "@/assets/glow-relax-website.webp.asset.json";
+import stoneWebShot from "@/assets/stone-massage-website.webp.asset.json";
+import imassageWebShot from "@/assets/imassage-website.webp.asset.json";
+import kmsWebShot from "@/assets/kms-website.webp.asset.json";
+import rodsLogoShot from "@/assets/client-rods-electrical.webp.asset.json";
+import ironFistShot from "@/assets/iron-fist-trucking.webp.asset.json";
 // =============================================================
 import type { Project } from "@/lib/portfolio";
 import { featuredPortfolio } from "@/lib/portfolio";
@@ -15,7 +22,8 @@ export const SITE = {
   city: "Edmonton",
   region: "Alberta",
   // TODO: add real contact details. Empty values show a "coming soon" placeholder.
-  email: "",
+  email: "bespokewd1@gmail.com",
+  calendly: "https://calendly.com/arjiv28/30min",
   phone: "",
   // International digits only; leave empty until a verified WhatsApp business number is supplied.
   whatsappNumber: "",
@@ -25,30 +33,33 @@ export const SITE = {
     "Complete digital marketing for Edmonton and Alberta trades and service businesses.\u00a0\n\n\nFrom professional websites and local SEO to Google Business Profile management, branding, and social media—we bring your online marketing together under one trusted partner.",
 };
 
-export const CTA_PRIMARY = "Get a Free Website Review";
+export const CTA_PRIMARY = "Get a Free Marketing Review";
+export const CTA_CALL = "Book a Call";
 export const CTA_SECONDARY = "See Our Work";
 
 export const NAV = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/digital-marketing", label: "Digital Marketing" },
-  { to: "/industries", label: "Industries" },
+  { to: "/", hash: "plans", label: "Pricing" },
   { to: "/our-work", label: "Our Work" },
   { to: "/contact", label: "About & Contact" },
 ] as const;
 
 export const MOBILE_SERVICES = [
   { label: "All Services", to: "/services" },
-  { label: "Website Design", to: "/website-design" },
-  { label: "Google & SEO", to: "/seo" },
+  { label: "Custom Website Design", to: "/services", hash: "website-development" },
+  { label: "Local SEO", to: "/services", hash: "seo" },
+  { label: "Google Business Profile", to: "/services", hash: "google-business" },
   { label: "Social Media Marketing", to: "/services", hash: "social-media" },
-  { label: "Branding & Design", to: "/services", hash: "branding" },
+  { label: "Branding & Content", to: "/services", hash: "branding" },
+  { label: "Website Maintenance & Support", to: "/services", hash: "maintenance" },
   { label: "Google Ads Management", to: "/digital-marketing", hash: "google-ads" },
+  { label: "AI & Automation", to: "/ai-automation" },
 ] as const;
 
 export const MOBILE_NAV = [
   { label: "Our Work", to: "/our-work" },
-  { label: "Industries", to: "/industries" },
   { label: "Pricing", to: "/", hash: "plans" },
   { label: "About Us", to: "/contact" },
   { label: "Contact", to: "/contact", hash: "review" },
@@ -145,36 +156,35 @@ export const INDUSTRIES: { id: string; icon: IconName; name: string; short: stri
 // Six empty social slots per client are editable here; only real images are rendered.
 const emptySocialPosts = () => Array.from({ length: 6 }, (_, i) => ({ image: "", alt: `Social Post ${String(i + 1).padStart(2, "0")}` }));
 export const PROJECTS: Project[] = [
-  { name: "Squad V Plumbing", slug: "squad-v-plumbing", industry: "Plumbing & Gasfitting", category: "Trades", services: [], description: "Website project for Squad V Plumbing, a plumbing and gasfitting business.", image: "", link: "https://www.squadvplumbing.ca/", facebookUrl: "https://www.facebook.com/squadvplumbing", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
-  { name: "KMS Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: "", link: "" },
-  { name: "Glow & Relax", slug: "glow-relax", industry: "Massage & Beauty", category: "Wellness", services: [], description: "Website project for Glow & Relax, a massage and beauty business.", image: "", link: "https://glowandrelax.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
+  { name: "Squad V Plumbing", slug: "squad-v-plumbing", industry: "Plumbing & Gasfitting", category: "Trades", services: ["Full Digital Marketing"], description: "Website project for Squad V Plumbing, a plumbing and gasfitting business.", image: squadWebShot.url, link: "https://www.squadvplumbing.ca/", facebookUrl: "https://www.facebook.com/squadvplumbing", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
+  { name: "KMS Plumbing", industry: "Plumbing", services: ["Client project"], description: "Project details and screenshot coming soon.", image: kmsWebShot.url, link: "" },
+  { name: "Glow & Relax", slug: "glow-relax", industry: "Massage & Beauty", category: "Wellness", services: ["Full Digital Marketing"], description: "Website project for Glow & Relax, a massage and beauty business.", image: glowWebShot.url, link: "https://glowandrelax.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
   { name: "Bespoke Music App", industry: "Music App", services: ["Own project"], description: "Project details and screenshot coming soon.", image: "", link: "", ownedProject: true },
-  { name: "Rod's Electrical", slug: "rods-electrical", industry: "Electrical Services", category: "Trades", services: [], description: "Website project for Rod's Electrical, an electrical services business.", image: "", link: "https://rodselectrical.com/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
+  { name: "Rod's Electrical", slug: "rods-electrical", industry: "Electrical Services", category: "Trades", services: ["Web Design & Development", "Local SEO"], description: "Website project for Rod's Electrical, an electrical services business.", image: rodsLogoShot.url, link: "https://rodselectrical.com/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published" },
   {
-    name: "Iron Fist Transport Ltd.", slug: "iron-fist-transport", category: "Transportation", publicationStatus: "published",
-    featured: true,
+    name: "Iron Fist Transport Ltd.", slug: "iron-fist-transport", category: "Transportation", publicationStatus: "published", featured: true,
     industry: "Transportation & Logistics",
     services: ["Website development", "SEO-focused service content", "Digital marketing foundation"],
     description: "A professional website for a transportation and logistics company, built to clearly present their services and give them a solid foundation for ongoing digital marketing.",
-    image: "",
+    image: ironFistShot.url,
     link: "https://ironfisttransport.ca/", facebookUrl: "https://www.facebook.com/ironfisttransport", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "",
   },
   {
     name: "Stone Massage",
-    featured: true,
-    slug: "stone-massage", category: "Wellness", publicationStatus: "published", industry: "Massage & Wellness",
+    slug: "stone-massage", category: "Wellness", publicationStatus: "published", featured: true, industry: "Massage & Wellness",
     services: ["Website development", "Technical SEO", "Mobile optimization"],
     description: "A clean, mobile-friendly website for a massage therapy clinic, with technical SEO groundwork to help local clients find them.",
-    image: "",
+    image: stoneWebShot.url,
     link: "https://www.stonemassage.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", review: FACEBOOK_REVIEWS.find(review => review.name === "Stone Massage"),
   },
-  { name: "iMassage Therapeutic", slug: "imassage-therapeutic", industry: "Massage Therapy", category: "Wellness", services: [], description: "Website project for iMassage Therapeutic, a massage therapy business.", image: "", link: "https://imassage-therapeutic.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published", review: GOOGLE_REVIEWS.find(review => review.name === "iMassage Therapeutic Clinique") },
+  { name: "iMassage Therapeutic", slug: "imassage-therapeutic", industry: "Massage Therapy", category: "Wellness", services: ["Web Design & Development"], description: "Website project for iMassage Therapeutic, a massage therapy business.", image: imassageWebShot.url, link: "https://imassage-therapeutic.ca/", socialPosts: emptySocialPosts(), brandingImages: [], seoAudit: null, mobileScreenshot: "", publicationStatus: "published", review: GOOGLE_REVIEWS.find(review => review.name === "iMassage Therapeutic Clinique") },
 ];
 
 export const PORTFOLIO_PROJECTS = PROJECTS.filter(project => project.publicationStatus === "published");
 export const TRUSTED_CLIENTS = PORTFOLIO_PROJECTS.filter(project => !project.ownedProject);
 export const FEATURED_PROJECTS = PROJECTS.filter(project => project.featured);
-export const HOME_FEATURED_PROJECTS = featuredPortfolio(PROJECTS);
+// Homepage showcase stays hidden until the owner approves specific projects for it.
+export const HOME_FEATURED_PROJECTS = featuredPortfolio(PROJECTS.filter(project => project.homeApproved));
 export const REVIEW_LINKS = {
   Google: "https://maps.app.goo.gl/KmQRwn9H6c6U74Zm7",
   Facebook: "https://www.facebook.com/bespokewebdesignEdmonton/",
@@ -214,13 +224,13 @@ const CAMPAIGN_ITEMS = ["Setup and management of one active Google Search campai
 export const PLANS = [
   {
     name: "Foundation", price: "$245/month", monthlyPrice: 245, socialPosts: 5, channels: 1, platforms: ["Facebook"], seoLevel: "basic", googleSearchCampaigns: 0, tagline: "Build Your Online Foundation",
-    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["5 Facebook posts per month", "Basic content planning", "Branded captions and graphics", "Scheduled publishing"] }, { title: "Google Ads", items: ["Not included — available as a separately quoted service"] }],
-    description: "Ideal for businesses looking to establish a professional online presence.", cta: "Request a Quote", featured: false,
+    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["5 Facebook posts per month", "Basic content planning", "Branded captions and graphics", "Scheduled publishing"] }, { title: "Monthly Reporting", items: ["Basic monthly summary of your website visitors", "Facebook post reach and engagement at a glance", "Simple, plain-English results you can read in minutes"] }, { title: "Google Ads", items: ["Not included — available as a separately quoted service"] }],
+    description: "Ideal for businesses looking to establish a professional online presence.", bestFor: "Great for new and emerging entrepreneurs ready to look professional online and start getting found.", cta: "Request a Quote", featured: false,
   },
   {
-    name: "Growth", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, platforms: ["Facebook", "Instagram"], seoLevel: "basic", googleSearchCampaigns: 1, tagline: "Grow Your Online Presence",
-    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["10 total posts per month across Facebook and Instagram", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project and promotional content"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS }],
-    description: "Ideal for businesses looking for consistent marketing across multiple channels, plus a focused Google Ads campaign.", cta: "Request a Quote", featured: true,
+    name: "Growth", price: "$499/month", monthlyPrice: 499, socialPosts: 10, channels: 2, platforms: ["Facebook", "Instagram"], seoLevel: "advanced", googleSearchCampaigns: 1, tagline: "Grow Your Online Presence",
+    groups: [PLAN_BRANDING, PLAN_WEBSITE, { title: "Social Media Management", items: ["10 total posts per month across Facebook and Instagram", "Personalized monthly content plan", "Branded captions and graphics", "Scheduled publishing", "Client project and promotional content"] }, { title: "Advanced SEO", items: ["Advanced local SEO and ongoing keyword targeting", "Regular on-page updates so Google understands your services and area", "Ongoing speed and search-ranking improvements"] }, { title: "Advanced Reporting & Tracking", items: ["Google Analytics (GA4) setup — see how many people visit, call, or request a quote", "Live Google Looker Studio dashboard — your website, calls and ad results in one easy screen, anytime", "In-depth monthly report in plain English: traffic, rankings, ad results and what we'll improve next"] }, { title: "Google Ads Management", items: CAMPAIGN_ITEMS }],
+    description: "Ideal for businesses looking for consistent marketing across multiple channels, plus a focused Google Ads campaign.", bestFor: "Great for businesses ready for aggressive marketing, with a clear strategy and the numbers to prove it.", cta: "Request a Quote", featured: true,
   },
 ];
 
@@ -244,10 +254,10 @@ export const PACKAGE_DETAILS = {
   socialTitle: "Your Business. Your Photos. Your Story.",
   socialIntro: "Your business has a story worth sharing. We create a personalized content plan around your services, completed projects, promotions, and upcoming events. Share photos or videos of your work, and we'll turn them into professional branded content that showcases your business and builds customer trust.",
   socialSteps: [
-    { title: "We Plan", text: "A simple content plan based on your services, goals, and seasonal opportunities." },
-    { title: "You Share", text: "Photos or videos of your projects, team, products, events, or promotions, plus accurate business details." },
-    { title: "We Create", text: "Branded content, captions, and graphics using your materials." },
-    { title: "We Publish", text: "Scheduled posts on the platforms included in your package." },
+    { title: "We Plan", text: "Monthly content plan around your services and seasons." },
+    { title: "You Snap", text: "Send photos or videos of your jobs and team." },
+    { title: "We Polish", text: "Branded graphics and captions, ready to approve." },
+    { title: "We Publish", text: "Scheduled on your package platforms." },
   ],
   socialScope: "Promotions, seasonal services, company announcements, completed projects, events, and new products or services count toward your existing monthly allowance. We can help identify content ideas using supplied materials. On-site photography, filming, advanced video production, and event attendance are not included unless separately agreed. Extra content requires a separate quote.",
   adsTitle: "Google Ads Management — Without the Confusion",
@@ -263,6 +273,15 @@ export const PACKAGE_DETAILS = {
   adsPricingTitle: "Clear Pricing. No Surprises.",
   adsPricing: "Your monthly plan covers the services included in your package. Additional work, such as extra website pages, major changes, or professional photography, can be quoted separately.",
   adsAgreement: `${MARKETING_AGREEMENT.minimumMonths}-month minimum agreement. After completing your agreement and payments, your website is yours, according to your contract's ownership terms.`,
+  socialShort: "Send us photos of your jobs. We turn them into professional posts — you just approve.",
+  adsShort: "Included in Growth. We build and manage the campaign; you set the budget and pay Google directly — no markup on your ad spend.",
+  engineTitle: "Marketing Is an Engine, Not a One-Time Job",
+  engineIntro: "Google rankings, reviews and customer trust build with consistent work every month. That's why we partner for a 12-month minimum — enough time to build real, lasting results.",
+  phases: [
+    { months: "Months 1–3", title: "Build the foundation", text: "Brand, website, Google profile and first posts go live. Google starts learning who you are." },
+    { months: "Months 4–8", title: "Grow authority", text: "Steady posts, reviews and SEO updates push you higher in Google and Maps." },
+    { months: "Months 9–12", title: "Steady calls", text: "Results compound into consistent leads — and your website becomes yours." },
+  ],
   adsGoal: "Our goal is simple: You focus on running your business. We handle your marketing.",
   scope: "Every business is different. Your package includes an agreed scope of website development and monthly marketing services. Major website changes, additional campaigns, professional photo or video shoots, and work beyond the package are quoted separately.",
   revisions: "Custom-built websites and logo design do not include unlimited pages or creative revisions. Deliverables and revisions are defined in your agreed scope; monthly post counts are fixed by your selected package.",
@@ -275,16 +294,9 @@ export const HELP_OPTIONS = [
 
 
 export const HOME_FAQS = [
-  { question: "Why choose an all-in-one digital marketing agency?", paragraphs: ["Your website, SEO, Google Business Profile, and social media work best when they support a coordinated strategy. With Bespoke, you have one marketing partner, consistent branding, and less time spent managing different providers."] },
-  { question: "What makes Bespoke different?", paragraphs: ["We're an Edmonton-based business offering personal service, direct communication, and practical digital marketing for trades and service companies. We focus on long-term relationships rather than simply building a website and moving on."] },
-  { question: "What's included in my monthly marketing plan?", paragraphs: ["Both plans include a 100% custom-built professional website, branding, basic SEO, and social media content.", "Foundation includes 5 Facebook posts per month. Growth includes 10 posts total across Facebook and Instagram, plus one managed Google Search campaign.", "Each package has clearly defined services and deliverables, so you know what's included in your monthly investment."] },
-  { question: "Why focus on organic SEO instead of Google Ads?", paragraphs: ["We prioritize building a strong website and improving organic online visibility over time. Google Ads can provide additional paid visibility, but the advertising budget is separate. Both approaches can complement each other when appropriate."] },
-  { question: "Is Google Ads advertising spend included?", paragraphs: ["No. Growth includes management of one Google Search campaign, but advertising expenditure is separate.", "You control your advertising budget and pay Google directly. We handle the agreed campaign management and optimization."] },
-  { question: "Do I need to provide photos for social media?", paragraphs: ["We recommend sharing real photos or videos of your business, services, projects, and events.", "This helps us create more authentic, personalized content rather than relying on generic graphics.", "We handle the content planning and preparation within your package, using the materials you provide."] },
-  { question: "How long does SEO take to show results?", paragraphs: ["SEO is an ongoing process, and results vary based on your industry, competition, and website condition. We focus on consistent improvements rather than promising specific rankings or timelines."] },
-  { question: `Why is there a ${MARKETING_AGREEMENT.minimumMonths}-month minimum agreement?`, paragraphs: ["Building and maintaining an online presence takes ongoing work. The agreement provides time to establish your website and deliver the marketing services included in your selected package through manageable monthly payments."] },
-  { question: `Will I own my website after ${MARKETING_AGREEMENT.ownershipTransferMonths} months?`, paragraphs: [`Yes. Once you complete the ${MARKETING_AGREEMENT.ownershipTransferMonths}-month agreement and all required payments, the completed website becomes yours under the ownership terms of your contract. Hosting, maintenance, domains, and transferable assets are governed by the agreement.`] },
-  { question: "What happens after the first year?", paragraphs: ["You can discuss continuing with Bespoke for ongoing SEO, website maintenance, Google Business Profile management, and social media support. Continued services, renewal, and cancellation follow the terms of your agreement."] },
-  { question: "Do you only work with Edmonton businesses?", paragraphs: ["We're proudly based in Edmonton and focus primarily on Alberta businesses, but we can work with clients across Canada and beyond."] },
-  { question: "How do we get started?", paragraphs: ["Request a free website and marketing review. We'll learn about your business, review your current online presence, and discuss practical marketing options based on your goals and budget."] },
+  { question: "Why choose done-for-you marketing instead of doing it myself?", paragraphs: ["Because your hours are worth more on the job or bidding work.", "Learning website tools, writing service pages, designing posts, and managing Google Ads can eat up many hours every month. Those are hours taken from paid work or your family. We run the whole system so you can focus on your crew and closing quotes."] },
+  { question: "Will I own my website?", paragraphs: [`Yes. We don't hold websites hostage. After completing your ${MARKETING_AGREEMENT.ownershipTransferMonths}-month agreement and all required payments, your completed custom website becomes yours under your contract. If you ever take things in-house, you keep what we built together.`] },
+  { question: "Can we meet in person in Edmonton?", paragraphs: ["Yes. You work directly with Charles, right here in Edmonton. We can meet for coffee, at your shop or office, or by phone or video call.", "Meeting face to face helps us understand your operation and service areas. Because we prepare carefully before each meeting, in-person meetings are reserved for owners ready to invest in growing their business."] },
+  { question: `Why a ${MARKETING_AGREEMENT.minimumMonths}-month agreement, and what happens after year one?`, paragraphs: ["Because Google and customer trust build over months, not days. Getting your website found, building your Google Maps presence, and earning steady reviews takes consistent work. A one-month trial only scratches the surface. The agreement gives us the runway to build a real lead-generating asset with predictable monthly payments.", `After year one: once the ${MARKETING_AGREEMENT.ownershipTransferMonths} months and all required payments are complete, the website is yours. You can keep us as your marketing partner or discuss other options; renewal, hosting, and maintenance follow your agreement's terms.`] },
+  { question: "Do you guarantee #1 on Google or a set number of calls?", paragraphs: ["No honest marketer can guarantee #1 on Google, because Google controls its results. What we do is build a fast custom website, solid local SEO, a well-managed Google Business Profile, and transparent Google Ads with no markup on your ad spend, so your business has the best chance to be found when locals search for your service."] },
 ];

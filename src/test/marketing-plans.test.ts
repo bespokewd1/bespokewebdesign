@@ -6,7 +6,13 @@ describe("Monthly marketing packages", () => {
     expect(PLANS.find(p => p.name === "Foundation")).toMatchObject({ monthlyPrice: 245, socialPosts: 5, channels: 1, platforms: ["Facebook"], seoLevel: "basic" });
   });
   it("provides Growth at $499 with 10 total posts across Facebook and Instagram", () => {
-    expect(PLANS.find(p => p.name === "Growth")).toMatchObject({ monthlyPrice: 499, socialPosts: 10, channels: 2, platforms: ["Facebook", "Instagram"], seoLevel: "basic" });
+    expect(PLANS.find(p => p.name === "Growth")).toMatchObject({ monthlyPrice: 499, socialPosts: 10, channels: 2, platforms: ["Facebook", "Instagram"], seoLevel: "advanced" });
+  });
+  it("includes GA4 and Looker Studio reporting only in Growth", () => {
+    const items = (n: string) => PLANS.find(p => p.name === n)?.groups.flatMap(g => g.items).join(" ") ?? "";
+    expect(items("Growth")).toContain("GA4");
+    expect(items("Growth")).toContain("Looker Studio");
+    expect(items("Foundation")).not.toContain("GA4");
   });
   it("offers exactly Foundation and Growth, with no Advanced package", () => {
     expect(PLANS.map(p => p.name)).toEqual(["Foundation", "Growth"]);
