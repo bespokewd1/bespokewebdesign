@@ -5,6 +5,7 @@ import { HELP_OPTIONS, INDUSTRIES } from "@/content/site";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { CHALLENGES, challengeMessage, inquiryRow, inquirySchema } from "@/lib/inquiry";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 
 type Errors = Record<string, string>;
 export function LeadForm({ submitLabel, kind = "review" }: { submitLabel?: string; kind?: "review" | "consultation" }) {
@@ -34,7 +35,9 @@ export function LeadForm({ submitLabel, kind = "review" }: { submitLabel?: strin
       setDone(true);
     } catch {
       setFailure("Your request was not saved. Please try again; your details are still here.");
+      return;
     } finally { setPending(false); }
+    trackAnalyticsEvent("generate_lead");
   }
   if (done) return <div className="card-site text-center" role="status">
     <CheckCircle2 className="mx-auto h-10 w-10 text-accent" />

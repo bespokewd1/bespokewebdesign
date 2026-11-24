@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SITE } from "@/content/site";
 import { pageHead } from "@/lib/seo";
 import { PageHero } from "@/components/site/Layout";
+import { hasAnalyticsConfiguration } from "@/lib/analytics";
 
 export const Route = createFileRoute("/privacy")({
   head: () => pageHead({ path: "/privacy", crumb: "Privacy Policy", title: "Privacy Policy | Bespoke Web Design", description: "How Bespoke Web Design collects, uses, and protects information submitted through this website." }),
@@ -21,6 +22,7 @@ export const Route = createFileRoute("/privacy")({
           <p>We use your information to answer inquiries, prepare reviews and proposals, arrange meetings, deliver agreed services and manage our business records. Providing details for an inquiry allows us to respond to that request; it is not permission for unrelated promotional emails. Any promotional messages require an appropriate basis under applicable Canadian anti-spam law and a way to unsubscribe. We do not sell your personal information.</p>
 
           <h2 className="text-xl font-bold text-navy">3. Website analytics</h2>
+          {hasAnalyticsConfiguration && <p>On bespokewebdesign.ca we use Google Analytics to measure page visits, traffic sources, successful inquiry submissions, and clicks on contact or booking links. Google Analytics may use cookies to measure visits and sessions. We do not send inquiry form contents to Google Analytics.</p>}
           <p>On our published website, Lovable’s analytics records page visits, where visitors came from, their country, browser, operating system and device type, time on page, page load speed, errors, and clicks on buttons and links. These are recorded for every visitor. The analytics uses no cookies, stores nothing on your device, does not keep IP addresses and does not identify visitors. Detailed data is kept for 90 days and daily summaries for one year.</p>
           <p>Lovable collects this data for us. <a href="https://lovable.dev/privacy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Lovable’s privacy policy</a> explains how it handles it. This cookie-free analytics is separate from the personal information you voluntarily send in a form or conversation.</p>
 

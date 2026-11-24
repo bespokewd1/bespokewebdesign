@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -15,6 +16,7 @@ import { Header, Footer } from "../components/site/Layout";
 import { AIAssistant } from "../components/site/AIAssistant";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { hasAnalyticsConfiguration, trackContactClick, trackPageView } from "../lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -133,6 +135,19 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (state) => state.resolvedLocation?.pathname });
+
+  useEffect(() => {
+    if (!hasAnalyticsConfiguration) return;
+    const frame = window.requestAnimationFrame(trackPageView);
+    return () => window.cancelAnimationFrame(frame);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!hasAnalyticsConfiguration) return;
+    document.addEventListener("click", trackContactClick);
+    return () => document.removeEventListener("click", trackContactClick);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
