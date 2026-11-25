@@ -29,9 +29,8 @@ function Home() {
       <HomeHeroVideo />
       <div className="container-site py-10 md:py-14">
         <span className="eyebrow home-enter hidden md:inline-block">Edmonton Digital Marketing for Trades &amp; Service Businesses</span>
-        <h1 className="home-enter mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Complete Digital Marketing. <span className="text-hero-accent md:block">One Trusted Partner.</span></h1>
-        <p className="home-hero-benefit home-enter home-enter-delayed mt-5 max-w-xl text-base font-medium leading-relaxed text-navy-foreground sm:text-lg">Get found by more local customers, build trust online, and turn more visitors into enquiries.</p>
-        <p className="home-hero-description home-enter home-enter-delayed mt-3 max-w-xl text-sm leading-relaxed text-navy-muted sm:text-base">From custom websites and local SEO to social media marketing, we manage your online presence so you can focus on running your business.</p>
+        <h1 className="home-enter mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Your In-House Marketing Partner <span className="text-hero-accent md:block">in Edmonton.</span></h1>
+        <p className="home-hero-benefit home-enter home-enter-delayed mt-5 max-w-xl text-base font-medium leading-relaxed text-navy-foreground sm:text-lg">We build your website, rank you on Google, and manage your marketing 100% hands&#8209;off—starting at $245/mo.</p>
         <div className="home-hero-actions home-enter home-enter-late mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton>Get a Free Marketing Review</ReviewButton><CallButton /></div>
         <HeroTrust />
       </div>
