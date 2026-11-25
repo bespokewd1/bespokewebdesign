@@ -31,6 +31,9 @@ function Home() {
         <span className="eyebrow home-enter hidden md:inline-block">Edmonton Digital Marketing for Trades &amp; Service Businesses</span>
         <h1 className="home-enter mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">Your In-House Marketing Partner <span className="text-hero-accent md:block">in Edmonton.</span></h1>
         <p className="home-hero-benefit home-enter home-enter-delayed mt-5 max-w-xl text-base font-medium leading-relaxed text-navy-foreground sm:text-lg">We build your website, rank you on Google, and manage your marketing 100% hands&#8209;off—starting at $245/mo.</p>
+        <ul className="home-hero-services home-enter home-enter-soon" aria-label="What we handle for you">
+          {["Custom Websites", "Local SEO", "Google Ads", "Social Media", "Branding"].map(item => <li key={item}>{item}</li>)}
+        </ul>
         <div className="home-hero-actions home-enter home-enter-late mt-6 flex max-w-xl flex-col gap-3 sm:flex-row"><ReviewButton>Get a Free Marketing Review</ReviewButton><CallButton /></div>
         <HeroTrust />
       </div>

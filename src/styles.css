@@ -354,6 +354,13 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .home-service a:hover svg { transform: translateX(4px); }
 .home-founder-photos { width: 100%; min-width: 0; max-width: 34rem; }
 .home-page .eyebrow { letter-spacing: 0; }
+.home-hero-services { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.9rem; max-width: 34rem; font-size: 0.8125rem; font-weight: 600; color: var(--navy-muted); }
+.home-hero-services li { display: flex; align-items: center; padding: 0.2rem 0.6rem; border: 1px solid color-mix(in oklab, var(--navy-muted) 35%, transparent); border-radius: 999px; }
+@media (min-width: 768px) {
+  .home-hero-services { gap: 0.3rem 0.55rem; }
+  .home-hero-services li { padding: 0; border: 0; border-radius: 0; gap: 0.55rem; }
+  .home-hero-services li:not(:last-child)::after { content: "\2022"; color: var(--hero-accent); }
+}
 .home-page h2 { text-wrap: balance; }
 .home-faq h3 button { transition: color 160ms, background-color 160ms; }
 .home-faq h3 button:hover, .home-faq h3 button[data-state="open"] { color: var(--primary); }
@@ -368,6 +375,7 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .home-projects article:hover > img { transform: scale(1.025); }
 .home-enter { animation: home-enter 500ms both; }
 .home-enter-delayed { animation-delay: 80ms; }
+.home-enter-soon { animation-delay: 120ms; }
 .home-enter-late { animation-delay: 160ms; }
 @keyframes home-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: no-preference) {
@@ -393,6 +401,7 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   .home-hero h1 { font-size: 1.75rem; text-wrap: pretty; }
   .home-hero .home-hero-benefit { font-size: 1rem; line-height: 1.6; }
   .home-hero .home-hero-description { font-size: 0.875rem; line-height: 1.6; }
+  .home-hero-services { font-size: 0.75rem; gap: 0.35rem; margin-top: 0.75rem; }
   .home-service h3 { overflow-wrap: anywhere; }
 }
 @media (max-width: 639px) { .hero-photo h1 { font-size: 1.75rem; text-wrap: pretty; } .hero-photo .container-site { padding-block: 2rem; } }
