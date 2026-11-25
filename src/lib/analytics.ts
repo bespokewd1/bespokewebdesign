@@ -11,7 +11,7 @@ declare global {
 }
 
 const configuredId: string | undefined =
-  import.meta.env.VITE_GA_MEASUREMENT_ID ?? "G-PYZQ9Y8P1T";
+  import.meta.env["VITE_GA_MEASUREMENT_ID"] ?? "G-PYZQ9Y8P1T";
 const measurementId = /^G-[A-Z0-9]+$/.test(configuredId ?? "") ? configuredId : undefined;
 const productionOrigin = new URL(SITE.url).origin;
 let previousPage: string | undefined;
