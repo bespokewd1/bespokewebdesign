@@ -230,18 +230,11 @@
 .digital-marketing-hero p { color: var(--navy-foreground); }
 @media (max-width: 639px) { .digital-marketing-hero > img { object-position: 62% center; } }
 .back-to-top { right: max(1rem, env(safe-area-inset-right)); bottom: calc(1.25rem + env(safe-area-inset-bottom)); }
-/* Keep mobile utilities beside Casey and desktop utilities above the launcher. */
 .whatsapp-contact { right: max(1rem, env(safe-area-inset-right)); bottom: calc(1rem + env(safe-area-inset-bottom)); }
 body { padding-bottom: env(safe-area-inset-bottom); }
-.bespoke-assistant elevenlabs-convai:not(.is-ready) { visibility: hidden; }
-.bespoke-assistant elevenlabs-convai { position: fixed !important; inset: 0 0 calc(0.75rem + env(safe-area-inset-bottom)) !important; transform: none !important; z-index: 35 !important; --el-base: var(--surface); --el-base-primary: var(--navy); --el-base-border: var(--border); --el-base-hover: var(--muted); --el-base-subtle: var(--muted-foreground); --el-accent: var(--accent); --el-accent-primary: var(--accent-foreground); --el-accent-hover: var(--primary); --el-sheet-radius: 8px; --el-input-radius: 8px; --el-overlay-padding: 12px; }
-.bespoke-assistant > [role="alert"] { position: fixed; left: 50%; bottom: calc(5.5rem + env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(320px, calc(100vw - 2rem)); z-index: 35; }
 @media (min-width: 64rem) {
-  .back-to-top { right: max(1.5rem, env(safe-area-inset-right)); bottom: calc(7rem + env(safe-area-inset-bottom)); }
+  .back-to-top { right: max(1.5rem, env(safe-area-inset-right)); bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
   :host .overlay { align-items: flex-end !important; }
-  .bespoke-assistant elevenlabs-convai { inset: 0 0 calc(0.75rem + env(safe-area-inset-bottom)) !important; }
-  .bespoke-assistant > [role="alert"] { bottom: calc(5.5rem + env(safe-area-inset-bottom)); }
-  .bespoke-assistant > [role="alert"] { left: auto; right: max(0.75rem, env(safe-area-inset-right)); transform: none; }
 }
 /* Also loaded inside the version-pinned official widget's shadow root. */
 .bespoke-chat-sheet { width: min(420px, calc(100vw - 24px)) !important; height: min(620px, calc(100dvh - 240px)) !important; max-height: calc(100dvh - 240px) !important; border: 1px solid var(--border); border-radius: 8px !important; font-family: var(--font-sans); }
@@ -263,8 +256,6 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .bespoke-chat-sheet textarea { font-size: 16px; }
 /* The app stylesheet is also injected into the widget's shadow root, so these
    hide the provider's "Powered by ElevenAgents" line inside the chat panel. */
-a[href="https://elevenlabs.io/agents"] { display: none !important; }
-p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
 @media (max-width: 380px) { .bespoke-chat-title-row { font-size: 12px; } }
 :host([data-minimized]) .bespoke-chat-trigger { border-radius: 50%; cursor: pointer; padding: 8px; }
 :host([data-minimized]) .bespoke-chat-trigger > div:last-child { display: none; }
@@ -282,8 +273,6 @@ p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
   main button, main .btn, main a:has(> svg), .mobile-navigation button { min-height: 48px; }
   footer a { min-height: 48px; display: inline-flex; align-items: center; }
   footer a.brand-name { display: flex; }
-  .casey-bubble { bottom: calc(7rem + env(safe-area-inset-bottom)); }
-  .casey-bubble-close { min-width: 48px; min-height: 48px; }
 }
 @media (max-width: 359px) {
   header .brand-name { font-size: 14px; }
@@ -468,13 +457,6 @@ p:has(> a[href="https://elevenlabs.io/agents"]) { display: none !important; }
 }
 @keyframes dm-pop { 0% { transform: scale(.6); } 70% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-.casey-bubble { position: fixed; left: 50%; bottom: calc(7rem + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 36; display: flex; align-items: flex-start; gap: 0.25rem; width: min(280px, calc(100vw - 2rem)); background: var(--surface); color: var(--navy); border: 1px solid var(--border); border-radius: 12px; padding: 0.625rem 0.5rem 0.625rem 0.875rem; box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--navy) 35%, transparent); animation: casey-bubble-in 0.35s ease-out; }
-.casey-bubble-body { flex: 1; text-align: left; font-size: 0.8125rem; line-height: 1.4; font-weight: 500; cursor: pointer; background: none; border: 0; color: inherit; }
-.casey-bubble-close { display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 999px; color: var(--muted-foreground); background: none; border: 0; cursor: pointer; }
-.casey-bubble-close:hover { background: var(--muted); }
-@keyframes casey-bubble-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
-@media (min-width: 768px) { .casey-bubble { left: auto; right: max(0.75rem, env(safe-area-inset-right)); transform: none; } }
-@media (prefers-reduced-motion: reduce) { .casey-bubble { animation: none; } }
 
 /* AI automation page chat demo */
 .ai-chat-demo { display: flex; flex-direction: column; gap: .75rem; padding: 1.5rem; border-radius: 1.25rem; background: color-mix(in oklab, var(--navy-foreground) 8%, transparent); border: 1px solid color-mix(in oklab, var(--navy-foreground) 15%, transparent); }

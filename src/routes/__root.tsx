@@ -13,7 +13,6 @@ import { useEffect, type ReactNode } from "react";
 
 import { SITE } from "../content/site";
 import { Header, Footer } from "../components/site/Layout";
-import { AIAssistant } from "../components/site/AIAssistant";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { hasAnalyticsConfiguration, trackContactClick, trackPageView } from "../lib/analytics";
@@ -156,7 +155,6 @@ function RootComponent() {
       <Header />
       <main id="main"><Outlet /></main>
       <Footer />
-      <AIAssistant />
     </QueryClientProvider>
   );
 }

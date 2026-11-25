@@ -30,12 +30,11 @@
 - Reuse ServiceGraphic on the homepage and All Services for identical CDN artwork, client logos and sliders; Google Business Profile uses the homepage local SEO image. Preserve contain-fit frames, omit overlay labels, and retain HomeServiceCard image overrides so media cannot drift between pages.
 - Use ServicePhotoCarousel with shared service-photo collections for website and social samples; reuse Embla with per-service intervals, visible-only autoplay, manual controls and reduced-motion support to keep other cards unchanged.
 - Keep portfolio records in the shared site model, distinguish published showcases from retained legacy entries, and use one parameterized detail route; evidence-based filters and hidden empty media/audits prevent invented proof.
-- Mount the pinned ElevenLabs widget globally with one script and native transport; preserve provider greetings/messages, minimize without ending sessions, and keep the website language fixed to English.
 - Share the complete anchored service destinations between desktop dropdown and mobile Sheet so both menus stay consistent.
 - Desktop service hover uses a cancellable close delay across the portalled menu and avoids restoring focus after hover dismissal; this prevents flashing while preserving keyboard navigation.
 - Load fixed-location Edmonton weather lazily through a public server function with a short cache and honest unavailable state; format local time with America/Edmonton for automatic daylight saving.
 - Keep homepage background video in HomeHeroVideo with CDN asset pointers, a matching poster, muted inline looping, manual pause and reduced-motion handling; defer video loading until after page load and omit automatic downloads for reduced motion to protect initial rendering.
-- Keep the back-to-top utility in the shared footer with passive scroll tracking and reduced-motion-aware scrolling; position it beside mobile Casey and above desktop Casey to avoid collisions across pages.
+- Keep the back-to-top utility in the shared footer with passive scroll tracking and reduced-motion-aware scrolling; keep consistent placement across pages.
 - Digital-marketing intro graphics live in MarketingIntro with CSS-only scroll reveals gated on reduced-motion; content stays visible without JS.
 - Standalone AI & Automation education page at /ai-automation, linked from Services menu and footer; kept separate from marketing plans (consult-first, not upsell).
 - Contact uses one review LeadForm; retain the consultation anchor as an alias so old links work, and source meeting buttons from shared configuration.

@@ -86,7 +86,6 @@ function AiAutomation() {
             <p className="mt-4 border-t pt-3 text-sm font-semibold text-navy">{b.benefit}</p>
           </div>)}
         </div>
-        <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">Want to see it? Tap <strong className="text-navy">Casey</strong>, the assistant in the corner of this page, and ask anything.</p>
       </div>
     </section>
 

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/terms")({
           <p>{SITE.name} is operated by {SITE.operator} in {SITE.location}. These terms cover use of this website and summarize our approach to marketing services. A written service agreement confirms the terms of any paid engagement.</p>
 
           <h2 className="text-xl font-bold text-navy">1. Website use and inquiries</h2>
-          <p>Use this website lawfully. Do not submit misleading information, attempt to access other people’s data, interfere with the site or copy materials without permission. Website information, free reviews and AI assistant responses are general guidance, not legal, financial or professional advice. An inquiry or discovery call does not create a paid service agreement.</p>
+          <p>Use this website lawfully. Do not submit misleading information, attempt to access other people’s data, interfere with the site or copy materials without permission. Website information and free reviews are general guidance, not legal, financial or professional advice. An inquiry or discovery call does not create a paid service agreement.</p>
 
           <h2 className="text-xl font-bold text-navy">2. Agreed services and pricing</h2>
           <p>Your written proposal or service agreement sets the scope, price, payment schedule, deliverables and approval process. Prices shown are in Canadian dollars; any applicable taxes and third-party charges will be identified in your agreement. Extra pages, major changes, additional revisions, photography, filming and other work outside the agreed scope require written agreement and may cost extra. Website and logo services do not include unlimited work.</p>
